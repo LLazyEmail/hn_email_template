@@ -1,4 +1,4 @@
-export const logoBottom = `<table
+const logoBottom = `<table
 border="0"
 cellpadding="0"
 cellspacing="0"
@@ -95,3 +95,13 @@ style="
   </tr>
 </tbody>
 </table>`;
+
+
+const logoBottomComponent = () => {
+  return logoBottom;
+}
+
+
+
+
+export { logoBottom, logoBottomComponent };
