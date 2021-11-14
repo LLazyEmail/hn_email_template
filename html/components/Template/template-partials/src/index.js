@@ -1,9 +1,11 @@
-import { headline } from './templates/headline';
-import { logoBottom } from './templates/logoBottom';
-import { logoTop } from './templates/logoTop';
-import { previewText } from './templates/previewText';
-import { section } from './templates/section';
-import { sponsor } from './templates/sponsor';
+import { headline, headlineComponent } from './templates/headline';
+import { logoBottom, logoBottomComponent } from './templates/logoBottom';
+import { logoTop, logoTopComponent } from './templates/logoTop';
+import { previewText, previewTextComponent } from './templates/previewText';
+import { section, sectionComponent } from './templates/section';
+import { sponsor, sponsorComponent } from './templates/sponsor';
+
+import { ctaList, ctaComponent } from './templates/ctaList';
 
 const body = {
   headline,
@@ -11,7 +13,18 @@ const body = {
   logoTop,
   previewText,
   section,
-  sponsor
+  sponsor,
+
+  ctaList,
+
+  headlineComponent,
+  logoBottomComponent,
+  logoTopComponent,
+  previewTextComponent,
+  sectionComponent,
+  sponsorComponent,
+  ctaComponent
+
 };
 
 export default body;

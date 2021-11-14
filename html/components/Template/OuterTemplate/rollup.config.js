@@ -17,11 +17,14 @@ const extensions = [
   //".json"
 ];
 
-const name = "newsletterLayoutsPlainJS";
+const name = "newsletterLayoutsBodyPlainJS";
 
 // packages that should be treated as external dependencies, not bundled
 // e.g. ['axios']
-const external = ["fs", "path", "uuid"];
+const external = [
+    "atherdon-newsletter-js-layouts-misc"
+    // "fs", "path", "uuid"
+];
 
 const includePathOptions = {
   include: {},
@@ -149,9 +152,7 @@ export default {
 
       // https://rollupjs.org/guide/en#output-globals-g-globals
       globals: {
-        path: "path",
-        fs: "fs",
-        os: "os"
+        path: "path"
       }
     }
   ]

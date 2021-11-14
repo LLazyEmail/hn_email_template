@@ -95,3 +95,13 @@ style="
   </tr>
 </tbody>
 </table>`;
+
+
+const logoTopComponent = () => {
+  return logoTop;
+}
+
+
+
+
+export { logoTop, logoTopComponent };
