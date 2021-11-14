@@ -4,6 +4,8 @@ import { fonts } from './templates/fonts';
 import { headStyles } from './templates/head-styles';
 import { newsletterSponsorshipLink } from './templates/newsletter-sponsorship-link';
 import { unsubscribe } from './templates/unsubscribe';
+
+
 import head from './templates/head';
 
 const misc = {
