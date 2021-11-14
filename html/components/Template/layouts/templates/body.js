@@ -8,7 +8,7 @@ const {
   logoBottom 
 } = body;
 
-export const BBBody = `<body
+const BBBody = `<body
 style="
   height: 100%;
   margin: 0;
@@ -227,3 +227,12 @@ style="
   </table>
 </center>
 </body>`;
+
+
+
+
+
+
+const EmailTemplateBodyComponent = (body, footer, logoTop, logoBottom) => {
+
+}
