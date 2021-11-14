@@ -329,9 +329,8 @@ const sponsorComponent = (href, src, content) => {
                   >
                     <strong
                       id="docs-internal-guid-98b2620b-7fff-d936-82b8-a8d3a3d3c470"
-                      >${content}</strong
-                    ></a
-                  >
+                      >${content}</strong>
+                  </a>
                 </h1>
               </td>
             </tr>

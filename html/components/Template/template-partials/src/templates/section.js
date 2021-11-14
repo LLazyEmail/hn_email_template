@@ -90,7 +90,7 @@ export const section = `
                   </table>`;
 
 
-const sectionComponent = () => {
+const sectionComponent = (content) => {
   return `
   <table
                       border="0"

@@ -15,6 +15,8 @@ style="
 
 
 const previewTextComponent = (content) => {
+  if (!content) new Error('invalid previewText');
+  
   return `<span
   class="mcnPreviewText"
   style="

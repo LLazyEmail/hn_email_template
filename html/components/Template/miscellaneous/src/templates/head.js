@@ -23,6 +23,11 @@ ${fonts}
 
 
 const headComponent = (headStyles, fonts) => {
+
+  if (!headStyles) new Error('invalid headStyles');
+  if (!fonts)      new Error('invalid fonts');
+
+
   return `<head>
   <!-- NAME: 1 COLUMN -->
   <!--[if gte mso 15]>
