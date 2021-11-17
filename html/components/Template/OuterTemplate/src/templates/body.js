@@ -237,7 +237,7 @@ style="
 
 
 
-const EmailTemplateBodyComponent = (body, footer, logoTop, logoBottom) => {
+const EmailTemplateBodyComponent = (footer, logoTop, logoBottom) => {
   return `<body
   style="
     height: 100%;
