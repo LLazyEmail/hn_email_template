@@ -1,4 +1,4 @@
-export const section = `
+const section = `
 <table
                     border="0"
                     cellpadding="0"

@@ -6,7 +6,7 @@ import { newsletterSponsorshipLink } from './templates/newsletter-sponsorship-li
 import { unsubscribe } from './templates/unsubscribe';
 
 
-import head from './templates/head';
+import { head }  from './templates/head';
 
 const misc = {
   address,
@@ -15,7 +15,11 @@ const misc = {
   headStyles,
   newsletterSponsorshipLink,
   unsubscribe,
-  head
+  head,
+
+
+
+  
 };
 
 // export const head;

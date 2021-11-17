@@ -1,4 +1,4 @@
-import main from '../main';
+import {main} from '../templates/main';
 
 // это может потом понадобится
 function tempFullTemplate(content) {
