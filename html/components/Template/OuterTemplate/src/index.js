@@ -1,25 +1,25 @@
-import {
-    headline,
-    
-    logoBottom,
-    logoTop,
-    previewText,
-    section,
-    sponsor,
-  
-    ctaList,
-  
-    
-    headlineComponent,
-    logoBottomComponent,
-    logoTopComponent,
-    previewTextComponent,
-    sectionComponent,
-    sponsorComponent,
-    ctaComponent
+import innerComponents from 'atherdon-newsletter-js-layouts-body';
 
+const {
+  headline,
 
-} from 'atherdon-newsletter-js-layouts-body';
+  logoBottom,
+  logoTop,
+  previewText,
+  section,
+  sponsor,
+
+  ctaList,
+
+  
+  headlineComponent,
+  logoBottomComponent,
+  logoTopComponent,
+  previewTextComponent,
+  sectionComponent,
+  sponsorComponent,
+  ctaComponent
+} = innerComponents;
 
 // import footer from 'atherdon-newsletter-js-layouts-footer';
 
@@ -34,6 +34,7 @@ import footer from './templates/footer';
 //     unsubscribe,
 //     head
 // } from 'atherdon-newsletter-js-layouts-misc';
+
 
 import typography from 'atherdon-newsletter-js-layouts-typography';
 
