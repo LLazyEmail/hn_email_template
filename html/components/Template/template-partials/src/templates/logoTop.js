@@ -1,4 +1,4 @@
-export const logoTop = `<table
+const logoTop = `<table
 border="0"
 cellpadding="0"
 cellspacing="0"

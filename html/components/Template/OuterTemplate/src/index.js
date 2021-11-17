@@ -1,44 +1,49 @@
-import {
-    headline,
-    logoBottom,
-    logoTop,
-    previewText,
-    section,
-    sponsor,
+import innerComponents from 'atherdon-newsletter-js-layouts-body';
+
+const {
+  headline,
+
+  logoBottom,
+  logoTop,
+  previewText,
+  section,
+  sponsor,
+
+  ctaList,
+
   
-    ctaList,
-  
-    
-    headlineComponent,
-    logoBottomComponent,
-    logoTopComponent,
-    previewTextComponent,
-    sectionComponent,
-    sponsorComponent,
-    ctaComponent
+  headlineComponent,
+  logoBottomComponent,
+  logoTopComponent,
+  previewTextComponent,
+  sectionComponent,
+  sponsorComponent,
+  ctaComponent
+} = innerComponents;
 
+// import footer from 'atherdon-newsletter-js-layouts-footer';
 
-} from 'atherdon-newsletter-js-layouts-body';
+import footer from './templates/footer';
 
-import footer from 'atherdon-newsletter-js-layouts-footer';
+// import {
+//     address,
+//     copyrights,
+//     fonts,
+//     headStyles,
+//     newsletterSponsorshipLink,
+//     unsubscribe,
+//     head
+// } from 'atherdon-newsletter-js-layouts-misc';
 
-import {
-    address,
-    copyrights,
-    fonts,
-    headStyles,
-    newsletterSponsorshipLink,
-    unsubscribe,
-    head
-} from 'atherdon-newsletter-js-layouts-misc';
 
 import typography from 'atherdon-newsletter-js-layouts-typography';
 
+
+
+import fullTemplateOLD from './FULL-TEMPLATE-MISTAKE/full-template';
+import fullTemplate from './FULL-TEMPLATE-MISTAKE/tempFT';
+
 // ----
-
-// import body from 'atherdon-newsletter-js-layouts-body';
-
-// import misc from 'atherdon-newsletter-js-layouts-misc';
 
 // const {
 //   address,
@@ -53,14 +58,10 @@ import typography from 'atherdon-newsletter-js-layouts-typography';
 
 
 
-// import main from './main';
-
-// import fullTemplateOld from './FULL-TEMPLATE-MISTAKE/full-template';
+import { main } from './templates/main';
 
 
-// import fullTemplate from './FULL-TEMPLATE-MISTAKE/tempFT';
-
-// export default {
+export default {
 //   body,
 
 //   //spread misc
@@ -73,11 +74,25 @@ import typography from 'atherdon-newsletter-js-layouts-typography';
 //   head,
 
 
-//   typography,
-//   main,
+  typography,
+  main,
   
-//   fullTemplateOld,
+  fullTemplateOld,
 
 
-//   fullTemplate
-// };
+  fullTemplate,
+
+
+  footer,
+
+
+
+  headline,
+  logoBottom,
+  logoTop,
+  previewText,
+  section,
+  sponsor,
+  ctaList,
+
+};

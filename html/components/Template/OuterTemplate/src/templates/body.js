@@ -1,7 +1,11 @@
 // including partials here
 import body from 'atherdon-newsletter-js-layouts-body';
 
-import footer from 'atherdon-newsletter-js-layouts-footer';
+
+
+// import footer from 'atherdon-newsletter-js-layouts-footer';
+
+import footer from './footer';
 
 const { 
   logoTop, 
@@ -233,7 +237,7 @@ style="
 
 
 
-const EmailTemplateBodyComponent = (body, footer, logoTop, logoBottom) => {
+const EmailTemplateBodyComponent = (footer, logoTop, logoBottom) => {
   return `<body
   style="
     height: 100%;
@@ -440,7 +444,7 @@ const EmailTemplateBodyComponent = (body, footer, logoTop, logoBottom) => {
                 ${logoBottom}
               </td>
             </tr>
-            ${footer}
+            ${footer()}
           </table>
           <!--[if (gte mso 9)|(IE)]>
                       </td>
