@@ -20,7 +20,9 @@ import {
 
 } from 'atherdon-newsletter-js-layouts-body';
 
-import footer from 'atherdon-newsletter-js-layouts-footer';
+// import footer from 'atherdon-newsletter-js-layouts-footer';
+
+import footer from './footer';
 
 import {
     address,
