@@ -43,6 +43,11 @@ import typography from 'atherdon-newsletter-js-layouts-typography';
 import fullTemplateOLD from './FULL-TEMPLATE-MISTAKE/full-template';
 import fullTemplate from './FULL-TEMPLATE-MISTAKE/tempFT';
 
+
+
+
+import generateTemplateComponent from './templates/generateTemplate'
+import generateEmptyTemplateComponent from './templates/emptyTemplate'
 // ----
 
 // const {
@@ -95,4 +100,7 @@ export default {
   sponsor,
   ctaList,
 
+  
+  generateTemplateComponent,
+  generateEmptyTemplateComponent
 };
