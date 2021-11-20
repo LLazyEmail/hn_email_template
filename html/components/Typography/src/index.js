@@ -1,14 +1,16 @@
-import { heading, headingComponent }  from './templates/heading';
-import { image, imageComponent }    from './templates/image';
-import { italic, italicComponent }   from './templates/italic';
-import { link, linkComponent }     from './templates/link';
-import { list, listComponent }     from './templates/list';
-import { listItem, listItemComponent } from './templates/listItem';
-import { title, titleComponent }    from './templates/mainTitle';
-import { paragraph, paragraphComponent } from './templates/paragraph';
-import { strong, strongComponent  }    from './templates/strong';
-import { subtitle, subtitleComponent }  from './templates/subtitle';
-import { separator, separatorComponent } from './templates/separator';
+import { heading }  from './templates/heading';
+import { image }    from './templates/image';
+import { italic }   from './templates/italic';
+import { link }     from './templates/link';
+import { list }     from './templates/list';
+import { listItem } from './templates/listItem';
+import { title }    from './templates/mainTitle';
+import { paragraph } from './templates/paragraph';
+import { strong }    from './templates/strong';
+import { subtitle }  from './templates/subtitle';
+import { separator } from './templates/separator';
+
+import typographyComponents from './components'
 
 const typography = {
   heading,
@@ -23,17 +25,19 @@ const typography = {
   subtitle,
   separator,
 
-  headingComponent,
-  imageComponent,
-  italicComponent,
-  linkComponent,
-  listComponent,
-  listItemComponent,
-  titleComponent,
-  paragraphComponent,
-  strongComponent,
-  subtitleComponent,
-  separatorComponent
+  // headingComponent,
+  // imageComponent,
+  // italicComponent,
+  // linkComponent,
+  // listComponent,
+  // listItemComponent,
+  // titleComponent,
+  // paragraphComponent,
+  // strongComponent,
+  // subtitleComponent,
+  // separatorComponent
+
+  typographyComponents
 
 };
 
