@@ -4,6 +4,7 @@ import misc from 'atherdon-newsletter-js-layouts-misc'
 
 import { BBBody, bodyComponent } from './body';
 
+import { head } from './head';
 
 
 const main = `<!DOCTYPE html>
