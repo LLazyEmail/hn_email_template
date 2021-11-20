@@ -32,4 +32,4 @@ const mainComponent = (head, bodyComponent) => {
 
 }
 
-export { main, mainComponent}
+export { main, mainComponent }

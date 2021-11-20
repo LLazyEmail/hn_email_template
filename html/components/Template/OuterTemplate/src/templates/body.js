@@ -1,10 +1,6 @@
 // including partials here
 import body from 'atherdon-newsletter-js-layouts-body';
 
-
-
-// import footer from 'atherdon-newsletter-js-layouts-footer';
-
 import footer from './footer';
 
 const { 
