@@ -21,13 +21,8 @@ import methods from './methods';
 //   // sectionComponent,
 //   // sponsorComponent,
 //   // ctaComponent
+
 // } = innerComponents;
-
-
-// import footer from './templates/footer';
-
-// import typography from 'atherdon-newsletter-js-layouts-typography';
-
 
 
 // import fullTemplateOLD from './FULL-TEMPLATE-MISTAKE/full-template';
@@ -57,15 +52,9 @@ export default {
 //   unsubscribe,
 //   head,
 
-
-//   typography,
-//   main,
   
   // fullTemplateOLD,
   // fullTemplate,
-
-
-//   footer,
 
 
 
