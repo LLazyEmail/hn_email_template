@@ -1,5 +1,7 @@
 import innerComponents from 'atherdon-newsletter-js-layouts-body';
 
+import methods from './methods';
+
 // const {
 //   headline,
 
@@ -22,9 +24,9 @@ import innerComponents from 'atherdon-newsletter-js-layouts-body';
 // } = innerComponents;
 
 
-import footer from './templates/footer';
+// import footer from './templates/footer';
 
-import typography from 'atherdon-newsletter-js-layouts-typography';
+// import typography from 'atherdon-newsletter-js-layouts-typography';
 
 
 
@@ -56,14 +58,14 @@ export default {
 //   head,
 
 
-  typography,
-  main,
+//   typography,
+//   main,
   
   // fullTemplateOLD,
   // fullTemplate,
 
 
-  footer,
+//   footer,
 
 
 
@@ -77,5 +79,8 @@ export default {
 
   
   generateTemplateComponent,
-  generateEmptyTemplateComponent
+  generateEmptyTemplateComponent,
+  
+  
+  methods
 };
