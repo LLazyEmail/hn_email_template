@@ -1,4 +1,4 @@
-import { head } from 'atherdon-newsletter-js-layouts-misc'
+import misc from 'atherdon-newsletter-js-layouts-misc';
 
 // import { 
 //     logoTop, logoBottom 
@@ -15,6 +15,8 @@ import { EmailTemplateBodyComponent } from './body'
 const { 
         logoTop, logoBottom 
     } = body
+
+    const { head, headComponent } = misc;
 
 const generateTemplateComponent = () => {
 

@@ -12,28 +12,20 @@ const {
   ctaList,
 
   
-  headlineComponent,
-  logoBottomComponent,
-  logoTopComponent,
-  previewTextComponent,
-  sectionComponent,
-  sponsorComponent,
-  ctaComponent
+  // headlineComponent,
+  // logoBottomComponent,
+  // logoTopComponent,
+  // previewTextComponent,
+  // sectionComponent,
+  // sponsorComponent,
+  // ctaComponent
 } = innerComponents;
 
 // import footer from 'atherdon-newsletter-js-layouts-footer';
 
 import footer from './templates/footer';
 
-// import {
-//     address,
-//     copyrights,
-//     fonts,
-//     headStyles,
-//     newsletterSponsorshipLink,
-//     unsubscribe,
-//     head
-// } from 'atherdon-newsletter-js-layouts-misc';
+
 
 
 import typography from 'atherdon-newsletter-js-layouts-typography';
@@ -48,6 +40,7 @@ import fullTemplate from './FULL-TEMPLATE-MISTAKE/tempFT';
 
 import generateTemplateComponent from './templates/generateTemplate'
 import generateEmptyTemplateComponent from './templates/emptyTemplate'
+
 // ----
 
 // const {
