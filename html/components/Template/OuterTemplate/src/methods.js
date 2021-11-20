@@ -13,18 +13,21 @@ import footer from './templates/footer'
 import { EmailTemplateBodyComponent } from './templates/body'
 
 
-function printMain = () => {
-  mainComponent("", "");
+const printMain = () => {
+
+  
+
+  return mainComponent("xxx", "xxx");
 //   mainComponent(head, bodyComponent);
 }
 
-function printFooter = () => {
-  footer("","","","",);
+const printFooter = () => {
+  return footer("","","","",);
   //
 }
 
-function printBody = () => {
-  EmailTemplateBodyComponent(footer, "", "");
+const printBody = () => {
+  return EmailTemplateBodyComponent(footer, "", "");
   //EmailTemplateBodyComponent(footer, logoTop, logoBottom)
 }
 

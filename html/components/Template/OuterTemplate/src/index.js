@@ -1,6 +1,6 @@
 import innerComponents from 'atherdon-newsletter-js-layouts-body';
 
-import methods from './methods';
+import { printMain, printFooter, printBody } from './methods';
 
 // const {
 //   headline,
@@ -71,5 +71,5 @@ export default {
   generateEmptyTemplateComponent,
   
   
-  methods
+  printMain, printFooter, printBody
 };

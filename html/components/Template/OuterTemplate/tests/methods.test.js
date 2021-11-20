@@ -1,8 +1,52 @@
-const { printMain, printFooter, printBody } = require('./src/methods');
+// https://github.com/abritinthebay/jest-tobetype
+
+const { printMain, printFooter, printBody } = require('../src/methods');
 
 describe('test helpers', () => {
-  test('replaceHTMLWrapper works correctly', () => {
-    const wrapper = replaceHTMLWrapper('strong', { content: 'hello world' });
-    expect(wrapper).toBe('<strong style=\"font-weight: bolder;\">hello world</strong>');
+  test('rendering Main Component', () => {
+
+
+      const string = printMain();
+
+      console.log(string);
+
+      expect(printMain()).toBeDefined();
+
+      // expect(typeof string).toBe('string');
+
   });
+
+
+  test('rendering Body Component', () => {
+
+
+      const string = printBody();
+
+      console.log(string);
+
+      expect(printMain()).toBeDefined();
+
+      // expect(typeof string).toBe('string');
+
+
+  });
+
+
+  test('rendering Footer Component', () => {
+
+
+    const string = printFooter();
+
+    console.log(string);
+
+    expect(printMain()).toBeDefined();
+
+    // expect(typeof string).toBe('string');
+
+
+  });
+
 });
+
+
+
