@@ -3,8 +3,7 @@ import misc from 'atherdon-newsletter-js-layouts-misc';
 const {
   address,
   copyrights,
-  // fonts,
-  // headStyles,
+  
   newsletterSponsorshipLink,
   unsubscribe,
 } = misc;
