@@ -1,5 +1,8 @@
+import misc from 'atherdon-newsletter-js-layouts-misc';
+
 import { headStyles } from './head-styles';
-import { fonts } from './fonts';
+
+const { fonts } = misc;
 
 const head = `<head>
 <!-- NAME: 1 COLUMN -->

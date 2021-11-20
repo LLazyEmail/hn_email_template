@@ -1,10 +1,6 @@
-import misc from 'atherdon-newsletter-js-layouts-misc';
-
-// import { 
-//     logoTop, logoBottom 
-// } from 'atherdon-newsletter-js-layouts-body';
-
 import body from 'atherdon-newsletter-js-layouts-body';
+
+import { head, headComponent } from './head';
 
 import { mainComponent } from './main'
 
@@ -16,7 +12,6 @@ const {
         logoTop, logoBottom 
     } = body
 
-    const { head, headComponent } = misc;
 
 const generateTemplateComponent = () => {
 

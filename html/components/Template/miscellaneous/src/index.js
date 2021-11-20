@@ -5,9 +5,6 @@ import { headStyles, headStylesComponent } from './templates/head-styles';
 import { newsletterSponsorshipLink, newsletterSponsorshipLinkComponent } from './templates/newsletter-sponsorship-link';
 import { unsubscribe, unsubscribeComponent } from './templates/unsubscribe';
 
-
-import { head, headComponent }  from './templates/head';
-
 const misc = {
   address,
   copyrights,
@@ -15,7 +12,7 @@ const misc = {
   headStyles,
   newsletterSponsorshipLink,
   unsubscribe,
-  head,
+
 
   addressComponent,
   copyrightsComponent,
@@ -24,7 +21,7 @@ const misc = {
   newsletterSponsorshipLinkComponent,
   unsubscribeComponent,
 
-  headComponent
+
   
 };
 
