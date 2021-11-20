@@ -1,18 +1,31 @@
+//-----
 import { mainComponent } from './templates/main'
+
+//import { head } from './head';
+
+// and body
+//----
+
+
 import footer from './templates/footer'
+
+
 import { EmailTemplateBodyComponent } from './templates/body'
 
 
 function printMain = () => {
-  mainComponent();
+  mainComponent("", "");
+//   mainComponent(head, bodyComponent);
 }
 
 function printFooter = () => {
-  footer();
+  footer("","","","",);
+  //
 }
 
 function printBody = () => {
-  EmailTemplateBodyComponent();
+  EmailTemplateBodyComponent(footer, "", "");
+  //EmailTemplateBodyComponent(footer, logoTop, logoBottom)
 }
 
 export { printMain, printFooter, printBody }
