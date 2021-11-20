@@ -1,7 +1,9 @@
+// https://github.com/abritinthebay/jest-tobetype
+
 const { printMain, printFooter, printBody } = require('../src/methods');
 
 describe('test helpers', () => {
-  test('GOOOOOOOOOOOOOOO', () => {
+  test('rendering Main Component', () => {
 
 
       const string = printMain();
@@ -9,42 +11,41 @@ describe('test helpers', () => {
       console.log(string);
 
       expect(printMain()).toBeDefined();
-    // const wrapper = replaceHTMLWrapper('strong', { content: 'hello world' });
-    // expect(wrapper).toBe('<strong style=\"font-weight: bolder;\">hello world</strong>');
 
+      // expect(typeof string).toBe('string');
+
+  });
+
+
+  test('rendering Body Component', () => {
+
+
+      const string = printBody();
+
+      console.log(string);
+
+      expect(printMain()).toBeDefined();
+
+      // expect(typeof string).toBe('string');
 
 
   });
 
-//   test('GOOOOOOOOOOOOOOO', () => {
+
+  test('rendering Footer Component', () => {
 
 
-//     const string = printMain();
+    const string = printFooter();
 
-//     console.log(string);
+    console.log(string);
 
-//     expect(printMain()).toBeDefined();
-//   // const wrapper = replaceHTMLWrapper('strong', { content: 'hello world' });
-//   // expect(wrapper).toBe('<strong style=\"font-weight: bolder;\">hello world</strong>');
+    expect(printMain()).toBeDefined();
 
-
-
-// });
-
-// test('GOOOOOOOOOOOOOOO', () => {
+    // expect(typeof string).toBe('string');
 
 
-//   const string = printMain();
+  });
 
-//   console.log(string);
-
-//   expect(printMain()).toBeDefined();
-// // const wrapper = replaceHTMLWrapper('strong', { content: 'hello world' });
-// // expect(wrapper).toBe('<strong style=\"font-weight: bolder;\">hello world</strong>');
-
-
-
-// });
 });
 
 
