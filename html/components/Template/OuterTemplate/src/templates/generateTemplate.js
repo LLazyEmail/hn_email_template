@@ -15,6 +15,7 @@ const {
 
 const generateTemplateComponent = () => {
 
+
     var bodyWithContent = EmailTemplateBodyComponent(footer, logoTop, logoBottom);
 
     return mainComponent(head, bodyWithContent);

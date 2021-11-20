@@ -1,57 +1,41 @@
 import innerComponents from 'atherdon-newsletter-js-layouts-body';
 
-const {
-  headline,
+// const {
+//   headline,
 
-  logoBottom,
-  logoTop,
-  previewText,
-  section,
-  sponsor,
+//   logoBottom,
+//   logoTop,
+//   previewText,
+//   section,
+//   sponsor,
 
-  ctaList,
+//   ctaList,
 
   
-  // headlineComponent,
-  // logoBottomComponent,
-  // logoTopComponent,
-  // previewTextComponent,
-  // sectionComponent,
-  // sponsorComponent,
-  // ctaComponent
-} = innerComponents;
+//   // headlineComponent,
+//   // logoBottomComponent,
+//   // logoTopComponent,
+//   // previewTextComponent,
+//   // sectionComponent,
+//   // sponsorComponent,
+//   // ctaComponent
+// } = innerComponents;
 
-// import footer from 'atherdon-newsletter-js-layouts-footer';
 
 import footer from './templates/footer';
-
-
-
 
 import typography from 'atherdon-newsletter-js-layouts-typography';
 
 
 
-import fullTemplateOLD from './FULL-TEMPLATE-MISTAKE/full-template';
-import fullTemplate from './FULL-TEMPLATE-MISTAKE/tempFT';
+// import fullTemplateOLD from './FULL-TEMPLATE-MISTAKE/full-template';
+// import fullTemplate from './FULL-TEMPLATE-MISTAKE/tempFT';
 
 
 
 
 import generateTemplateComponent from './templates/generateTemplate'
 import generateEmptyTemplateComponent from './templates/emptyTemplate'
-
-// ----
-
-// const {
-//   address,
-//   copyrights,
-//   fonts,
-//   headStyles,
-//   newsletterSponsorshipLink,
-//   unsubscribe,
-//   head
-// } = misc;
 
 
 
@@ -75,23 +59,21 @@ export default {
   typography,
   main,
   
-  fullTemplateOld,
-
-
-  fullTemplate,
+  // fullTemplateOLD,
+  // fullTemplate,
 
 
   footer,
 
 
 
-  headline,
-  logoBottom,
-  logoTop,
-  previewText,
-  section,
-  sponsor,
-  ctaList,
+  // headline,
+  // logoBottom,
+  // logoTop,
+  // previewText,
+  // section,
+  // sponsor,
+  // ctaList,
 
   
   generateTemplateComponent,
