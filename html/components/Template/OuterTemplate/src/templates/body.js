@@ -233,7 +233,7 @@ style="
 
 
 
-const EmailTemplateBodyComponent = (footer, logoTop, logoBottom) => {
+const EmailTemplateBodyComponent = (footer, logoTop, logoBottom, content='') => {
   return `<body
   style="
     height: 100%;
@@ -352,7 +352,7 @@ const EmailTemplateBodyComponent = (footer, logoTop, logoBottom) => {
                   padding-bottom: 0;
                 "
               >
-                {content}
+                ${content}
               </td>
             </tr>
             <tr>
