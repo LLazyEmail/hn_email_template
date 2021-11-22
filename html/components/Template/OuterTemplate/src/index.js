@@ -1,32 +1,10 @@
-import innerComponents from 'atherdon-newsletter-js-layouts-body';
+// import innerComponents from 'atherdon-newsletter-js-layouts-body';
 
 import { printMain, printFooter, printBody } from './methods';
 
-// const {
-//   headline,
 
-//   logoBottom,
-//   logoTop,
-//   previewText,
-//   section,
-//   sponsor,
-
-//   ctaList,
-
-  
-//   // headlineComponent,
-//   // logoBottomComponent,
-//   // logoTopComponent,
-//   // previewTextComponent,
-//   // sectionComponent,
-//   // sponsorComponent,
-//   // ctaComponent
-
-// } = innerComponents;
-
-
-// import fullTemplateOLD from './FULL-TEMPLATE-MISTAKE/full-template';
-// import fullTemplate from './FULL-TEMPLATE-MISTAKE/tempFT';
+// import fullTemplateOLD from './depricated/full-template';
+// import fullTemplate from './depricated/tempFT';
 
 
 
