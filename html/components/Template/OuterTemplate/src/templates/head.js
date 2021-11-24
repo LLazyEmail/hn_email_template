@@ -25,8 +25,9 @@ ${fonts}
 </head>`;
 
 
-const headComponent = (headStyles, fonts) => {
+const headComponent = (title, headStyles, fonts) => {
 
+  if (!title) new Error('no title was passed');
   if (!headStyles) new Error('invalid headStyles');
   if (!fonts)      new Error('invalid fonts');
 
@@ -44,7 +45,7 @@ const headComponent = (headStyles, fonts) => {
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Secrets of High-Performing DevOps teams</title>
+  <title>${title}</title>
   ${headStyles}
   <!--[if !mso]><!-->
   ${fonts}

@@ -1,6 +1,11 @@
 // https://github.com/abritinthebay/jest-tobetype
 
-const { printMain, printFooter, printBody } = require('../src/methods');
+const { 
+  printMain, printFooter, printBody, 
+  printHead 
+} = require('../src/methods');
+
+
 
 // var generateEmptyTemplateComponent = require('../src/templates/emptyTemplate');
 
@@ -9,6 +14,13 @@ const { printMain, printFooter, printBody } = require('../src/methods');
 
 describe('test helpers', () => {
 
+  
+   test('rendering head component', () => {
+
+     const string = printHead();
+     console.log(string);
+   });
+  
   // test('rendering Empty Template', () => {
 
   //   const string = generateEmptyTemplateComponent();

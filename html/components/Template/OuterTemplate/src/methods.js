@@ -1,7 +1,7 @@
 //-----
 import { mainComponent } from './templates/main'
 
-//import { head } from './head';
+import { headComponent } from './head';
 
 // and body
 //----
@@ -31,7 +31,9 @@ const printBody = () => {
   //EmailTemplateBodyComponent(footer, logoTop, logoBottom)
 }
 
-
+const printHead = () => {
+  return headComponent("Ziba Zyaba Zoooo", xxx, xxx);
+}
 
 // const ERROR_TITLE = '`title` is a required option for `renderTemplate`'
 const checkingTitle = (title) => {
