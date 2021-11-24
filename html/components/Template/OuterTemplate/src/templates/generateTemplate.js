@@ -1,6 +1,6 @@
 import body from 'atherdon-newsletter-js-layouts-body';
 
-import { head, headComponent } from './head';
+import { headComponent } from './head';
 
 import { mainComponent } from './main'
 
@@ -13,12 +13,21 @@ const {
     } = body
 
 
+
+const fakeTitleGenerator = () => {
+  return Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
+}
+
 const generateTemplateComponent = () => {
-
-
+        
+    var title = fakeTitleGenerator();
+        
+    var TemplateHead = headComponent(title);
+        
+    // is it with content or doesnt?
     var bodyWithContent = EmailTemplateBodyComponent(footer, logoTop, logoBottom);
 
-    return mainComponent(head, bodyWithContent);
+    return mainComponent(TemplateHead, bodyWithContent);
 }
 
 export default generateTemplateComponent;
