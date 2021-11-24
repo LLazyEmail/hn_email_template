@@ -4,6 +4,8 @@ import { headStyles } from './head-styles';
 
 const { fonts } = misc;
 
+const title = `The Secrets of High-Performing DevOps teams`;
+
 const head = `<head>
 <!-- NAME: 1 COLUMN -->
 <!--[if gte mso 15]>
@@ -17,7 +19,7 @@ const head = `<head>
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>The Secrets of High-Performing DevOps teams</title>
+<title>${title}</title>
 ${headStyles}
 <!--[if !mso]><!-->
 ${fonts}
