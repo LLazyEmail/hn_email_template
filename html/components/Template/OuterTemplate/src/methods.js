@@ -1,7 +1,7 @@
 //-----
-import { mainComponent } from './templates/main'
+import { displayMain, mainComponent} from './templates/main'
 
-import { headComponent } from './head';
+import { headComponent, displayHead } from './templates/head';
 
 // and body
 //----
@@ -16,8 +16,8 @@ import { EmailTemplateBodyComponent } from './templates/body'
 const printMain = () => {
 
   
-
-  return mainComponent("xxx", "xxx");
+  return displayMain();
+  // return mainComponent("xxx", "xxx");
 //   mainComponent(head, bodyComponent);
 }
 
@@ -32,7 +32,8 @@ const printBody = () => {
 }
 
 const printHead = () => {
-  return headComponent("Ziba Zyaba Zoooo", xxx, xxx);
+  return displayHead("Ziba Zyaba Zoooo");
+  // return headComponent("Ziba Zyaba Zoooo", "xxx", "xxx");
 }
 
 // const ERROR_TITLE = '`title` is a required option for `renderTemplate`'
@@ -60,6 +61,7 @@ const checkingPreviewText = (previewText) => {
 
 export { 
   printMain, printFooter, printBody,
+  printHead,
 
   checkingTitle, checkingBodyContent, checkingPreviewText
  }

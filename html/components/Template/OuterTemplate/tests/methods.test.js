@@ -15,11 +15,11 @@ const {
 describe('test helpers', () => {
 
   
-   test('rendering head component', () => {
+  //  test('rendering head component', () => {
 
-     const string = printHead();
-     console.log(string);
-   });
+  //    const string = printHead();
+  //    console.log(string);
+  //  });
   
   // test('rendering Empty Template', () => {
 
@@ -28,18 +28,18 @@ describe('test helpers', () => {
   // });
 
 
-  // test('rendering Main Component', () => {
+  test('rendering Main Component', () => {
 
 
-  //     const string = printMain();
+      const string = printMain();
 
-  //     console.log(string);
+      console.log(string);
 
-  //     expect(printMain()).toBeDefined();
+      expect(printMain()).toBeDefined();
 
-  //     // expect(typeof string).toBe('string');
+      // expect(typeof string).toBe('string');
 
-  // });
+  });
 
 
   // test('rendering Body Component', () => {
