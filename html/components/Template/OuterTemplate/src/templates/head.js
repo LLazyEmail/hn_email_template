@@ -56,6 +56,9 @@ const headComponent = (title, headStyles, fonts) => {
 }
 
 
+const displayHead = (title) => {
+  return headComponent(title, headStyles, fonts);
+}
 
 
-export { head, headComponent };
+export { head, headComponent, displayHead };
