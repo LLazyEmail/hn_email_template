@@ -1,12 +1,10 @@
-import misc from 'atherdon-newsletter-js-layouts-misc'
-
 import { 
-  BBBody, 
-  EmailTemplateBodyComponent 
+  
+  displayBody 
 } from './body';
 
 import {
-   head, headComponent 
+   head, displayHead 
 } from './head';
 
 
@@ -25,21 +23,17 @@ const mainComponent = (headComponent, bodyComponent) => {
 }
 
 const displayMain = () => {
-  return mainComponent(headComponent, EmailTemplateBodyComponent);
+  
+  const head = displayHead("Pixels Per Inch");
+  const body = displayBody();
+  
+  return mainComponent(head, body);
 }
 
-const main = `<!DOCTYPE html>
-<html
-  xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:v="urn:schemas-microsoft-com:vml"
-  xmlns:o="urn:schemas-microsoft-com:office:office"
->
-  ${misc.head}
-  ${BBBody}
-</html>`;
+
 
 export { 
-  main, 
+   
   mainComponent,
   displayMain 
 }

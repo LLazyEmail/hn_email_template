@@ -18,14 +18,14 @@ const {
 describe('test helpers', () => {
 
   
-   test('rendering head component', () => {
+  //  test('rendering head component', () => {
 
-     const string = printHead();
+  //    const string = printHead();
 
-     console.log(string);
+  //    console.log(string);
 
-     writingFile(string);
-   });
+  //    writingFile(string);
+  //  });
   
   // test('rendering Empty Template', () => {
 
@@ -49,34 +49,34 @@ describe('test helpers', () => {
   });
 
 
-  test('rendering Body Component', () => {
+  // test('rendering Body Component', () => {
 
 
-      const string = printBody();
+  //     const string = printBody();
 
-      console.log(string);
+  //     console.log(string);
 
-      expect(printMain()).toBeDefined();
+  //     expect(printMain()).toBeDefined();
 
-      // expect(typeof string).toBe('string');
-      writingFile(string);
+  //     // expect(typeof string).toBe('string');
+  //     writingFile(string);
 
-  });
-
-
-  test('rendering Footer Component', () => {
+  // });
 
 
-    const string = printFooter();
+  // test('rendering Footer Component', () => {
 
-    console.log(string);
 
-    expect(printMain()).toBeDefined();
+  //   const string = printFooter();
 
-    // expect(typeof string).toBe('string');
-    writingFile(string);
+  //   console.log(string);
 
-  });
+  //   expect(printMain()).toBeDefined();
+
+  //   // expect(typeof string).toBe('string');
+  //   writingFile(string);
+
+  // });
 
 });
 

@@ -440,7 +440,7 @@ const EmailTemplateBodyComponent = (footer, logoTop, logoBottom, content='') => 
                 ${logoBottom}
               </td>
             </tr>
-            ${footer()}
+            ${footer}
           </table>
           <!--[if (gte mso 9)|(IE)]>
                       </td>
@@ -455,5 +455,9 @@ const EmailTemplateBodyComponent = (footer, logoTop, logoBottom, content='') => 
   </body>`;
 }
 
+const displayBody = () => {
+  return EmailTemplateBodyComponent(footer(), logoTop, logoBottom, '');
+}
 
-export { BBBody, EmailTemplateBodyComponent }
+
+export { BBBody, EmailTemplateBodyComponent, displayBody }

@@ -10,6 +10,20 @@ const {
 
 
 const renderCustomBlock = (copyrights, address, unsubscribe, newsletterSponsorshipLink) => {
+
+    if (!copyrights) {
+      new Error('no copyrights was passed');
+    }
+    if (!address) {
+      new Error('invalid address');
+    }
+    if (!unsubscribe) {     
+      new Error('invalid unsubscribe');
+    }
+    if (!newsletterSponsorshipLink)  {
+      new Error('invalid newsletterSponsorshipLink');
+    }
+
     return `<tr>
     <td
       valign="top"
