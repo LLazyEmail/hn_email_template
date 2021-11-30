@@ -2,7 +2,7 @@ import misc from 'atherdon-newsletter-js-layouts-misc'
 
 import { 
   BBBody, 
-  bodyComponent 
+  EmailTemplateBodyComponent 
 } from './body';
 
 import {
@@ -25,7 +25,7 @@ const mainComponent = (headComponent, bodyComponent) => {
 }
 
 const displayMain = () => {
-  return mainComponent(headComponent, bodyComponent);
+  return mainComponent(headComponent, EmailTemplateBodyComponent);
 }
 
 const main = `<!DOCTYPE html>

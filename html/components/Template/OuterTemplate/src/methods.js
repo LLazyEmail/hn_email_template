@@ -1,7 +1,8 @@
+import { writeHTML, generateTemplateName } from 'markup-generator'
 //-----
 import { displayMain, mainComponent} from './templates/main'
 
-import { headComponent, displayHead } from './templates/head';
+import { headComponent, displayHead } from './templates/head'
 
 // and body
 //----
@@ -58,10 +59,21 @@ const checkingPreviewText = (previewText) => {
 }
 
 
+const writingFile = (content) => {
+
+
+  // const content  = generateEmptyTemplateComponent();
+  const fileName = generateTemplateName('lit-empty');
+
+  writeHTML(fileName, content);
+}
+
 
 export { 
   printMain, printFooter, printBody,
   printHead,
 
-  checkingTitle, checkingBodyContent, checkingPreviewText
+  checkingTitle, checkingBodyContent, checkingPreviewText,
+
+  writingFile
  }
