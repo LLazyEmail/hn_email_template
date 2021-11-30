@@ -2,14 +2,17 @@
 
 const { 
   printMain, printFooter, printBody, 
-  printHead 
+  printHead,
+  
+  
+  writingFile
 } = require('../src/methods');
 
 
 
-// var generateEmptyTemplateComponent = require('../src/templates/emptyTemplate');
+// var generateEmptyTemplateComponent = require('../src/t/emptyTemplate');
 
-// var generateTemplateComponent = require('../src/templates/generateTemplate');
+// var generateTemplateComponent = require('../src/t/generateTemplate');
 
 
 describe('test helpers', () => {
@@ -18,7 +21,10 @@ describe('test helpers', () => {
   //  test('rendering head component', () => {
 
   //    const string = printHead();
+
   //    console.log(string);
+
+  //    writingFile(string);
   //  });
   
   // test('rendering Empty Template', () => {
@@ -28,33 +34,34 @@ describe('test helpers', () => {
   // });
 
 
-  test('rendering Main Component', () => {
+  // test('rendering Main Component', () => {
 
 
-      const string = printMain();
+  //     const string = printMain();
 
-      console.log(string);
+  //     // console.log(string);
+
+  //     expect(printMain()).toBeDefined();
+
+  //     writingFile(string);
+  //     // expect(typeof string).toBe('string');
+
+  // });
+
+
+  test('rendering Body Component', () => {
+
+
+      const string = printBody();
+
+      // console.log(string);
 
       expect(printMain()).toBeDefined();
 
       // expect(typeof string).toBe('string');
+      writingFile(string);
 
   });
-
-
-  // test('rendering Body Component', () => {
-
-
-  //     const string = printBody();
-
-  //     console.log(string);
-
-  //     expect(printMain()).toBeDefined();
-
-  //     // expect(typeof string).toBe('string');
-
-
-  // });
 
 
   // test('rendering Footer Component', () => {
@@ -62,12 +69,12 @@ describe('test helpers', () => {
 
   //   const string = printFooter();
 
-  //   console.log(string);
+    // console.log(string);
 
   //   expect(printMain()).toBeDefined();
 
   //   // expect(typeof string).toBe('string');
-
+  //   writingFile(string);
 
   // });
 

@@ -234,6 +234,15 @@ style="
 
 
 const EmailTemplateBodyComponent = (footer, logoTop, logoBottom, content='') => {
+
+  if (!footer) {
+    new Error('no footer was passed');
+  }
+  if (!logoTop || logoBottom) {
+    new Error('invalid logo');
+  }
+
+
   return `<body
   style="
     height: 100%;
@@ -440,7 +449,7 @@ const EmailTemplateBodyComponent = (footer, logoTop, logoBottom, content='') => 
                 ${logoBottom}
               </td>
             </tr>
-            ${footer()}
+            ${footer}
           </table>
           <!--[if (gte mso 9)|(IE)]>
                       </td>
@@ -455,5 +464,9 @@ const EmailTemplateBodyComponent = (footer, logoTop, logoBottom, content='') => 
   </body>`;
 }
 
+const displayBody = () => {
+  return EmailTemplateBodyComponent(footer(), logoTop, logoBottom, '');
+}
 
-export { BBBody, EmailTemplateBodyComponent }
+
+export { BBBody, EmailTemplateBodyComponent, displayBody }

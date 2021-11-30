@@ -1,0 +1,1 @@
+here i want to keep simple strings
