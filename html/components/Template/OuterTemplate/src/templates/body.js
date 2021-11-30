@@ -234,6 +234,15 @@ style="
 
 
 const EmailTemplateBodyComponent = (footer, logoTop, logoBottom, content='') => {
+
+  if (!footer) {
+    new Error('no footer was passed');
+  }
+  if (!logoTop || logoBottom) {
+    new Error('invalid logo');
+  }
+
+
   return `<body
   style="
     height: 100%;
