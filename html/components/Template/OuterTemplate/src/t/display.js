@@ -1,5 +1,45 @@
 import { merge } from 'lodash';
 
+// import body from 'atherdon-newsletter-js-layouts-body';
+
+// import misc from 'atherdon-newsletter-js-layouts-misc';
+
+// import footer from './footer';
+
+// const { 
+//   logoTop, 
+//   logoBottom 
+// } = body;
+
+// import { headStyles } from '../templates/head-styles';
+
+
+
+// const { fonts } = misc;
+
+const {
+    address,
+    copyrights,
+    
+    newsletterSponsorshipLink,
+    unsubscribe,
+
+    fonts
+} = misc;
+
+
+import { 
+  
+    displayBody 
+  } from './body';
+  
+  import {
+     head, displayHead 
+  } from './head';
+
+  
+const title = `The Secrets of High-Performing DevOps teams`;
+
 const displayMain = () => {
   
     const head = displayHead("Pixels Per Inch");
@@ -11,7 +51,10 @@ const displayMain = () => {
 const displayBody = () => {
     return EmailTemplateBodyComponent(footer(), logoTop, logoBottom, '');
 }
-
+const displayBody = () => {
+    return EmailTemplateBodyComponent(footer(), logoTop, logoBottom, '');
+  }
+  
 
 const renderTemplate = (options) => {
 
@@ -28,7 +71,9 @@ const renderTemplate = (options) => {
 // default checks
 
 const merginConfig = () => {
+    const options = merge({}, );
 
+    return options;
 }
 
 const configValidation = (options) => {

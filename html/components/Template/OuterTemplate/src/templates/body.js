@@ -464,9 +464,6 @@ const EmailTemplateBodyComponent = (footer, logoTop, logoBottom, content='') => 
   </body>`;
 }
 
-const displayBody = () => {
-  return EmailTemplateBodyComponent(footer(), logoTop, logoBottom, '');
-}
 
 
-export { BBBody, EmailTemplateBodyComponent, displayBody }
+export { BBBody, EmailTemplateBodyComponent }
