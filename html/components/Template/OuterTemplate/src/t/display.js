@@ -42,7 +42,7 @@ const title = `The Secrets of High-Performing DevOps teams`;
 
 const displayMain = () => {
   
-    const head = displayHead("Pixels Per Inch");
+    const head = displayHead(title);
     const body = displayBody();
     
     return mainComponent(head, body);
@@ -51,11 +51,14 @@ const displayMain = () => {
 const displayBody = () => {
     return EmailTemplateBodyComponent(footer(), logoTop, logoBottom, '');
 }
-const displayBody = () => {
-    return EmailTemplateBodyComponent(footer(), logoTop, logoBottom, '');
-  }
-  
 
+
+// {
+//     title,
+//     bodyContent,
+//     previewText,
+//     headCSS = '',
+// }
 const renderTemplate = (options) => {
 
     //create options
@@ -64,11 +67,15 @@ const renderTemplate = (options) => {
 
 
 
+    // return 
+
 
 
 }
 
 // default checks
+// https://github.com/LLazyEmail/default-template1/blob/e395bdede248ada5c1fdb5a75c7edad13ea86de8/src/__useLater/--t.js#L2
+// https://github.com/revivek/oy/blob/master/src/utils/Renderer.js
 
 const merginConfig = () => {
     const options = merge({}, );
@@ -95,13 +102,6 @@ const configValidation = (options) => {
 //     headCSS = '',
 
 // }) => {
-//     if (!title) {
-//       throw new Error('`title` is a required option for `renderTemplate`');
-//     } else if (!bodyContent) {
-//       throw new Error('`bodyContent` is a required option for `renderTemplate`');
-//     } else if (!previewText) {
-//       throw new Error('`previewText` is a required option for `renderTemplate`');
-//     }
 
 
 
