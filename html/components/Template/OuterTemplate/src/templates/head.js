@@ -29,9 +29,9 @@ ${fonts}
 
 const headComponent = (title, headStyles, fonts) => {
 
-  if (!title) new Error('no title was passed');
-  if (!headStyles) new Error('invalid headStyles');
-  if (!fonts)      new Error('invalid fonts');
+  if (!title) throw new Error('no title was passed');
+  if (!headStyles) throw new Error('invalid headStyles');
+  if (!fonts)     throw new Error('invalid fonts');
 
 
   return `<head>

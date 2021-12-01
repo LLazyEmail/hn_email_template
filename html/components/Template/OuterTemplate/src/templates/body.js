@@ -236,10 +236,10 @@ style="
 const EmailTemplateBodyComponent = (footer, logoTop, logoBottom, content='') => {
 
   if (!footer) {
-    new Error('no footer was passed');
+    throw new Error('no footer was passed');
   }
   if (!logoTop || logoBottom) {
-    new Error('invalid logo');
+    throw new Error('invalid logo');
   }
 
 
