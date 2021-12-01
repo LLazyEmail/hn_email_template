@@ -36,3 +36,9 @@ body
   - https://www.npmjs.com/package/html-validate
 
   - https://www.npmjs.com/package/html-validator-cli
+
+  - https://www.npmjs.com/package/sanitizer
+
+  - https://www.npmjs.com/package/common-tags#introduction
+
+  
