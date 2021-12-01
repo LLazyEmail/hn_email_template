@@ -1,13 +1,3 @@
-import { 
-  
-  displayBody 
-} from './body';
-
-import {
-   head, displayHead 
-} from './head';
-
-
 const mainComponent = (headComponent, bodyComponent) => {
 
   return `<!DOCTYPE html>
@@ -22,18 +12,4 @@ const mainComponent = (headComponent, bodyComponent) => {
 
 }
 
-const displayMain = () => {
-  
-  const head = displayHead("Pixels Per Inch");
-  const body = displayBody();
-  
-  return mainComponent(head, body);
-}
-
-
-
-export { 
-   
-  mainComponent,
-  displayMain 
-}
+export default mainComponent

@@ -12,16 +12,16 @@ const {
 const renderCustomBlock = (copyrights, address, unsubscribe, newsletterSponsorshipLink) => {
 
     if (!copyrights) {
-      new Error('no copyrights was passed');
+      throw new Error('no copyrights was passed');
     }
     if (!address) {
-      new Error('invalid address');
+      throw new Error('invalid address');
     }
     if (!unsubscribe) {     
-      new Error('invalid unsubscribe');
+      throw new Error('invalid unsubscribe');
     }
     if (!newsletterSponsorshipLink)  {
-      new Error('invalid newsletterSponsorshipLink');
+      throw new Error('invalid newsletterSponsorshipLink');
     }
 
     return `<tr>

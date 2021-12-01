@@ -9,13 +9,13 @@ import { printMain, printFooter, printBody } from './methods';
 
 
 
-import generateTemplateComponent from './templates/generateTemplate'
-import generateEmptyTemplateComponent from './templates/emptyTemplate'
+import generateTemplateComponent from './t/generateTemplate'
+import generateEmptyTemplateComponent from './t/emptyTemplate'
 
 
 
 
-import { main } from './templates/main';
+import { main } from './strings/main';
 
 
 export default {
