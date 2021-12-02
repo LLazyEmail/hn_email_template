@@ -1,5 +1,12 @@
 import { merge } from 'lodash';
 
+
+
+// https://github.com/eastenluis/markdown-email-editor/blob/f34b4875ea1f7cb7c5d9d5945ce2dab9da2bf559/app/renderer/template/template.js#L47
+
+
+
+
 // import body from 'atherdon-newsletter-js-layouts-body';
 
 // import misc from 'atherdon-newsletter-js-layouts-misc';
