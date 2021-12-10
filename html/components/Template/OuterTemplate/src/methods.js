@@ -8,6 +8,11 @@ import { headComponent, displayHead } from './templates/head'
 //----
 
 
+import { checkingTitle,
+  checkingBodyContent,
+  checkingPreviewText 
+} from './t/display'
+
 import footer from './templates/footer'
 
 
@@ -48,11 +53,11 @@ const writingFile = (content) => {
 }
 
 
+
 export { 
   printMain, printFooter, printBody,
   printHead,
 
-  checkingTitle, checkingBodyContent, checkingPreviewText,
 
   writingFile
  }
