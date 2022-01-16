@@ -17,37 +17,6 @@ const {
 
 describe('test helpers', () => {
 
-  
-  //  test('rendering head component', () => {
-
-  //    const string = printHead();
-
-  //    console.log(string);
-
-  //    writingFile(string);
-  //  });
-  
-  // test('rendering Empty Template', () => {
-
-  //   const string = generateEmptyTemplateComponent();
-  //   console.log(string);
-  // });
-
-
-  // test('rendering Main Component', () => {
-
-
-  //     const string = printMain();
-
-  //     // console.log(string);
-
-  //     expect(printMain()).toBeDefined();
-
-  //     writingFile(string);
-  //     // expect(typeof string).toBe('string');
-
-  // });
-
 
   test('rendering Body Component', () => {
 
