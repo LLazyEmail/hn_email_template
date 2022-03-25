@@ -31,7 +31,7 @@
     "eslint-plugin-json": "3.1.0",
     "jest": "27.5.1",
     "markup-generator": "0.4.0",
-    "prettier": "2.6.0",
+    "prettier": "2.6.1",
     "rollup": "2.70.1",
     "rollup-plugin-includepaths": "0.2.4",
     "rollup-plugin-node-builtins": "2.1.2",
