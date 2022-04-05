@@ -11,6 +11,29 @@ https://github.com/lit/lit/tree/main/packages/lit-html
 
 
 
+```bash
+├── xxx
+│   ├── xxx
+│   │   ├── **/*.xxx
+│   ├── xxx
+│   ├── images
+│   ├── xxx
+│   ├── js
+│   │   ├── **/*.js
+│   └── xxx
+├── dist (or build)
+├── 
+├── 
+├── 
+├── 
+├── README.md
+├── package.json
+├── 
+└── .gitignore
+```
+
+
+
 I was rebuilding a part of our [markdown-to-email](https://github.com/atherdon/markdown-to-email) repository. I was not happy with how we handle templates in our generator.
 
 While there are not many things that changed behind how it works, I still want to showcase them in my article.
