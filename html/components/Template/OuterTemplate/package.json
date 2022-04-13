@@ -27,7 +27,7 @@
     "@rollup/plugin-commonjs": "21.0.3",
     "@rollup/plugin-node-resolve": "13.2.0",
     "babel-eslint": "10.1.0",
-    "eslint": "8.12.0",
+    "eslint": "8.13.0",
     "eslint-plugin-json": "3.1.0",
     "jest": "27.5.1",
     "markup-generator": "0.4.0",
