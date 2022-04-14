@@ -375,3 +375,20 @@ h4{
 }
 
 }</style>`;
+
+
+
+
+
+
+const ctaComponent = () => {
+  return ctaList;
+}
+
+
+
+
+export { ctaList, ctaComponent };
+
+
+
