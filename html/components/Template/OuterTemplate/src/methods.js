@@ -22,12 +22,16 @@ import { EmailTemplateBodyComponent } from './templates/body'
 const printMain = () => {
 
   
+
+  
   return displayMain();
   // return mainComponent("xxx", "xxx");
 //   mainComponent(head, bodyComponent);
 }
 
 const printFooter = () => {
+
+
   return footer("","","","",);
   //
 }
