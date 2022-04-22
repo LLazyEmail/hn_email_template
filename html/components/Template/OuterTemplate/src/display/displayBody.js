@@ -3,12 +3,10 @@ import { Body } from '';
 
 const DDDisplayBody = {
   component: Body,
-  params: {
-  },
+  params: { footer, logoTop, logoBottom, content },
   display: () => {
   },
-  checks: () => {
-  }
+  checks: () => []
   
 }
 
