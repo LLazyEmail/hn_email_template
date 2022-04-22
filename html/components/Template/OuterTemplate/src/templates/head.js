@@ -1,12 +1,3 @@
-import misc from 'atherdon-newsletter-js-layouts-misc';
-
-import { headStyles } from './head-styles';
-
-const { fonts } = misc;
-
-// const title = `The Secrets of High-Performing DevOps teams`;
-
-
 const headComponent = (title, headStyles, fonts) => {
 
   if (!title) throw new Error('no title was passed');
@@ -36,9 +27,7 @@ const headComponent = (title, headStyles, fonts) => {
 }
 
 
-const displayHead = (title) => {
-  return headComponent(title, headStyles, fonts);
-}
+// removed displayHead method from this file
 
 
-export { head, headComponent, displayHead };
+export { head, headComponent };
