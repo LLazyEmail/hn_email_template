@@ -1,6 +1,36 @@
-# _trying-lit
+# Plain JS template for generating HTML email template
 
 
+
+### MainComponent
+
+```
+const displayMain = () => {
+  
+    const head = displayHead(title);
+    const body = displayBody();
+    
+    return mainComponent(head, body);
+}
+```
+
+### EmailTemplateBodyComponent 
+
+```
+const displayBody = () => {
+    return EmailTemplateBodyComponent(footer(), logoTop, logoBottom, '');
+}
+```
+
+
+
+
+
+
+
+---
+
+Explore later:
 
 https://lit.dev/
 
@@ -10,6 +40,7 @@ https://github.com/lit/lit/tree/main/packages/lit-html
 ---
 
 
+---
 
 ```bash
 ├── xxx
@@ -32,7 +63,9 @@ https://github.com/lit/lit/tree/main/packages/lit-html
 └── .gitignore
 ```
 
+---
 
+## Introduction
 
 I was rebuilding a part of our [markdown-to-email](https://github.com/atherdon/markdown-to-email) repository. I was not happy with how we handle templates in our generator.
 
