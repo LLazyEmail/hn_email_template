@@ -1,5 +1,3 @@
-
-
 const headStylesComponent = () => {
     return `<style type="text/css">
     p{
@@ -383,4 +381,4 @@ const headStylesComponent = () => {
   
 
   
-export {  headStylesComponent };
+export default headStylesComponent;
