@@ -1,4 +1,4 @@
-# Plain JS template for generating HTML email template
+# Plain JS functions for generating HTML email template
 
 
 
@@ -22,9 +22,13 @@ const displayBody = () => {
 }
 ```
 
+### footer
 
+```
+const displayFooter = () => {
 
-
+}
+```
 
 
 
