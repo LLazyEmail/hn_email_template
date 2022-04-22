@@ -1,1 +1,0 @@
-here i want to keep components only

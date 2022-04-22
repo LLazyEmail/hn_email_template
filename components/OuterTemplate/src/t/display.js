@@ -6,6 +6,9 @@ import { merge } from 'lodash';
 
 
 
+// DISPLAY STUFF GET OUT FROM THIS FILE.
+// WILL BE DELETED LATER
+
 
 // import body from 'atherdon-newsletter-js-layouts-body';
 
@@ -20,45 +23,41 @@ import { merge } from 'lodash';
 
 // import { headStyles } from '../templates/head-styles';
 
-
-
-// const { fonts } = misc;
-
-const {
-    address,
-    copyrights,
+// const {
+//     address,
+//     copyrights,
     
-    newsletterSponsorshipLink,
-    unsubscribe,
+//     newsletterSponsorshipLink,
+//     unsubscribe,
 
-    fonts
-} = misc;
+//     fonts
+// } = misc;
 
 
-import { 
+// import { 
   
-    displayBody 
-  } from './body';
+//     displayBody 
+//   } from './body';
   
-  import {
-     head, displayHead 
-  } from './head';
+//   import {
+//      head, displayHead 
+//   } from './head';
 
   
-const title = `The Secrets of High-Performing DevOps teams`;
+// const title = `The Secrets of High-Performing DevOps teams`;
 
-const displayMain = () => {
+// const displayMain = () => {
   
-    const head = displayHead(title);
-    const body = displayBody();
+//     const head = displayHead(title);
+//     const body = displayBody();
     
-    return mainComponent(head, body);
-}
+//     return mainComponent(head, body);
+// }
 
-const displayBody = () => {
-    const footer = footerComponent();
-    return EmailTemplateBodyComponent(footer, logoTop, logoBottom, '');
-}
+// const displayBody = () => {
+//     const footer = footerComponent();
+//     return EmailTemplateBodyComponent(footer, logoTop, logoBottom, '');
+// }
 
 
 const renderTemplate = (options) => {
@@ -75,6 +74,7 @@ const renderTemplate = (options) => {
 // default checks
 // https://github.com/LLazyEmail/default-template1/blob/e395bdede248ada5c1fdb5a75c7edad13ea86de8/src/__useLater/--t.js#L2
 // https://github.com/revivek/oy/blob/master/src/utils/Renderer.js
+
 
 const merginConfig = () => {
     const options = merge({}, );
