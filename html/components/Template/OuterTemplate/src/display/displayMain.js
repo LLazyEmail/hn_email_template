@@ -3,8 +3,7 @@ import { MainComponent } from '';
 
 const DDDisplayMain = {
   component: MainComponent,
-  params: {
-  },
+  params: { head, body },
   display: () => {
   },
   checks: () => {
