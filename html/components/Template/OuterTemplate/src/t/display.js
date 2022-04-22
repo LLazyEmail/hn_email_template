@@ -56,7 +56,8 @@ const displayMain = () => {
 }
 
 const displayBody = () => {
-    return EmailTemplateBodyComponent(footer(), logoTop, logoBottom, '');
+    const footer = footerComponent();
+    return EmailTemplateBodyComponent(footer, logoTop, logoBottom, '');
 }
 
 
