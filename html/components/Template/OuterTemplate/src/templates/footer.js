@@ -48,7 +48,7 @@ const renderCustomBlock = (copyrights, address, unsubscribe, newsletterSponsorsh
   </tr>`
 }
 
-const footer = (copyrights, address, unsubscribe, newsletterSponsorshipLink) => `<tr>
+const footerComponent = (copyrights, address, unsubscribe, newsletterSponsorshipLink) => `<tr>
 <td
   valign="top"
   id="templateFooter"
@@ -968,4 +968,4 @@ const footer = (copyrights, address, unsubscribe, newsletterSponsorshipLink) => 
 </td>
 </tr>`;
 
-export default footer;
+export default footerComponent;
