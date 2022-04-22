@@ -3,12 +3,10 @@ import { Head } from '';
 
 const DDDisplayHead = {
   component: Head,
-  params: {
-  },
+  params: { title, headStyles, fonts },
   display: () => {
   },
-  checks: () => {
-  }
+  checks: () => []
   
 }
 
