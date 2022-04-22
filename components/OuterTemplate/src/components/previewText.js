@@ -6,8 +6,13 @@ const checkingPreviewText = (previewText) => {
 }
 
 
-const previewTextComponent = (title, headStyles, fonts) => {
+const previewTextComponent = (content) => {
 
+    
+
+    return `<!--[if !gte mso 9]><!---->
+    {$content}
+    <!--<![endif]-->`;
 }
 
 

@@ -1,3 +1,6 @@
+import previewTextComponent from "./previewText";
+
+// previewTextComponent not resolved here
 
 const EmailTemplateBodyComponent = (footer, logoTop, logoBottom, content='') => {
 
@@ -19,11 +22,8 @@ const EmailTemplateBodyComponent = (footer, logoTop, logoBottom, content='') => 
       -webkit-text-size-adjust: 100%;
       background-color: #ffffff;
     "
-    >
-    <!--[if !gte mso 9]><!---->
-    {previewText}
-    <!--<![endif]-->
-    
+    >` + previewTextComponent(previewText) + `
+
     <center>
       <table
         align="center"
