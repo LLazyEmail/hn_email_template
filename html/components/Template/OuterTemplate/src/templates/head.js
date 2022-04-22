@@ -30,4 +30,4 @@ const headComponent = (title, headStyles, fonts) => {
 // removed displayHead method from this file
 
 
-export { head, headComponent };
+export default headComponent;
