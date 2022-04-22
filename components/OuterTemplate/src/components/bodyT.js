@@ -8,12 +8,6 @@ const {
   logoBottom 
 } = body;
 
-//const ERROR_PREVIEW = '`previewText` is a required option for `renderTemplate`';
-const checkingPreviewText = (previewText) => {
-    if (!previewText) {
-        throw new Error('`previewText` is a required option for `renderTemplate`');
-    }
-}
 
 
 const BBBody = `<body
@@ -243,4 +237,4 @@ style="
 
 
 
-export { BBBody, EmailTemplateBodyComponent }
+export default EmailTemplateBodyComponent 

@@ -1,5 +1,8 @@
 import { writeHTML, generateTemplateName } from 'markup-generator'
 //-----
+
+// methods like displayMain, displayHead and others not working well, 
+// because i decide to reorganize the folder structure
 import { displayMain, mainComponent} from './templates/main'
 
 import { headComponent, displayHead } from './templates/head'
