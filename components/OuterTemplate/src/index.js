@@ -3,8 +3,12 @@
 import { printMain, printFooter, printBody } from './methods';
 
 
+
+
 // import fullTemplateOLD from './depricated/full-template';
 // import fullTemplate from './depricated/tempFT';
+
+
 
 
 
@@ -15,7 +19,7 @@ import generateEmptyTemplateComponent from './t/emptyTemplate'
 
 
 
-import { main } from './strings/main';
+// import { main } from './strings/main';
 
 
 export default {
