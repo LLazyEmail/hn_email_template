@@ -46,13 +46,7 @@ import { merge } from 'lodash';
   
 // const title = `The Secrets of High-Performing DevOps teams`;
 
-// const displayMain = () => {
-  
-//     const head = displayHead(title);
-//     const body = displayBody();
-    
-//     return mainComponent(head, body);
-// }
+
 
 // const displayBody = () => {
 //     const footer = footerComponent();

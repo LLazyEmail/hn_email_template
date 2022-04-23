@@ -1,6 +1,8 @@
 // import innerComponents from 'atherdon-newsletter-js-layouts-body';
 
-import { printMain, printFooter, printBody } from './methods';
+import { 
+  printMain, printFooter, printBody 
+} from './methods';
 
 
 
@@ -10,16 +12,9 @@ import { printMain, printFooter, printBody } from './methods';
 
 
 
-
-
-
 import generateTemplateComponent from './t/generateTemplate'
 import generateEmptyTemplateComponent from './t/emptyTemplate'
 
-
-
-
-// import { main } from './strings/main';
 
 
 export default {

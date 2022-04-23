@@ -18,23 +18,23 @@ export default DDDisplayMain;
 
 
 
-const {
-    address,
-    copyrights,
+// const {
+//     address,
+//     copyrights,
     
-    newsletterSponsorshipLink,
-    unsubscribe,
+//     newsletterSponsorshipLink,
+//     unsubscribe,
 
-    fonts
-} = misc;
-// import { headStyles } from '../templates/head-styles';
-const title = `The Secrets of High-Performing DevOps teams`;
+//     fonts
+// } = misc;
+// // import { headStyles } from '../templates/head-styles';
+// const title = `The Secrets of High-Performing DevOps teams`;
 
-const displayMain = () => {
+// const displayMain = () => {
   
-    const head = displayHead(title);
-    const body = displayBody();
+//     const head = displayHead(title);
+//     const body = displayBody();
     
-    return mainComponent(head, body);
-}
+//     return mainComponent(head, body);
+// }
 

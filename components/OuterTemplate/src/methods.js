@@ -22,6 +22,8 @@ import footer from './templates/footer'
 import { EmailTemplateBodyComponent } from './templates/body'
 
 
+
+// not working anymore
 const printMain = () => {
 
   
@@ -32,6 +34,7 @@ const printMain = () => {
 //   mainComponent(head, bodyComponent);
 }
 
+// not working anymore
 const printFooter = () => {
 
 
@@ -39,15 +42,18 @@ const printFooter = () => {
   //
 }
 
+// not working anymore
 const printBody = () => {
   return EmailTemplateBodyComponent(footer, "", "");
   //EmailTemplateBodyComponent(footer, logoTop, logoBottom)
 }
 
+// not working anymore
 const printHead = () => {
   return displayHead("Ziba Zyaba Zoooo");
   // return headComponent("Ziba Zyaba Zoooo", "xxx", "xxx");
 }
+
 
 
 const writingFile = (content) => {
