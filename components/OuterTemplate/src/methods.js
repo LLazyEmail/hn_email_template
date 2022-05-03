@@ -3,20 +3,29 @@ import { writeHTML, generateTemplateName } from 'markup-generator'
 
 // methods like displayMain, displayHead and others not working well, 
 // because i decide to reorganize the folder structure
-import { displayMain, mainComponent} from './templates/main'
+//import { displayMain, mainComponent} from './templates/main'
+//import { headComponent, displayHead } from './templates/head'
 
-import { headComponent, displayHead } from './templates/head'
+import mainComponent from './components/main';
+import headComponent from './components/head';
+
+import DisplayMain from './display/displayMain';
+import DisplayHead from './display/displayHead';
+import DisplayFooter from './display/displayFooter';
+
+
 
 // and body
 //----
 
+// instead of importhing these methods we can run displayXXX.checks[xxx]
 
-import { checkingTitle,
-  checkingBodyContent,
-  checkingPreviewText 
-} from './t/display'
+// import { checkingTitle,
+//   checkingBodyContent,
+//   checkingPreviewText 
+// } from './t/display'
 
-import footer from './templates/footer'
+// import footer from './templates/footer'
 
 
 import { EmailTemplateBodyComponent } from './templates/body'
