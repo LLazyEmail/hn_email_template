@@ -1,10 +1,10 @@
 // partials
-import { MainComponent } from '';
+import MainComponent from '../components/main';
 
 // note that head and body params are actually `displayHead` & `displayBody` 
 // methods for sub-components
 
-const DDDisplayMain = {
+const DisplayMain = {
   component: MainComponent,
   params: { head, body },
   display: () => {
@@ -14,7 +14,7 @@ const DDDisplayMain = {
   
 }
 
-export default DDDisplayMain;
+export default DisplayMain;
 
 
 
