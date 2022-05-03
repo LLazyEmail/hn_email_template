@@ -1,7 +1,7 @@
 // partials
 import misc from 'atherdon-newsletter-js-layouts-misc';
-import { headStyles } from '.../templates/head-styles';
-import { headComponent } from '../templates/head';
+import { headStyles } from '.../components/head-styles';
+import headComponent from '../components/head';
 
 const { fonts } = misc;
 const title = `The Secrets of High-Performing DevOps teams`;
@@ -13,7 +13,7 @@ const checkingTitle = (title) => {
     }
 }
 
-const DDDisplayHead = {
+const DisplayHead = {
   component: headComponent,
   params: { title, headStyles, fonts },
   display: () => {
@@ -23,7 +23,7 @@ const DDDisplayHead = {
   
 }
 
-export default DDDisplayHead;
+export default DisplayHead;
 
 
 //const displayHead = (title) => {
