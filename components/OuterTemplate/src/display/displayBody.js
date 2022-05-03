@@ -1,5 +1,7 @@
 // partials
-import { Body } from '';
+// @TODO rename body into something better
+import EmailTemplateBodyComponent from '../components/body';
+
 
 // const ERROR_BODY = '`bodyContent` is a required option for `renderTemplate`';
 const checkingBodyContent = (bodyContent) => {
@@ -10,8 +12,8 @@ const checkingBodyContent = (bodyContent) => {
 
 // note that footer param here is a subcomponent, 
 // so we passing footerDisplay instead of just a component
-const DDDisplayBody = {
-  component: Body,
+const DisplayBody = {
+  component: EmailTemplateBodyComponent,
   params: { footer, logoTop, logoBottom, content },
   display: () => {
   },
@@ -19,4 +21,4 @@ const DDDisplayBody = {
   
 }
 
-export default DDDisplayBody;
+export default DisplayBody;
