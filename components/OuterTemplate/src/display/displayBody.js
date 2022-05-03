@@ -16,8 +16,13 @@ const DisplayBody = {
   component: EmailTemplateBodyComponent,
   params: { footer, logoTop, logoBottom, content },
   display: () => {
+      
+      //console.log(this.component(params))
+      
+      
   },
-  checks: () => []
+  checks: () => [
+  ]
   
 }
 
