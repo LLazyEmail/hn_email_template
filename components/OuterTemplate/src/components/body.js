@@ -2,6 +2,9 @@ import previewTextComponent from "./previewText";
 
 // previewTextComponent not resolved here
 
+// params
+// const EmailTemplateBodyComponent = ({ footer, logoTop, logoBottom, content='' }) => {
+
 const EmailTemplateBodyComponent = (footer, logoTop, logoBottom, content='') => {
 
     if (!footer) {
@@ -230,4 +233,4 @@ const EmailTemplateBodyComponent = (footer, logoTop, logoBottom, content='') => 
     </body>`;
   }
 
-  export { EmailTemplateBodyComponent }
+  export default EmailTemplateBodyComponent
