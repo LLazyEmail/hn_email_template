@@ -32,7 +32,7 @@
     "jest": "28.1.0",
     "markup-generator": "0.4.0",
     "prettier": "2.6.2",
-    "rollup": "2.75.0",
+    "rollup": "2.75.1",
     "rollup-plugin-includepaths": "0.2.4",
     "rollup-plugin-node-builtins": "2.1.2",
     "rollup-plugin-node-globals": "1.4.0",
