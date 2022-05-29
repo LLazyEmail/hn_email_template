@@ -1,5 +1,7 @@
 const { 
-  printMain, printFooter, printBody, 
+  printMain, 
+  printFooter, printBody, 
+  
   printHead,
   
   
