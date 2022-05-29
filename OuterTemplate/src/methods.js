@@ -2,10 +2,11 @@ import { writeHTML, generateTemplateName } from 'markup-generator'
 
 
 
+import DisplayHead from './display/displayHead';
 
-// import DisplayMain from './display/displayMain';
-// import DisplayHead from './display/displayHead';
-// import DisplayFooter from './display/displayFooter';
+import DisplayMain from './display/displayMain';
+
+import DisplayFooter from './display/displayFooter';
 
 
 // import DisplayBody from './display/displayBody';
@@ -20,23 +21,37 @@ import { writeHTML, generateTemplateName } from 'markup-generator'
 //   checkingPreviewText 
 // } from './t/display'
 
-// import footer from './templates/footer'
 
 
+const printHead = () => {
+  let headObject = new DisplayHead();
+
+  headObject.display();
+
+  
+}
+
+const printMain = () => {
+  let mainObject = new DisplayMain();
 
 
+}
 
+const printFooter = () => {
+  let footerObject = new DisplayFooter();
+
+}
 
 // not working anymore
-const printMain = () => {
+// const printMain = () => {
+
+//   let
 
   
-
-  
-  return displayMain();
-  // return mainComponent("xxx", "xxx");
-//   mainComponent(head, bodyComponent);
-}
+//   return displayMain();
+//   // return mainComponent("xxx", "xxx");
+// //   mainComponent(head, bodyComponent);
+// }
 
 // ------------------------
 
@@ -78,7 +93,7 @@ const printMain = () => {
 
 
 export { 
-  printMain, 
+  // printMain, 
   
   // printFooter, printBody,
   // printHead,
