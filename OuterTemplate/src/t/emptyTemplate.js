@@ -1,5 +1,8 @@
 // import body from 'atherdon-newsletter-js-layouts-body';
 
+// const { 
+//     logoTop, logoBottom 
+// } = body
 
 import headComponent from '../components/head';
 
@@ -9,16 +12,14 @@ import footer from '../components/footer';
 
 import EmailTemplateBodyComponent from '../components/body'
 
-const { 
-    logoTop, logoBottom 
-} = body
+const logoTop = '';const logoBottom = '';
 
 
 const generateEmptyTemplateComponent = () => {
 
     var emptyContent = EmailTemplateBodyComponent(footer, logoTop, logoBottom);
 
-    return mainComponent(head, emptyContent);
+    return mainComponent(headComponent, emptyContent);
 
 
 }

@@ -1,12 +1,14 @@
-import misc from 'atherdon-newsletter-js-layouts-misc';
+// import misc from 'atherdon-newsletter-js-layouts-misc';
 
-const {
-  address,
-  copyrights,
+// const {
+//   address,
+//   copyrights,
   
-  newsletterSponsorshipLink,
-  unsubscribe,
-} = misc;
+//   newsletterSponsorshipLink,
+//   unsubscribe,
+// } = misc;
+
+
 
 
 const renderCustomBlock = (copyrights, address, unsubscribe, newsletterSponsorshipLink) => {
@@ -48,7 +50,16 @@ const renderCustomBlock = (copyrights, address, unsubscribe, newsletterSponsorsh
   </tr>`
 }
 
-const footerComponent = (copyrights, address, unsubscribe, newsletterSponsorshipLink) => `<tr>
+const footerComponent = (options) => { 
+
+  let { copyrights, address, unsubscribe, newsletterSponsorshipLink } = options;
+  
+  if (!copyrights) throw new Error('no copyrights was passed');
+  if (!address) throw new Error('no address was passed');
+  if (!unsubscribe) throw new Error('no unsubscribe was passed');
+  if (!newsletterSponsorshipLink) throw new Error('no newsletterSponsorshipLink was passed');
+
+  return `<tr>
 <td
   valign="top"
   id="templateFooter"
@@ -967,5 +978,7 @@ const footerComponent = (copyrights, address, unsubscribe, newsletterSponsorship
   </table>
 </td>
 </tr>`;
+
+}
 
 export default footerComponent;

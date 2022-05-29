@@ -1,12 +1,12 @@
 // https://github.com/abritinthebay/jest-tobetype
 
-const { 
-  printMain, printFooter, printBody, 
-  printHead,
+// const { 
+//   printMain, printFooter, printBody, 
+//   printHead,
   
   
-  writingFile
-} = require('../src/methods');
+//   writingFile
+// } = require('../src/methods');
 
 
 
@@ -21,14 +21,14 @@ describe('test helpers', () => {
   test('rendering Body Component', () => {
 
 
-      const string = printBody();
+      // const string = printBody();
 
-      // console.log(string);
+      // // console.log(string);
 
-      expect(printMain()).toBeDefined();
+      // expect(printMain()).toBeDefined();
 
-      // expect(typeof string).toBe('string');
-      writingFile(string);
+      // // expect(typeof string).toBe('string');
+      // writingFile(string);
 
   });
 

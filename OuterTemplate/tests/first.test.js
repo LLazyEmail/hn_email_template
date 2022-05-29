@@ -18,30 +18,30 @@ describe('test helpers', () => {
 
     test('rendering head component', () => {
 
-      const string = printHead();
+      // const string = printHead();
 
-      console.log(string);
+      // console.log(string);
 
-      writingFile(string);
+      // writingFile(string);
     });
   
    test('rendering Empty Template', () => {
 
-     const string = generateEmptyTemplateComponent();
-     console.log(string);
+    //  const string = generateEmptyTemplateComponent();
+    //  console.log(string);
    });
 
 
    test('rendering Main Component', () => {
 
 
-       const string = printMain();
+      //  const string = printMain();
 
-       // console.log(string);
+      //  // console.log(string);
 
-       expect(printMain()).toBeDefined();
+      //  expect(printMain()).toBeDefined();
 
-       writingFile(string);
+      //  writingFile(string);
        // expect(typeof string).toBe('string');
 
    });

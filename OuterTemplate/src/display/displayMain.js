@@ -13,7 +13,7 @@ console.log(DisplayBody);
 
 const DisplayMain = {
   component: MainComponent,
-  params: { head, body },
+  params: { DisplayHead, DisplayBody },
   display: () => {
     
     //  console.log(this.component(params))
@@ -25,6 +25,7 @@ const DisplayMain = {
     
   },
   checks: () => [
+    
   ]
   
 }
