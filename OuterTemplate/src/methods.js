@@ -9,9 +9,9 @@ import { writeHTML, generateTemplateName } from 'markup-generator'
 import mainComponent from './components/main';
 import headComponent from './components/head';
 
-import DisplayMain from './display/displayMain';
-import DisplayHead from './display/displayHead';
-import DisplayFooter from './display/displayFooter';
+// import DisplayMain from './display/displayMain';
+// import DisplayHead from './display/displayHead';
+// import DisplayFooter from './display/displayFooter';
 
 
 
@@ -28,7 +28,7 @@ import DisplayFooter from './display/displayFooter';
 // import footer from './templates/footer'
 
 
-import { EmailTemplateBodyComponent } from './templates/body'
+import EmailTemplateBodyComponent from './components/body'
 
 
 

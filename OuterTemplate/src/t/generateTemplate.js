@@ -1,12 +1,13 @@
 import body from 'atherdon-newsletter-js-layouts-body';
 
-import { headComponent } from '../templates/head';
 
-import { mainComponent } from '../templates/main'
+import headComponent from '../components/head';
 
-import footer from '../templates/footer';
+import mainComponent from '../components/main'
 
-import { EmailTemplateBodyComponent } from '../templates/body'
+import footer from '../components/footer';
+
+import EmailTemplateBodyComponent from '../components/body';
 
 const { 
         logoTop, logoBottom 

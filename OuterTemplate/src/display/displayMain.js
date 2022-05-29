@@ -16,7 +16,7 @@ const DisplayMain = {
   params: { head, body },
   display: () => {
     
-     console.log(this.component(params))
+    //  console.log(this.component(params))
     
 //     const head = displayHead(title);
 //     const body = displayBody();

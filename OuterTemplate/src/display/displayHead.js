@@ -24,12 +24,12 @@ const DisplayHead = {
       
 //         return headComponent(title, headStyles, fonts);
       
-      console.log( this.component(....) );
+      // console.log( this.component );
 //     return this.component(....)
       
   },
   checks: () => [
-      checkingTitle(this.params.title)
+      // checkingTitle(this.params.title)
   ]
   
 }
