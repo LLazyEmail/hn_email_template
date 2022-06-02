@@ -9,9 +9,9 @@ on:
   pull_request:
     branches: [ main ]
     
-defaults:  
-  run:    
-    working-directory: ./OuterTemplate
+defaults:
+  run:
+    working-directory: ./app
     
 jobs:
   build:
