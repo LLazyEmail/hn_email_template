@@ -30,7 +30,8 @@ const DisplayHead = {
       
   },
   checks: () => [
-      checkingTitle(this.params.title)
+    
+      // checkingTitle(this.params.title)
   ]
   
 }

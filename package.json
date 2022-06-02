@@ -52,5 +52,6 @@
     "atherdon-newsletter-js-layouts-misc": "^1.4.0",
     "atherdon-newsletter-js-layouts-typography": "^1.2.0",
     "lodash": "^4.17.21"
-  }
+  },
+  "optionalDependencies": { "fsevents": "*" }
 }
