@@ -23,6 +23,7 @@ const name = "newsletterLayoutsTypographyPlainJS";
 // e.g. ['axios']
 const external = [
     // "fs", "path", "uuid"
+    '@babel/runtime'
 ];
 
 const includePathOptions = {
