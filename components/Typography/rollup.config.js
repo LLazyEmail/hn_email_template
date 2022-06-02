@@ -77,7 +77,7 @@ const plugins = () => [
     // plugins: ['babel-plugin-transform-object-rest-spread'],
     // removes comments from output
     comments: false,
-    // babelHelpers: 'runtime'
+    babelHelpers: 'runtime'
   }),
 
   // Allow Rollup to import data from JSON file
