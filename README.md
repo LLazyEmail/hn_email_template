@@ -1,6 +1,6 @@
 # Plain JS functions for generating HTML email template
 
-
+## Not: OuterTemplate moved into the root as the main project. other modules sitting in ./components folder
 
 ### MainComponent
 
