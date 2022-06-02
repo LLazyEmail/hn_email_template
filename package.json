@@ -53,5 +53,10 @@
     "atherdon-newsletter-js-layouts-typography": "^1.2.0",
     "lodash": "^4.17.21"
   },
-  "optionalDependencies": { "fsevents": "*" }
+  "optionalDependencies": { "fsevents": "*" },
+  "jest": {
+    "moduleNameMapper": {
+      "@root(.*)$": "<rootDir>/src/$1"
+   }
+  }
 }
