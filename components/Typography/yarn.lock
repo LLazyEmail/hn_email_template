@@ -1002,7 +1002,7 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.17.12"
 
-"@babel/plugin-transform-runtime@^7.18.2":
+"@babel/plugin-transform-runtime@7.18.2":
   version "7.18.2"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-runtime/-/plugin-transform-runtime-7.18.2.tgz#04637de1e45ae8847ff14b9beead09c33d34374d"
   integrity sha512-mr1ufuRMfS52ttq+1G1PD8OJNqgcTFjq3hwn8SZ5n1x1pBhi0E36rYMdTK0TsKtApJ4lDEdfXJwtGobQMHSMPg==
@@ -3505,7 +3505,7 @@ jest-worker@^28.1.0:
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
 
-jest@^28.1.0:
+jest@28.1.0:
   version "28.1.0"
   resolved "https://registry.yarnpkg.com/jest/-/jest-28.1.0.tgz#f420e41c8f2395b9a30445a97189ebb57593d831"
   integrity sha512-TZR+tHxopPhzw3c3560IJXZWLNHgpcz1Zh0w5A65vynLGNcg/5pZ+VildAd7+XGOu6jd58XMY/HNn0IkZIXVXg==
@@ -3747,7 +3747,7 @@ makeerror@1.0.12:
   dependencies:
     tmpl "1.0.5"
 
-markdown-regex@^1.1.0:
+markdown-regex@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/markdown-regex/-/markdown-regex-1.1.0.tgz#4b3d70e211f28e407a46f66742bf3ac903b94a00"
   integrity sha512-zIStl1B7U/75C9aj0gd6bJpIIq+OwB2HnENqfdkx5DvtDOnoyQpE0/dQsgBSq6jK4r2s1GmA2ihEUZlomwwbmg==
