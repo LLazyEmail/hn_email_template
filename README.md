@@ -2,8 +2,11 @@
 
 ## Not: OuterTemplate moved into the root as the main project. other modules sitting in ./components folder
 
+
+
 ### MainComponent
 
+we upgrading our workflow. thing below arent up-to-date
 ```
 const displayMain = () => {
   
