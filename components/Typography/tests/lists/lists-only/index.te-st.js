@@ -1,5 +1,4 @@
-const { REGEXP_UL_LIST } = require('atherdon-newsletter-constants');
-
+const { REGEXP_UL_LIST } = require('markdown-regex');
 const { resolve } = require('path');
 const { write, readSourceFile } = require('@root/utils');
 
@@ -8,8 +7,10 @@ const { PlainCallbacks, replaceMarkdown } = require('atherdon-callbacks');
 const root = resolve(__dirname, '');
 const outFolder = resolve('src/tests', 'directory', '../_generated');
 
-describe('testing complex-list', () => {
-  it('renders complex-list', () => {
+// const outFolder = 'src/tests/_generated';
+
+describe('testing lists-only', () => {
+  it('renders lists-only', () => {
     const markdown = readSourceFile(`${root}/content.md`);
     const parsedContent = {
       content: markdown,
@@ -17,7 +18,7 @@ describe('testing complex-list', () => {
 
     replaceMarkdown.call(parsedContent, REGEXP_UL_LIST, PlainCallbacks.ulList);
 
-    const fileName = 'complex-list.html';
+    const fileName = 'lists-only.html';
     write(fileName, parsedContent.content, outFolder);
     expect(1).toBe(1);
   });

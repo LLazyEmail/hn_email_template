@@ -1,4 +1,4 @@
-const { REGEXP_UL_LIST } = require('atherdon-newsletter-constants');
+const { REGEXP_LINK } = require('markdown-regex');
 const { resolve } = require('path');
 const { write, readSourceFile } = require('@root/utils');
 
@@ -9,16 +9,20 @@ const outFolder = resolve('src/tests', 'directory', '../_generated');
 
 // const outFolder = 'src/tests/_generated';
 
-describe('testing lists-only', () => {
-  it('renders lists-only', () => {
+describe('testing link/exclamation-mark', () => {
+  it('renders link/exclamation-mark', () => {
     const markdown = readSourceFile(`${root}/content.md`);
     const parsedContent = {
       content: markdown,
     };
 
-    replaceMarkdown.call(parsedContent, REGEXP_UL_LIST, PlainCallbacks.ulList);
+    replaceMarkdown.call(
+      parsedContent,
+      REGEXP_LINK,
+      PlainCallbacks.link,
+    );
 
-    const fileName = 'lists-only.html';
+    const fileName = 'exclamation-mark.html';
     write(fileName, parsedContent.content, outFolder);
     expect(1).toBe(1);
   });

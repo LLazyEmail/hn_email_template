@@ -1,4 +1,4 @@
-const { REGEXP_OL_LIST } = require('atherdon-newsletter-constants');
+const { REGEXP_LINK } = require('markdown-regex');
 const { resolve } = require('path');
 const { write, readSourceFile } = require('@root/utils');
 
@@ -7,16 +7,18 @@ const { PlainCallbacks, replaceMarkdown } = require('atherdon-callbacks');
 const root = resolve(__dirname, '');
 const outFolder = resolve('src/tests', 'directory', '../_generated');
 
-describe('testing list4', () => {
-  it('renders list4 correctly', () => {
+// const outFolder = 'src/tests/_generated';
+
+describe('testing links-only', () => {
+  it('renders links-only', () => {
     const markdown = readSourceFile(`${root}/content.md`);
     const parsedContent = {
       content: markdown,
     };
 
-    replaceMarkdown.call(parsedContent, REGEXP_OL_LIST, PlainCallbacks.olList);
+    replaceMarkdown.call(parsedContent, REGEXP_LINK, PlainCallbacks.link);
 
-    const fileName = 'list4.html';
+    const fileName = 'links-only.html';
     write(fileName, parsedContent.content, outFolder);
     expect(1).toBe(1);
   });

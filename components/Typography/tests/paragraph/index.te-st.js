@@ -1,4 +1,4 @@
-const { REGEXP_PARAGRAPH } = require('atherdon-newsletter-constants');
+const { REGEXP_PARAGRAPH } = require('markdown-regex');
 const { resolve } = require('path');
 const { write, readSourceFile } = require('@root/utils');
 

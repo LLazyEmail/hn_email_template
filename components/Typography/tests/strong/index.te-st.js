@@ -1,4 +1,4 @@
-const { REGEXP_SEPARATOR } = require('atherdon-newsletter-constants');
+const { REGEXP_STRONG } = require('markdown-regex');
 const { resolve } = require('path');
 const { write, readSourceFile } = require('@root/utils');
 
@@ -7,15 +7,18 @@ const { PlainCallbacks, replaceMarkdown } = require('atherdon-callbacks');
 const root = resolve(__dirname, '');
 const outFolder = resolve('src/tests', 'directory', '../_generated');
 
-describe('testing separator', () => {
-  it('renders separator', () => {
+// const outFolder = 'src/tests/_generated';
+
+describe('testing strong', () => {
+  it('renders strong', () => {
     const markdown = readSourceFile(`${root}/content.md`);
     const parsedContent = {
       content: markdown,
     };
 
-    replaceMarkdown.call(parsedContent, REGEXP_SEPARATOR, PlainCallbacks.separator);
-    const fileName = 'separator.html';
+    replaceMarkdown.call(parsedContent, REGEXP_STRONG, PlainCallbacks.strong);
+
+    const fileName = 'strong.html';
     write(fileName, parsedContent.content, outFolder);
     expect(1).toBe(1);
   });
