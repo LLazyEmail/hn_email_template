@@ -25,7 +25,7 @@ const DisplayHead = {
       
 //         return headComponent(title, headStyles, fonts);
       
-      console.log( this.component );
+      // console.log( this.component );
 //     return this.component(....)
       
   },

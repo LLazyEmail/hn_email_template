@@ -20,7 +20,7 @@ const DisplayFooter = {
   //         return footerComponent(copyrights, address, unsubscribe, newsletterSponsorshipLink)
 //         return footerComponent(this.params)
         
-        console.log( this.component );
+        // console.log( this.component );
   //     return this.component(....)
         
     },
