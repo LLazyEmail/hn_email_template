@@ -9,9 +9,10 @@ on:
   pull_request:
     branches: [ main ]
     
-defaults:
- run:    
+defaults:  
+  run:    
     working-directory: ./OuterTemplate
+    
 jobs:
   build:
 
@@ -30,7 +31,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: cd ./OuterTemplate    
+##    - run: cd ./OuterTemplate    
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
