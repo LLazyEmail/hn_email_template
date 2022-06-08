@@ -7,9 +7,14 @@
 
 
 
+
+
+
 // import fullTemplateOLD from './depricated/full-template';
 // import fullTemplate from './depricated/tempFT';
 
+
+console.log('123');
 
 
 import generateTemplateComponent from './t/generateTemplate'
