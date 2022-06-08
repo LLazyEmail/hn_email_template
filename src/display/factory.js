@@ -1,5 +1,5 @@
 // checks should be runned inside display
-const displayFactory = (component = "<h1>Hello</h1>", checks = [], params = {}, subcomponents = {},  isError = false) => {
+const displayFactory = (settings, checks = [], isError = false) => {
 
     const { component, params, subcomponents } = settings;
 
@@ -44,7 +44,10 @@ const displayFactory = (component = "<h1>Hello</h1>", checks = [], params = {}, 
 
       },
 
-      log: () => { console.log(this.display()) },
+      log: () => { 
+          console.log('123');
+        //   console.log(this.display()) 
+      },
 
       //get: () => {name:name, regEx:regEx, replace:replace(), isError:false},
   

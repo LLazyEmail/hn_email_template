@@ -1,5 +1,10 @@
 const mainComponent = ({}, components) => {
 
+  
+  if (!components) {
+    throw new Error('no components was passed');
+  }
+
   const { headComponent, bodyComponent } = components; 
   // const { head, body } = components; 
 

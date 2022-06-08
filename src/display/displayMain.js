@@ -10,12 +10,22 @@ import MainComponent from '../components/mainComponent';
 // methods for sub-components
 
 
+//variant one
+const settings = {
+  component: MainComponent,
+  params: {  },
+  subComponents: { DisplayHead, DisplayBody }
+  
+}
+
+const DM = displayFactory(settings);
 
 
+DM.display();
 
 
-console.log(DisplayHead);
-console.log(DisplayBody);
+// console.log(DisplayHead);
+// console.log(DisplayBody);
 
 
 
