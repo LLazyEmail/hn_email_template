@@ -1,13 +1,7 @@
-const headline =
-`content`;
-
 
 const headlineComponent = (content) => {
     // if (!unsubscribe) new Error('invalid unsubscribe');
-    return content;
+    return `content`;
 }
 
-
-
-
-export { headline, headlineComponent };
+export default headlineComponent;
