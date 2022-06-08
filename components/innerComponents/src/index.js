@@ -1,24 +1,13 @@
-import { headline, headlineComponent } from './templates/headline';
-import { logoBottom, logoBottomComponent } from './templates/logoBottom';
-import { logoTop, logoTopComponent } from './templates/logoTop';
-import { previewText, previewTextComponent } from './templates/previewText';
-import { section, sectionComponent } from './templates/section';
-import { sponsor, sponsorComponent } from './templates/sponsor';
+import headlineComponent from './components/headline';
+import logoBottomComponent from './components/logoBottom';
+import logoTopComponent from './components/logoTop';
+import previewTextComponent from './components/previewText';
+import sectionComponent from './components/section';
+import sponsorComponent from './components/sponsor';
 
-import { ctaList, ctaComponent } from './templates/ctaList';
+import ctaComponent from './components/ctaList';
 
 const body = {
-  headline,
-  logoBottom,
-  logoTop,
-  previewText,
-  section,
-  sponsor,
-
-  ctaList,
-
-
-
   
   headlineComponent,
   logoBottomComponent,

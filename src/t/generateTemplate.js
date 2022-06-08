@@ -3,7 +3,7 @@ import body from 'atherdon-newsletter-js-layouts-body';
 
 import headComponent from '../components/head';
 
-import mainComponent from '../components/main'
+import mainComponent from '../components/mainComponent'
 
 import footer from '../components/footer';
 

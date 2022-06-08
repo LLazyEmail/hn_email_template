@@ -1,19 +1,12 @@
-import { address, addressComponent } from './templates/address';
-import { copyrights, copyrightsComponent } from './templates/copyrights';
-import { fonts, fontsComponent } from './templates/fonts';
-// import { headStyles, headStylesComponent } from './templates/head-styles';
-import { newsletterSponsorshipLink, newsletterSponsorshipLinkComponent } from './templates/newsletter-sponsorship-link';
-import { unsubscribe, unsubscribeComponent } from './templates/unsubscribe';
+import addressComponent from './components/address';
+import copyrightsComponent from './components/copyrights';
+import fontsComponent from './components/fonts';
+// import headStyles, headStylesComponent from './components/head-styles';
+import  newsletterSponsorshipLinkComponent from './components/newsletter-sponsorship-link';
+import  unsubscribeComponent from './components/unsubscribe';
 
 const misc = {
-  address,
-  copyrights,
-  fonts,
-  // headStyles,
-  newsletterSponsorshipLink,
-  unsubscribe,
-
-
+ 
   addressComponent,
   copyrightsComponent,
   fontsComponent,
@@ -21,8 +14,6 @@ const misc = {
   newsletterSponsorshipLinkComponent,
   unsubscribeComponent,
 
-
-  
 };
 
 
