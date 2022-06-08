@@ -1,3 +1,5 @@
+// import factory from './factory';
+
 // partials
 import DisplayHead from './displayHead';
 import DisplayBody from './displayBody';

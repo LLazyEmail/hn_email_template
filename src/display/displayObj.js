@@ -1,1 +1,3 @@
-// xxx
+// import factory from './factory';
+
+

@@ -1,4 +1,6 @@
-const headComponent = (title, headStyles, fonts) => {
+const headComponent = (params) => {
+
+  const { title, headStyles, fonts } = params;
 
   if (!title) throw new Error('no title was passed');
   if (!headStyles) throw new Error('invalid headStyles');

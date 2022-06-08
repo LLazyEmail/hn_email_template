@@ -9,6 +9,12 @@ import DisplayMain from './display/displayMain';
 import DisplayFooter from './display/displayFooter';
 
 
+// const componentFactory = () => {
+
+  
+
+// }
+
 // import DisplayBody from './display/displayBody';
 
 

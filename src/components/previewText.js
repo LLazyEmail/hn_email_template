@@ -6,9 +6,7 @@ const checkingPreviewText = (previewText) => {
 }
 
 
-const previewTextComponent = (content) => {
-
-    
+const previewTextComponent = (content) => {    
 
     return `<!--[if !gte mso 9]><!---->
     {$content}

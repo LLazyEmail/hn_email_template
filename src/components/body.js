@@ -2,17 +2,20 @@ import previewTextComponent from "./previewText";
 
 // previewTextComponent not resolved here
 
-// params
+
 // const EmailTemplateBodyComponent = ({ footer, logoTop, logoBottom, content='' }) => {
 
-const EmailTemplateBodyComponent = (footer, logoTop, logoBottom, content='') => {
+const EmailTemplateBodyComponent = (params) => {
 
-    if (!footer) {
-      throw new Error('no footer was passed');
-    }
-    if (!logoTop || logoBottom) {
-      throw new Error('invalid logo');
-    }
+  const { footer, logoTop, logoBottom } = params;
+
+
+  if (!footer) {
+    throw new Error('no footer was passed');
+  }
+  if (!logoTop || logoBottom) {
+    throw new Error('invalid logo');
+  }
   
   
     return `<body

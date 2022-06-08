@@ -50,9 +50,9 @@ const renderCustomBlock = (copyrights, address, unsubscribe, newsletterSponsorsh
   </tr>`
 }
 
-const footerComponent = (options) => { 
+const footerComponent = (params) => { 
 
-  let { copyrights, address, unsubscribe, newsletterSponsorshipLink } = options;
+  let { copyrights, address, unsubscribe, newsletterSponsorshipLink } = params;
   
   if (!copyrights) throw new Error('no copyrights was passed');
   if (!address) throw new Error('no address was passed');

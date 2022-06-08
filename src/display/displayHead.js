@@ -1,3 +1,5 @@
+// import factory from './factory';
+
 // @TODO we need to finalize this file, so we can accept real data, not just static title...
 
 // partials
