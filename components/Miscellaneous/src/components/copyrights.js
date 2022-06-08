@@ -11,4 +11,4 @@ const copyrightsComponent = () => {
 
 
 
-export { copyrights, copyrightsComponent };
+export default copyrightsComponent;
