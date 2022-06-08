@@ -20,6 +20,7 @@
   "devDependencies": {
     "@babel/cli": "7.17.10",
     "@babel/core": "7.18.2",
+    "@babel/eslint-parser": "^7.18.2",
     "@babel/plugin-syntax-dynamic-import": "7.8.3",
     "@babel/plugin-transform-modules-commonjs": "7.18.2",
     "@babel/preset-env": "7.18.2",
@@ -27,6 +28,7 @@
     "@rollup/plugin-commonjs": "22.0.0",
     "@rollup/plugin-node-resolve": "13.3.0",
     "babel-eslint": "10.1.0",
+    "chalk": "^5.0.1",
     "eslint": "8.17.0",
     "eslint-plugin-json": "3.1.0",
     "jest": "28.1.1",
@@ -53,10 +55,12 @@
     "atherdon-newsletter-js-layouts-typography": "^1.2.0",
     "lodash": "^4.17.21"
   },
-  "optionalDependencies": { "fsevents": "*" },
+  "optionalDependencies": {
+    "fsevents": "*"
+  },
   "jest": {
     "moduleNameMapper": {
       "@root(.*)$": "<rootDir>/src/$1"
-   }
+    }
   }
 }

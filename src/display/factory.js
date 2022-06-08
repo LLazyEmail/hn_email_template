@@ -11,8 +11,15 @@ const displayFactory = (settings, checks = [], isError = false) => {
       display: () => { 
   
           //here i want to apply a check and see if everything is fine, if not we generate error = true 
-  
-          component(params, subcomponents) 
+          try {
+            component(params, subcomponents) 
+          } catch (err) {
+            // statements to handle any exceptions
+            console.log(err);
+            
+          }
+
+          
       
       },
         
