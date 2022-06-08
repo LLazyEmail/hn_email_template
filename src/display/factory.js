@@ -16,7 +16,7 @@ const displayFactory = (settings, checks = [], isError = false) => {
           } catch (err) {
             // statements to handle any exceptions
             console.log(err);
-            
+            this.error = true;
           }
 
           
@@ -53,7 +53,7 @@ const displayFactory = (settings, checks = [], isError = false) => {
 
       log: () => { 
           console.log('123');
-        //   console.log(this.display()) 
+          console.log(this.display()) 
       },
 
       //get: () => {name:name, regEx:regEx, replace:replace(), isError:false},

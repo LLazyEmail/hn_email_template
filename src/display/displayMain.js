@@ -20,8 +20,8 @@ const settings = {
 
 const DM = displayFactory(settings);
 
-
-DM.display();
+DM.log();
+// DM.display();
 
 
 // console.log(DisplayHead);
