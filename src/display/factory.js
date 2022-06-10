@@ -8,6 +8,7 @@ const displayFactory = (settings, checks = [], isError = false) => {
       error: false, 
       params: params,
       subcomponents: subcomponents,  
+      log: false,
       display: () => { 
   
           //here i want to apply a check and see if everything is fine, if not we generate error = true 
@@ -53,7 +54,9 @@ const displayFactory = (settings, checks = [], isError = false) => {
 
       log: () => { 
           console.log('123');
-          console.log(this.display()) 
+
+          
+      //     console.log(this.display()) 
       },
 
       //get: () => {name:name, regEx:regEx, replace:replace(), isError:false},
@@ -64,5 +67,13 @@ const displayFactory = (settings, checks = [], isError = false) => {
       isError: () => { if(this.error){ return 'errror is here'; } }
     }
   }
+
+
+  // displayFactory.prototype.log = () => {
+  //   // log: () => { 
+  //     console.log('123');
+  //     console.log(this.display()) 
+  // // },
+  // }
   
   export default displayFactory;

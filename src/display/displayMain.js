@@ -10,6 +10,15 @@ import MainComponent from '../components/mainComponent';
 // methods for sub-components
 
 
+
+
+  displayFactory.prototype.log = () => {
+    // log: () => { 
+      console.log('123');
+      console.log(this.display()) 
+  // },
+  }
+
 //variant one
 const settings = {
   component: MainComponent,
@@ -19,6 +28,8 @@ const settings = {
 }
 
 const DM = displayFactory(settings);
+
+
 
 DM.log();
 // DM.display();
