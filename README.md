@@ -188,3 +188,8 @@ UPD. I forget to add a link to a repository with a source code.
 * [https://hackernoon.com/cool-newsletters-for-developers-part-1](https://hackernoon.com/cool-newsletters-for-developers-part-1)
 * [https://hackernoon.com/cool-resources-for-sending-emails](https://hackernoon.com/cool-resources-for-sending-emails)
 
+
+
+
+https://www.npmjs.com/package/htmljs-parser
+
