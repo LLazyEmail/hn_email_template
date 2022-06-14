@@ -191,7 +191,19 @@ UPD. I forget to add a link to a repository with a source code.
 
 
 
+
+
+  Try this later
+
+  - https://www.npmjs.com/package/html-validate
+
+  - https://www.npmjs.com/package/html-validator-cli
+
+  - https://www.npmjs.com/package/sanitizer
+
+  - https://www.npmjs.com/package/common-tags#introduction
+
 https://www.npmjs.com/package/htmljs-parser
 https://www.npmjs.com/package/parse5
-
+https://www.npmjs.com/package/@tehshrike/html-template-tag
 
