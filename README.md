@@ -207,3 +207,39 @@ https://www.npmjs.com/package/htmljs-parser
 https://www.npmjs.com/package/parse5
 https://www.npmjs.com/package/@tehshrike/html-template-tag
 
+
+
+submodule for https://github.com/atherdon/markdown-to-email
+
+
+### atherdon-newsletter-js-layouts
+
+
+
+  -- > body
+  -- > misc
+  -- > typography
+  -- > main
+  -- > head
+  -- > fullTemplate
+
+
+
+### atherdon-newsletter-js-layouts-misc
+
+
+### atherdon-newsletter-js-layouts-typography
+
+
+### atherdon-newsletter-js-layouts-body
+
+body
+  - > headline
+  - > logoBottom
+  - > logoTop
+  - > previewText
+  - > section
+  - > sponsor
+
+
+  
