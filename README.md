@@ -192,4 +192,6 @@ UPD. I forget to add a link to a repository with a source code.
 
 
 https://www.npmjs.com/package/htmljs-parser
+https://www.npmjs.com/package/parse5
+
 
