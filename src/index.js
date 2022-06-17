@@ -17,8 +17,8 @@
 console.log('123');
 
 
-import generateTemplateComponent from './t/generateTemplate'
-import generateEmptyTemplateComponent from './t/emptyTemplate'
+// import generateTemplateComponent from './t/generateTemplate'
+// import generateEmptyTemplateComponent from './t/emptyTemplate'
 
 
 
@@ -49,8 +49,8 @@ export default {
   // ctaList,
 
   
-  generateTemplateComponent,
-  generateEmptyTemplateComponent,
+  // generateTemplateComponent,
+  // generateEmptyTemplateComponent,
   
   
   printMain, printFooter, printBody
