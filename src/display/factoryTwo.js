@@ -1,5 +1,11 @@
 class displayFactoryTwo {
 
+    error = false;
+    isError = () => {
+        return this.error;
+    }
+
+
     create = (settings) => {
         
         const { component, params, subcomponents } = settings;
@@ -7,7 +13,18 @@ class displayFactoryTwo {
         let partial;
 
         
-        partial = component(params, subcomponents);
+        
+
+
+          //here i want to apply a check and see if everything is fine, if not we generate error = true 
+          try {
+            partial = component(params, subcomponents);
+          } catch (err) {
+            // statements to handle any exceptions
+            console.log(err);
+            // this.error = true;
+          }
+
     }
 
 

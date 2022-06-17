@@ -14,7 +14,7 @@ import headComponent from '../components/headComponent';
 
 
 
-const { fonts } = misc;
+const { fontsComponent } = misc;
 
 const title = `The Secrets of High-Performing DevOps teams`;
 
@@ -26,12 +26,14 @@ const checkingTitle = (title) => {
     }
 }
 
+// console.log(misc)
+
 
 //variant one
 const settings = {
   component: headComponent,
-  params: { title, headStylesComponent, fonts },
-  subcomponents: { }
+  params: { title },
+  subcomponents: { headStylesComponent, fontsComponent }
   
 }
 
@@ -44,9 +46,9 @@ const DM = displayFactory(settings);
 
 
 
-// const DDDDM = new displayFactoryTwo();
+const DDDDM = new displayFactoryTwo();
 
-// DDDDM.create(settings);
+DDDDM.create(settings);
 
 
 
@@ -55,7 +57,7 @@ const DM = displayFactory(settings);
 
 const DisplayHead = {
   component: headComponent,
-  params: { title, headStylesComponent, fonts },
+  params: { title, headStylesComponent, fontsComponent },
   display: () => {
       
 //         return headComponent(title, headStyles, fonts);

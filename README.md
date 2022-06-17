@@ -33,16 +33,8 @@ const displayFooter = () => {
 }
 ```
 
+atherdon-newsletter-js-layouts-misc is 
 
-
----
-
-Explore later:
-
-https://lit.dev/
-
-
-https://github.com/lit/lit/tree/main/packages/lit-html
 
 ---
 
@@ -210,6 +202,17 @@ https://www.npmjs.com/package/@tehshrike/html-template-tag
 
 
 submodule for https://github.com/atherdon/markdown-to-email
+
+
+
+---
+
+Explore later:
+
+https://lit.dev/
+
+
+https://github.com/lit/lit/tree/main/packages/lit-html
 
 
 ### atherdon-newsletter-js-layouts
