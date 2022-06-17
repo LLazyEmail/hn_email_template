@@ -8,6 +8,9 @@ class displayFactoryTwo {
 
     create = (settings) => {
         
+        // if (!settings)
+        // add error checking here.. probably few versions to test
+
         const { component, params, subcomponents } = settings;
 
         let partial;
@@ -21,7 +24,7 @@ class displayFactoryTwo {
             partial = component(params, subcomponents);
 
             console.log(partial);
-            
+
           } catch (err) {
             // statements to handle any exceptions
             console.log(err);
