@@ -67,10 +67,10 @@ const renderCustomBlock = (copyrights, address, unsubscribe, newsletterSponsorsh
 const footerComponent = ({}, subcomponents) => { 
 
   const { 
-    copyrightsComponent, address, unsubscribe, newsletterSponsorshipLink 
+    copyrightsComponent, addressComponent, unsubscribeComponent, newsletterSponsorshipLinkComponent 
   } = subcomponents;
 
-
+ 
   
   // if (!copyrights) throw new Error('no copyrights was passed');
   // if (!address) throw new Error('no address was passed');
@@ -85,20 +85,20 @@ const footerComponent = ({}, subcomponents) => {
     // if (!address) {
     //   throw new Error('invalid address');
     // }
-    if (typeof address != 'function'){ 
+    if (typeof addressComponent != 'function'){ 
       throw new Error('invalid invalid address, must be a function');
     }
   
     
-    if (typeof unsubscribe != 'function'){ 
-      throw new Error('invalid unsubscribe, must be a function');
+    if (typeof unsubscribeComponent != 'function'){ 
+      throw new Error('invalid unsubscribeComponent, must be a function');
     }
   
     // if (!newsletterSponsorshipLink)  {
     //   throw new Error('invalid newsletterSponsorshipLink');
     // }
-    if (typeof newsletterSponsorshipLink != 'function'){ 
-      throw new Error('invalid newsletterSponsorshipLink, must be a function');
+    if (typeof newsletterSponsorshipLinkComponent != 'function'){ 
+      throw new Error('invalid newsletterSponsorshipLinkComponent, must be a function');
     }
   
   return `<tr>
@@ -1003,7 +1003,7 @@ const footerComponent = ({}, subcomponents) => {
             class="mcnTextContentContainer"
           >
             <tbody>
-              ` + renderCustomBlock(copyrights, address, unsubscribe, newsletterSponsorshipLink) + `
+              ` + renderCustomBlock(copyrightsComponent, addressComponent, unsubscribeComponent, newsletterSponsorshipLinkComponent) + `
             </tbody>
           </table>
           <!--[if mso]>

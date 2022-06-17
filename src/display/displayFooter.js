@@ -19,11 +19,11 @@ const {
 //variant one
 const settings = {
   component: footerComponent,
-  params: { 
+  params: { },
+  subcomponents: {  
     copyrightsComponent, addressComponent, 
     unsubscribeComponent, newsletterSponsorshipLinkComponent 
-  },
-  subcomponents: {  }
+  }
   
 }
 
