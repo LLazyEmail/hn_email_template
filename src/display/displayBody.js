@@ -1,4 +1,6 @@
 // import factory from './factory';
+import displayFactoryTwo from './factoryTwo';
+
 
 import EmailTemplateBodyComponent from '../components/body';
 
@@ -19,20 +21,33 @@ let logoTop = '';
 let logoBottom = '';
 let content = '';
 
+
+
+
+//variant one
+const settings = {
+    component: EmailTemplateBodyComponent,
+    params: { footerComponent, logoTop, logoBottom, content },
+    subcomponents: { footerComponent }
+    
+  }
+
+// const DDDDM = new displayFactoryTwo();
+
+// DDDDM.create(settings);
+
+
 // note that footer param here is a subcomponent, 
 // so we passing footerDisplay instead of just a component
-const DisplayBody = {
-  component: EmailTemplateBodyComponent,
-  params: { footerComponent, logoTop, logoBottom, content },
-  display: () => {
-      
-      //console.log(this.component(params))
-      
-      
-  },
-  checks: () => [
-  ]
-  
-}
 
-export default DisplayBody;
+// const DisplayBody = {
+//   component: EmailTemplateBodyComponent,
+//   params: { footerComponent, logoTop, logoBottom, content },
+//   display: () => {
+      
+//       //console.log(this.component(params))
+      
+     
+// }
+
+// export default DisplayBody;
