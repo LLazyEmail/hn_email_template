@@ -7,9 +7,12 @@ import displayFactoryTwo from './factoryTwo';
 
 // partials
 import misc from 'atherdon-newsletter-js-layouts-misc';
+
 import headStylesComponent from '../components/headStyles';
 
-import headComponent from '../components/head';
+import headComponent from '../components/headComponent';
+
+
 
 const { fonts } = misc;
 
@@ -37,13 +40,13 @@ const DM = displayFactory(settings);
 
 
 
-DM.display(DM.params, DM.subcomponents);
+// DM.display(DM.params, DM.subcomponents);
 
 
 
-const DDDDM = new displayFactoryTwo();
+// const DDDDM = new displayFactoryTwo();
 
-DDDDM.create(settings);
+// DDDDM.create(settings);
 
 
 

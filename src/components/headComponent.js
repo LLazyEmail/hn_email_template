@@ -2,9 +2,14 @@ const headComponent = (params) => {
 
   const { title, headStyles, fonts } = params;
 
-  if (!title) throw new Error('no title was passed');
-  if (!headStyles) throw new Error('invalid headStyles');
-  if (!fonts)     throw new Error('invalid fonts');
+  if (!title) {
+    throw new Error('no title was passed');
+  }
+  
+  if (typeof headStyles != 'function'){ 
+    throw new Error('invalid headStylesComponent, must be a function');
+  }
+  if (!fonts)   { throw new Error('invalid fonts'); }
 
 
   return `<head>

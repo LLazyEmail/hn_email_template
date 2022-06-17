@@ -1,27 +1,27 @@
-// import body from 'atherdon-newsletter-js-layouts-body';
+// // import body from 'atherdon-newsletter-js-layouts-body';
 
-// const { 
-//     logoTop, logoBottom 
-// } = body
+// // const { 
+// //     logoTop, logoBottom 
+// // } = body
 
-import headComponent from '../components/head';
+// import headComponent from '../headComponent';
 
-import mainComponent from '../components/mainComponent'
+// import mainComponent from '../mainComponent'
 
-import footer from '../components/footer';
+// import footer from '../footer';
 
-import EmailTemplateBodyComponent from '../components/body'
+// import EmailTemplateBodyComponent from '../body'
 
-const logoTop = '';const logoBottom = '';
-
-
-const generateEmptyTemplateComponent = () => {
-
-    var emptyContent = EmailTemplateBodyComponent(footer, logoTop, logoBottom);
-
-    return mainComponent(headComponent, emptyContent);
+// const logoTop = ''; const logoBottom = '';
 
 
-}
+// const generateEmptyTemplateComponent = () => {
 
-export default generateEmptyTemplateComponent;
+//     var emptyContent = EmailTemplateBodyComponent(footer, logoTop, logoBottom);
+
+//     return mainComponent(headComponent, emptyContent);
+
+
+// }
+
+// export default generateEmptyTemplateComponent;
