@@ -1,81 +1,94 @@
-// checks should be runned inside display
-const displayFactoryTwo = (settings) => {
+class displayFactoryTwo {
 
-    const { component, params, subcomponents } = settings;
-
-
-    return {
-      error: false, 
-      params: params,
-      subcomponents: subcomponents,  
-      
-      display: () => { 
-  
-          //here i want to apply a check and see if everything is fine, if not we generate error = true 
-          try {
-            component(params, subcomponents) 
-          } catch (err) {
-            // statements to handle any exceptions
-            console.log(err);
-            this.error = true;
-          }
-
-          
-      
-      },
+    create = (settings) => {
         
-      checks: () => { return []; },  
-        
-        
-      init: () => {
-  
-      },
-      
-      try: () => {
-  
-      },
+        const { component, params, subcomponents } = settings;
 
-	  get: () => { return component; },
-
-      checks: () => {
-          checks.map(() => {
-
-          })
-
-          if(subcomponents){
-            //   subcomponents.map((component) => {
-            //     component.init();
-            //   })
-          }
+        let partial;
 
         
-
-      },
-
-      // log: () => { 
-      //     console.log('123');
-
-          
-      // //     console.log(this.display()) 
-      // },
-
-
-
-      //get: () => {name:name, regEx:regEx, replace:replace(), isError:false},
-  
-      //combine: () => {return {name:name, regEx:regEx, replace:replace()}},
-  
-      // I want to have a better way to report errors, so each callback can report an issue, so we can track it better 
-      isError: () => { if(this.error){ return 'errror is here'; } }
+        partial = component(params, subcomponents);
     }
-  }
 
 
-  displayFactory.log = () => {
-    // log: () => { 
-      console.log('123');
-      console.log(this.display()) 
-  // },
-  }
+    
+}
+
+export default displayFactoryTwo;
+
+
+//     return {
+//       error: false, 
+//       params: params,
+//       subcomponents: subcomponents,  
+      
+//       display: () => { 
   
-  export default displayFactory;
+//           //here i want to apply a check and see if everything is fine, if not we generate error = true 
+//           try {
+//             component(params, subcomponents) 
+//           } catch (err) {
+//             // statements to handle any exceptions
+//             console.log(err);
+//             this.error = true;
+//           }
+
+          
+      
+//       },
+        
+//       checks: () => { return []; },  
+        
+        
+//       init: () => {
+  
+//       },
+      
+//       try: () => {
+  
+//       },
+
+// 	  get: () => { return component; },
+
+//       checks: () => {
+//           checks.map(() => {
+
+//           })
+
+//           if(subcomponents){
+//             //   subcomponents.map((component) => {
+//             //     component.init();
+//             //   })
+//           }
+
+        
+
+//       },
+
+//       // log: () => { 
+//       //     console.log('123');
+
+          
+//       // //     console.log(this.display()) 
+//       // },
+
+
+
+//       //get: () => {name:name, regEx:regEx, replace:replace(), isError:false},
+  
+//       //combine: () => {return {name:name, regEx:regEx, replace:replace()}},
+  
+//       // I want to have a better way to report errors, so each callback can report an issue, so we can track it better 
+//       isError: () => { if(this.error){ return 'errror is here'; } }
+//     }
+//   }
+
+
+//   displayFactory.log = () => {
+//     // log: () => { 
+//       console.log('123');
+//       console.log(this.display()) 
+//   // },
+//   }
+  
+//   export default displayFactory;

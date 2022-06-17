@@ -77,17 +77,10 @@ const displayFactory = (settings, checks = [], isError = false) => {
   
       //combine: () => {return {name:name, regEx:regEx, replace:replace()}},
   
-      // I want to have a better way to report errors, so each callback can report an issue, so we can track it better 
-      isError: () => { if(this.error){ return 'errror is here'; } }
+
     }
   }
 
 
-  // displayFactory.prototype.log = () => {
-  //   // log: () => { 
-  //     console.log('123');
-  //     // console.log(this.display()) 
-  // // },
-  // }
   
   export default displayFactory;

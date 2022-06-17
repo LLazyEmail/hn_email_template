@@ -1,4 +1,7 @@
-// import factory from './factory';
+import displayFactory from './factory';
+import displayFactoryTwo from './factoryTwo';
+
+
 
 // @TODO we need to finalize this file, so we can accept real data, not just static title...
 
@@ -19,6 +22,33 @@ const checkingTitle = (title) => {
         throw new Error(ERROR_TITLE);
     }
 }
+
+
+//variant one
+const settings = {
+  component: headComponent,
+  params: { title, headStylesComponent, fonts },
+  subcomponents: { }
+  
+}
+
+const DM = displayFactory(settings);
+
+
+
+
+DM.display(DM.params, DM.subcomponents);
+
+
+
+const DDDDM = new displayFactoryTwo();
+
+DDDDM.create(settings);
+
+
+
+
+
 
 const DisplayHead = {
   component: headComponent,

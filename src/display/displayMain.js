@@ -1,4 +1,5 @@
 import displayFactory from './factory';
+import displayFactoryTwo from './factoryTwo';
 
 // partials
 import DisplayHead from './displayHead';
@@ -36,13 +37,19 @@ const settings = {
 
 const DM = displayFactory(settings);
 
+
 // console.log(DM)
 
 // console.log(typeof DM)
 // 
 // DM.log();
-DM.display(DM.params, DM.subcomponents);
+// DM.display(DM.params, DM.subcomponents);
 
+
+
+// const DDDDM = new displayFactoryTwo();
+
+// DDDDM.create(settings);
 
 // console.log(DisplayHead);
 // console.log(DisplayBody);
@@ -52,26 +59,30 @@ DM.display(DM.params, DM.subcomponents);
 
 
 
-const DisplayMain = {
-  component: MainComponent,
-  params: { DisplayHead, DisplayBody },
-  display: () => {
-    
-    //  console.log(this.component(params))
-    
-//     const head = displayHead(title);
-//     const body = displayBody();
-    
-//     return mainComponent(head, body);
-    
-  },
-  checks: () => [
-    
-  ]
-  
-}
 
-export default DisplayMain;
+//-------------------
+
+// const DisplayMain = {
+  
+//   component: MainComponent,
+//   params: { DisplayHead, DisplayBody },
+//   display: () => {
+    
+//     //  console.log(this.component(params))
+    
+// //     const head = displayHead(title);
+// //     const body = displayBody();
+    
+// //     return mainComponent(head, body);
+    
+//   },
+//   checks: () => [
+    
+//   ]
+  
+// }
+
+// export default DisplayMain;
 
 
 
