@@ -1,14 +1,23 @@
 // checks should be runned inside display
 const displayFactory = (settings, checks = [], isError = false) => {
 
+    // console.log(settings)
+
     const { component, params, subcomponents } = settings;
+
+    if(!component) throw new Error('no component was passed')
+
+    if(!params) throw new Error('no params was passed')
+    
+    // if(!subcomponents) throw new Error('no component was passed')
+    
 
 
     return {
       error: false, 
       params: params,
-      subcomponents: subcomponents || null,  
-      log: false,
+      subcomponents: (subcomponents) ? subcomponents : null,  
+      // log: false,
       display: () => { 
   
           //here i want to apply a check and see if everything is fine, if not we generate error = true 
@@ -17,7 +26,7 @@ const displayFactory = (settings, checks = [], isError = false) => {
           } catch (err) {
             // statements to handle any exceptions
             console.log(err);
-            this.error = true;
+            // this.error = true;
           }
 
           
@@ -52,12 +61,13 @@ const displayFactory = (settings, checks = [], isError = false) => {
 
       },
 
-      // log: () => { 
-      //     console.log('123');
+      log: () => { 
+          console.log('123');
 
+          console.log(this);
           
       // //     console.log(this.display()) 
-      // },
+      },
 
 
 
@@ -71,11 +81,11 @@ const displayFactory = (settings, checks = [], isError = false) => {
   }
 
 
-  displayFactory.log = () => {
-    // log: () => { 
-      console.log('123');
-      console.log(this.display()) 
-  // },
-  }
+  // displayFactory.prototype.log = () => {
+  //   // log: () => { 
+  //     console.log('123');
+  //     // console.log(this.display()) 
+  // // },
+  // }
   
   export default displayFactory;

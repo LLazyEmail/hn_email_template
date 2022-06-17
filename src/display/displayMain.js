@@ -30,7 +30,7 @@ import MainComponent from '../components/mainComponent';
 const settings = {
   component: MainComponent,
   params: {  },
-  subComponents: { DisplayHead, DisplayBody }
+  subcomponents: { DisplayHead, DisplayBody }
   
 }
 
@@ -38,9 +38,10 @@ const DM = displayFactory(settings);
 
 console.log(DM)
 
-
+// console.log(typeof DM)
+// 
 // DM.log();
-// DM.display();
+DM.display();
 
 
 // console.log(DisplayHead);
