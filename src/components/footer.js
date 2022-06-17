@@ -13,18 +13,32 @@
 
 const renderCustomBlock = (copyrights, address, unsubscribe, newsletterSponsorshipLink) => {
 
-    if (!copyrights) {
+    // if (!copyrights) {
+    //   throw new Error('no copyrights was passed');
+    // }
+    if (typeof copyrights != 'function'){ 
       throw new Error('no copyrights was passed');
     }
-    if (!address) {
-      throw new Error('invalid address');
+  
+    // if (!address) {
+    //   throw new Error('invalid address');
+    // }
+    if (typeof address != 'function'){ 
+      throw new Error('invalid invalid address, must be a function');
     }
-    if (!unsubscribe) {     
-      throw new Error('invalid unsubscribe');
+  
+    
+    if (typeof unsubscribe != 'function'){ 
+      throw new Error('invalid unsubscribe, must be a function');
     }
-    if (!newsletterSponsorshipLink)  {
-      throw new Error('invalid newsletterSponsorshipLink');
+  
+    // if (!newsletterSponsorshipLink)  {
+    //   throw new Error('invalid newsletterSponsorshipLink');
+    // }
+    if (typeof newsletterSponsorshipLink != 'function'){ 
+      throw new Error('invalid newsletterSponsorshipLink, must be a function');
     }
+  
 
     return `<tr>
     <td
@@ -39,26 +53,54 @@ const renderCustomBlock = (copyrights, address, unsubscribe, newsletterSponsorsh
         font-size: 12px;line-height: 150%; text-align: center;
       "
     >
-      ${copyrights}
+      ${copyrights()}
 
       <br />
-      ${address}
+      ${address()}
       <br />
-      ${unsubscribe}
-      ${newsletterSponsorshipLink}
+      ${unsubscribe()}
+      ${newsletterSponsorshipLink()}
     </td>
   </tr>`
 }
 
-const footerComponent = (params) => { 
+const footerComponent = ({}, subcomponents) => { 
 
-  let { copyrights, address, unsubscribe, newsletterSponsorshipLink } = params;
+  const { 
+    copyrightsComponent, address, unsubscribe, newsletterSponsorshipLink 
+  } = subcomponents;
+
+
   
-  if (!copyrights) throw new Error('no copyrights was passed');
-  if (!address) throw new Error('no address was passed');
-  if (!unsubscribe) throw new Error('no unsubscribe was passed');
-  if (!newsletterSponsorshipLink) throw new Error('no newsletterSponsorshipLink was passed');
+  // if (!copyrights) throw new Error('no copyrights was passed');
+  // if (!address) throw new Error('no address was passed');
+  // if (!unsubscribe) throw new Error('no unsubscribe was passed');
+  // if (!newsletterSponsorshipLink) throw new Error('no newsletterSponsorshipLink was passed');
 
+
+    if (typeof copyrightsComponent != 'function'){ 
+      throw new Error('no copyrights was passed');
+    }
+  
+    // if (!address) {
+    //   throw new Error('invalid address');
+    // }
+    if (typeof address != 'function'){ 
+      throw new Error('invalid invalid address, must be a function');
+    }
+  
+    
+    if (typeof unsubscribe != 'function'){ 
+      throw new Error('invalid unsubscribe, must be a function');
+    }
+  
+    // if (!newsletterSponsorshipLink)  {
+    //   throw new Error('invalid newsletterSponsorshipLink');
+    // }
+    if (typeof newsletterSponsorshipLink != 'function'){ 
+      throw new Error('invalid newsletterSponsorshipLink, must be a function');
+    }
+  
   return `<tr>
 <td
   valign="top"

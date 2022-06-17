@@ -37,18 +37,12 @@ const settings = {
   
 }
 
-const DM = displayFactory(settings);
 
 
 
+// const DDDDM = new displayFactoryTwo();
 
-// DM.display(DM.params, DM.subcomponents);
-
-
-
-const DDDDM = new displayFactoryTwo();
-
-DDDDM.create(settings);
+// DDDDM.create(settings);
 
 
 
