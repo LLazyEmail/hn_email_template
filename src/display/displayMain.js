@@ -36,12 +36,12 @@ const settings = {
 
 const DM = displayFactory(settings);
 
-console.log(DM)
+// console.log(DM)
 
 // console.log(typeof DM)
 // 
 // DM.log();
-DM.display();
+DM.display(DM.params, DM.subcomponents);
 
 
 // console.log(DisplayHead);
