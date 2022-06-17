@@ -10,14 +10,21 @@ import MainComponent from '../components/mainComponent';
 // methods for sub-components
 
 
+// var hey =  displayFactory({ a:"aaa", b:"bbb", c:"ccc", d:"ddd" });
+
+// console.log(hey)
 
 
-  displayFactory.prototype.log = () => {
-    // log: () => { 
-      console.log('123');
-      console.log(this.display()) 
-  // },
-  }
+// console.log(hey.log())
+
+// console.log(displayFactory.log())
+
+  // displayFactory.prototype.log = () => {
+  //   // log: () => { 
+  //     console.log('123');
+  //     console.log(this.display()) 
+  // // },
+  // }
 
 //variant one
 const settings = {
@@ -29,9 +36,10 @@ const settings = {
 
 const DM = displayFactory(settings);
 
+console.log(DM)
 
 
-DM.log();
+// DM.log();
 // DM.display();
 
 

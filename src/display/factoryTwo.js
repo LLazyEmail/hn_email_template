@@ -1,5 +1,5 @@
 // checks should be runned inside display
-const displayFactory = (settings, checks = [], isError = false) => {
+const displayFactoryTwo = (settings) => {
 
     const { component, params, subcomponents } = settings;
 
@@ -7,8 +7,8 @@ const displayFactory = (settings, checks = [], isError = false) => {
     return {
       error: false, 
       params: params,
-      subcomponents: subcomponents || null,  
-      log: false,
+      subcomponents: subcomponents,  
+      
       display: () => { 
   
           //here i want to apply a check and see if everything is fine, if not we generate error = true 
