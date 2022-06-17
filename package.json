@@ -29,7 +29,7 @@
     "@rollup/plugin-node-resolve": "13.3.0",
     "babel-eslint": "10.1.0",
     "chalk": "^5.0.1",
-    "eslint": "8.17.0",
+    "eslint": "8.18.0",
     "eslint-plugin-json": "3.1.0",
     "jest": "28.1.1",
     "markup-generator": "0.4.0",
