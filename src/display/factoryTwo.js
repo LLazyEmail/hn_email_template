@@ -19,6 +19,9 @@ class displayFactoryTwo {
           //here i want to apply a check and see if everything is fine, if not we generate error = true 
           try {
             partial = component(params, subcomponents);
+
+            console.log(partial);
+            
           } catch (err) {
             // statements to handle any exceptions
             console.log(err);
