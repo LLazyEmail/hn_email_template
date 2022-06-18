@@ -19,6 +19,8 @@ const renderTemplate = (element, options, generateCustomTemplate) => {
 };
 
 
+
+
 export default {
   renderTemplate: (...args) => {
     const html = renderTemplate(...args);

@@ -245,4 +245,10 @@ body
   - > sponsor
 
 
+  "atherdon-newsletter-js-layouts"
+  contains
+    "atherdon-newsletter-js-layouts-body"
+    "atherdon-newsletter-js-layouts-footer"
+    "atherdon-newsletter-js-layouts-misc"
+    "atherdon-newsletter-js-layouts-typography"
   

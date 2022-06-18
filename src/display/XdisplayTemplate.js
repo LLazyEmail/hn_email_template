@@ -1,0 +1,2 @@
+// ---------------
+import displayFactoryTwo from './factoryTwo';

@@ -64,7 +64,10 @@ const renderCustomBlock = (copyrights, address, unsubscribe, newsletterSponsorsh
   </tr>`
 }
 
-const footerComponent = ({}, subcomponents) => { 
+const footerComponent = (params, subcomponents) => { 
+
+  const { address } = params;
+
 
   const { 
     copyrightsComponent, addressComponent, unsubscribeComponent, newsletterSponsorshipLinkComponent 

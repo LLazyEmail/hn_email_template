@@ -1,10 +1,12 @@
+import misc from 'atherdon-newsletter-js-layouts-misc';
+
 // import factory from './factory';
 import displayFactoryTwo from './factoryTwo';
 
 
 import footerComponent from "../components/footer";
 
-import misc from 'atherdon-newsletter-js-layouts-misc';
+import config from "../config";
 
 const {
   addressComponent,
@@ -15,13 +17,19 @@ const {
 } = misc;
 
 
+const addon1 = {
+  address: addressComponent(config.mailingAddress),
+
+}
+
+
 
 //variant one
 const settings = {
   component: footerComponent,
-  params: { },
+  params: addon1,
   subcomponents: {  
-    copyrightsComponent, addressComponent, 
+    copyrightsComponent, 
     unsubscribeComponent, newsletterSponsorshipLinkComponent 
   }
   
