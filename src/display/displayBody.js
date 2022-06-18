@@ -6,7 +6,8 @@ import EmailTemplateBodyComponent from '../components/body';
 
 
 
-import footerComponent from '../components/footer';
+// import footerComponent from '../components/footer';
+import footerFactory from '../display/displayFooter';
 
 
 const ERROR_BODY = '`bodyContent` is a required option for `renderTemplate`';
@@ -27,13 +28,19 @@ let content = '';
 // so we passing footerDisplay instead of just a component
 
 
+let addon1 = {
+    footer: footerFactory.partial,
 
+    logoTop, logoBottom, content
+
+}
 
 //variant one
 const settings = {
     component: EmailTemplateBodyComponent,
-    params: { footerComponent, logoTop, logoBottom, content },
-    subcomponents: { footerComponent }
+    // params: { footerComponent, logoTop, logoBottom, content },
+    params: addon1,
+    subcomponents: {  }
     
 }
 

@@ -57,19 +57,9 @@ console.log(DDDDM);
 // const DisplayFooter = {
 //     component: footerComponent,
 //     params: { copyrights, address, unsubscribe, newsletterSponsorshipLink },
-//     display: () => {
-        
-//   //         return footerComponent(copyrights, address, unsubscribe, newsletterSponsorshipLink)
-// //         return footerComponent(this.params)
-        
-//         // console.log( this.component );
-//   //     return this.component(....)
-        
-//     },
+
 //     checks: () => [
 //         // checkingTitle(this.params.title)
 //     ]
     
 //   }
-  
-//   export default DisplayFooter;

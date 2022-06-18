@@ -8,6 +8,14 @@ class displayFactoryTwo {
       this.partial = string;
     }
 
+    getPartial = () => {
+      return this.partial;
+    }
+
+    display = () => {
+      this.getPartial();
+    }
+
     create = (settings) => {
         
         // if (!settings)
