@@ -11,7 +11,7 @@
 
 
 
-const renderCustomBlock = (copyrights, address, unsubscribe, newsletterSponsorshipLink) => {
+const renderCustomBlock = (copyrights, address, unsubscribe, sponsor) => {
 
     // if (!copyrights) {
     //   throw new Error('no copyrights was passed');
@@ -20,24 +20,24 @@ const renderCustomBlock = (copyrights, address, unsubscribe, newsletterSponsorsh
       throw new Error('no copyrights was passed');
     }
   
-    // if (!address) {
-    //   throw new Error('invalid address');
-    // }
-    if (typeof address != 'function'){ 
-      throw new Error('invalid invalid address, must be a function');
+    if (!address) {
+      throw new Error('invalid address');
     }
+    // if (typeof address != 'function'){ 
+    //   throw new Error('invalid invalid address, must be a function');
+    // }
   
     
     if (typeof unsubscribe != 'function'){ 
       throw new Error('invalid unsubscribe, must be a function');
     }
   
-    // if (!newsletterSponsorshipLink)  {
-    //   throw new Error('invalid newsletterSponsorshipLink');
-    // }
-    if (typeof newsletterSponsorshipLink != 'function'){ 
-      throw new Error('invalid newsletterSponsorshipLink, must be a function');
+    if (!sponsor)  {
+      throw new Error('invalid newsletterSponsorshipLink');
     }
+    // if (typeof newsletterSponsorshipLink != 'function'){ 
+    //   throw new Error('invalid newsletterSponsorshipLink, must be a function');
+    // }
   
 
     return `<tr>
@@ -56,29 +56,32 @@ const renderCustomBlock = (copyrights, address, unsubscribe, newsletterSponsorsh
       ${copyrights()}
 
       <br />
-      ${address()}
+      ${address}
       <br />
       ${unsubscribe()}
-      ${newsletterSponsorshipLink()}
+      ${sponsor}
     </td>
   </tr>`
 }
 
 const footerComponent = (params, subcomponents) => { 
 
-  const { address } = params;
+  const { address, sponsor } = params;
 
 
   const { 
-    copyrightsComponent, addressComponent, unsubscribeComponent, newsletterSponsorshipLinkComponent 
+    copyrightsComponent, 
+    // addressComponent, 
+    unsubscribeComponent, 
+    // newsletterSponsorshipLinkComponent 
   } = subcomponents;
 
  
   
   // if (!copyrights) throw new Error('no copyrights was passed');
-  // if (!address) throw new Error('no address was passed');
+  if (!address) throw new Error('no address was passed');
   // if (!unsubscribe) throw new Error('no unsubscribe was passed');
-  // if (!newsletterSponsorshipLink) throw new Error('no newsletterSponsorshipLink was passed');
+  if (!sponsor) throw new Error('no newsletterSponsorshipLink was passed');
 
 
     if (typeof copyrightsComponent != 'function'){ 
@@ -88,9 +91,9 @@ const footerComponent = (params, subcomponents) => {
     // if (!address) {
     //   throw new Error('invalid address');
     // }
-    if (typeof addressComponent != 'function'){ 
-      throw new Error('invalid invalid address, must be a function');
-    }
+    // if (typeof addressComponent != 'function'){ 
+    //   throw new Error('invalid invalid address, must be a function');
+    // }
   
     
     if (typeof unsubscribeComponent != 'function'){ 
@@ -100,9 +103,9 @@ const footerComponent = (params, subcomponents) => {
     // if (!newsletterSponsorshipLink)  {
     //   throw new Error('invalid newsletterSponsorshipLink');
     // }
-    if (typeof newsletterSponsorshipLinkComponent != 'function'){ 
-      throw new Error('invalid newsletterSponsorshipLinkComponent, must be a function');
-    }
+    // if (typeof newsletterSponsorshipLinkComponent != 'function'){ 
+    //   throw new Error('invalid newsletterSponsorshipLinkComponent, must be a function');
+    // }
   
   return `<tr>
 <td
@@ -1006,7 +1009,7 @@ const footerComponent = (params, subcomponents) => {
             class="mcnTextContentContainer"
           >
             <tbody>
-              ` + renderCustomBlock(copyrightsComponent, addressComponent, unsubscribeComponent, newsletterSponsorshipLinkComponent) + `
+              ` + renderCustomBlock(copyrightsComponent, address, unsubscribeComponent, newsletterSponsorshipLinkComponent) + `
             </tbody>
           </table>
           <!--[if mso]>

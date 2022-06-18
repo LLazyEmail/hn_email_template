@@ -6,7 +6,14 @@ import displayFactoryTwo from './factoryTwo';
 
 import footerComponent from "../components/footer";
 
-import config from "../config";
+// import config from "../config";
+
+// console.log(config)
+
+let mailingAddress = "PO Box 2206, Edwards CO, 81632, U.S.A.";
+let contact =  'https://sponsor.hackernoon.com/newsletter?ref=noonifications.tech';
+
+
 
 const {
   addressComponent,
@@ -18,8 +25,8 @@ const {
 
 
 const addon1 = {
-  address: addressComponent(config.mailingAddress),
-
+  address: addressComponent(mailingAddress),
+  sponsor: newsletterSponsorshipLinkComponent(contact)
 }
 
 
@@ -30,7 +37,8 @@ const settings = {
   params: addon1,
   subcomponents: {  
     copyrightsComponent, 
-    unsubscribeComponent, newsletterSponsorshipLinkComponent 
+    unsubscribeComponent, 
+    // newsletterSponsorshipLinkComponent 
   }
   
 }
