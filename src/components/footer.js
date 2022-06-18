@@ -1009,7 +1009,7 @@ const footerComponent = (params, subcomponents) => {
             class="mcnTextContentContainer"
           >
             <tbody>
-              ` + renderCustomBlock(copyrightsComponent, address, unsubscribeComponent, newsletterSponsorshipLinkComponent) + `
+              ` + renderCustomBlock(copyrightsComponent, address, unsubscribeComponent, sponsor) + `
             </tbody>
           </table>
           <!--[if mso]>

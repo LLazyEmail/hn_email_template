@@ -4,7 +4,9 @@ class displayFactoryTwo {
     isError = () => {
         return this.error;
     }
-
+    setPartial = (string) => {
+      this.partial = string;
+    }
 
     create = (settings) => {
         
@@ -23,7 +25,9 @@ class displayFactoryTwo {
           try {
             partial = component(params, subcomponents);
 
-            console.log(partial);
+
+            // this.setPartial(partial);
+            // console.log(partial);
 
           } catch (err) {
             // statements to handle any exceptions

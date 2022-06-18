@@ -47,9 +47,9 @@ const DM = displayFactory(settings);
 
 
 
-// const DDDDM = new displayFactoryTwo();
+const DDDDM = new displayFactoryTwo();
 
-// DDDDM.create(settings);
+DDDDM.create(settings);
 
 // console.log(DisplayHead);
 // console.log(DisplayBody);

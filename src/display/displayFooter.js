@@ -6,6 +6,8 @@ import displayFactoryTwo from './factoryTwo';
 
 import footerComponent from "../components/footer";
 
+
+//--------
 // import config from "../config";
 
 // console.log(config)
@@ -38,6 +40,7 @@ const settings = {
   subcomponents: {  
     copyrightsComponent, 
     unsubscribeComponent, 
+
     // newsletterSponsorshipLinkComponent 
   }
   
@@ -48,6 +51,7 @@ const DDDDM = new displayFactoryTwo();
 
 DDDDM.create(settings);
 
+console.log(DDDDM);
 
 
 // const DisplayFooter = {

@@ -40,12 +40,14 @@ const settings = {
 
 
 
-// const DDDDM = new displayFactoryTwo();
+const Factory = new displayFactoryTwo();
 
-// DDDDM.create(settings);
+Factory.create(settings);
+
+// console.log(Factory);
 
 
-
+export default Factory;
 
 
 
