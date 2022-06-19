@@ -8,6 +8,11 @@ const {
   writingFile
 } = require('../src/methods');
 
+
+console.log(printMain())
+console.log(printHead())
+
+
 // var generateEmptyTemplateComponent = require('../src/t/emptyTemplate');
 
 // var generateTemplateComponent = require('../src/t/generateTemplate');
@@ -18,11 +23,11 @@ describe('test helpers', () => {
 
     test('rendering head component', () => {
 
-      const string = printHead();
+      // const string = printHead();
 
-      // console.log(string);
+      // // console.log(string);
 
-      writingFile(string);
+      // writingFile(string);
     });
   
   //  test('rendering Empty Template', () => {

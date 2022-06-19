@@ -45,6 +45,10 @@ const printBody = () => {
 
 const writingFile = (content) => {
 
+  if(!content) {
+    throw new Error('no content was passed into writingFile method')
+  }
+
   // const content  = generateEmptyTemplateComponent();
   const fileName = generateTemplateName('lit-empty');
 

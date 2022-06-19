@@ -28,10 +28,10 @@ describe('test helpers', () => {
 
       // // console.log(string);
 
-      expect(printMain()).toBeDefined();
+      // expect(printMain()).toBeDefined();
 
-      // expect(typeof string).toBe('string');
-      writingFile(string);
+      // // expect(typeof string).toBe('string');
+      // writingFile(string);
 
   });
 
@@ -43,10 +43,10 @@ describe('test helpers', () => {
 
     // console.log(string);
 
-    expect(printMain()).toBeDefined();
+  //   expect(printMain()).toBeDefined();
 
-  //   // expect(typeof string).toBe('string');
-    writingFile(string);
+  // //   // expect(typeof string).toBe('string');
+  //   writingFile(string);
 
   });
 
