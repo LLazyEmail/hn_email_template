@@ -2,8 +2,13 @@ import displayFactory from './factory';
 import displayFactoryTwo from './factoryTwo';
 
 // partials
-import DisplayHead from './displayHead';
-import DisplayBody from './displayBody';
+// import DisplayHead from './displayHead';
+// import DisplayBody from './displayBody';
+
+
+import headString from '../display/displayHead';
+
+import bodyString from '../display/displayBody';
 
 import MainComponent from '../components/mainComponent';
 
@@ -30,21 +35,22 @@ import MainComponent from '../components/mainComponent';
 //variant one
 const settings = {
   component: MainComponent,
-  params: {  },
-  subcomponents: { DisplayHead, DisplayBody }
+  params: { head: headString, body: bodyString  },
+  subcomponents: {  }
   
 }
 
-const DM = displayFactory(settings);
+// const DM = displayFactory(settings);
 
 
 
 
 const DDDDM = new displayFactoryTwo();
 
-DDDDM.create(settings);
+// DDDDM.create(settings);
 
-// console.log(DisplayHead);
+let FULLLL = DDDDM.create(settings);
+console.log(FULLLL);
 // console.log(DisplayBody);
 
 

@@ -19,8 +19,8 @@ const checkingBodyContent = (bodyContent) => {
 
 let logoTop = 'http://placekitten.com/200/300';
 let logoBottom = 'http://placekitten.com/200/300';
-let content = '{THIS IS PLACE FOR A CONTENT INSIDE}';
-let previewText = '{AMA PREVIEW TEXT}' 
+let content = '[[THIS IS PLACE FOR A CONTENT INSIDE]';
+let previewText = '[AMA PREVIEW TEXT]' 
 
 
 // note that footer param here is a subcomponent, 

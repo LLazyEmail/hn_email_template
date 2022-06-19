@@ -1,11 +1,11 @@
-const mainComponent = ({}, subcomponents) => {
+const mainComponent = (params, subcomponents) => {
 
   
-  if (!subcomponents) {
+  if (!params) {
     throw new Error('no Sub Components was passed');
   }
 
-  const { headComponent, bodyComponent } = subcomponents; 
+  const { head, body } = params; 
   // const { head, body } = components; 
 
   // headComponent.isError();
@@ -17,8 +17,8 @@ const mainComponent = ({}, subcomponents) => {
     xmlns:v="urn:schemas-microsoft-com:vml"
     xmlns:o="urn:schemas-microsoft-com:office:office"
   >
-   ${headComponent.display()}
-   ${bodyComponent.display()}
+   ${head}
+   ${body}
     
   </html>`;
 
