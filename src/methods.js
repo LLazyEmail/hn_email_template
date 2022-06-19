@@ -2,22 +2,38 @@ import { writeHTML, generateTemplateName } from 'markup-generator'
 
 
 
-import DisplayHead from './display/displayHead';
+import HeadString   from './display/displayHead';
 
-import DisplayMain from './display/displayMain';
+import BodyString   from './display/displayBody';
 
-import DisplayFooter from './display/displayFooter';
+import FooterString from './display/displayFooter';
 
 
-// const componentFactory = () => {
+import MainString from './display/displayMain';
 
+
+
+
+const printHead = () => {
+
+  return HeadString;
   
-
-// }
-
-// import DisplayBody from './display/displayBody';
+}
 
 
+
+const printMain = () => {
+  return MainString;
+}
+
+const printFooter = () => {
+  return FooterString;
+
+}
+
+const printBody = () => {
+  return BodyString;
+}
 
 
 // instead of importhing these methods we can run displayXXX.checks[xxx]
@@ -29,81 +45,24 @@ import DisplayFooter from './display/displayFooter';
 
 
 
-const printHead = () => {
-  let headObject = new DisplayHead();
 
-  headObject.display();
 
-  
+const writingFile = (content) => {
+
+  // const content  = generateEmptyTemplateComponent();
+  const fileName = generateTemplateName('lit-empty');
+
+  writeHTML(fileName, content);
 }
-
-const printMain = () => {
-  let mainObject = new DisplayMain();
-
-
-}
-
-const printFooter = () => {
-  let footerObject = new DisplayFooter();
-
-}
-
-// not working anymore
-// const printMain = () => {
-
-//   let
-
-  
-//   return displayMain();
-//   // return mainComponent("xxx", "xxx");
-// //   mainComponent(head, bodyComponent);
-// }
-
-// ------------------------
-
-// not working anymore
-// const printFooter = () => {
-
-
-//   return footer("","","","",);
-//   //
-// }
-
-// ------------------------
-
-// not working anymore
-// const printBody = () => {
-//   return EmailTemplateBodyComponent(footer, "", "");
-//   //EmailTemplateBodyComponent(footer, logoTop, logoBottom)
-// }
-
-// ------------------------
-
-// not working anymore
-// const printHead = () => {
-//   return displayHead("Ziba Zyaba Zoooo");
-//   // return headComponent("Ziba Zyaba Zoooo", "xxx", "xxx");
-// }
-
-// ------------------------
-
-
-// const writingFile = (content) => {
-
-//   // const content  = generateEmptyTemplateComponent();
-//   const fileName = generateTemplateName('lit-empty');
-
-//   writeHTML(fileName, content);
-// }
 
 
 
 export { 
-  // printMain, 
+  printMain, 
   
-  // printFooter, printBody,
-  // printHead,
+  printFooter, printBody,
+  printHead,
 
 
-  // writingFile
+  writingFile
  }

@@ -1,4 +1,4 @@
-import displayFactory from './factory';
+// import displayFactory from './factory';
 import displayFactoryTwo from './factoryTwo';
 
 import headString from '../display/displayHead';
@@ -9,7 +9,7 @@ import MainComponent from '../components/mainComponent';
 
 
 
-import { writeHTML, generateTemplateName } from 'markup-generator'
+// import { writeHTML, generateTemplateName } from 'markup-generator'
 
 
 
@@ -42,5 +42,5 @@ let FULLLL = DDDDM.create(settings);
 // console.log(DisplayBody);
 
 
-const fileName = generateTemplateName('lit-empty');
-writeHTML(fileName, FULLLL);
+// const fileName = generateTemplateName('lit-empty');
+// writeHTML(fileName, FULLLL);
