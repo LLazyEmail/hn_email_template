@@ -3,6 +3,8 @@ import displayFactoryTwo from './factoryTwo';
 
 import previewTextComponent from "../components/previewText";
 
+import { logoBottomComponent, logoTopComponent } from "atherdon-newsletter-js-layouts-body"
+
 import EmailTemplateBodyComponent from '../components/body';
 
 
@@ -17,8 +19,13 @@ const checkingBodyContent = (bodyContent) => {
     }
 }
 
+
+
 let logoTop = 'http://placekitten.com/200/300';
 let logoBottom = 'http://placekitten.com/200/300';
+
+
+
 let content = '[[THIS IS PLACE FOR A CONTENT INSIDE]';
 let previewText = '[AMA PREVIEW TEXT]' 
 

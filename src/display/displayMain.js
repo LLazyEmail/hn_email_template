@@ -1,6 +1,13 @@
 import displayFactory from './factory';
 import displayFactoryTwo from './factoryTwo';
 
+
+
+import { writeHTML, generateTemplateName } from 'markup-generator'
+
+
+
+
 // partials
 // import DisplayHead from './displayHead';
 // import DisplayBody from './displayBody';
@@ -16,21 +23,10 @@ import MainComponent from '../components/mainComponent';
 // methods for sub-components
 
 
-// var hey =  displayFactory({ a:"aaa", b:"bbb", c:"ccc", d:"ddd" });
-
-// console.log(hey)
 
 
-// console.log(hey.log())
+// const title = `The Secrets of High-Performing DevOps teams`;
 
-// console.log(displayFactory.log())
-
-  // displayFactory.prototype.log = () => {
-  //   // log: () => { 
-  //     console.log('123');
-  //     console.log(this.display()) 
-  // // },
-  // }
 
 //variant one
 const settings = {
@@ -54,49 +50,11 @@ console.log(FULLLL);
 // console.log(DisplayBody);
 
 
+const fileName = generateTemplateName('lit-empty');
+
+  writeHTML(fileName, FULLLL);
 
 
-
-
-
-//-------------------
-
-// const DisplayMain = {
-  
-//   component: MainComponent,
-//   params: { DisplayHead, DisplayBody },
-//   display: () => {
-    
-//     //  console.log(this.component(params))
-    
-// //     const head = displayHead(title);
-// //     const body = displayBody();
-    
-// //     return mainComponent(head, body);
-    
-//   },
-//   checks: () => [
-    
-//   ]
-  
-// }
-
-// export default DisplayMain;
-
-
-
-// const {
-//     address,
-//     copyrights,
-    
-//     newsletterSponsorshipLink,
-//     unsubscribe,
-
-//     fonts
-// } = misc;
-
-// // import { headStyles } from '../templates/head-styles';
-// const title = `The Secrets of High-Performing DevOps teams`;
 
 // const displayMain = () => {
   
