@@ -7,7 +7,7 @@ import EmailTemplateBodyComponent from '../components/body';
 
 
 // import footerComponent from '../components/footer';
-import footerFactory from '../display/displayFooter';
+import footerString from '../display/displayFooter';
 
 
 const ERROR_BODY = '`bodyContent` is a required option for `renderTemplate`';
@@ -18,9 +18,9 @@ const checkingBodyContent = (bodyContent) => {
     }
 }
 
-let logoTop = '';
-let logoBottom = '';
-let content = '';
+let logoTop = 'http://placekitten.com/200/300';
+let logoBottom = 'http://placekitten.com/200/300';
+let content = '{THIS IS PLACE FOR A CONTENT INSIDE}';
 
 
 
@@ -29,11 +29,14 @@ let content = '';
 
 
 let addon1 = {
-    footer: footerFactory.partial,
+    footer: footerString,
 
     logoTop, logoBottom, content
 
 }
+
+// console.log(footerString);
+// console.log(addon1);
 
 //variant one
 const settings = {
@@ -44,8 +47,8 @@ const settings = {
     
 }
 
-const DDDDM = new displayFactoryTwo();
+const BodyFactory = new displayFactoryTwo();
 
-DDDDM.create(settings);
+export default BodyFactory.create(settings);
 
-export default DDDDM;
+// export default DDDDM;

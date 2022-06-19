@@ -38,13 +38,6 @@ const settings = {
 const DM = displayFactory(settings);
 
 
-// console.log(DM)
-
-// console.log(typeof DM)
-// 
-// DM.log();
-// DM.display(DM.params, DM.subcomponents);
-
 
 
 const DDDDM = new displayFactoryTwo();

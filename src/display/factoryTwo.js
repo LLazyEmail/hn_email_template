@@ -1,6 +1,8 @@
 class displayFactoryTwo {
 
     error = false;
+    partial = '';
+
     isError = () => {
         return this.error;
     }
@@ -33,7 +35,7 @@ class displayFactoryTwo {
           try {
             partial = component(params, subcomponents);
 
-
+            return partial;
             // this.setPartial(partial);
             // console.log(partial);
 

@@ -49,9 +49,11 @@ const settings = {
 
 const DDDDM = new displayFactoryTwo();
 
-DDDDM.create(settings);
+export default DDDDM.create(settings);
+// console.log(DDDDM);
 
-console.log(DDDDM);
+// export default DDDDM;
+
 
 
 // const DisplayFooter = {

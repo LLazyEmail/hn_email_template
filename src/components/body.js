@@ -13,7 +13,8 @@ const EmailTemplateBodyComponent = (params) => {
   if (!footer) {
     throw new Error('no footer was passed');
   }
-  if (!logoTop || logoBottom) {
+
+  if (!logoTop || !logoBottom) {
     throw new Error('invalid logo');
   }
   
