@@ -78,7 +78,7 @@ const footerComponent = (params, subcomponents) => {
 
  
 
-  
+
   
   // if (!copyrights) throw new Error('no copyrights was passed');
   if (!address) throw new Error('no address was passed');
@@ -90,13 +90,6 @@ const footerComponent = (params, subcomponents) => {
       throw new Error('no copyrights was passed');
     }
   
-    // if (!address) {
-    //   throw new Error('invalid address');
-    // }
-    // if (typeof addressComponent != 'function'){ 
-    //   throw new Error('invalid invalid address, must be a function');
-    // }
-  
     
     if (typeof unsubscribeComponent != 'function'){ 
       throw new Error('invalid unsubscribeComponent, must be a function');
@@ -105,9 +98,8 @@ const footerComponent = (params, subcomponents) => {
     // if (!newsletterSponsorshipLink)  {
     //   throw new Error('invalid newsletterSponsorshipLink');
     // }
-    // if (typeof newsletterSponsorshipLinkComponent != 'function'){ 
-    //   throw new Error('invalid newsletterSponsorshipLinkComponent, must be a function');
-    // }
+
+   
   
   return `<tr>
 <td
