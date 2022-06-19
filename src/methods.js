@@ -15,12 +15,8 @@ import MainString from './display/displayMain';
 
 
 const printHead = () => {
-
   return HeadString;
-  
 }
-
-
 
 const printMain = () => {
   return MainString;
