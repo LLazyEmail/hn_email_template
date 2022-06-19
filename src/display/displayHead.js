@@ -32,8 +32,12 @@ const checkingTitle = (title) => {
 //variant one
 const settings = {
   component: headComponent,
-  params: { title },
-  subcomponents: { headStylesComponent, fontsComponent }
+  params: { 
+    title,
+    headStyles: headStylesComponent(),
+    fonts: fontsComponent() 
+   },
+  // subcomponents: { headStylesComponent, fontsComponent }
   
 }
 

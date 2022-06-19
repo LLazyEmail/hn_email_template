@@ -77,6 +77,8 @@ const footerComponent = (params, subcomponents) => {
   } = subcomponents;
 
  
+
+  
   
   // if (!copyrights) throw new Error('no copyrights was passed');
   if (!address) throw new Error('no address was passed');

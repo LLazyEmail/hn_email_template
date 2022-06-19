@@ -252,3 +252,13 @@ body
     "atherdon-newsletter-js-layouts-misc"
     "atherdon-newsletter-js-layouts-typography"
   
+
+```
+  if (typeof headStylesComponent != 'function'){ 
+    throw new Error('invalid headStylesComponent, must be a function');
+  }
+
+   if (!title) {
+    throw new Error('no title was passed');
+  }
+```

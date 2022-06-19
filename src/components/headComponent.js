@@ -1,19 +1,36 @@
-const headComponent = (params, subcomponents) => {
+const headComponent = (params) => {
 
-  const { title } = params;
+  const { title, headStyles, fonts } = params;
 
-  const { headStylesComponent, fontsComponent } = subcomponents;
+  // const { headStyles, fonts } = subcomponents;
+  // const { headStylesComponent, fontsComponent } = subcomponents;
  
+
+
+
+
   if (!title) {
     throw new Error('no title was passed');
   }
   
-  if (typeof headStylesComponent != 'function'){ 
-    throw new Error('invalid headStylesComponent, must be a function');
+  if (!headStyles) {
+    throw new Error('no headStyles was passed');
   }
+  
+  if (!fonts) {
+    throw new Error('no fonts was passed');
+  }
+  
+
+  // if (typeof headStylesComponent != 'function'){ 
+  //   throw new Error('invalid headStylesComponent, must be a function');
+  // }
 
 
-  if (!fontsComponent)   { throw new Error('invalid fontsComponent'); }
+
+  // if (!fontsComponent)   { 
+  //   throw new Error('invalid fontsComponent'); 
+  // }
 
 
   return `<head>

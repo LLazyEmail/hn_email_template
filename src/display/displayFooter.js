@@ -28,7 +28,10 @@ const {
 
 const addon1 = {
   address: addressComponent(mailingAddress),
-  sponsor: newsletterSponsorshipLinkComponent(contact)
+  sponsor: newsletterSponsorshipLinkComponent(contact),
+
+  copyright: '',
+  unsubscribe: ''
 }
 
 
