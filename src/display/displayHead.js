@@ -42,12 +42,12 @@ const settings = {
 
 const Factory = new displayFactoryTwo();
 
-Factory.create(settings);
+// Factory.create(settings);
 
 // console.log(Factory);
 
 
-export default Factory;
+export default Factory.create(settings);
 
 
 
