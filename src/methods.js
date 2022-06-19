@@ -48,7 +48,14 @@ const writingFile = (content) => {
   // const content  = generateEmptyTemplateComponent();
   const fileName = generateTemplateName('lit-empty');
 
-  writeHTML(fileName, content);
+  try {
+    writeHTML(fileName, content);
+  } catch (err) { 
+    
+    console.log(err);
+    console.log(content);
+  }
+  
 }
 
 

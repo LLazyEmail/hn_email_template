@@ -32,7 +32,7 @@
     "eslint": "8.17.0",
     "eslint-plugin-json": "3.1.0",
     "jest": "28.1.1",
-    "markup-generator": "0.4.0",
+    "markup-generator": "^0.5.0",
     "prettier": "2.7.1",
     "rollup": "2.75.6",
     "rollup-plugin-includepaths": "0.2.4",

@@ -2,7 +2,7 @@ const EmailTemplateBodyComponent = (params) => {
 
   const { footer, logoTop, logoBottom, content, previewText } = params;
 
-  console.log(params);
+  // console.log(params);
 
 
   if (!footer) {

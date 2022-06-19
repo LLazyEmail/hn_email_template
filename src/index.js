@@ -14,7 +14,7 @@
 // import fullTemplate from './depricated/tempFT';
 
 
-console.log('123');
+// console.log('123');
 
 
 // import generateTemplateComponent from './t/generateTemplate'
