@@ -6,7 +6,17 @@ const mainComponent = (params, subcomponents) => {
   }
 
   const { head, body } = params; 
-  // const { head, body } = components; 
+
+
+  if (!head || typeof head != 'string') {
+    throw new Error('no head was passed');
+  }
+
+  if (!body || typeof body != 'string') {
+    throw new Error('no body was passed');
+  }
+
+  
 
   // headComponent.isError();
   // bodyComponent.isError();

@@ -1,4 +1,4 @@
-import previewTextComponent from "./previewText";
+// import previewTextComponent from "./previewText";
 
 // previewTextComponent not resolved here
 
@@ -29,7 +29,7 @@ const EmailTemplateBodyComponent = (params) => {
       -webkit-text-size-adjust: 100%;
       background-color: #ffffff;
     "
-    >` + previewTextComponent(previewText) + `
+    >` + previewText + `
 
     <center>
       <table
