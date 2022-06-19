@@ -25,6 +25,9 @@ class displayFactoryTwo {
 
         const { component, params, subcomponents } = settings;
 
+        // cover a case when subcomponents didnt passed and we apply { }
+
+
         let partial;
 
         

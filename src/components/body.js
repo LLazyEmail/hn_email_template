@@ -7,7 +7,7 @@ import previewTextComponent from "./previewText";
 
 const EmailTemplateBodyComponent = (params) => {
 
-  const { footer, logoTop, logoBottom } = params;
+  const { footer, logoTop, logoBottom, previewText } = params;
 
 
   if (!footer) {
