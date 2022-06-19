@@ -2,13 +2,6 @@ const headComponent = (params) => {
 
   const { title, headStyles, fonts } = params;
 
-  // const { headStyles, fonts } = subcomponents;
-  // const { headStylesComponent, fontsComponent } = subcomponents;
- 
-
-
-
-
   if (!title) {
     throw new Error('no title was passed');
   }
@@ -20,18 +13,6 @@ const headComponent = (params) => {
   if (!fonts) {
     throw new Error('no fonts was passed');
   }
-  
-
-  // if (typeof headStylesComponent != 'function'){ 
-  //   throw new Error('invalid headStylesComponent, must be a function');
-  // }
-
-
-
-  // if (!fontsComponent)   { 
-  //   throw new Error('invalid fontsComponent'); 
-  // }
-
 
   return `<head>
   <!-- NAME: 1 COLUMN -->
@@ -47,9 +28,9 @@ const headComponent = (params) => {
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>${title}</title>
-  ${headStylesComponent()}
+  ${headStyles}
   <!--[if !mso]><!-->
-  ${fontsComponent()}
+  ${fonts}
   <!--<![endif]-->
   </head>`;
 }

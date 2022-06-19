@@ -41,7 +41,7 @@ const settings = {
     component: EmailTemplateBodyComponent,
     // params: { footerComponent, logoTop, logoBottom, content },
     params: addon1,
-    subcomponents: {  }
+    // subcomponents: {  }
     
 }
 

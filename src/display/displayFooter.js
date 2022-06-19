@@ -30,8 +30,8 @@ const addon1 = {
   address: addressComponent(mailingAddress),
   sponsor: newsletterSponsorshipLinkComponent(contact),
 
-  copyright: '',
-  unsubscribe: ''
+  // copyright: copyrightsComponent(),
+  // unsubscribe: unsubscribeComponent()
 }
 
 

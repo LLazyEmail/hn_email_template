@@ -1,6 +1,12 @@
 import displayFactory from './factory';
 import displayFactoryTwo from './factoryTwo';
 
+import headString from '../display/displayHead';
+
+import bodyString from '../display/displayBody';
+
+import MainComponent from '../components/mainComponent';
+
 
 
 import { writeHTML, generateTemplateName } from 'markup-generator'
@@ -8,31 +14,16 @@ import { writeHTML, generateTemplateName } from 'markup-generator'
 
 
 
-// partials
-// import DisplayHead from './displayHead';
-// import DisplayBody from './displayBody';
-
-
-import headString from '../display/displayHead';
-
-import bodyString from '../display/displayBody';
-
-import MainComponent from '../components/mainComponent';
-
-// note that head and body params are actually `displayHead` & `displayBody` 
-// methods for sub-components
-
-
 
 
 // const title = `The Secrets of High-Performing DevOps teams`;
-
+//     const head = displayHead(title);
 
 //variant one
 const settings = {
   component: MainComponent,
   params: { head: headString, body: bodyString  },
-  subcomponents: {  }
+
   
 }
 
@@ -52,16 +43,4 @@ let FULLLL = DDDDM.create(settings);
 
 
 const fileName = generateTemplateName('lit-empty');
-
-  writeHTML(fileName, FULLLL);
-
-
-
-// const displayMain = () => {
-  
-//     const head = displayHead(title);
-//     const body = displayBody();
-    
-//     return mainComponent(head, body);
-// }
-
+writeHTML(fileName, FULLLL);
