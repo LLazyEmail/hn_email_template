@@ -1,10 +1,3 @@
-// import previewTextComponent from "./previewText";
-
-// previewTextComponent not resolved here
-
-
-// const EmailTemplateBodyComponent = ({ footer, logoTop, logoBottom, content='' }) => {
-
 const EmailTemplateBodyComponent = (params) => {
 
   const { footer, logoTop, logoBottom, content, previewText } = params;
