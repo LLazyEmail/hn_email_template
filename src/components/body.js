@@ -2,6 +2,8 @@ const EmailTemplateBodyComponent = (params) => {
 
   const { footer, logoTop, logoBottom, content, previewText } = params;
 
+  console.log(params);
+
 
   if (!footer) {
     throw new Error('no footer was passed');
@@ -9,6 +11,10 @@ const EmailTemplateBodyComponent = (params) => {
 
   if (!logoTop || !logoBottom) {
     throw new Error('invalid logo');
+  }
+
+  if(!previewText) {
+    throw new Error('invalid preview text');
   }
   
   
@@ -22,8 +28,8 @@ const EmailTemplateBodyComponent = (params) => {
       -webkit-text-size-adjust: 100%;
       background-color: #ffffff;
     "
-    >` + previewText + `
-
+    >
+    ${previewText}
     <center>
       <table
         align="center"

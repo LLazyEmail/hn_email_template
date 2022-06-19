@@ -46,7 +46,8 @@ const DDDDM = new displayFactoryTwo();
 // DDDDM.create(settings);
 
 let FULLLL = DDDDM.create(settings);
-console.log(FULLLL);
+
+// console.log(FULLLL);
 // console.log(DisplayBody);
 
 

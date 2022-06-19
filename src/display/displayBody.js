@@ -30,8 +30,8 @@ let addon1 = {
 
     logoTop:logoTopComponent(), 
     logoBottom: logoBottomComponent(), 
-    content:'[[THIS IS PLACE FOR A CONTENT INSIDE]',
-    previewText:previewTextComponent('[AMA PREVIEW TEXT]')
+    content: '[[THIS IS PLACE FOR A CONTENT INSIDE]',
+    previewText: previewTextComponent('[AMA PREVIEW TEXT]')
 
 }
 
@@ -48,5 +48,3 @@ const settings = {
 const BodyFactory = new displayFactoryTwo();
 
 export default BodyFactory.create(settings);
-
-// export default DDDDM;

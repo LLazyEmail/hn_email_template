@@ -8,8 +8,13 @@ const checkingPreviewText = (previewText) => {
 
 const previewTextComponent = (content) => {    
 
+    if(!content) {
+        throw new Error('invalid preview text');
+      }
+      
+
     return `<!--[if !gte mso 9]><!---->
-    {$content}
+    ${content}
     <!--<![endif]-->`;
 }
 
