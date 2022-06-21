@@ -30,6 +30,9 @@ let addon1 = {
 
     logoTop:logoTopComponent(), 
     logoBottom: logoBottomComponent(), 
+
+
+    // theese two variuables must beeing passed from the outside
     content: '[[THIS IS PLACE FOR A CONTENT INSIDE]',
     previewText: previewTextComponent('[AMA PREVIEW TEXT]')
 
@@ -40,9 +43,7 @@ let addon1 = {
 const settings = {
     component: EmailTemplateBodyComponent,
     // params: { footerComponent, logoTop, logoBottom, content },
-    params: addon1,
-    // subcomponents: {  }
-    
+    params: addon1
 }
 
 const BodyFactory = new displayFactoryTwo();

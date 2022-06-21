@@ -1,11 +1,13 @@
 // import displayFactory from './factory';
 import displayFactoryTwo from './factoryTwo';
 
+import MainComponent from '../components/mainComponent';
+
 import headString from '../display/displayHead';
 
 import bodyString from '../display/displayBody';
 
-import MainComponent from '../components/mainComponent';
+
 
 
 
@@ -13,11 +15,10 @@ import MainComponent from '../components/mainComponent';
 
 
 
-
-
-
+// title must be passed from the outside
 // const title = `The Secrets of High-Performing DevOps teams`;
 //     const head = displayHead(title);
+
 
 //variant one
 const settings = {
@@ -32,15 +33,15 @@ const settings = {
 
 
 
-const DDDDM = new displayFactoryTwo();
+const MainFactory = new displayFactoryTwo();
 
-// DDDDM.create(settings);
+// MainFactory.create(settings);
 
-let FULLLL = DDDDM.create(settings);
+let MainTemplate = MainFactory.create(settings);
 
-// console.log(FULLLL);
+// console.log(MainTemplate);
 // console.log(DisplayBody);
 
 
 // const fileName = generateTemplateName('lit-empty');
-// writeHTML(fileName, FULLLL);
+// writeHTML(fileName, MainTemplate);

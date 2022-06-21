@@ -37,7 +37,6 @@ const settings = {
     headStyles: headStylesComponent(),
     fonts: fontsComponent() 
    },
-  // subcomponents: { headStylesComponent, fontsComponent }
   
 }
 
@@ -54,23 +53,13 @@ const Factory = new displayFactoryTwo();
 export default Factory.create(settings);
 
 
-
 // const DisplayHead = {
 //   component: headComponent,
 //   params: { title, headStylesComponent, fontsComponent },
 //   display: () => {
       
 // //         return headComponent(title, headStyles, fonts);
-      
-//       // console.log( this.component );
-// //     return this.component(....)
-      
 //   },
 //   checks: () => [
     
 //       // checkingTitle(this.params.title)
-//   ]
-  
-// }
-
-// export default DisplayHead;

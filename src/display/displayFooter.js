@@ -26,6 +26,8 @@ const {
 } = misc;
 
 
+
+// all params here must be passed from the outside.
 const addon1 = {
   address: addressComponent(mailingAddress),
   sponsor: newsletterSponsorshipLinkComponent(contact),
@@ -40,6 +42,9 @@ const addon1 = {
 const settings = {
   component: footerComponent,
   params: addon1,
+
+
+
   subcomponents: {  
     copyrightsComponent, 
     unsubscribeComponent, 
@@ -50,21 +55,15 @@ const settings = {
 }
 
 
-const DDDDM = new displayFactoryTwo();
+const FooterFactory = new displayFactoryTwo();
 
-export default DDDDM.create(settings);
+export default FooterFactory.create(settings);
 // console.log(DDDDM);
 
 // export default DDDDM;
 
 
-
 // const DisplayFooter = {
-//     component: footerComponent,
-//     params: { copyrights, address, unsubscribe, newsletterSponsorshipLink },
 
 //     checks: () => [
 //         // checkingTitle(this.params.title)
-//     ]
-    
-//   }
