@@ -1,5 +1,9 @@
 // import displayFactory from './factory';
-import displayFactoryTwo from './factoryTwo';
+// import displayFactoryTwo from './factoryTwo';
+
+
+import { FruitFactory,
+  displayFactoryTwo } from 'email-template-object';
 
 import MainComponent from '../components/mainComponent';
 

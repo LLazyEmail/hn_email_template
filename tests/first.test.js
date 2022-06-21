@@ -9,8 +9,8 @@ const {
 } = require('../src/methods');
 
 
-console.log(printMain())
-console.log(printHead())
+// console.log(printMain())
+// console.log(printHead())
 
 
 // var generateEmptyTemplateComponent = require('../src/t/emptyTemplate');

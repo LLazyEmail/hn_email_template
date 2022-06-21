@@ -1,7 +1,8 @@
 import displayFactory from './factory';
-import displayFactoryTwo from './factoryTwo';
+// import displayFactoryTwo from './factoryTwo';
 
-
+import { FruitFactory,
+  displayFactoryTwo } from 'email-template-object';
 
 // @TODO we need to finalize this file, so we can accept real data, not just static title...
 
@@ -26,7 +27,13 @@ const checkingTitle = (title) => {
     }
 }
 
-// console.log(misc)
+
+
+
+// console.log(FruitFactory)
+
+// const fruit = FruitFactory.create({size: 10, sugar: 10}, 'constructor argument');
+// console.log(fruit.name());
 
 
 //variant one
