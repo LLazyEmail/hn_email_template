@@ -4,8 +4,7 @@ import misc from 'atherdon-newsletter-js-layouts-misc';
 // import displayFactoryTwo from './factoryTwo';
 
 
-import { FruitFactory,
-  displayFactoryTwo } from 'email-template-object';
+import { displayFactoryTwo } from 'email-template-object';
 
 
 import footerComponent from "../components/footer";
@@ -60,9 +59,9 @@ const settings = {
 
 
 const FooterFactory = new displayFactoryTwo();
-
+// console.log(FooterFactory.create(settings));
 export default FooterFactory.create(settings);
-// console.log(DDDDM);
+
 
 // export default DDDDM;
 
