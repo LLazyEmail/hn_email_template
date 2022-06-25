@@ -1,12 +1,15 @@
-const { 
-  printMain, 
-  printFooter, printBody, 
+// const { 
+//   printMain, 
+//   printFooter, printBody, 
   
-  printHead,
+//   printHead,
   
   
-  writingFile
-} = require('../src/methods');
+//   writingFile
+// } = require('../src/methods');
+
+
+import { printMain,  printFooter, printBody, printHead, writingFile } from '../src/methods'
 
 
 // console.log(printMain())
@@ -21,14 +24,14 @@ const {
 describe('test helpers', () => {
 
 
-    test('rendering head component', () => {
+    // test('rendering head component', () => {
 
       // const string = printHead();
 
       // // console.log(string);
 
       // writingFile(string);
-    });
+    // });
   
   //  test('rendering Empty Template', () => {
 
@@ -39,12 +42,13 @@ describe('test helpers', () => {
 
    test('rendering Main Component', () => {
 
-
-       const string = printMain();
+// 
+      //  const string = printMain();
+       const string = printHead();
 
       //  // console.log(string);
 
-       expect(printMain()).toBeDefined();
+       expect(printHead()).toBeDefined();
 
        writingFile(string);
        // expect(typeof string).toBe('string');
