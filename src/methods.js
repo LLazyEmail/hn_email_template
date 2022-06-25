@@ -64,8 +64,8 @@ const writingFile = (content) => {
     writeHTML(fileName, content);
   } catch (err) { 
     
-    console.log(err);
-    console.log(content);
+    //console.log(err);
+    //console.log(content);
   }
   
 }
