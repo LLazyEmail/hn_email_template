@@ -4,7 +4,12 @@ import { displayFactoryTwo } from 'email-template-object';
 
 import previewTextComponent from "../components/previewText";
 
-import { logoBottomComponent, logoTopComponent } from "atherdon-newsletter-js-layouts-body"
+// import { 
+//     logoBottomComponent, 
+//     logoTopComponent 
+// } from "atherdon-newsletter-js-layouts-body"
+
+import body from "atherdon-newsletter-js-layouts-body"
 
 import EmailTemplateBodyComponent from '../components/body';
 
@@ -12,7 +17,14 @@ import EmailTemplateBodyComponent from '../components/body';
 import footerString from '../display/displayFooter';
 
 
+const { 
+    logoBottomComponent, 
+    logoTopComponent 
+} = body;
+
 const ERROR_BODY = '`bodyContent` is a required option for `renderTemplate`';
+
+
 
 const checkingBodyContent = (bodyContent) => {
     if (!bodyContent) {

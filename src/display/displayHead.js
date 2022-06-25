@@ -1,4 +1,4 @@
-import displayFactory from './factory';
+// import displayFactory from './factory';
 
 
 import { displayFactoryTwo } from 'email-template-object';

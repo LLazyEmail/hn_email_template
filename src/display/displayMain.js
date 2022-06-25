@@ -47,3 +47,4 @@ let MainTemplate = MainFactory.create(settings);
 
 // const fileName = generateTemplateName('lit-empty');
 // writeHTML(fileName, MainTemplate);
+export default MainTemplate;

@@ -1,4 +1,4 @@
-const mainComponent = (params, subcomponents) => {
+const mainComponent = (params) => {
 
   
   if (!params) {
@@ -31,11 +31,6 @@ const mainComponent = (params, subcomponents) => {
    ${body}
     
   </html>`;
-
-
-
-    // ${head}
-    // ${body}
 
 }
 
