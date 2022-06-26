@@ -60,5 +60,5 @@ const settings = {
 }
 
 const BodyFactory = new displayFactoryTwo();
-
+// console.log(BodyFactory.create(settings));
 export default BodyFactory.create(settings);
