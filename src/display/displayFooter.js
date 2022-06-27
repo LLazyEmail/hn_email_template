@@ -62,10 +62,6 @@ const FooterFactory = new displayFactoryTwo();
 // console.log(FooterFactory.create(settings));
 export default FooterFactory.create(settings);
 
-
-// export default DDDDM;
-
-
 // const DisplayFooter = {
 
 //     checks: () => [
