@@ -1,18 +1,4 @@
 
-// not working anymore
-// const printMain = () => {
-
-//   let
-
-  
-//   return displayMain();
-//   // return mainComponent("xxx", "xxx");
-// //   mainComponent(head, bodyComponent);
-// }
-
-
-// ------------------------
-
 
 // ------------------------
 

@@ -16,25 +16,21 @@ import MainString from './display/displayMain';
 
 const printHead = () => {
 
-
   return HeadString;
 }
 
 const printMain = () => {
-
 
   return MainString;
 }
 
 const printFooter = () => {
 
-
   return FooterString;
 
 }
 
 const printBody = () => {
-
   
   return BodyString;
 }

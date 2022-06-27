@@ -1,18 +1,9 @@
-// const { 
-//   printMain, 
-//   printFooter, printBody, 
-  
-//   printHead,
-  
-  
-//   writingFile
-// } = require('../src/methods');
 
 
 import { printMain,  printFooter, printBody, printHead, writingFile } from '../src/methods'
 
 
-// console.log(printMain())
+console.log(printMain())
 // console.log(printHead())
 
 
@@ -24,15 +15,39 @@ import { printMain,  printFooter, printBody, printHead, writingFile } from '../s
 describe('test helpers', () => {
 
 
-    // test('rendering head component', () => {
+    test('rendering head component', () => {
 
-      // const string = printHead();
+      const string1 = printHead();
 
-      // // console.log(string);
+      // console.log(string);
+      expect(printHead()).toBeDefined();
 
-      // writingFile(string);
-    // });
-  
+      writingFile(string1);
+    });
+
+
+    test('rendering Footer Component', () => {
+
+      const string2 = printFooter();
+
+      // console.log(string);
+      expect(printFooter()).toBeDefined();
+
+      writingFile(string2);
+    });
+
+    test('rendering Body Component', () => {
+
+      const string3 = printBody();
+
+      // console.log(string);
+      expect(printBody()).toBeDefined();
+
+      writingFile(string3);
+    });
+
+    
+
   //  test('rendering Empty Template', () => {
 
     //  const string = generateEmptyTemplateComponent();
@@ -43,14 +58,13 @@ describe('test helpers', () => {
    test('rendering Main Component', () => {
 
 // 
-      //  const string = printMain();
-       const string = printHead();
+       const string4 = printMain();
 
       //  // console.log(string);
 
-       expect(printHead()).toBeDefined();
+       expect(printMain()).toBeDefined();
 
-       writingFile(string);
+       writingFile(string4);
        // expect(typeof string).toBe('string');
 
    });
