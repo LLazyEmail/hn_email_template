@@ -1,15 +1,14 @@
 const headComponent = (params) => {
-
   const { title, headStyles, fonts } = params;
 
   if (!title) {
     throw new Error('no title was passed');
   }
-  
+
   if (!headStyles) {
     throw new Error('no headStyles was passed');
   }
-  
+
   if (!fonts) {
     throw new Error('no fonts was passed');
   }
@@ -33,6 +32,6 @@ const headComponent = (params) => {
   ${fonts}
   <!--<![endif]-->
   </head>`;
-}
+};
 
 export default headComponent;

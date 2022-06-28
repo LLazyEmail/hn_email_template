@@ -3,44 +3,38 @@
 // const {
 //   address,
 //   copyrights,
-  
+
 //   newsletterSponsorshipLink,
 //   unsubscribe,
 // } = misc;
 
-
-
-
 const renderCustomBlock = (copyrights, address, unsubscribe, sponsor) => {
+  // if (!copyrights) {
+  //   throw new Error('no copyrights was passed');
+  // }
+  if (typeof copyrights != 'function') {
+    throw new Error('no copyrights was passed');
+  }
 
-    // if (!copyrights) {
-    //   throw new Error('no copyrights was passed');
-    // }
-    if (typeof copyrights != 'function'){ 
-      throw new Error('no copyrights was passed');
-    }
-  
-    if (!address) {
-      throw new Error('invalid address');
-    }
-    // if (typeof address != 'function'){ 
-    //   throw new Error('invalid invalid address, must be a function');
-    // }
-  
-    
-    if (typeof unsubscribe != 'function'){ 
-      throw new Error('invalid unsubscribe, must be a function');
-    }
-  
-    if (!sponsor)  {
-      throw new Error('invalid newsletterSponsorshipLink');
-    }
-    // if (typeof newsletterSponsorshipLink != 'function'){ 
-    //   throw new Error('invalid newsletterSponsorshipLink, must be a function');
-    // }
-  
+  if (!address) {
+    throw new Error('invalid address');
+  }
+  // if (typeof address != 'function'){
+  //   throw new Error('invalid invalid address, must be a function');
+  // }
 
-    return `<tr>
+  if (typeof unsubscribe != 'function') {
+    throw new Error('invalid unsubscribe, must be a function');
+  }
+
+  if (!sponsor) {
+    throw new Error('invalid newsletterSponsorshipLink');
+  }
+  // if (typeof newsletterSponsorshipLink != 'function'){
+  //   throw new Error('invalid newsletterSponsorshipLink, must be a function');
+  // }
+
+  return `<tr>
     <td
       valign="top"
       class="mcnTextContent"
@@ -61,47 +55,38 @@ const renderCustomBlock = (copyrights, address, unsubscribe, sponsor) => {
       ${unsubscribe()}
       ${sponsor}
     </td>
-  </tr>`
-}
+  </tr>`;
+};
 
-const footerComponent = (params, subcomponents) => { 
-
+const footerComponent = (params, subcomponents) => {
   const { address, sponsor } = params;
 
-
-  const { 
-    copyrightsComponent, 
-    // addressComponent, 
-    unsubscribeComponent, 
-    // newsletterSponsorshipLinkComponent 
+  const {
+    copyrightsComponent,
+    // addressComponent,
+    unsubscribeComponent,
+    // newsletterSponsorshipLinkComponent
   } = subcomponents;
 
- 
-
-
-  
   // if (!copyrights) throw new Error('no copyrights was passed');
   if (!address) throw new Error('no address was passed');
   // if (!unsubscribe) throw new Error('no unsubscribe was passed');
   if (!sponsor) throw new Error('no newsletterSponsorshipLink was passed');
 
+  if (typeof copyrightsComponent != 'function') {
+    throw new Error('no copyrights was passed');
+  }
 
-    if (typeof copyrightsComponent != 'function'){ 
-      throw new Error('no copyrights was passed');
-    }
-  
-    
-    if (typeof unsubscribeComponent != 'function'){ 
-      throw new Error('invalid unsubscribeComponent, must be a function');
-    }
-  
-    // if (!newsletterSponsorshipLink)  {
-    //   throw new Error('invalid newsletterSponsorshipLink');
-    // }
+  if (typeof unsubscribeComponent != 'function') {
+    throw new Error('invalid unsubscribeComponent, must be a function');
+  }
 
-   
-  
-  return `<tr>
+  // if (!newsletterSponsorshipLink)  {
+  //   throw new Error('invalid newsletterSponsorshipLink');
+  // }
+
+  return (
+    `<tr>
 <td
   valign="top"
   id="templateFooter"
@@ -1003,7 +988,14 @@ const footerComponent = (params, subcomponents) => {
             class="mcnTextContentContainer"
           >
             <tbody>
-              ` + renderCustomBlock(copyrightsComponent, address, unsubscribeComponent, sponsor) + `
+              ` +
+    renderCustomBlock(
+      copyrightsComponent,
+      address,
+      unsubscribeComponent,
+      sponsor
+    ) +
+    `
             </tbody>
           </table>
           <!--[if mso]>
@@ -1019,8 +1011,8 @@ const footerComponent = (params, subcomponents) => {
     </tbody>
   </table>
 </td>
-</tr>`;
-
-}
+</tr>`
+  );
+};
 
 export default footerComponent;

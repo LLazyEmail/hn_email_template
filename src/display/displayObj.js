@@ -6,7 +6,7 @@ import displayFactoryTwo from './factoryTwo';
 //     component: MainComponent,
 //     params: {  },
 //     subcomponents: { DisplayHead, DisplayBody }
-    
+
 //   }
-  
+
 //   const DM = displayFactory(settings);

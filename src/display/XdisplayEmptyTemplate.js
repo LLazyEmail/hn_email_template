@@ -3,9 +3,9 @@ import displayFactoryTwo from './factoryTwo';
 
 // const settings = {
 //     component: "",
-    
+
 //     params: {},
-    
+
 // }
 
 // const EmptyTemplateFactory = new displayFactoryTwo();

@@ -1,6 +1,5 @@
 // import displayFactory from './factory';
 
-
 import { displayFactoryTwo } from 'email-template-object';
 
 import MainComponent from '../components/mainComponent';
@@ -9,31 +8,19 @@ import headString from '../display/displayHead';
 
 import bodyString from '../display/displayBody';
 
-
-
-
-
 // import { writeHTML, generateTemplateName } from 'markup-generator'
-
-
 
 // title must be passed from the outside
 // const title = `The Secrets of High-Performing DevOps teams`;
 //     const head = displayHead(title);
 
-
 //variant one
 const settings = {
   component: MainComponent,
-  params: { head: headString, body: bodyString  },
-
-  
-}
+  params: { head: headString, body: bodyString },
+};
 
 // const DM = displayFactory(settings);
-
-
-
 
 const MainFactory = new displayFactoryTwo();
 
@@ -43,7 +30,6 @@ let MainTemplate = MainFactory.create(settings);
 
 // console.log(MainTemplate);
 // console.log(DisplayBody);
-
 
 // const fileName = generateTemplateName('lit-empty');
 // writeHTML(fileName, MainTemplate);

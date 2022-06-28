@@ -1,12 +1,9 @@
 const mainComponent = (params) => {
-
-  
   if (!params) {
     throw new Error('no Sub Components was passed');
   }
 
-  const { head, body } = params; 
-
+  const { head, body } = params;
 
   if (!head || typeof head != 'string') {
     throw new Error('no head was passed');
@@ -15,8 +12,6 @@ const mainComponent = (params) => {
   if (!body || typeof body != 'string') {
     throw new Error('no body was passed');
   }
-
-  
 
   // headComponent.isError();
   // bodyComponent.isError();
@@ -31,7 +26,6 @@ const mainComponent = (params) => {
    ${body}
     
   </html>`;
+};
 
-}
-
-export default mainComponent
+export default mainComponent;

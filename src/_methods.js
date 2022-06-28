@@ -1,9 +1,6 @@
-
-
 // ------------------------
 
 // not working anymore
-
 
 // const printBody = () => {
 //   return EmailTemplateBodyComponent(footer, "", "");
@@ -20,4 +17,3 @@
 // }
 
 // ------------------------
-

@@ -6,9 +6,7 @@ import displayFactoryTwo from './factoryTwo';
 
 //     params: {},
 
-    
 // }
-
 
 // const TemplateFactory = new displayFactoryTwo();
 

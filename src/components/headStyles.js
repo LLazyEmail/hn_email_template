@@ -1,5 +1,5 @@
 const headStylesComponent = () => {
-    return `<style type="text/css">
+  return `<style type="text/css">
     p{
       margin:10px 0;
       padding:0;
@@ -376,9 +376,6 @@ const headStylesComponent = () => {
     }
     
     }</style>`;
-  
-  }
-  
+};
 
-  
 export default headStylesComponent;

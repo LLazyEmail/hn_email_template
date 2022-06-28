@@ -1,9 +1,7 @@
 const EmailTemplateBodyComponent = (params) => {
-
   const { footer, logoTop, logoBottom, content, previewText } = params;
 
   // console.log(params);
-
 
   if (!footer) {
     throw new Error('no footer was passed');
@@ -13,12 +11,11 @@ const EmailTemplateBodyComponent = (params) => {
     throw new Error('invalid logo');
   }
 
-  if(!previewText) {
+  if (!previewText) {
     throw new Error('invalid preview text');
   }
-  
-  
-    return `<body
+
+  return `<body
     style="
       height: 100%;
       margin: 0;
@@ -234,6 +231,6 @@ const EmailTemplateBodyComponent = (params) => {
       </table>
     </center>
     </body>`;
-  }
+};
 
-  export default EmailTemplateBodyComponent
+export default EmailTemplateBodyComponent;
