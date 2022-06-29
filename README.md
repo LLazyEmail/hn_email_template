@@ -7,6 +7,12 @@
 
 ----
 
+When I run a display method for Main component I'm able to see this
+
+ ![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/jjpou6ut89kdvrc3ysnp.png)
+
+----
+
 ### MainComponent
 
 we upgrading our workflow. thing below arent up-to-date
