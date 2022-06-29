@@ -1,14 +1,13 @@
 //---------------
-// ---------------
-import displayFactoryTwo from './factoryTwo';
 
-// const settings = {
-//     component: '',
+import { displayFactoryTwo } from 'email-template-object';
 
-//     params: {},
+//variant one
+const settings = {
+  component: footerComponent,
+  params: {},
+};
 
-// }
-
-// const TemplateFactory = new displayFactoryTwo();
-
-// export default TemplateFactory.create(settings);
+const TemplateFactory = new displayFactoryTwo();
+// console.log(TemplateFactory.create(settings));
+export default TemplateFactory.create(settings);
