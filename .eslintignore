@@ -2,3 +2,6 @@ node_modules
 dist
 rollup.config.js
 babel.config.js
+components/innerComponents
+components/Miscellaneous
+components/Typography
