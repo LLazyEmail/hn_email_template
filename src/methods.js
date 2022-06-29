@@ -9,7 +9,11 @@ import FooterString from './display/displayFooter';
 import MainString from './display/displayMain';
 
 
-import 
+import {
+  TemplateWithAds,
+  EmptyTemplate,
+  Template
+} from './t'
 
 const printHead = () => {
   return HeadString;
