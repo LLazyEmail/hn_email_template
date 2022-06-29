@@ -1,5 +1,3 @@
-// import factory from './factory';
-
 import { displayFactoryTwo } from 'email-template-object';
 
 import previewTextComponent from '../components/previewText';
@@ -15,10 +13,6 @@ import {
   EmailTemplateBodyComponent,
     innerContentComponent
 } from '../components'
-
-// import EmailTemplateBodyComponent from '../components/body';
-
-// import innerContentComponent from '../components/innerContentComponent'
 
 import footerString from '../display/displayFooter';
 

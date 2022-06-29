@@ -1,5 +1,3 @@
-// import displayFactory from './factory';
-
 import { displayFactoryTwo } from 'email-template-object';
 
 // @TODO we need to finalize this file, so we can accept real data, not just static title...

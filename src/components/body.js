@@ -1,7 +1,8 @@
 const EmailTemplateBodyComponent = (params) => {
   const { footer, logoTop, logoBottom, content, previewText } = params;
 
-  // console.log(params);
+  console.log(logoTop);
+  console.log(logoBottom);
 
   if (!footer) {
     throw new Error('no footer was passed');

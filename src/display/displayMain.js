@@ -1,5 +1,3 @@
-// import displayFactory from './factory';
-
 import { displayFactoryTwo } from 'email-template-object';
 
 import MainComponent from '../components/mainComponent';
@@ -8,7 +6,7 @@ import headString from '../display/displayHead';
 
 import bodyString from '../display/displayBody';
 
-// import { writeHTML, generateTemplateName } from 'markup-generator'
+
 
 // title must be passed from the outside
 // const title = `The Secrets of High-Performing DevOps teams`;

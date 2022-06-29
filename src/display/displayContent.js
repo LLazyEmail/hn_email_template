@@ -1,12 +1,10 @@
-//---------------
-
 import { displayFactoryTwo } from 'email-template-object';
 
-import innerContentComponent from '../components/footer';
+import innerContentComponent from '../components/';
 
 //variant one
 const settings = {
-  component: footerComponent,
+  component: innerContentComponent,
   params: {},
 };
 

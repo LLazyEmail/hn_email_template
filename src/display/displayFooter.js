@@ -1,8 +1,5 @@
 import misc from 'atherdon-newsletter-js-layouts-misc';
 
-// import factory from './factory';
-// import displayFactoryTwo from './factoryTwo';
-
 import { displayFactoryTwo } from 'email-template-object';
 
 import footerComponent from '../components/footer';
