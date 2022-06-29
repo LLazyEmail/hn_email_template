@@ -13,11 +13,11 @@ import bodyString from '../display/displayBody';
 
 //variant one
 const settings = {
-    component: MainComponent,
-    params: { head: headString, body: bodyString },
-  };
+  component: MainComponent,
+  params: { head: headString, body: bodyString },
+};
 
- const TemplateFactory = new displayFactoryTwo();
- let Template = TemplateFactory.create(settings)
+const TemplateFactory = new displayFactoryTwo();
+let Template = TemplateFactory.create(settings);
 // console.log(TemplateFactory.create(settings));
- export default Template;
+export default Template;

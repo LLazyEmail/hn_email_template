@@ -13,9 +13,9 @@ import MainComponent from '../components/mainComponent';
 
 //variant one
 const settings = {
-    component: MainComponent,
-    params: { head: headString, body: bodyString },
-  };
+  component: MainComponent,
+  params: { head: headString, body: bodyString },
+};
 
 const EmptyTemplateFactory = new displayFactoryTwo();
 

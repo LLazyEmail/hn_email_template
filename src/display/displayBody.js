@@ -11,8 +11,8 @@ import body from 'atherdon-newsletter-js-layouts-body';
 
 import {
   EmailTemplateBodyComponent,
-    innerContentComponent
-} from '../components'
+  innerContentComponent,
+} from '../components';
 
 import footerString from '../display/displayFooter';
 
@@ -36,7 +36,7 @@ let addon1 = {
   logoBottom: logoBottomComponent(),
 
   // theese two variuables must beeing passed from the outside
-  
+
   content: innerContentComponent(),
   // content: '[[THIS IS PLACE FOR A CONTENT INSIDE]',
   previewText: previewTextComponent('[AMA PREVIEW TEXT]'),

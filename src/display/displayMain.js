@@ -6,8 +6,6 @@ import headString from '../display/displayHead';
 
 import bodyString from '../display/displayBody';
 
-
-
 // title must be passed from the outside
 // const title = `The Secrets of High-Performing DevOps teams`;
 //     const head = displayHead(title);
