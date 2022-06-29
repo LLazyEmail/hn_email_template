@@ -1,13 +1,14 @@
 // ---------------
 import displayFactoryTwo from './factoryTwo';
 
-// const settings = {
-//     component: '',
+//variant one
+ const settings = {
+     component: '',
 
-//     params: {},
+     params: {},
 
-// }
+ }
 
-// const TemplateFactory = new displayFactoryTwo();
-
-// export default TemplateFactory.create(settings);
+ const TemplateFactory = new displayFactoryTwo();
+// console.log(TemplateFactory.create(settings));
+ export default TemplateFactory.create(settings);
