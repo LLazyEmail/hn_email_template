@@ -9,5 +9,6 @@ const settings = {
 };
 
 const TemplateFactory = new displayFactoryTwo();
-// console.log(TemplateFactory.create(settings));
-export default TemplateFactory.create(settings);
+let TemplateWithAds = TemplateFactory.create(settings)
+// console.log(TemplateWithAds);
+export default TemplateWithAds;
