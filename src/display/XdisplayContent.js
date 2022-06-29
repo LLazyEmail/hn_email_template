@@ -2,6 +2,8 @@
 
 import { displayFactoryTwo } from 'email-template-object';
 
+import innerContentComponent from '../components/footer';
+
 //variant one
 const settings = {
   component: footerComponent,
