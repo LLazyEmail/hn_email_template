@@ -19,17 +19,14 @@ const settings = {
   params: { head: headString, body: bodyString },
 };
 
-// const DM = displayFactory(settings);
-
 const MainFactory = new displayFactoryTwo();
 
-// MainFactory.create(settings);
 
 let MainTemplate = MainFactory.create(settings);
 
-// console.log(MainTemplate);
-// console.log(DisplayBody);
-
-// const fileName = generateTemplateName('lit-empty');
-// writeHTML(fileName, MainTemplate);
-export default MainTemplate;
+// export default MainTemplate;
+export {
+  MainFactory,
+  settings,
+  MainTemplate,  
+};
