@@ -1,8 +1,11 @@
 # Plain JS functions for generating HTML email template
 
-## Not: OuterTemplate moved into the root as the main project. other modules sitting in ./components folder
+### Note: OuterTemplate moved into the root as the main project. other modules sitting in ./components folder
 
 
+
+
+----
 
 ### MainComponent
 
@@ -245,12 +248,12 @@ body
   - > sponsor
 
 
-  "atherdon-newsletter-js-layouts"
-  contains
-    "atherdon-newsletter-js-layouts-body"
-    "atherdon-newsletter-js-layouts-footer"
-    "atherdon-newsletter-js-layouts-misc"
-    "atherdon-newsletter-js-layouts-typography"
+"atherdon-newsletter-js-layouts"
+contains
+- "atherdon-newsletter-js-layouts-body"
+- "atherdon-newsletter-js-layouts-footer"
+- "atherdon-newsletter-js-layouts-misc"
+- "atherdon-newsletter-js-layouts-typography"
   
 
 ```
