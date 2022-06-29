@@ -26,25 +26,25 @@ describe('test helpers', () => {
     });
 
 
-    test('rendering Footer Component', () => {
+    // test('rendering Footer Component', () => {
 
-      const string2 = printFooter();
+    //   const string2 = printFooter();
 
-      // console.log(string);
-      expect(printFooter()).toBeDefined();
+    //   // console.log(string);
+    //   expect(printFooter()).toBeDefined();
 
-      writingFile(string2);
-    });
+    //   writingFile(string2);
+    // });
 
-    test('rendering Body Component', () => {
+    // test('rendering Body Component', () => {
 
-      const string3 = printBody();
+    //   const string3 = printBody();
 
-      // console.log(string);
-      expect(printBody()).toBeDefined();
+    //   // console.log(string);
+    //   expect(printBody()).toBeDefined();
 
-      writingFile(string3);
-    });
+    //   writingFile(string3);
+    // });
 
     
 

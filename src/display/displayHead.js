@@ -21,10 +21,7 @@ const checkingTitle = (title) => {
   }
 };
 
-// console.log(FruitFactory)
 
-// const fruit = FruitFactory.create({size: 10, sugar: 10}, 'constructor argument');
-// console.log(fruit.name());
 
 //variant one
 const settings = {
@@ -40,17 +37,15 @@ const Factory = new displayFactoryTwo();
 
 // Factory.create(settings);
 
-// console.log(Factory);
-
 export default Factory.create(settings);
 
-// const DisplayHead = {
-//   component: headComponent,
-//   params: { title, headStylesComponent, fontsComponent },
-//   display: () => {
-
-// //         return headComponent(title, headStyles, fonts);
-//   },
 //   checks: () => [
-
 //       // checkingTitle(this.params.title)
+
+
+// console.log(FruitFactory)
+
+// const fruit = FruitFactory.create({
+  // size: 10, sugar: 10}, 'constructor argument'
+  // );
+// console.log(fruit.name());
