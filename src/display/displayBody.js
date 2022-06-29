@@ -50,5 +50,13 @@ const settings = {
 };
 
 const BodyFactory = new displayFactoryTwo();
+const string = BodyFactory.create(settings);
 // console.log(BodyFactory.create(settings));
-export default BodyFactory.create(settings);
+
+export {
+  BodyFactory,
+  settings,
+  string
+} 
+
+// BodyFactory.create(settings);

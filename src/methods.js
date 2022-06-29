@@ -2,7 +2,7 @@ import { writeHTML, generateTemplateName } from 'markup-generator';
 
 import HeadString from './display/displayHead';
 
-import BodyString from './display/displayBody';
+import { string as BodyString } from './display/displayBody';
 
 import FooterString from './display/displayFooter';
 
@@ -37,8 +37,7 @@ const writingFile = (content) => {
   if (!content) {
     throw new Error('no content was passed into writingFile method');
   }
-
-  // const content  = generateEmptyTemplateComponent();
+  
   const fileName = generateTemplateName('lit-empty');
 
   try {
