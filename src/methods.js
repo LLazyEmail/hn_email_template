@@ -26,6 +26,22 @@ const printBody = () => {
   return BodyString;
 };
 
+
+const ERROR_BODY = '`bodyContent` is a required option for `renderTemplate`';
+
+const checkingBodyContent = (bodyContent) => {
+  if (!bodyContent) {
+    throw new Error(ERROR_BODY);
+  }
+};
+
+const ERROR_TITLE = '`title` is a required option for `renderTemplate`';
+
+const checkingTitle = (title) => {
+  if (!title) {
+    throw new Error(ERROR_TITLE);
+  }
+};
 // instead of importhing these methods we can run displayXXX.checks[xxx]
 
 // import { checkingTitle,

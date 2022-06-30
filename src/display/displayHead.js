@@ -13,13 +13,7 @@ const { fontsComponent } = misc;
 
 const title = `The Secrets of High-Performing DevOps teams`;
 
-const ERROR_TITLE = '`title` is a required option for `renderTemplate`';
 
-const checkingTitle = (title) => {
-  if (!title) {
-    throw new Error(ERROR_TITLE);
-  }
-};
 
 
 

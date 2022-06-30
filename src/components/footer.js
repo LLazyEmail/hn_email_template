@@ -1,12 +1,4 @@
-// import misc from 'atherdon-newsletter-js-layouts-misc';
 
-// const {
-//   address,
-//   copyrights,
-
-//   newsletterSponsorshipLink,
-//   unsubscribe,
-// } = misc;
 
 const renderCustomBlock = (copyrights, address, unsubscribe, sponsor) => {
   // if (!copyrights) {
