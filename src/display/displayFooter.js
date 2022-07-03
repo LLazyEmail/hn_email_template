@@ -44,7 +44,8 @@ const settings = {
 };
 
 const FooterFactory = new displayFactoryTwo();
-// console.log(FooterFactory.create(settings));
+console.log(FooterFactory.create(settings));
+
 export default FooterFactory.create(settings);
 
 // const DisplayFooter = {

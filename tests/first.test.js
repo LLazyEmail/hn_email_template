@@ -26,15 +26,15 @@ describe('test helpers', () => {
     });
 
 
-    // test('rendering Footer Component', () => {
+    test('rendering Footer Component', () => {
 
-    //   const string2 = printFooter();
+      const string2 = printFooter();
 
-    //   // console.log(string);
-    //   expect(printFooter()).toBeDefined();
+      // console.log(string);
+      expect(printFooter()).toBeDefined();
 
-    //   writingFile(string2);
-    // });
+      writingFile(string2);
+    });
 
     // test('rendering Body Component', () => {
 
