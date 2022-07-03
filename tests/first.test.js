@@ -36,15 +36,15 @@ describe('test helpers', () => {
       writingFile(string2);
     });
 
-    // test('rendering Body Component', () => {
+    test('rendering Body Component', () => {
 
-    //   const string3 = printBody();
+      const string3 = printBody();
 
-    //   // console.log(string);
-    //   expect(printBody()).toBeDefined();
+      // console.log(string);
+      expect(printBody()).toBeDefined();
 
-    //   writingFile(string3);
-    // });
+      writingFile(string3);
+    });
 
     
 
@@ -55,19 +55,19 @@ describe('test helpers', () => {
   //  });
 
 
-//    test('rendering Main Component', () => {
+   test('rendering Main Component', () => {
 
-// // 
-//        const string4 = printMain();
+// 
+       const string4 = printMain();
 
-//       //  // console.log(string);
+      //  // console.log(string);
 
-//        expect(printMain()).toBeDefined();
+       expect(printMain()).toBeDefined();
 
-//        writingFile(string4);
-//        // expect(typeof string).toBe('string');
+       writingFile(string4);
+       // expect(typeof string).toBe('string');
 
-//    });
+   });
 
 
 });

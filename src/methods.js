@@ -6,16 +6,16 @@ import { string as BodyString } from './display/displayBody';
 
 import FooterString from './display/displayFooter';
 
-import MainString from './display/displayMain';
+import { MainTemplate } from './display/displayMain';
 
-import { TemplateWithAds, EmptyTemplate, Template } from './t';
+// import { TemplateWithAds, EmptyTemplate, Template } from './t';
 
 const printHead = () => {
   return HeadString;
 };
 
 const printMain = () => {
-  return MainString;
+  return MainTemplate;
 };
 
 const printFooter = () => {
