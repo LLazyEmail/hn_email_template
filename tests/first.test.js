@@ -3,7 +3,7 @@
 import { printMain,  printFooter, printBody, printHead, writingFile } from '../src/methods'
 
 
-console.log(printMain())
+// console.log(printMain())
 // console.log(printHead())
 
 
@@ -55,19 +55,19 @@ describe('test helpers', () => {
   //  });
 
 
-   test('rendering Main Component', () => {
+//    test('rendering Main Component', () => {
 
-// 
-       const string4 = printMain();
+// // 
+//        const string4 = printMain();
 
-      //  // console.log(string);
+//       //  // console.log(string);
 
-       expect(printMain()).toBeDefined();
+//        expect(printMain()).toBeDefined();
 
-       writingFile(string4);
-       // expect(typeof string).toBe('string');
+//        writingFile(string4);
+//        // expect(typeof string).toBe('string');
 
-   });
+//    });
 
 
 });
