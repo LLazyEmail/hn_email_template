@@ -19,18 +19,16 @@ we upgrading our workflow. thing below arent up-to-date
 ```
 const displayMain = () => {
   
-    const head = displayHead(title);
-    const body = displayBody();
-    
-    return mainComponent(head, body);
+   
 }
 ```
 
-### EmailTemplateBodyComponent 
+### EmailTemplateBodyComponent  (BodyComponent)
 
 ```
 const displayBody = () => {
-    return EmailTemplateBodyComponent(footer(), logoTop, logoBottom, '');
+
+    
 }
 ```
 
