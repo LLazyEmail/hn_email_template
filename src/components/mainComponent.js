@@ -3,7 +3,7 @@ const mainComponent = (params) => {
     throw new Error('no Sub Components was passed');
   }
 
-  const { head, body } = params;
+  
 
   if (!head || typeof head != 'string') {
     throw new Error('no head was passed');
@@ -12,6 +12,8 @@ const mainComponent = (params) => {
   if (!body || typeof body != 'string') {
     throw new Error('no body was passed');
   }
+
+  const { head, body } = params;
 
   // headComponent.isError();
   // bodyComponent.isError();

@@ -1,5 +1,3 @@
-
-
 const renderCustomBlock = (copyrights, address, unsubscribe, sponsor) => {
   // if (!copyrights) {
   //   throw new Error('no copyrights was passed');
