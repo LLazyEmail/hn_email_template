@@ -52,8 +52,8 @@
   },
   "dependencies": {
     "atherdon-newsletter-js-layouts-body": "^2.0.0",
-    "atherdon-newsletter-js-layouts-misc": "^2.2.0",
-    "atherdon-newsletter-js-layouts-typography": "^2.0.0",
+    "atherdon-newsletter-js-layouts-misc": "^2.3.0",
+    "atherdon-newsletter-js-layouts-typography": "^2.1.0",
     "email-template-object": "^0.2.0",
     "lodash": "^4.17.21"
   },
