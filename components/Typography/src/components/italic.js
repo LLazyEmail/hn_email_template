@@ -1,4 +1,4 @@
-const italicComponent = (content) => {
+const italicComponent = ({content}) => {
     return `<i>${content}</i>`;
 }
 
