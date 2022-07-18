@@ -1,4 +1,4 @@
-const listComponent = (content) => {
+const listComponent = ({content}) => {
     return `<ul dir="ltr">${content}</ul>`;
 }
 
