@@ -1,6 +1,6 @@
 {
   "name": "atherdon-old-newsletter-js-outertemplate",
-  "version": "2.8.5",
+  "version": "2.8.6",
   "description": "im trying to separate part of our code",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
