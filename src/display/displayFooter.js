@@ -43,10 +43,14 @@ const settings = {
   },
 };
 
-const FooterFactory = new displayFactoryTwo();
+console.log(settings);
+
+// const FooterFactory = new displayFactoryTwo();
 // console.log(FooterFactory.create(settings));
 
-export default FooterFactory.create(settings);
+// export default FooterFactory.create(settings);
+
+export default '';
 
 // const DisplayFooter = {
 

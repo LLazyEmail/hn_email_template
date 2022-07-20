@@ -24,7 +24,7 @@ describe('test helpers', () => {
   test('rendering Body Component', () => {
 
 
-      const string = printBody();
+      // const string = printBody();
 
       // // console.log(string);
 

@@ -1,4 +1,12 @@
 import EmailTemplateBodyComponent from './body';
 import innerContentComponent from './innerContentComponent';
+import previewTextComponent from '../components/previewText';
 
-export { EmailTemplateBodyComponent, innerContentComponent };
+import MainComponent from '../components/mainComponent';
+
+import headString from '../display/displayHead';
+
+export { 
+    EmailTemplateBodyComponent, innerContentComponent, previewTextComponent,
+    MainComponent,  
+};
