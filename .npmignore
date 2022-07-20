@@ -1,1 +1,11 @@
 src
+tests
+sub-modules
+images
+node_modules
+generated
+_depricated
+.github
+.gitpod.yml   
+eslintrc.js
+template.html
