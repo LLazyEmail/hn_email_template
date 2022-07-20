@@ -1,15 +1,15 @@
 
 
-import { printMain,  printFooter, printBody, printHead, writingFile } from '../src/methods'
+// import { printMain,  printFooter, printBody, printHead, writingFile } from '../src/methods'
 
 
-// console.log(printMain())
-// console.log(printHead())
+// // console.log(printMain())
+// // console.log(printHead())
 
 
-// var generateEmptyTemplateComponent = require('../src/t/emptyTemplate');
+// // var generateEmptyTemplateComponent = require('../src/t/emptyTemplate');
 
-// var generateTemplateComponent = require('../src/t/generateTemplate');
+// // var generateTemplateComponent = require('../src/t/generateTemplate');
 
 
 describe('test helpers', () => {
@@ -17,57 +17,57 @@ describe('test helpers', () => {
 
     test('rendering head component', () => {
 
-      const string1 = printHead();
+//       const string1 = printHead();
 
-      // console.log(string);
-      expect(printHead()).toBeDefined();
+//       // console.log(string);
+//       expect(printHead()).toBeDefined();
 
-      writingFile(string1);
+//       writingFile(string1);
     });
 
 
-    test('rendering Footer Component', () => {
+//     test('rendering Footer Component', () => {
 
-      const string2 = printFooter();
+//       const string2 = printFooter();
 
-      // console.log(string);
-      expect(printFooter()).toBeDefined();
+//       // console.log(string);
+//       expect(printFooter()).toBeDefined();
 
-      writingFile(string2);
-    });
+//       writingFile(string2);
+//     });
 
-    test('rendering Body Component', () => {
+//     test('rendering Body Component', () => {
 
-      const string3 = printBody();
+//       const string3 = printBody();
 
-      // console.log(string);
-      expect(printBody()).toBeDefined();
+//       // console.log(string);
+//       expect(printBody()).toBeDefined();
 
-      writingFile(string3);
-    });
+//       writingFile(string3);
+//     });
 
     
 
-  //  test('rendering Empty Template', () => {
+//   //  test('rendering Empty Template', () => {
 
-    //  const string = generateEmptyTemplateComponent();
-    //  console.log(string);
-  //  });
+//     //  const string = generateEmptyTemplateComponent();
+//     //  console.log(string);
+//   //  });
 
 
-   test('rendering Main Component', () => {
+//    test('rendering Main Component', () => {
 
-// 
-       const string4 = printMain();
+// // 
+//        const string4 = printMain();
 
-      //  // console.log(string);
+//       //  // console.log(string);
 
-       expect(printMain()).toBeDefined();
+//        expect(printMain()).toBeDefined();
 
-       writingFile(string4);
-       // expect(typeof string).toBe('string');
+//        writingFile(string4);
+//        // expect(typeof string).toBe('string');
 
-   });
+//    });
 
 
 });

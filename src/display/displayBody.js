@@ -2,7 +2,7 @@ import { displayFactoryTwo, factoryFour } from 'email-template-object';
 
 import previewTextComponent from '../components/previewText';
 
-import body from 'atherdon-newsletter-js-layouts-body';
+import bodySubComponents from 'atherdon-newsletter-js-layouts-body';
 
 import {
   EmailTemplateBodyComponent,
@@ -11,7 +11,7 @@ import {
 
 import footerString from '../display/displayFooter';
 
-const { logoBottomComponent, logoTopComponent } = body;
+const { logoBottomComponent, logoTopComponent } = bodySubComponents;
 
 
 
