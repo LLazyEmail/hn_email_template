@@ -24,14 +24,14 @@ describe('test helpers', () => {
   test('rendering Body Component', () => {
 
 
-      // const string = printBody();
+      const string = printBody();
 
-      // // console.log(string);
+      // console.log(string);
 
-      // expect(printMain()).toBeDefined();
+      expect(printBody()).toBeDefined();
 
-      // // expect(typeof string).toBe('string');
-      // writingFile(string);
+      // expect(typeof string).toBe('string');
+      writingFile(string);
 
   });
 
@@ -39,9 +39,9 @@ describe('test helpers', () => {
   test('rendering Footer Component', () => {
 
 
-    const string = printFooter();
+  //   const string = printFooter();
 
-    // console.log(string);
+  //   console.log(string);
 
   //   expect(printMain()).toBeDefined();
 

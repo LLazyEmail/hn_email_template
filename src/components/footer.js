@@ -1,21 +1,30 @@
-const renderCustomBlock = (copyrights, address, unsubscribe, sponsor) => {
-  // if (!copyrights) {
-  //   throw new Error('no copyrights was passed');
-  // }
-  if (typeof copyrights != 'function') {
+const renderCustomBlock = (params) => {
+
+
+  const { address, sponsor, copyright, unsubscribe } = params;
+
+
+  if (!copyright) {
     throw new Error('no copyrights was passed');
   }
+  // if (typeof copyright != 'function') {
+  //   throw new Error('no copyrights was passed');
+  // }
 
   if (!address) {
     throw new Error('invalid address');
   }
+  if (!unsubscribe) {
+    throw new Error('invalid unsubscribe');
+  }
+  
   // if (typeof address != 'function'){
   //   throw new Error('invalid invalid address, must be a function');
   // }
 
-  if (typeof unsubscribe != 'function') {
-    throw new Error('invalid unsubscribe, must be a function');
-  }
+  // if (typeof unsubscribe != 'function') {
+  //   throw new Error('invalid unsubscribe, must be a function');
+  // }
 
   if (!sponsor) {
     throw new Error('invalid newsletterSponsorshipLink');
@@ -37,43 +46,48 @@ const renderCustomBlock = (copyrights, address, unsubscribe, sponsor) => {
         font-size: 12px;line-height: 150%; text-align: center;
       "
     >
-      ${copyrights()}
+      ${copyright}
 
       <br />
       ${address}
       <br />
-      ${unsubscribe()}
+      ${unsubscribe}
       ${sponsor}
     </td>
   </tr>`;
 };
 
-const footerComponent = (params, subcomponents) => {
-  const { address, sponsor } = params;
+const footerComponent = ( params ) => {
+  const { address, sponsor, copyright, unsubscribe } = params;
 
-  const {
-    copyrightsComponent,
-    // addressComponent,
-    unsubscribeComponent,
-    // newsletterSponsorshipLinkComponent
-  } = subcomponents;
+  // const {
+  //   copyrightsComponent,
+  //   // addressComponent,
+  //   unsubscribeComponent,
+  //   // newsletterSponsorshipLinkComponent
+  // } = subcomponents;
 
-  // if (!copyrights) throw new Error('no copyrights was passed');
+  if (!copyright) throw new Error('no copyright was passed in footer component');
   if (!address) throw new Error('no address was passed');
-  // if (!unsubscribe) throw new Error('no unsubscribe was passed');
+  if (!unsubscribe) throw new Error('no unsubscribe was passed');
   if (!sponsor) throw new Error('no newsletterSponsorshipLink was passed');
 
-  if (typeof copyrightsComponent != 'function') {
-    throw new Error('no copyrights was passed');
-  }
+  // console.log(copyright)
 
-  if (typeof unsubscribeComponent != 'function') {
-    throw new Error('invalid unsubscribeComponent, must be a function');
-  }
+
+  // if (typeof copyrightsComponent != 'function') {
+  //   throw new Error('no copyrights was passed');
+  // }
+
+  // if (typeof unsubscribeComponent != 'function') {
+  //   throw new Error('invalid unsubscribeComponent, must be a function');
+  // }
 
   // if (!newsletterSponsorshipLink)  {
   //   throw new Error('invalid newsletterSponsorshipLink');
   // }
+
+
 
   return (
     `<tr>
@@ -980,10 +994,11 @@ const footerComponent = (params, subcomponents) => {
             <tbody>
               ` +
     renderCustomBlock(
-      copyrightsComponent,
-      address,
-      unsubscribeComponent,
-      sponsor
+      params
+      // copyright,
+      // address,
+      // unsubscribe,
+      // sponsor
     ) +
     `
             </tbody>

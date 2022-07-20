@@ -1,12 +1,8 @@
 import { displayFactoryTwo } from 'email-template-object';
 
-
 import { MainComponent } from '../components';
 
-
-
 import headString from '../display/displayHead';
-
 
 import { BodyHTMLString } from '../display/displayBody';
 

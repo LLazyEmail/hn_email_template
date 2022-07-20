@@ -28,10 +28,13 @@ const settings = {
 };
 
 const Factory = new displayFactoryTwo();
-
 // Factory.create(settings);
 
 export default Factory.create(settings);
+
+// export {
+
+// }
 
 //   checks: () => [
 //       // checkingTitle(this.params.title)

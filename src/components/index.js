@@ -7,6 +7,8 @@ import MainComponent from '../components/mainComponent';
 import headString from '../display/displayHead';
 
 export { 
-    EmailTemplateBodyComponent, innerContentComponent, previewTextComponent,
+    EmailTemplateBodyComponent, 
+    innerContentComponent, previewTextComponent,
     MainComponent,  
+    headString
 };

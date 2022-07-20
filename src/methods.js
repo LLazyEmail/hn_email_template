@@ -2,11 +2,13 @@ import { writeHTML, generateTemplateName } from 'markup-generator';
 
 import HeadString from './display/displayHead';
 
-import { string as BodyString } from './display/displayBody';
+import { BodyHTMLString } from './display/displayBody';
 
-import FooterString from './display/displayFooter';
+// console.log(BodyHTMLString);
 
-import { MainTemplate } from './display/displayMain';
+import { FooterHTMLString } from './display/displayFooter';
+
+import { MainHTMLString } from './display/displayMain';
 
 // import { TemplateWithAds, EmptyTemplate, Template } from './t';
 
@@ -15,15 +17,15 @@ const printHead = () => {
 };
 
 const printMain = () => {
-  return MainTemplate;
+  return MainHTMLString;
 };
 
 const printFooter = () => {
-  return FooterString;
+  return FooterHTMLString;
 };
 
 const printBody = () => {
-  return BodyString;
+  return BodyHTMLString;
 };
 
 
