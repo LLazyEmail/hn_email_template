@@ -45,7 +45,7 @@
     "access": "public"
   },
   "dependencies": {
-    "atherdon-newsletter-js-layouts-misc": "^2.0.0"
+    "atherdon-newsletter-js-layouts-misc": "^3.0.0"
   },
   "optionalDependencies": {
     "fsevents": "*"
