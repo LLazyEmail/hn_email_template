@@ -9,3 +9,8 @@ _depricated
 .gitpod.yml   
 eslintrc.js
 template.html
+rollup.config.js
+.babelrc
+.eslintignore
+.eslintric
+.gitignore
