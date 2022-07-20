@@ -30,27 +30,41 @@ const addon1 = {
   unsubscribe: unsubscribeComponent({unsubscribeLink})
 };
 
+
+
 //variant one
 const settings = {
   component: footerComponent,
   params: addon1,
   // TODO FIX THIS sub-components flow, it's driving me crazy
   subcomponents: {
+   
     copyrightsComponent,
     unsubscribeComponent,
 
-    // newsletterSponsorshipLinkComponent
+    // addon1.copyright,
+    // addon1.unsubscribe
+
   },
 };
 
 console.log(settings);
 
-// const FooterFactory = new displayFactoryTwo();
-// console.log(FooterFactory.create(settings));
+const FooterFactory = new displayFactoryTwo();
+const FooterHTMLString = FooterFactory.create(settings);
+
+console.log(FooterHTMLString);
+
+// export {
+//   FooterFactory,
+//   settings,
+//   FooterHTMLString
+// }
+
 
 // export default FooterFactory.create(settings);
 
-export default '';
+export default 'footer';
 
 // const DisplayFooter = {
 

@@ -24,12 +24,10 @@ const settings = {
 
 const MainFactory = new displayFactoryTwo();
 
+let MainHTMLString = MainFactory.create(settings);
 
-let MainTemplate = MainFactory.create(settings);
-
-// export default MainTemplate;
 export {
   MainFactory,
   settings,
-  MainTemplate,  
+  MainHTMLString,  
 };

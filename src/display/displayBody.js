@@ -1,7 +1,5 @@
 import { displayFactoryTwo, factoryFour } from 'email-template-object';
 
-// import previewTextComponent from '../components/previewText';
-
 import bodySubComponents from 'atherdon-newsletter-js-layouts-body';
 
 import {
@@ -39,14 +37,15 @@ const settings = {
   params: addon1,
 };
 
+// console.log( settings );
+
 const BodyFactory = new displayFactoryTwo();
-const string = BodyFactory.create(settings);
-// console.log(BodyFactory.create(settings));
+const BodyHTMLString = BodyFactory.create(settings);
+
+// console.log( BodyHTMLString );
 
 export {
   BodyFactory,
   settings,
   BodyHTMLString
 } 
-
-// BodyFactory.create(settings);
