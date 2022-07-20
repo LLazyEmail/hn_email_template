@@ -8,7 +8,7 @@ import {
   previewTextComponent
 } from '../components';
 
-import footerString from '../display/displayFooter';
+import { FooterHTMLString } from '../display/displayFooter';
 
 const { logoBottomComponent, logoTopComponent } = bodySubComponents;
 
@@ -18,7 +18,7 @@ const { logoBottomComponent, logoTopComponent } = bodySubComponents;
 // so we passing footerDisplay instead of just a component
 
 let addon1 = {
-  footer: footerString,
+  footer: FooterHTMLString,
 
   logoTop: logoTopComponent(),
   logoBottom: logoBottomComponent(),

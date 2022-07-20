@@ -1,6 +1,4 @@
-
-
-// import { printMain,  printFooter, printBody, printHead, writingFile } from '../src/methods'
+import { printMain,  printFooter, printBody, printHead, writingFile } from '../src/methods'
 
 
 // // console.log(printMain())
@@ -17,12 +15,12 @@ describe('test helpers', () => {
 
     test('rendering head component', () => {
 
-//       const string1 = printHead();
+      const string1 = printHead();
 
 //       // console.log(string);
-//       expect(printHead()).toBeDefined();
+      expect(printHead()).toBeDefined();
 
-//       writingFile(string1);
+      writingFile(string1);
     });
 
 
@@ -55,19 +53,19 @@ describe('test helpers', () => {
 //   //  });
 
 
-//    test('rendering Main Component', () => {
+   test('rendering Main Component', () => {
 
-// // 
-//        const string4 = printMain();
 
-//       //  // console.log(string);
+       const string4 = printMain();
 
-//        expect(printMain()).toBeDefined();
+       //  // console.log(string);
 
-//        writingFile(string4);
+       expect(printMain()).toBeDefined();
+
+       writingFile(string4);
 //        // expect(typeof string).toBe('string');
 
-//    });
+   });
 
 
 });

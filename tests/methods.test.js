@@ -30,7 +30,7 @@ describe('test helpers', () => {
 
       expect(printBody()).toBeDefined();
 
-      // expect(typeof string).toBe('string');
+      expect(typeof string).toBe('string');
       writingFile(string);
 
   });
@@ -39,14 +39,14 @@ describe('test helpers', () => {
   test('rendering Footer Component', () => {
 
 
-  //   const string = printFooter();
+    const string = printFooter();
 
-  //   console.log(string);
+    console.log(string);
 
-  //   expect(printMain()).toBeDefined();
+    expect(printFooter()).toBeDefined();
 
-  // //   // expect(typeof string).toBe('string');
-  //   writingFile(string);
+  //   // expect(typeof string).toBe('string');
+    writingFile(string);
 
   });
 
