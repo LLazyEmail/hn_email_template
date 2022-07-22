@@ -1,7 +1,6 @@
-
-const previewTextComponent = (content) => {
+const previewTextComponent = ({ content }) => {
   if (!content) new Error('invalid previewText');
-  
+
   return `<span
   class="mcnPreviewText"
   style="
@@ -16,7 +15,6 @@ const previewTextComponent = (content) => {
     mso-hide: all;
   "
   >${content}</span>`;
-}
-
+};
 
 export default previewTextComponent;

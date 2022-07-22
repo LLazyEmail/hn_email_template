@@ -1,4 +1,4 @@
-const sponsorComponent = (href, src, content) => {
+const sponsorComponent = ({ href, src, content }) => {
   return `<table
   border="0"
   cellpadding="0"
