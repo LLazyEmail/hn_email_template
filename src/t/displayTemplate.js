@@ -28,7 +28,7 @@ function displayTemplate(generated_content) {
 
     const BodyHTMLString = BodyFactory.create(bodySettings);
     
-    console.log(BodyHTMLString)
+    // console.log(BodyHTMLString)
     // ------
 
     const MainFactory = new displayFactoryTwo();
@@ -37,7 +37,7 @@ function displayTemplate(generated_content) {
 
     let MainHTMLString = MainFactory.create(mainSettings);
 
-    console.log(MainHTMLString)
+    // console.log(MainHTMLString)
 
     return MainHTMLString;
 

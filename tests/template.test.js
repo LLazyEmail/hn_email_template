@@ -9,12 +9,6 @@ const { innerContentComponent } = require('../src/components');
 
 const displayTemplate = require('../src/t/displayTemplate');
 
-// console.log(typeof displayTemplate)
-// printTemplate('123');
-
-
-//   const data = require('../src/t/displayTemplate');
-
   describe('test helpers', () => {
 
 
