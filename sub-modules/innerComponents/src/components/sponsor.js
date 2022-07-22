@@ -1,8 +1,5 @@
-
-
 const sponsorComponent = (href, src, content) => {
-  return 
-  `<table
+  return `<table
   border="0"
   cellpadding="0"
   cellspacing="0"
@@ -170,10 +167,6 @@ const sponsorComponent = (href, src, content) => {
     </tr>
   </tbody>
   </table>`;
-  
-}
-
-
-
+};
 
 export default sponsorComponent;
