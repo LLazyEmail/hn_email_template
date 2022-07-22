@@ -1,5 +1,5 @@
 
-import { printMain, printFooter, printBody } from './methods';
+import { printMain, printFooter, printBody, printTemplate } from './methods';
 
 // import generateTemplateComponent from './t/generateTemplate'
 // import generateEmptyTemplateComponent from './t/emptyTemplate'
