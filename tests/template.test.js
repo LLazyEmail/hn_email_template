@@ -5,6 +5,8 @@ const {
     writingFile
   } = require('../src/methods');
   
+const { innerContentComponent } = require('../src/components');
+
 const displayTemplate = require('../src/t/displayTemplate');
 
 // console.log(typeof displayTemplate)
@@ -19,7 +21,7 @@ const displayTemplate = require('../src/t/displayTemplate');
     test('rendering Template', () => { 
 
 
-        const string = printTemplate('123');
+        const string = printTemplate(innerContentComponent());
 
         // console.log(string);
   
