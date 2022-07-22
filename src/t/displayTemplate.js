@@ -1,33 +1,53 @@
 import { displayFactoryTwo } from 'email-template-object';
 
-import MainComponent from '../components/mainComponent';
+// import MainComponent from '../components/mainComponent';
 
-import headString from '../display/displayHead';
+// import headString from '../display/displayHead';
 
 
 import { 
-    BodyFactory,
-    settings
+    settings as bodySettings
  } from '../display/displayBody';
 
+ import {
+    settings as mainSettings
+ } from '../display/displayMain';
 
-console.log(settings);
-console.log(BodyFactory);
-
-export default 'footer';
-// import { bodyString } from '../display/displayBody';
 
 // title must be passed from the outside
 // const title = `The Secrets of High-Performing DevOps teams`;
 //     const head = displayHead(title);
 
-//variant one
-// const settings = {
-//   component: MainComponent,
-//   params: { head: headString, body: bodyString },
-// };
+function displayTemplate(generated_content) {
 
-// const TemplateFactory = new displayFactoryTwo();
+
+    const BodyFactory = new displayFactoryTwo();
+
+    bodySettings.params.content = generated_content;
+
+
+    const BodyHTMLString = BodyFactory.create(bodySettings);
+    
+    console.log(BodyHTMLString)
+    // ------
+
+    const MainFactory = new displayFactoryTwo();
+
+    mainSettings.params.body = BodyHTMLString;
+
+    let MainHTMLString = MainFactory.create(mainSettings);
+
+    console.log(MainHTMLString)
+
+    return MainHTMLString;
+
+    // const TemplateFactory = new displayFactoryTwo();
 // let Template = TemplateFactory.create(settings);
 // console.log(TemplateFactory.create(settings));
 // export default Template;
+
+
+};
+
+
+export default displayTemplate;

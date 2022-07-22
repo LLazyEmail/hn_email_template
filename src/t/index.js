@@ -1,5 +1,5 @@
 import TemplateWithAds from './templateAds';
 import EmptyTemplate from './XdisplayEmptyTemplate';
-import Template from './XdisplayTemplate';
+import displayTemplate from './XdisplayTemplate';
 
-export { TemplateWithAds, EmptyTemplate, Template };
+export { TemplateWithAds, EmptyTemplate, displayTemplate };

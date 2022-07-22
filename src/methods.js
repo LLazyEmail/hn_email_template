@@ -14,6 +14,8 @@ import { MainHTMLString } from './display/displayMain';
 
 // import {}
 
+import displayTemplate from './t/displayTemplate';
+
 
 const printHead = () => {
   return HeadString;
@@ -31,6 +33,9 @@ const printBody = () => {
   return BodyHTMLString;
 };
 
+const printTemplate = (string) => {
+  return displayTemplate(string)
+}
 
 const ERROR_BODY = '`bodyContent` is a required option for `renderTemplate`';
 
@@ -69,4 +74,4 @@ const writingFile = (content) => {
   }
 };
 
-export { printMain, printFooter, printBody, printHead, writingFile };
+export { printMain, printFooter, printBody, printHead, printTemplate, writingFile };
