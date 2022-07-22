@@ -42,7 +42,7 @@ const settings = {
 const BodyFactory = new displayFactoryTwo();
 const BodyHTMLString = BodyFactory.create(settings);
 
-console.log( BodyHTMLString );
+// console.log( BodyHTMLString );
 
 export {
   BodyFactory,

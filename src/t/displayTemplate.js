@@ -1,10 +1,20 @@
-// ---------------
-// import { displayFactoryTwo } from 'email-template-object';
+import { displayFactoryTwo } from 'email-template-object';
 
-// import MainComponent from '../components/mainComponent';
+import MainComponent from '../components/mainComponent';
 
-// import headString from '../display/displayHead';
+import headString from '../display/displayHead';
 
+
+import { 
+    BodyFactory,
+    settings
+ } from '../display/displayBody';
+
+
+console.log(settings);
+console.log(BodyFactory);
+
+export default 'footer';
 // import { bodyString } from '../display/displayBody';
 
 // title must be passed from the outside
