@@ -4,7 +4,7 @@ const {
   printMain, printFooter, printBody, 
   printHead,
   
-  
+  // printLIT,
   writingFile
 } = require('../src/methods');
 
@@ -19,6 +19,8 @@ const {
 
 
 describe('test helpers', () => {
+
+
 
 
   test('rendering Body Component', () => {
