@@ -51,6 +51,7 @@
     "fsevents": "*"
   },
   "dependencies": {
-    "@babel/runtime": "^7.18.3"
+    "@babel/runtime": "^7.18.3",
+    "lit-typography": "^0.1.0"
   }
 }

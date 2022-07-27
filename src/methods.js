@@ -16,6 +16,12 @@ import { MainHTMLString } from './display/displayMain';
 
 import displayTemplate from './t/displayTemplate';
 
+import helloTemplate from 'lit-typography';
+
+const printLIT = () => { 
+  console.log(helloTemplate("Arthur"));
+}
+
 
 const printHead = () => {
   return HeadString;
@@ -74,4 +80,4 @@ const writingFile = (content) => {
   }
 };
 
-export { printMain, printFooter, printBody, printHead, printTemplate, writingFile };
+export { printMain, printFooter, printBody, printHead, printTemplate, printLIT, writingFile };
