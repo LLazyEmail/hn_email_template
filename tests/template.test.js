@@ -4,7 +4,8 @@ const {
     printTemplate,
     writingFile
   } = require('../src/methods');
-  
+  import { writingFile } from 'markup-generator';
+
 const { innerContentComponent } = require('../src/components');
 
 const displayTemplate = require('../src/t/displayTemplate');
