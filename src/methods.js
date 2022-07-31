@@ -1,4 +1,4 @@
-import { writingFile, generateTemplateName } from 'markup-generator';
+import { writingFile } from 'markup-generator';
 
 import HeadString from './display/displayHead';
 
