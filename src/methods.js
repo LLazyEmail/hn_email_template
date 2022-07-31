@@ -1,4 +1,4 @@
-import { writeHTML, generateTemplateName } from 'markup-generator';
+import { writingFile, generateTemplateName } from 'markup-generator';
 
 import HeadString from './display/displayHead';
 
@@ -67,20 +67,5 @@ const checkingTitle = (title) => {
 //   checkingBodyContent,
 //   checkingPreviewText
 // } from './t/display'
-
-const writingFile = (content) => {
-  if (!content) {
-    throw new Error('no content was passed into writingFile method');
-  }
-  
-  const fileName = generateTemplateName('lit-empty');
-
-  try {
-    writeHTML(fileName, content);
-  } catch (err) {
-    //console.log(err);
-    //console.log(content);
-  }
-};
 
 export { printMain, printFooter, printBody, printHead, printTemplate,  writingFile };
