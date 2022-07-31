@@ -1,14 +1,14 @@
 // https://github.com/abritinthebay/jest-tobetype
-
+import { writingFile } from 'markup-generator';
 const { 
   printMain, printFooter, printBody, 
   printHead,
   
   // printLIT,
-  writingFile
+  
 } = require('../src/methods');
 
-import { writingFile } from 'markup-generator';
+
 
 
 // var generateEmptyTemplateComponent = require('../src/t/emptyTemplate');

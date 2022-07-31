@@ -1,10 +1,11 @@
+import { writingFile } from 'markup-generator';
 const { 
     // printMain, printFooter, printBody, 
     // printHead,
-    printTemplate,
-    writingFile
+    printTemplate
+    
   } = require('../src/methods');
-  import { writingFile } from 'markup-generator';
+  
 
 const { innerContentComponent } = require('../src/components');
 
