@@ -8,7 +8,7 @@ const {
   writingFile
 } = require('../src/methods');
 
-
+import { writingFile } from 'markup-generator';
 
 
 // var generateEmptyTemplateComponent = require('../src/t/emptyTemplate');
