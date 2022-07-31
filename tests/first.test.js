@@ -1,6 +1,6 @@
 import { printMain,  printFooter, printBody, printHead, writingFile } from '../src/methods'
 
-
+import { writingFile } from 'markup-generator';
 // // console.log(printMain())
 // // console.log(printHead())
 
