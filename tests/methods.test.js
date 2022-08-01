@@ -33,7 +33,7 @@ describe('test helpers', () => {
       expect(printBody()).toBeDefined();
 
       expect(typeof string).toBe('string');
-      writingFile(string);
+      writingFile(string, 'lit-empty');
 
   });
 
@@ -48,7 +48,7 @@ describe('test helpers', () => {
     expect(printFooter()).toBeDefined();
 
   //   // expect(typeof string).toBe('string');
-    writingFile(string);
+    writingFile(string, 'lit-empty');
 
   });
 

@@ -21,7 +21,7 @@ describe('test helpers', () => {
 //       // console.log(string);
       expect(printHead()).toBeDefined();
 
-      writingFile(string1);
+      writingFile(string1, 'lit-empty');
     });
 
 
@@ -32,7 +32,7 @@ describe('test helpers', () => {
 //       // console.log(string);
 //       expect(printFooter()).toBeDefined();
 
-//       writingFile(string2);
+//       writingFile(string2, 'lit-empty');
 //     });
 
 //     test('rendering Body Component', () => {
@@ -42,7 +42,7 @@ describe('test helpers', () => {
 //       // console.log(string);
 //       expect(printBody()).toBeDefined();
 
-//       writingFile(string3);
+//       writingFile(string3, 'lit-empty');
 //     });
 
     
@@ -50,7 +50,7 @@ describe('test helpers', () => {
 //   //  test('rendering Empty Template', () => {
 
 //     //  const string = generateEmptyTemplateComponent();
-//     //  console.log(string);
+//     //  console.log(string, 'lit-empty');
 //   //  });
 
 
@@ -63,7 +63,7 @@ describe('test helpers', () => {
 
        expect(printMain()).toBeDefined();
 
-       writingFile(string4);
+       writingFile(string4, 'lit-empty');
 //        // expect(typeof string).toBe('string');
 
    });
