@@ -18,6 +18,7 @@ const settings = {
   params: { head: headString, body: BodyHTMLString },
 };
 
+// TODO it's not ideal to pass our factory (yeeeah) because it's just an empty box
 const MainFactory = new displayFactoryTwo();
 
 let MainHTMLString = MainFactory.create(settings);
