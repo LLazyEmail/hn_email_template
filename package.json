@@ -34,7 +34,7 @@
     "eslint-plugin-json": "3.1.0",
     "jest": "28.1.3",
     "madge": "^5.0.1",
-    "markup-generator": "1.0.0",
+    "markup-generator": "1.1.0",
     "prettier": "2.7.1",
     "rollup": "2.77.2",
     "rollup-plugin-includepaths": "0.2.4",
