@@ -43,7 +43,7 @@ describe('test helpers', () => {
 
     const string = printFooter();
 
-    console.log(string);
+    // console.log(string);
 
     expect(printFooter()).toBeDefined();
 
