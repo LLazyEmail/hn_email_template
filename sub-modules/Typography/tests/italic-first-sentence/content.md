@@ -10,3 +10,5 @@ Today most companies continue to demand faster releases and innovative software 
 
 <strong>*yy*</strong>
 
+
+## [Linkedin page of LLazyEmail](https://www.linkedin.com/company/llazyemail/)
