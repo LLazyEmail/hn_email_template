@@ -19,3 +19,4 @@
 - **Tokenized real-world assets**, from vehicles and gold to designer sneakers.
 
 
+## [Linkedin page of LLazyEmail](https://www.linkedin.com/company/llazyemail/)
