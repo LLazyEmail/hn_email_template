@@ -3,3 +3,5 @@
 3. **[Africa startups news on Hacker Noon](https://hackernoon.com/why-africa-is-becoming-the-land-of-startup-opportunity-sf1i32lu?ref=hackernoon.com)!** Question: out of the 69 billion raised for startups reported by Pitchbook in Q1 of 2021, how many are based or partially based in Africa? Prob not much.
 4. **[Crypto in Africa News on Hacker Noon](https://hackernoon.com/more-africans-walk-towards-financial-freedom-due-to-cryptocurrencies-552z33xu?ref=hackernoon.com).** Equalizing force or a daydream?
 
+
+## [Linkedin page of LLazyEmail](https://www.linkedin.com/company/llazyemail/)
