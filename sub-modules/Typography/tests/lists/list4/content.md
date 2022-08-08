@@ -18,3 +18,6 @@
 - [https://hackernoon.com/tagged/gaming](https://hackernoon.com/tagged/gaming?ref=hackernoon.com)
 - [https://hackernoon.com/tagged/virtual-reality](https://hackernoon.com/tagged/virtual-reality?ref=hackernoon.com)
 - [https://hackernoon.com/tagged/vr](https://hackernoon.com/tagged/vr?ref=hackernoon.com)
+
+
+## [Linkedin page of LLazyEmail](https://www.linkedin.com/company/llazyemail/)
