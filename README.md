@@ -269,3 +269,6 @@ contains
     throw new Error('no title was passed');
   }
 ```
+
+
+## [Linkedin page of LLazyEmail](https://www.linkedin.com/company/llazyemail/)
