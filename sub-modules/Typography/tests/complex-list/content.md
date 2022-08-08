@@ -30,3 +30,7 @@
 *   Standardize the case of your text data
 *   Do whatever it takes to [fix structural errors](https://hackernoon.com/use-up-sampling-and-weights-to-address-imbalance-data-problem-tc623y6v)
 3. **Look for one-off outliers.**
+   
+   
+   
+## [Linkedin page of LLazyEmail](https://www.linkedin.com/company/llazyemail/)
