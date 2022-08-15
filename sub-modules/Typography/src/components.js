@@ -10,10 +10,7 @@ import strongComponent   from './components/strong';
 import subtitleComponent from './components/subtitle';
 import separatorComponent from './components/separator';
 
-// import helloTemplate from 'lit-typography';
-
-
-// console.log(helloTemplate("Arthur"));
+import buttonComponent from './components/button2';
 
 
 const typographyComponents = {
@@ -27,7 +24,9 @@ const typographyComponents = {
   paragraphComponent,
   strongComponent,
   subtitleComponent,
-  separatorComponent
+  separatorComponent,
+  //--------
+  buttonComponent
 
 };
 

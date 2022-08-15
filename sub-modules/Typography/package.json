@@ -1,6 +1,6 @@
 {
   "name": "atherdon-newsletter-js-layouts-typography",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "im trying to separate part of our code",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
@@ -52,6 +52,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.18.3",
-    "lit-typography": "^0.1.0"
+    "lit-typography": "^0.1.0",
+    "stringify-attributes": "^3.0.0"
   }
 }
