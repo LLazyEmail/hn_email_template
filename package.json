@@ -6,8 +6,8 @@
   "module": "dist/index.es.js",
   "browser": "dist/index.iife.js",
   "scripts": {
-    "bundle": "rollup -c",
-    "dev": "rollup -c -w",
+    "bundle": "rollup -c --bundleConfigAsCjs",
+    "dev": "rollup -c -w --bundleConfigAsCjs",
     "build": "npm run clean && npm run bundle",
     "build:babel": "babel src -d dist",
     "prepublish": "npm run clean && npm run build",
