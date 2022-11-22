@@ -1,4 +1,4 @@
-import { writingFile } from 'markup-generator';
+// import { writingFile } from 'markup-generator';
 
 import HeadString from './display/displayHead';
 
@@ -68,4 +68,7 @@ const checkingTitle = (title) => {
 //   checkingPreviewText
 // } from './t/display'
 
-export { printMain, printFooter, printBody, printHead, printTemplate,  writingFile };
+export { 
+  printMain, printFooter, printBody, printHead, printTemplate,  
+  // writingFile 
+};
