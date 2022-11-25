@@ -1,20 +1,24 @@
 // https://github.com/abritinthebay/jest-tobetype
 import { writingFile } from 'markup-generator';
-const { 
-  printMain, printFooter, printBody, 
-  printHead,
+
+// const { 
+//   printMain, printFooter, printBody, 
+//   printHead,
   
-  // printLIT,
+//   // printLIT,
   
-} = require('../src/methods');
+// } = require('../src/methods');
 
 
-// import HeadString from '../src/display/displayHead';
 
-// import contentString from '../src/display/displayContent';
 
-// import FooterString from '../src/display/displayFooter';
+import HeadString from './display/displayHead';
 
+import { BodyHTMLString } from './display/displayBody';
+
+import { FooterHTMLString } from './display/displayFooter';
+
+import { MainHTMLString } from './display/displayMain';
 
 
 // var generateEmptyTemplateComponent = require('../src/t/emptyTemplate');
@@ -32,11 +36,11 @@ describe('test helpers', () => {
   test('rendering Body Component', () => {
 
 
-      const string = printBody();
+      const string = BodyHTMLString;
 
       // console.log(string);
 
-      expect(printBody()).toBeDefined();
+      expect(BodyHTMLString).toBeDefined();
 
       expect(typeof string).toBe('string');
       writingFile(string, 'lit-empty');
@@ -47,11 +51,11 @@ describe('test helpers', () => {
   test('rendering Footer Component', () => {
 
 
-    const string = printFooter();
+    const string = FooterHTMLString;
 
     // console.log(string);
 
-    expect(printFooter()).toBeDefined();
+    expect(FooterHTMLString).toBeDefined();
 
   //   // expect(typeof string).toBe('string');
     writingFile(string, 'lit-empty');
