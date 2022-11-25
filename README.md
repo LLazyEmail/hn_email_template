@@ -5,6 +5,10 @@
 
 
 
+https://deepsource.io/gh/LLazyEmail/hn_email_template/issues?category=recommended&page=1
+
+
+
 ----
 
 When I run a display method for Main component I'm able to see this
