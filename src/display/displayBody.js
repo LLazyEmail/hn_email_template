@@ -17,7 +17,7 @@ const { logoBottomComponent, logoTopComponent } = bodySubComponents;
 // note that footer param here is a subcomponent,
 // so we passing footerDisplay instead of just a component
 
-let addon1 = {
+let addon = {
   footer: FooterHTMLString,
 
   logoTop: logoTopComponent(),
@@ -33,8 +33,8 @@ let addon1 = {
 //variant one
 const settings = {
   component: EmailTemplateBodyComponent,
-  // params: { footerComponent, logoTop, logoBottom, content },
-  params: addon1,
+ 
+  params: addon,
 };
 
 // console.log( settings );
