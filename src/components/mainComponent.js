@@ -6,11 +6,11 @@ const mainComponent = (params) => {
   // TODO make it better
   const { head, body } = params;
 
-  if (!head || typeof head != 'string') {
+  if (!head || typeof head !== 'string') {
     throw new Error('no head was passed');
   }
 
-  if (!body || typeof body != 'string') {
+  if (!body || typeof body !== 'string') {
     throw new Error('no body was passed');
   }
 
