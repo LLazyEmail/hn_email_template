@@ -9,6 +9,14 @@ const {
 } = require('../src/methods');
 
 
+// import HeadString from '../src/display/displayHead';
+// import ContentMainTableWrapString from '../src/display/displayContentMainTableWrap';
+// import contentString from '../src/display/displayContent';
+// import instructionString from '../src/display/displayInstruction';
+// import SupportContactString from '../src/display/displaySupportContact';
+// import ImageAfterSupporComponentString from '../src/display/displayImageAfterSupportComponent';
+// import FooterString from '../src/display/displayFooter';
+
 
 
 // var generateEmptyTemplateComponent = require('../src/t/emptyTemplate');
