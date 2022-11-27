@@ -1,8 +1,6 @@
 import { writingFile } from 'markup-generator';
 
-// import { MainHTMLString } from '../src/display/displayMain';
-
-import MainHTMLString from '../src/display/displayMain';
+import { MainHTMLString } from '../src/display/displayMain';
 
 
 describe('main display method must be initialized', () => {
