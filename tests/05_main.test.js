@@ -22,7 +22,7 @@ describe('writing components into files', () => {
     // console.log(string);
     expect(MainHTMLString).toBeDefined();
 
-    writingFile(string3, 'HN-Content');
+    writingFile(string3, 'HN-Main');
   });
   
 });
