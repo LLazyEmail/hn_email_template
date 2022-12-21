@@ -17,7 +17,12 @@
     "lint:prettier": "prettier --write src/",
     "lint": "eslint -c ./eslintrc.js --ext .js . --ignore-path ./.eslintignore --resolve-plugins-relative-to .",
     "lint:fix": "eslint -c ./eslintrc.js --fix . --ignore-path ./.eslintignore --resolve-plugins-relative-to .",
-    "upd": "yarn add markup-generator"
+    "upd": "yarn add markup-generator",
+    "chmodler": "shx chmod -R 755 ./bash",
+    "test:all": "jest ./tests/* --passWithNoTests",
+    "test": "npm run chmodler && ./bash/tests.sh",
+    "upd": "shx chmod +x ./bash/update-packages.sh && ./bash/update-packages.sh",
+    "lint:fix": "./bash/lint-fix.sh"
   },
   "devDependencies": {
     "@babel/cli": "7.19.3",
@@ -57,6 +62,7 @@
     "atherdon-newsletter-js-layouts-misc": "^3.0.0",
     "atherdon-newsletter-js-layouts-typography": "^3.1.0",
     "email-template-object": "^0.2.0",
+    "html-typography-tags": "^1.1.0",
     "lit-typography": "^0.1.0",
     "lodash": "^4.17.21"
   },

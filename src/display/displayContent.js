@@ -6,6 +6,11 @@ import innerContentComponent from '../components/';
 
 // console.log(buttonComponent({href:'https://google.com', content: 'this is a link'}));
 
+import { buttonComponent2 } from 'html-typography-tags';
+
+const config = {id: '12', href: 'google.com'};
+
+console.log(buttonComponent2(config));
 
 //variant one
 const settings = {
