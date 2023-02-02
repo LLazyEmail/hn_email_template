@@ -218,12 +218,6 @@ submodule for https://github.com/atherdon/markdown-to-email
 
 ---
 
-Explore later:
-
-https://lit.dev/
-
-
-https://github.com/lit/lit/tree/main/packages/lit-html
 
 
 ### atherdon-newsletter-js-layouts
@@ -255,14 +249,7 @@ body
   - > section
   - > sponsor
 
-
-"atherdon-newsletter-js-layouts"
-contains
-- "atherdon-newsletter-js-layouts-body"
-- "atherdon-newsletter-js-layouts-footer"
-- "atherdon-newsletter-js-layouts-misc"
-- "atherdon-newsletter-js-layouts-typography"
-  
+---
 
 ```
   if (typeof headStylesComponent != 'function'){ 
