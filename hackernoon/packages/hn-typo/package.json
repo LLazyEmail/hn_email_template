@@ -1,1 +1,16 @@
-xxx
+{
+    "name": "hn-typo",
+    "version": "1.0.0",
+    "main": "dist/index.js",
+    "devDependencies": {},
+    "scripts": {
+      "build": "tsc src/index.ts --outDir dist",
+      "lint": "eslint . --ext .ts",
+      "lint:fix": "eslint  . --fix --ext .ts",
+      "test": "jest"
+    },
+    "dependencies": {
+      "stringify-attributes": "^3.0.0",
+      "typo": "*"
+    }
+  }

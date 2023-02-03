@@ -1,1 +1,16 @@
-xxx
+{
+    "name": "display",
+    "version": "1.0.0",
+    "main": "dist/index.js",
+    "devDependencies": {},
+    "scripts": {
+      "build": "tsc src/index.ts --outDir dist",
+      "lint": "eslint . --ext .ts",
+      "lint:fix": "eslint  . --fix --ext .ts"
+    },
+    "dependencies": {
+      "typo": "*",
+      "nmtg-typo": "*",
+      "outer": "*"
+    }
+  }
