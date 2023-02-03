@@ -10,7 +10,6 @@
     },
     "dependencies": {
       "typo": "*",
-      "nmtg-typo": "*",
       "outer": "*"
     }
   }
