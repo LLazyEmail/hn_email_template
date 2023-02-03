@@ -1,0 +1,15 @@
+{
+    "name": "typo",
+    "version": "4.0.0",
+    "main": "dist/index.js",
+    "devDependencies": {},
+    "scripts": {
+      "build": "tsc src/index.ts --outDir dist",
+      "lint": "eslint . --ext .ts",
+      "lint:fix": "eslint  . --fix --ext .ts",
+      "try": "npx ts-node --esm src/index.ts"
+    },
+    "dependencies": {
+      "stringify-attributes": "^3.0.0"
+    }
+  }
