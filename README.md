@@ -2,7 +2,8 @@
 
 ### Note: OuterTemplate moved into the root as the main project. other modules sitting in ./components folder
 
-
+Right now, the working version sitting under `Work` folder.
+We in process of transitioning our plan js templates into nx.dev structure and convertion into typescript.
 
 
 https://deepsource.io/gh/LLazyEmail/hn_email_template/issues?category=recommended&page=1
