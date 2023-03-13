@@ -1,5 +1,5 @@
 // import { writingFile } from 'markup-generator';
-import markdownData from './data';
+// import markdownData from './data';
 
 import HeadString from './display/displayHead';
 
@@ -41,7 +41,7 @@ const printTemplate = (string) => {
 }
 
 const printTemplateData = ({string, data}) => {
-  return displayTemplate(string)
+  return displayFrontMatterTemplate({string, data});
 }
 
 const ERROR_BODY = '`bodyContent` is a required option for `renderTemplate`';
@@ -67,6 +67,7 @@ const checkingTitle = (title) => {
 // } from './t/display'
 
 export { 
-  printMain, printFooter, printBody, printHead, printTemplate,  
+  printMain, printFooter, printBody, printHead, printTemplate, 
+  printTemplateData, 
   // writingFile 
 };

@@ -1,8 +1,10 @@
 import { displayFactoryTwo } from 'email-template-object';
 
 // import MainComponent from '../components/mainComponent';
-
-// import headString from '../display/displayHead';
+import {
+  
+    previewTextComponent
+} from '../components';
 
 import { settings as headSettings } from '../display/displayHead';
 
@@ -25,17 +27,16 @@ function displayTemplate({ generated_content, data }) {
     headSettings.params.title = data.title;
 
 
-
-
+    // ----------------
     const BodyFactory = new displayFactoryTwo();
 
     bodySettings.params.content = generated_content;
-
+    bodySettings.params.previewText = previewTextComponent(data.preview);
 
     
 
     const BodyHTMLString = BodyFactory.create(bodySettings);
-    
+    // -------------
     // console.log(BodyHTMLString)
     // ------
 
