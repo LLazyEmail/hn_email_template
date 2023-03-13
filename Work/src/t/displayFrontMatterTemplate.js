@@ -21,19 +21,17 @@ import {
 // const title = `The Secrets of High-Performing DevOps teams`;
 //     const head = displayHead(title);
 
-function displayTemplate({ generated_content, data }) {
+function displayFrontMatterTemplate({ generated_content, data }) {
 
     const HeadFactory = new displayFactoryTwo();
     headSettings.params.title = data.title;
-
+    const HeadHTMLString = HeadFactory.create(headSettings);
 
     // ----------------
     const BodyFactory = new displayFactoryTwo();
 
     bodySettings.params.content = generated_content;
-    bodySettings.params.previewText = previewTextComponent(data.preview);
-
-    
+    bodySettings.params.previewText = previewTextComponent(data.preview);  
 
     const BodyHTMLString = BodyFactory.create(bodySettings);
     // -------------
@@ -42,6 +40,7 @@ function displayTemplate({ generated_content, data }) {
 
     const MainFactory = new displayFactoryTwo();
 
+    mainSettings.params.head = HeadHTMLString;
     mainSettings.params.body = BodyHTMLString;
 
     let MainHTMLString = MainFactory.create(mainSettings);
@@ -54,4 +53,4 @@ function displayTemplate({ generated_content, data }) {
 };
 
 
-export default displayTemplate;
+export default displayFrontMatterTemplate;

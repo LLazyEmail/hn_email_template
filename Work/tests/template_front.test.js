@@ -9,10 +9,10 @@ const {
 
 const { innerContentComponent } = require('../src/components');
 
-
-import markdownData from './data';
-
-const displayTemplate = require('../src/t/displayTemplate');
+// TODO move data into tests folder, as we dont use it elsewhere
+import markdownData from '../src/data';
+console.log(markdownData);
+// const displayFrontMatterTemplate = require('../src/t/displayTemplate');
 
   describe('test helpers', () => {
 
@@ -20,7 +20,7 @@ const displayTemplate = require('../src/t/displayTemplate');
     test('rendering Template', () => { 
 
         const contentos = innerContentComponent();
-        const string = printTemplateData({ contentos, markdownData });
+        const string = printTemplateData({ string: contentos, data: markdownData });
 
         console.log(string);
   
