@@ -11,7 +11,7 @@ const { innerContentComponent } = require('../src/components');
 
 // TODO move data into tests folder, as we dont use it elsewhere
 import markdownData from '../src/data';
-console.log(markdownData);
+// console.log(markdownData);
 // const displayFrontMatterTemplate = require('../src/t/displayTemplate');
 
   describe('test helpers', () => {
@@ -22,7 +22,7 @@ console.log(markdownData);
         const contentos = innerContentComponent();
         const string = printTemplateData({ string: contentos, data: markdownData });
 
-        console.log(string);
+        // console.log(string);
   
         // expect(string).toBeDefined();
   

@@ -1,7 +1,7 @@
 // import { writingFile } from 'markup-generator';
 // import markdownData from './data';
 
-import HeadString from './display/displayHead';
+import { HeadHTMLString } from './display/displayHead';
 
 import { BodyHTMLString } from './display/displayBody';
 

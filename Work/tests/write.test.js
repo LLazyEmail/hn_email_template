@@ -22,7 +22,7 @@ describe('test helpers', () => {
 //       // console.log(string);
       expect(printHead()).toBeDefined();
 
-      writingFile(string1, 'lit-empty');
+      writingFile(string1, 'lit-empty', '');
     });
 
 

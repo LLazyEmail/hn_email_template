@@ -5,20 +5,16 @@ import { writingFile } from 'markup-generator';
 //   printMain, printFooter, printBody, 
 //   printHead,
   
-//   // printLIT,
-  
 // } = require('../src/methods');
 
 
+import { HeadHTMLString } from '../src/display/displayHead';
 
+import { BodyHTMLString } from '../src/display/displayBody';
 
-import HeadString from './display/displayHead';
+import { FooterHTMLString } from '../src/display/displayFooter';
 
-import { BodyHTMLString } from './display/displayBody';
-
-import { FooterHTMLString } from './display/displayFooter';
-
-import { MainHTMLString } from './display/displayMain';
+import { MainHTMLString } from '../src/display/displayMain';
 
 
 // var generateEmptyTemplateComponent = require('../src/t/emptyTemplate');

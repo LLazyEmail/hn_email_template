@@ -3,7 +3,7 @@
 import { BodyHTMLString } from '../src/display/displayBody';
 import ContentHTMLString from '../src/display/displayContent';
 import { FooterHTMLString } from '../src/display/displayFooter';
-import HeadHTMLString from '../src/display/displayHead';
+import { HeadHTMLString } from '../src/display/displayHead';
 import { MainHTMLString } from '../src/display/displayMain';
 
 
