@@ -27,10 +27,16 @@ const settings = {
   },
 };
 
-const Factory = new displayFactoryTwo();
+const HeadFactory = new displayFactoryTwo();
 // Factory.create(settings);
+const HeadHTMLString = HeadFactory.create(settings);
+// export default HeadFactory.create(settings);
 
-export default Factory.create(settings);
+export {
+  HeadFactory,
+  settings,
+  HeadHTMLString
+}
 
 // export {
 

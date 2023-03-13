@@ -1,4 +1,5 @@
 // import { writingFile } from 'markup-generator';
+import markdownData from './data';
 
 import HeadString from './display/displayHead';
 
@@ -16,14 +17,7 @@ import { MainHTMLString } from './display/displayMain';
 
 import displayTemplate from './t/displayTemplate';
 
-// import helloTemplate from 'lit-typography';
-
-// const printLIT = () => { 
-
-//   const element = document.createElement('div');
-  
-//   console.log(helloTemplate("Arthur"));
-// }
+import displayFrontMatterTemplate from './t/displayFrontMatterTemplate';
 
 
 const printHead = () => {
@@ -43,6 +37,10 @@ const printBody = () => {
 };
 
 const printTemplate = (string) => {
+  return displayTemplate(string)
+}
+
+const printTemplateData = ({string, data}) => {
   return displayTemplate(string)
 }
 
