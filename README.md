@@ -168,14 +168,11 @@ UPD. I forget to add a link to a repository with a source code.
 ![](https://raw.githubusercontent.com/LLazyEmail/_trying-lit/main/images/packages-folder.png)
 
 
-![]()
-
-
-![]()
 
 
 
 
+---
 
 
 #### Arthur Tkachenko articles
@@ -197,7 +194,7 @@ UPD. I forget to add a link to a repository with a source code.
 
 
 
-  Try this later
+#### Try this later
 
   - https://www.npmjs.com/package/html-validate
 
@@ -207,9 +204,11 @@ UPD. I forget to add a link to a repository with a source code.
 
   - https://www.npmjs.com/package/common-tags#introduction
 
-https://www.npmjs.com/package/htmljs-parser
-https://www.npmjs.com/package/parse5
-https://www.npmjs.com/package/@tehshrike/html-template-tag
+ - https://www.npmjs.com/package/htmljs-parser
+
+ - https://www.npmjs.com/package/parse5
+
+ - https://www.npmjs.com/package/@tehshrike/html-template-tag
 
 
 
