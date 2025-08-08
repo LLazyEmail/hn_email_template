@@ -3,7 +3,7 @@
 ### Note: OuterTemplate moved into the root as the main project. other modules sitting in ./components folder
 
 
-
+NPM link: https://www.npmjs.com/package/atherdon-old-newsletter-js-outertemplate
 
 ----
 
@@ -165,10 +165,6 @@ UPD. I forget to add a link to a repository with a source code.
 ![](https://raw.githubusercontent.com/LLazyEmail/_trying-lit/main/images/packages-folder.png)
 
 
-![]()
-
-
-![]()
 
 
 
@@ -218,10 +214,9 @@ submodule for https://github.com/atherdon/markdown-to-email
 
 Explore later:
 
-https://lit.dev/
+- https://lit.dev/
 
-
-https://github.com/lit/lit/tree/main/packages/lit-html
+- https://github.com/lit/lit/tree/main/packages/lit-html
 
 
 ### atherdon-newsletter-js-layouts
@@ -254,6 +249,7 @@ body
   - > sponsor
 
 
+---
 "atherdon-newsletter-js-layouts"
 contains
 - "atherdon-newsletter-js-layouts-body"
@@ -261,6 +257,8 @@ contains
 - "atherdon-newsletter-js-layouts-misc"
 - "atherdon-newsletter-js-layouts-typography"
   
+
+---
 
 ```
   if (typeof headStylesComponent != 'function'){ 
