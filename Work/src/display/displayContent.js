@@ -1,23 +1,16 @@
-import { displayFactoryTwo } from 'email-template-object';
-
-import innerContentComponent from '../components/';
-
-// import { buttonComponent } from 'atherdon-newsletter-js-layouts-typography';
-
-// console.log(buttonComponent({href:'https://google.com', content: 'this is a link'}));
-
+import { innerContentComponent } from '../components';
 import { buttonComponent2 } from 'html-typography-tags';
+import { createDisplaySection } from './createDisplaySection';
 
-const config = {id: '12', href: 'google.com'};
+const config = { id: '12', href: 'google.com' };
 
 console.log(buttonComponent2(config));
 
-//variant one
-const settings = {
-  component: innerContentComponent,
-  params: {},
-};
+export const displayContent = createDisplaySection({
+  sectionName: 'displayContent',
+  render: () => innerContentComponent(),
+});
 
-const TemplateFactory = new displayFactoryTwo();
-// console.log(TemplateFactory.create(settings));
-export default TemplateFactory.create(settings);
+export const ContentHTMLString = displayContent();
+
+export default ContentHTMLString;

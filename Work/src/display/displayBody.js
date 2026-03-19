@@ -1,51 +1,33 @@
-import { displayFactoryTwo, factoryFour } from 'email-template-object';
-
 import bodySubComponents from 'atherdon-newsletter-js-layouts-body';
-
 import {
   EmailTemplateBodyComponent,
   innerContentComponent,
-  previewTextComponent
+  previewTextComponent,
 } from '../components';
-
-import { FooterHTMLString } from '../display/displayFooter';
+import { FooterHTMLString } from './displayFooter';
+import { createDisplaySection } from './createDisplaySection';
 
 const { logoBottomComponent, logoTopComponent } = bodySubComponents;
 
-
-
-// note that footer param here is a subcomponent,
-// so we passing footerDisplay instead of just a component
-
-let addon = {
+const defaults = {
   footer: FooterHTMLString,
-
   logoTop: logoTopComponent(),
   logoBottom: logoBottomComponent(),
-
-  // theese two variuables must beeing passed from the outside
-
   content: innerContentComponent(),
-  // content: '[[THIS IS PLACE FOR A CONTENT INSIDE]',
   previewText: previewTextComponent('[AMA PREVIEW TEXT]'),
 };
 
-//variant one
-const settings = {
+export const displayBody = createDisplaySection({
+  sectionName: 'displayBody',
+  requiredFields: ['footer', 'logoTop', 'logoBottom', 'content', 'previewText'],
+  defaults,
+  render: (params) => EmailTemplateBodyComponent(params),
+});
+
+// settings kept as a named export for backward compatibility
+export const settings = {
   component: EmailTemplateBodyComponent,
- 
-  params: addon,
+  params: { ...defaults },
 };
 
-// console.log( settings );
-
-const BodyFactory = new displayFactoryTwo();
-const BodyHTMLString = BodyFactory.create(settings);
-
-// console.log( BodyHTMLString );
-
-export {
-  BodyFactory,
-  settings,
-  BodyHTMLString
-} 
+export const BodyHTMLString = displayBody();
