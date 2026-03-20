@@ -2,6 +2,7 @@ import misc from 'atherdon-newsletter-js-layouts-misc';
 import footerComponent from '../components/footer';
 // import { displayFactoryTwo } from 'email-template-object';
 import { createDisplaySection } from './createDisplaySection';
+import { buildFooterModel } from './models/buildFooterModel';
 
 const {
   addressComponent,
@@ -25,12 +26,7 @@ export const footerSectionConfig = {
   sectionName: 'displayFooter',
   requiredFields: ['address', 'sponsor', 'copyright', 'unsubscribe'],
   defaults,
-  mapToFactorySettings: (input) => ({
-    address: input.address,
-    sponsor: input.sponsor,
-    copyright: input.copyright,
-    unsubscribe: input.unsubscribe,
-  }),
+  mapToFactorySettings: buildFooterModel,
   render: (params) => footerComponent(params),
 };
 
