@@ -4,12 +4,12 @@ const {
     // printHead,
     printTemplate
     
-  } = require('../src/methods');
+  } = require('../../src/methods');
   
 
-const { innerContentComponent } = require('../src/components');
+const { innerContentComponent } = require('../../src/components');
 
-const displayTemplate = require('../src/t/displayTemplate');
+const displayTemplate = require('../../src/t/displayTemplate');
 
   describe('test helpers', () => {
 

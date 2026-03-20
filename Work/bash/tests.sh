@@ -2,4 +2,8 @@
 
 filename=$1
 
-jest ./tests/$1.test.js --passWithNoTests
+if [ -n "$filename" ]; then
+  jest --testPathPattern="$filename\.test\.js" --passWithNoTests
+else
+  jest ./tests/unit/ ./tests/integration/ --passWithNoTests
+fi

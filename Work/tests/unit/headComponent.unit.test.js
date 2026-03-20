@@ -1,4 +1,4 @@
-import headComponent from '../src/components/headComponent';
+import headComponent from '../../src/components/headComponent';
 
 const validParams = {
   title: 'Test Email Title',

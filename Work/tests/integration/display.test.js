@@ -1,10 +1,10 @@
 // https://www.codegrepper.com/code-examples/javascript/jest+test+if+method+exists
 
-import { BodyHTMLString } from '../src/display/displayBody';
-import ContentHTMLString from '../src/display/displayContent';
-import { FooterHTMLString } from '../src/display/displayFooter';
-import { HeadHTMLString } from '../src/display/displayHead';
-import { MainHTMLString } from '../src/display/displayMain';
+import { BodyHTMLString } from '../../src/display/displayBody';
+import ContentHTMLString from '../../src/display/displayContent';
+import { FooterHTMLString } from '../../src/display/displayFooter';
+import { HeadHTMLString } from '../../src/display/displayHead';
+import { MainHTMLString } from '../../src/display/displayMain';
 
 
 describe('all display methods must be initialized', () => {

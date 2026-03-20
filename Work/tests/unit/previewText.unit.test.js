@@ -1,4 +1,4 @@
-import previewTextComponent from '../src/components/previewText';
+import previewTextComponent from '../../src/components/previewText';
 
 describe('previewTextComponent - throws on missing or invalid content', () => {
   test('throws when content is not provided', () => {

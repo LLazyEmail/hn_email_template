@@ -1,4 +1,4 @@
-import mainComponent from '../src/components/mainComponent';
+import mainComponent from '../../src/components/mainComponent';
 
 const validParams = {
   head: '<head><title>Test</title></head>',

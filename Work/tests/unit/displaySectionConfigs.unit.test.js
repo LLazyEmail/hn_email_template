@@ -1,9 +1,9 @@
-import { footerSectionConfig } from '../src/display/displayFooter';
-import { headSectionConfig } from '../src/display/displayHead';
-import { bodySectionConfig } from '../src/display/displayBody';
-import { mainSectionConfig } from '../src/display/displayMain';
-import { mainFrontSectionConfig } from '../src/display/displayMainFront';
-import { contentSectionConfig } from '../src/display/displayContent';
+import { footerSectionConfig } from '../../src/display/displayFooter';
+import { headSectionConfig } from '../../src/display/displayHead';
+import { bodySectionConfig } from '../../src/display/displayBody';
+import { mainSectionConfig } from '../../src/display/displayMain';
+import { mainFrontSectionConfig } from '../../src/display/displayMainFront';
+import { contentSectionConfig } from '../../src/display/displayContent';
 
 // ---------------------------------------------------------------------------
 // Shared helper: assert a config object satisfies the createDisplaySection contract

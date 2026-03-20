@@ -1,4 +1,4 @@
-import footerComponent from '../src/components/footer';
+import footerComponent from '../../src/components/footer';
 
 const validParams = {
   address: '<span>123 Main St</span>',

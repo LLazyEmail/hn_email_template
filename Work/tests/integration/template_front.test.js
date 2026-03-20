@@ -4,15 +4,15 @@ const {
     // printHead,
     printTemplateData
     
-  } = require('../src/methods');
+  } = require('../../src/methods');
   
 
-const { innerContentComponent } = require('../src/components');
+const { innerContentComponent } = require('../../src/components');
 
 // TODO move data into tests folder, as we dont use it elsewhere
-import markdownData from '../src/data';
+import markdownData from '../../src/data';
 // console.log(markdownData);
-// const displayFrontMatterTemplate = require('../src/t/displayTemplate');
+// const displayFrontMatterTemplate = require('../../src/t/displayTemplate');
 
   describe('test helpers', () => {
 
