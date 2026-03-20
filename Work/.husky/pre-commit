@@ -1,0 +1,1 @@
+cd Work && npx lint-staged
