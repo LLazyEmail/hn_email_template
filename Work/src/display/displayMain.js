@@ -15,10 +15,14 @@ export const displayMain = createDisplaySection({
   render: (params) => MainComponent(params),
 });
 
-// settings kept as a named export for backward compatibility
-export const settings = {
+const settings = {
   component: MainComponent,
   params: { ...defaults },
 };
 
-export const MainHTMLString = displayMain();
+const MainHTMLString = displayMain();
+
+export {
+  settings,
+  MainHTMLString,
+};

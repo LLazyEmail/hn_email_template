@@ -1,5 +1,6 @@
 import misc from 'atherdon-newsletter-js-layouts-misc';
 import footerComponent from '../components/footer';
+// import { displayFactoryTwo } from 'email-template-object';
 import { createDisplaySection } from './createDisplaySection';
 
 const {
@@ -23,4 +24,14 @@ export const displayFooter = createDisplaySection({
   render: (params) => footerComponent(params),
 });
 
-export const FooterHTMLString = displayFooter();
+const settings = {
+  component: footerComponent,
+  params: { ...defaults },
+};
+
+const FooterHTMLString = displayFooter();
+
+export {
+  settings,
+  FooterHTMLString,
+};

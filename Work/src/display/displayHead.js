@@ -18,10 +18,14 @@ export const displayHead = createDisplaySection({
   render: (params) => headComponent(params),
 });
 
-// settings kept as a named export for backward compatibility
-export const settings = {
+const settings = {
   component: headComponent,
   params: { ...defaults },
 };
 
-export const HeadHTMLString = displayHead();
+const HeadHTMLString = displayHead();
+
+export {
+  settings,
+  HeadHTMLString,
+};

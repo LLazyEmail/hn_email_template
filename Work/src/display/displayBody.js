@@ -1,3 +1,4 @@
+// import { displayFactoryTwo, factoryFour } from 'email-template-object';
 import bodySubComponents from 'atherdon-newsletter-js-layouts-body';
 import {
   EmailTemplateBodyComponent,
@@ -24,10 +25,14 @@ export const displayBody = createDisplaySection({
   render: (params) => EmailTemplateBodyComponent(params),
 });
 
-// settings kept as a named export for backward compatibility
-export const settings = {
+const settings = {
   component: EmailTemplateBodyComponent,
   params: { ...defaults },
 };
 
-export const BodyHTMLString = displayBody();
+const BodyHTMLString = displayBody();
+
+export {
+  settings,
+  BodyHTMLString,
+};
