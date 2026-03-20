@@ -10,11 +10,15 @@ const {
   unsubscribeComponent,
 } = misc;
 
+const mailingAddress = 'PO Box 2206, Edwards CO, 81632, U.S.A.';
+const contact = 'https://sponsor.hackernoon.com/newsletter?ref=noonifications.tech';
+const unsubscribeLink = 'https://sponsor.hackernoon.com/contact';
+
 const defaults = {
-  address: addressComponent({ mailingAddress: 'PO Box 2206, Edwards CO, 81632, U.S.A.' }),
-  sponsor: newsletterSponsorshipLinkComponent({ contact: 'https://sponsor.hackernoon.com/newsletter?ref=noonifications.tech' }),
+  address: addressComponent({ mailingAddress }),
+  sponsor: newsletterSponsorshipLinkComponent({ contact }),
   copyright: copyrightsComponent(),
-  unsubscribe: unsubscribeComponent({ unsubscribeLink: 'https://sponsor.hackernoon.com/contact' }),
+  unsubscribe: unsubscribeComponent({ unsubscribeLink }),
 };
 
 export const displayFooter = createDisplaySection({
