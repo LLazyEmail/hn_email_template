@@ -7,11 +7,11 @@ import { displayFactoryTwo } from 'email-template-object';
 
 import { 
     settings as bodySettings
- } from '../display/displayBody';
+ } from '../display/sections/body';
 
  import {
     settings as mainSettings
- } from '../display/displayMain';
+ } from '../display/sections/main';
 
 
 // title must be passed from the outside

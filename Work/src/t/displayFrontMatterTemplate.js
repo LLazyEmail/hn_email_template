@@ -6,15 +6,15 @@ import {
     previewTextComponent
 } from '../components';
 
-import { settings as headSettings } from '../display/displayHead';
+import { settings as headSettings } from '../display/sections/head';
 
 import { 
     settings as bodySettings
- } from '../display/displayBody';
+ } from '../display/sections/body';
 
  import {
     settings as mainSettings
- } from '../display/displayMain';
+ } from '../display/sections/main';
 
 
 // title must be passed from the outside

@@ -1,4 +1,4 @@
-import { displayHead, settings, HeadHTMLString } from '../../src/display/displayHead';
+import { displayHead, settings, HeadHTMLString } from '../../src/display/sections/head';
 
 describe('displayHead function', () => {
   test('displayHead is a function', () => {

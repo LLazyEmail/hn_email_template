@@ -8,7 +8,7 @@
  */
 
 import { required, nonEmptyString } from './rules';
-import { missingRequiredFieldError } from '../errors/displayErrors';
+import { missingRequiredFieldError } from '../errors/createDisplayError';
 
 /**
  * Rules applied to every required field, in order.

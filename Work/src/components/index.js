@@ -4,7 +4,7 @@ import previewTextComponent from '../components/previewText';
 
 import MainComponent from '../components/mainComponent';
 
-import headString from '../display/displayHead';
+import { HeadHTMLString as headString } from '../display/sections/head';
 
 export { 
     EmailTemplateBodyComponent, 

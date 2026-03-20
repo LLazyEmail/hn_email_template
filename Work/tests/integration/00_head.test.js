@@ -1,6 +1,6 @@
 import { writingFile } from 'markup-generator';
 
-import { HeadHTMLString }  from '../../src/display/displayHead';
+import { HeadHTMLString }  from '../../src/display/sections/head';
 
 
 describe('head display method must be initialized', () => {

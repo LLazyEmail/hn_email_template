@@ -1,4 +1,4 @@
-import { createDisplaySection } from '../../src/display/createDisplaySection';
+import { createDisplaySection } from '../../src/display/core/createDisplaySection';
 
 const mockRender = jest.fn((params) => `<html>${JSON.stringify(params)}</html>`);
 

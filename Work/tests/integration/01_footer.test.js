@@ -1,9 +1,9 @@
 import { writingFile } from 'markup-generator';
 
-import {FooterHTMLString} from '../../src/display/displayFooter';
+import {FooterHTMLString} from '../../src/display/sections/footer';
 
 
-// import { FooterHTMLString } from '../../src/display/displayFooter';
+// import { FooterHTMLString } from '../../src/display/sections/footer';
 
 
 describe('footer display method must be initialized', () => {

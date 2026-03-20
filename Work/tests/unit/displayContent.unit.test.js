@@ -1,4 +1,4 @@
-import { displayContent, ContentHTMLString, contentSectionConfig } from '../../src/display/displayContent';
+import { displayContent, ContentHTMLString, contentSectionConfig } from '../../src/display/sections/content';
 
 describe('displayContent function', () => {
   test('displayContent is a function', () => {
