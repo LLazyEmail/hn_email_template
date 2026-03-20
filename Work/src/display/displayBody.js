@@ -18,12 +18,21 @@ const defaults = {
   previewText: previewTextComponent('[AMA PREVIEW TEXT]'),
 };
 
-export const displayBody = createDisplaySection({
+export const bodySectionConfig = {
   sectionName: 'displayBody',
   requiredFields: ['footer', 'logoTop', 'logoBottom', 'content', 'previewText'],
   defaults,
+  mapToFactorySettings: (input) => ({
+    footer: input.footer,
+    logoTop: input.logoTop,
+    logoBottom: input.logoBottom,
+    content: input.content,
+    previewText: input.previewText,
+  }),
   render: (params) => EmailTemplateBodyComponent(params),
-});
+};
+
+export const displayBody = createDisplaySection(bodySectionConfig);
 
 const settings = {
   component: EmailTemplateBodyComponent,
