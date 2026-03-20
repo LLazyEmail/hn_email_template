@@ -1,4 +1,4 @@
-import headStylesComponent from '../src/components/headStyles';
+import headStylesComponent from '../../src/components/headStyles';
 
 describe('headStylesComponent - output validation', () => {
   test('returns a string', () => {

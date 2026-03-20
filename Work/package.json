@@ -16,8 +16,10 @@
     "format:check": "prettier --check src/",
     "lint": "eslint -c ./.eslintrc.js --ext .js . --ignore-path ./.eslintignore --resolve-plugins-relative-to .",
     "chmodler": "shx chmod -R 755 ./bash",
-    "test:all": "jest ./tests/* --passWithNoTests",
-    "test:template": "jest ./tests/template.test.js --passWithNoTests",
+    "test:all": "jest ./tests/unit/ ./tests/integration/ --passWithNoTests",
+    "test:unit": "jest ./tests/unit/ --passWithNoTests",
+    "test:integration": "jest ./tests/integration/ --passWithNoTests",
+    "test:template": "jest ./tests/integration/template.test.js --passWithNoTests",
     "test": "npm run chmodler && ./bash/tests.sh",
     "upd": "shx chmod +x ./bash/update-packages.sh && ./bash/update-packages.sh",
     "lint:fix": "./bash/lint-fix.sh"

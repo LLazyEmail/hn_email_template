@@ -1,4 +1,4 @@
-import { displayMain, settings, MainHTMLString } from '../src/display/displayMain';
+import { displayMain, settings, MainHTMLString } from '../../src/display/displayMain';
 
 describe('displayMain function', () => {
   test('displayMain is a function', () => {

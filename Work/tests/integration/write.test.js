@@ -1,15 +1,15 @@
 import { writingFile } from 'markup-generator';
 
-import { printMain,  printFooter, printBody, printHead } from '../src/methods'
+import { printMain,  printFooter, printBody, printHead } from '../../src/methods'
 
 
 // // console.log(printMain())
 // // console.log(printHead())
 
 
-// // var generateEmptyTemplateComponent = require('../src/t/emptyTemplate');
+// // var generateEmptyTemplateComponent = require('../../src/t/emptyTemplate');
 
-// // var generateTemplateComponent = require('../src/t/generateTemplate');
+// // var generateTemplateComponent = require('../../src/t/generateTemplate');
 
 
 describe('test helpers', () => {

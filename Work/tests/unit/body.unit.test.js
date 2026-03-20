@@ -1,4 +1,4 @@
-import EmailTemplateBodyComponent from '../src/components/body';
+import EmailTemplateBodyComponent from '../../src/components/body';
 
 const validParams = {
   footer: '<tr><td>Footer content</td></tr>',

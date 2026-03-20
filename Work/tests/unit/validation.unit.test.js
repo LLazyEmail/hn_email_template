@@ -1,5 +1,5 @@
-import { required, nonEmptyString } from '../src/display/validation/rules';
-import { validateInput } from '../src/display/validation/validateInput';
+import { required, nonEmptyString } from '../../src/display/validation/rules';
+import { validateInput } from '../../src/display/validation/validateInput';
 
 // ---------------------------------------------------------------------------
 // rules.js — required
