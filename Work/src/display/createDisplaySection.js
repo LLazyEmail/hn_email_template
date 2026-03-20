@@ -1,3 +1,5 @@
+import { validateInput } from './validation/validateInput';
+
 /**
  * Creates a reusable display section function that encapsulates the common
  * display-layer flow: merging defaults, validating required fields, mapping
@@ -21,12 +23,7 @@ export function createDisplaySection({
   return function displaySection(input = {}) {
     const normalized = { ...defaults, ...input };
 
-    for (const field of requiredFields) {
-      const value = normalized[field];
-      if (value === undefined || value === null || value === '') {
-        throw new Error(`[${sectionName}] missing required field: ${field}`);
-      }
-    }
+    validateInput(sectionName, normalized, requiredFields);
 
     const settings = mapToFactorySettings
       ? mapToFactorySettings(normalized)
