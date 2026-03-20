@@ -7,10 +7,12 @@ const config = { id: '12', href: 'google.com' };
 
 console.log(buttonComponent2(config));
 
-export const displayContent = createDisplaySection({
+export const contentSectionConfig = {
   sectionName: 'displayContent',
   render: () => innerContentComponent(),
-});
+};
+
+export const displayContent = createDisplaySection(contentSectionConfig);
 
 export const ContentHTMLString = displayContent();
 

@@ -21,12 +21,20 @@ const defaults = {
   unsubscribe: unsubscribeComponent({ unsubscribeLink }),
 };
 
-export const displayFooter = createDisplaySection({
+export const footerSectionConfig = {
   sectionName: 'displayFooter',
   requiredFields: ['address', 'sponsor', 'copyright', 'unsubscribe'],
   defaults,
+  mapToFactorySettings: (input) => ({
+    address: input.address,
+    sponsor: input.sponsor,
+    copyright: input.copyright,
+    unsubscribe: input.unsubscribe,
+  }),
   render: (params) => footerComponent(params),
-});
+};
+
+export const displayFooter = createDisplaySection(footerSectionConfig);
 
 const settings = {
   component: footerComponent,

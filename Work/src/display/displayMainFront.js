@@ -8,11 +8,17 @@ const defaults = {
   body: BodyHTMLString,
 };
 
-export const displayMainFront = createDisplaySection({
+export const mainFrontSectionConfig = {
   sectionName: 'displayMainFront',
   requiredFields: ['head', 'body'],
   defaults,
+  mapToFactorySettings: (input) => ({
+    head: input.head,
+    body: input.body,
+  }),
   render: (params) => MainComponent(params),
-});
+};
+
+export const displayMainFront = createDisplaySection(mainFrontSectionConfig);
 
 export const MainHTMLString = displayMainFront();

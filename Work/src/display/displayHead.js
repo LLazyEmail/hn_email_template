@@ -11,12 +11,19 @@ const defaults = {
   fonts: fontsComponent(),
 };
 
-export const displayHead = createDisplaySection({
+export const headSectionConfig = {
   sectionName: 'displayHead',
   requiredFields: ['title', 'headStyles', 'fonts'],
   defaults,
+  mapToFactorySettings: (input) => ({
+    title: input.title,
+    headStyles: input.headStyles,
+    fonts: input.fonts,
+  }),
   render: (params) => headComponent(params),
-});
+};
+
+export const displayHead = createDisplaySection(headSectionConfig);
 
 const settings = {
   component: headComponent,
