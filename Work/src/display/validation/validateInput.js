@@ -8,6 +8,7 @@
  */
 
 import { required, nonEmptyString } from './rules';
+import { missingRequiredFieldError } from '../errors/displayErrors';
 
 /**
  * Rules applied to every required field, in order.
@@ -30,7 +31,7 @@ export function validateInput(sectionName, normalized, requiredFields) {
     for (const rule of FIELD_RULES) {
       const reason = rule(value);
       if (reason !== null) {
-        throw new Error(`[${sectionName}] missing required field: ${field}`);
+        throw missingRequiredFieldError(sectionName, field);
       }
     }
   }
