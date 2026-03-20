@@ -22,7 +22,7 @@
     "test:unit": "jest ./tests/unit/ --passWithNoTests",
     "test:integration": "jest ./tests/integration/ --passWithNoTests",
     "test:template": "jest ./tests/integration/template.test.js --passWithNoTests",
-    "prepare": "cd $(git rev-parse --show-toplevel) && node Work/node_modules/.bin/husky Work/.husky",
+    "prepare": "node -e \"process.exit(process.env.CI ? 0 : 1)\" || (cd $(git rev-parse --show-toplevel) && node Work/node_modules/.bin/husky Work/.husky)",
     "upd": "shx chmod +x ./bash/update-packages.sh && ./bash/update-packages.sh"
   },
   "devDependencies": {
