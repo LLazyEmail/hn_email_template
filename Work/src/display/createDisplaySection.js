@@ -1,9 +1,14 @@
 import { validateInput } from './validation/validateInput';
+import { runPipeline } from './pipeline/runPipeline';
 
 /**
  * Creates a reusable display section function that encapsulates the common
- * display-layer flow: merging defaults, validating required fields, mapping
- * input to renderer settings, and invoking the renderer.
+ * display-layer pipeline:
+ *
+ *   input → normalize → validate → buildModel → render → postProcess (optional)
+ *
+ * Each stage is explicit and named, enabling clear error attribution and
+ * individual testability.
  *
  * @param {object} config
  * @param {string} config.sectionName - Section name used in error messages.
@@ -11,6 +16,7 @@ import { validateInput } from './validation/validateInput';
  * @param {object} [config.defaults={}] - Default input values merged before validation.
  * @param {function} [config.mapToFactorySettings] - Maps normalized input to renderer params.
  * @param {function} config.render - Renderer/component callback that produces HTML.
+ * @param {function} [config.postProcess] - Optional post-processing applied to rendered HTML.
  * @returns {function} A display section function that accepts optional input overrides.
  */
 export function createDisplaySection({
@@ -19,16 +25,39 @@ export function createDisplaySection({
   defaults = {},
   mapToFactorySettings,
   render,
+  postProcess,
 }) {
+  const stages = [
+    {
+      name: 'normalize',
+      fn: (input) => ({ ...defaults, ...input }),
+    },
+    {
+      name: 'validate',
+      fn: (normalized) => {
+        validateInput(sectionName, normalized, requiredFields);
+        return normalized;
+      },
+    },
+    {
+      name: 'buildModel',
+      fn: (normalized) =>
+        mapToFactorySettings ? mapToFactorySettings(normalized) : normalized,
+    },
+    {
+      name: 'render',
+      fn: (model) => render(model),
+    },
+  ];
+
+  if (postProcess) {
+    stages.push({
+      name: 'postProcess',
+      fn: (html) => postProcess(html),
+    });
+  }
+
   return function displaySection(input = {}) {
-    const normalized = { ...defaults, ...input };
-
-    validateInput(sectionName, normalized, requiredFields);
-
-    const settings = mapToFactorySettings
-      ? mapToFactorySettings(normalized)
-      : normalized;
-
-    return render(settings);
+    return runPipeline(stages, input, { sectionName });
   };
 }

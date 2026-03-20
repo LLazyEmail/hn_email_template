@@ -161,3 +161,68 @@ describe('createDisplaySection - mapToFactorySettings', () => {
     expect(mockRender).toHaveBeenCalledWith({ key: 'value' });
   });
 });
+
+describe('createDisplaySection - postProcess stage', () => {
+  test('calls postProcess with the rendered HTML when provided', () => {
+    const mockPost = jest.fn((html) => html + '<!-- post -->');
+    const section = createDisplaySection({
+      sectionName: 'test',
+      render: mockRender,
+      postProcess: mockPost,
+    });
+    section({ key: 'val' });
+    expect(mockPost).toHaveBeenCalledWith('<html>{"key":"val"}</html>');
+  });
+
+  test('returns the postProcess output as the final result', () => {
+    const section = createDisplaySection({
+      sectionName: 'test',
+      render: mockRender,
+      postProcess: (html) => html.trim().toUpperCase(),
+    });
+    const result = section({ key: 'val' });
+    expect(result).toBe('<HTML>{"KEY":"VAL"}</HTML>');
+  });
+
+  test('skips postProcess when not provided', () => {
+    const section = createDisplaySection({
+      sectionName: 'test',
+      render: mockRender,
+    });
+    const result = section({ key: 'val' });
+    expect(result).toBe('<html>{"key":"val"}</html>');
+  });
+});
+
+describe('createDisplaySection - pipeline error metadata', () => {
+  test('enriches validation errors with pipelineStage "validate"', () => {
+    const section = createDisplaySection({
+      sectionName: 'mySection',
+      requiredFields: ['title'],
+      render: mockRender,
+    });
+    let caught;
+    try { section({}); } catch (e) { caught = e; }
+    expect(caught.pipelineStage).toBe('validate');
+  });
+
+  test('enriches validation errors with pipelineSection matching sectionName', () => {
+    const section = createDisplaySection({
+      sectionName: 'mySection',
+      requiredFields: ['title'],
+      render: mockRender,
+    });
+    let caught;
+    try { section({}); } catch (e) { caught = e; }
+    expect(caught.pipelineSection).toBe('mySection');
+  });
+
+  test('error message is unchanged by pipeline metadata enrichment', () => {
+    const section = createDisplaySection({
+      sectionName: 'footerSection',
+      requiredFields: ['address'],
+      render: mockRender,
+    });
+    expect(() => section({})).toThrow('[footerSection] missing required field: address');
+  });
+});
