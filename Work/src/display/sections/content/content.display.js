@@ -1,7 +1,7 @@
 // import { displayFactoryTwo } from 'email-template-object';
-import { innerContentComponent } from '../components';
+import { innerContentComponent } from '../../../components';
 import { buttonComponent2 } from 'html-typography-tags';
-import { createDisplaySection } from './createDisplaySection';
+import { createDisplaySection } from '../../core/createDisplaySection';
 
 const config = { id: '12', href: 'google.com' };
 

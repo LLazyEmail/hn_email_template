@@ -8,13 +8,13 @@ import { writingFile } from 'markup-generator';
 // } = require('../../src/methods');
 
 
-import { HeadHTMLString } from '../../src/display/displayHead';
+import { HeadHTMLString } from '../../src/display/sections/head';
 
-import { BodyHTMLString } from '../../src/display/displayBody';
+import { BodyHTMLString } from '../../src/display/sections/body';
 
-import { FooterHTMLString } from '../../src/display/displayFooter';
+import { FooterHTMLString } from '../../src/display/sections/footer';
 
-import { MainHTMLString } from '../../src/display/displayMain';
+import { MainHTMLString } from '../../src/display/sections/main';
 
 
 // var generateEmptyTemplateComponent = require('../../src/t/emptyTemplate');

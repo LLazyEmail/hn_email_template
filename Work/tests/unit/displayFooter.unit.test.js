@@ -1,4 +1,4 @@
-import { displayFooter, FooterHTMLString } from '../../src/display/displayFooter';
+import { displayFooter, FooterHTMLString } from '../../src/display/sections/footer';
 
 describe('displayFooter function', () => {
   test('displayFooter is a function', () => {

@@ -1,4 +1,4 @@
-import { runPipeline } from '../../src/display/pipeline/runPipeline';
+import { runPipeline } from '../../src/display/core/runDisplayPipeline';
 
 // ---------------------------------------------------------------------------
 // runPipeline — basic execution

@@ -1,5 +1,5 @@
-import { validateInput } from './validation/validateInput';
-import { runPipeline } from './pipeline/runPipeline';
+import { validateInput } from '../validation/validateInput';
+import { runPipeline } from './runDisplayPipeline';
 
 /**
  * Creates a reusable display section function that encapsulates the common

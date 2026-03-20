@@ -1,4 +1,4 @@
-import { displayBody, settings, BodyHTMLString } from '../../src/display/displayBody';
+import { displayBody, settings, BodyHTMLString } from '../../src/display/sections/body';
 
 describe('displayBody function', () => {
   test('displayBody is a function', () => {

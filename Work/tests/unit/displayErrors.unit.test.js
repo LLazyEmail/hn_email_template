@@ -2,7 +2,7 @@ import {
   missingRequiredFieldError,
   invalidFieldError,
   displaySectionError,
-} from '../../src/display/errors/displayErrors';
+} from '../../src/display/errors/createDisplayError';
 
 // ---------------------------------------------------------------------------
 // missingRequiredFieldError

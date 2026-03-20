@@ -1,15 +1,15 @@
 // import { writingFile } from 'markup-generator';
 // import markdownData from './data';
 
-import { HeadHTMLString } from './display/displayHead';
+import { HeadHTMLString } from './display/sections/head';
 
-import { BodyHTMLString } from './display/displayBody';
+import { BodyHTMLString } from './display/sections/body';
 
 // console.log(BodyHTMLString);
 
-import { FooterHTMLString } from './display/displayFooter';
+import { FooterHTMLString } from './display/sections/footer';
 
-import { MainHTMLString } from './display/displayMain';
+import { MainHTMLString } from './display/sections/main';
 
 // import { TemplateWithAds, EmptyTemplate, Template } from './t';
 

@@ -1,8 +1,8 @@
-import { buildHeadModel } from '../../../src/display/models/buildHeadModel';
-import { buildFooterModel } from '../../../src/display/models/buildFooterModel';
-import { buildBodyModel } from '../../../src/display/models/buildBodyModel';
-import { buildMainModel } from '../../../src/display/models/buildMainModel';
-import { buildMainFrontModel } from '../../../src/display/models/buildMainFrontModel';
+import { buildHeadModel } from '../../../src/display/sections/head/head.mapper';
+import { buildFooterModel } from '../../../src/display/sections/footer/footer.mapper';
+import { buildBodyModel } from '../../../src/display/sections/body/body.mapper';
+import { buildMainModel } from '../../../src/display/sections/main/main.mapper';
+import { buildMainFrontModel } from '../../../src/display/sections/mainFront/mainFront.mapper';
 
 // ---------------------------------------------------------------------------
 // buildHeadModel

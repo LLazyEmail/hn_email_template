@@ -11,11 +11,11 @@
  * validation layer fires correctly within the full pipeline.
  */
 
-import { displayFooter } from '../../src/display/displayFooter';
-import { displayHead } from '../../src/display/displayHead';
-import { displayBody } from '../../src/display/displayBody';
-import { displayContent } from '../../src/display/displayContent';
-import { displayMain } from '../../src/display/displayMain';
+import { displayFooter } from '../../src/display/sections/footer';
+import { displayHead } from '../../src/display/sections/head';
+import { displayBody } from '../../src/display/sections/body';
+import { displayContent } from '../../src/display/sections/content';
+import { displayMain } from '../../src/display/sections/main';
 
 // ---------------------------------------------------------------------------
 // Realistic payloads
