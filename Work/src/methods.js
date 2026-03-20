@@ -15,9 +15,7 @@ import { MainHTMLString } from './display/sections/main';
 
 // import {}
 
-import displayTemplate from './t/displayTemplate';
-
-import displayFrontMatterTemplate from './t/displayFrontMatterTemplate';
+import { renderTemplate } from './templates';
 
 
 const printHead = () => {
@@ -37,11 +35,11 @@ const printBody = () => {
 };
 
 const printTemplate = (string) => {
-  return displayTemplate(string)
+  return renderTemplate('hn', string);
 }
 
 const printTemplateData = ({string, data}) => {
-  return displayFrontMatterTemplate({string, data});
+  return renderTemplate('hn', {string, data});
 }
 
 const ERROR_BODY = '`bodyContent` is a required option for `renderTemplate`';
