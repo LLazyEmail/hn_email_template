@@ -2,6 +2,7 @@ import { MainComponent } from '../components';
 import { HeadHTMLString } from './displayHead';
 import { BodyHTMLString } from './displayBody';
 import { createDisplaySection } from './createDisplaySection';
+import { buildMainFrontModel } from './models/buildMainFrontModel';
 
 const defaults = {
   head: HeadHTMLString,
@@ -12,10 +13,7 @@ export const mainFrontSectionConfig = {
   sectionName: 'displayMainFront',
   requiredFields: ['head', 'body'],
   defaults,
-  mapToFactorySettings: (input) => ({
-    head: input.head,
-    body: input.body,
-  }),
+  mapToFactorySettings: buildMainFrontModel,
   render: (params) => MainComponent(params),
 };
 

@@ -21,7 +21,7 @@ import displayFrontMatterTemplate from './t/displayFrontMatterTemplate';
 
 
 const printHead = () => {
-  return HeadString;
+  return HeadHTMLString;
 };
 
 const printMain = () => {

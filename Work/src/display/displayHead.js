@@ -2,6 +2,7 @@ import misc from 'atherdon-newsletter-js-layouts-misc';
 import headStylesComponent from '../components/headStyles';
 import headComponent from '../components/headComponent';
 import { createDisplaySection } from './createDisplaySection';
+import { buildHeadModel } from './models/buildHeadModel';
 
 const { fontsComponent } = misc;
 
@@ -15,11 +16,7 @@ export const headSectionConfig = {
   sectionName: 'displayHead',
   requiredFields: ['title', 'headStyles', 'fonts'],
   defaults,
-  mapToFactorySettings: (input) => ({
-    title: input.title,
-    headStyles: input.headStyles,
-    fonts: input.fonts,
-  }),
+  mapToFactorySettings: buildHeadModel,
   render: (params) => headComponent(params),
 };
 

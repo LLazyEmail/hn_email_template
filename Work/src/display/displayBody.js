@@ -7,6 +7,7 @@ import {
 } from '../components';
 import { FooterHTMLString } from './displayFooter';
 import { createDisplaySection } from './createDisplaySection';
+import { buildBodyModel } from './models/buildBodyModel';
 
 const { logoBottomComponent, logoTopComponent } = bodySubComponents;
 
@@ -22,13 +23,7 @@ export const bodySectionConfig = {
   sectionName: 'displayBody',
   requiredFields: ['footer', 'logoTop', 'logoBottom', 'content', 'previewText'],
   defaults,
-  mapToFactorySettings: (input) => ({
-    footer: input.footer,
-    logoTop: input.logoTop,
-    logoBottom: input.logoBottom,
-    content: input.content,
-    previewText: input.previewText,
-  }),
+  mapToFactorySettings: buildBodyModel,
   render: (params) => EmailTemplateBodyComponent(params),
 };
 
