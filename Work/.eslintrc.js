@@ -5,7 +5,8 @@ module.exports = {
     },
     "parser": "@babel/eslint-parser",
     "extends": [
-        "plugin:json/recommended"
+        "plugin:json/recommended",
+        "prettier"
     ],
     "parserOptions": {
         "ecmaVersion": 12
