@@ -1,32 +1,28 @@
-import { displayFactoryTwo } from 'email-template-object';
-
 import { MainComponent } from '../components';
+import { HeadHTMLString } from './displayHead';
+import { BodyHTMLString } from './displayBody';
+import { createDisplaySection } from './createDisplaySection';
 
-import {HeadHTMLString} from '../display/displayHead';
-
-import { BodyHTMLString } from '../display/displayBody';
-
-
-// title must be passed from the outside
-// const title = `The Secrets of High-Performing DevOps teams`;
-//     const head = displayHead(title);
-
-
-
-
-//variant one
-const settings = {
-  component: MainComponent,
-  params: { head: HeadHTMLString, body: BodyHTMLString },
+const defaults = {
+  head: HeadHTMLString,
+  body: BodyHTMLString,
 };
 
-// TODO it's not ideal to pass our factory (yeeeah) because it's just an empty box
-const MainFactory = new displayFactoryTwo();
+export const displayMain = createDisplaySection({
+  sectionName: 'displayMain',
+  requiredFields: ['head', 'body'],
+  defaults,
+  render: (params) => MainComponent(params),
+});
 
-let MainHTMLString = MainFactory.create(settings);
+const settings = {
+  component: MainComponent,
+  params: { ...defaults },
+};
+
+const MainHTMLString = displayMain();
 
 export {
-  MainFactory,
   settings,
-  MainHTMLString,  
+  MainHTMLString,
 };

@@ -1,60 +1,55 @@
-import { FooterFactory, settings, FooterHTMLString } from '../src/display/displayFooter';
+import { displayFooter, FooterHTMLString } from '../src/display/displayFooter';
 
-describe('displayFooter - exported settings object', () => {
-  test('settings is defined', () => {
-    expect(settings).toBeDefined();
+describe('displayFooter function', () => {
+  test('displayFooter is a function', () => {
+    expect(typeof displayFooter).toBe('function');
   });
 
-  test('settings has a component property', () => {
-    expect(settings).toHaveProperty('component');
-  });
-
-  test('settings component is a function', () => {
-    expect(typeof settings.component).toBe('function');
-  });
-
-  test('settings has a params property', () => {
-    expect(settings).toHaveProperty('params');
-  });
-
-  test('settings params contains address', () => {
-    expect(settings.params).toHaveProperty('address');
-    expect(typeof settings.params.address).toBe('string');
-  });
-
-  test('settings params contains sponsor', () => {
-    expect(settings.params).toHaveProperty('sponsor');
-    expect(typeof settings.params.sponsor).toBe('string');
-  });
-
-  test('settings params contains copyright', () => {
-    expect(settings.params).toHaveProperty('copyright');
-    expect(typeof settings.params.copyright).toBe('string');
-  });
-
-  test('settings params contains unsubscribe', () => {
-    expect(settings.params).toHaveProperty('unsubscribe');
-    expect(typeof settings.params.unsubscribe).toBe('string');
-  });
-});
-
-describe('displayFooter - FooterFactory', () => {
-  test('FooterFactory is defined', () => {
-    expect(FooterFactory).toBeDefined();
-  });
-
-  test('FooterFactory has a create method', () => {
-    expect(typeof FooterFactory.create).toBe('function');
-  });
-
-  test('FooterFactory.create returns a string when called with valid settings', () => {
-    const result = FooterFactory.create(settings);
+  test('displayFooter() returns a string', () => {
+    const result = displayFooter();
     expect(typeof result).toBe('string');
   });
 
-  test('FooterFactory.create output contains the address from settings', () => {
-    const result = FooterFactory.create(settings);
-    expect(result).toContain(settings.params.address);
+  test('displayFooter() output is non-empty', () => {
+    expect(displayFooter().length).toBeGreaterThan(0);
+  });
+
+  test('displayFooter() output contains a <table> element', () => {
+    expect(displayFooter()).toContain('<table');
+  });
+
+  test('displayFooter() uses default address', () => {
+    const result = displayFooter();
+    expect(result).toContain('PO Box 2206');
+  });
+
+  test('displayFooter() uses default sponsor link', () => {
+    const result = displayFooter();
+    expect(result).toContain('sponsor.hackernoon.com');
+  });
+
+  test('displayFooter() output contains unsubscribe link element', () => {
+    const result = displayFooter();
+    expect(result).toContain('unsubscribe');
+  });
+
+  test('displayFooter() with custom address includes it in output', () => {
+    const { addressComponent } = require('atherdon-newsletter-js-layouts-misc');
+    const customAddress = addressComponent({ mailingAddress: '123 Custom St, Denver CO, 80202' });
+    const result = displayFooter({ address: customAddress });
+    expect(result).toContain('123 Custom St');
+  });
+
+  test('displayFooter() throws for missing required field: address', () => {
+    expect(() => displayFooter({ address: null })).toThrow(
+      '[displayFooter] missing required field: address'
+    );
+  });
+
+  test('displayFooter() throws for empty string required field: sponsor', () => {
+    expect(() => displayFooter({ sponsor: '' })).toThrow(
+      '[displayFooter] missing required field: sponsor'
+    );
   });
 });
 
@@ -71,19 +66,23 @@ describe('displayFooter - FooterHTMLString', () => {
     expect(FooterHTMLString.length).toBeGreaterThan(0);
   });
 
-  test('FooterHTMLString contains the address from settings', () => {
-    expect(FooterHTMLString).toContain(settings.params.address);
+  test('FooterHTMLString contains the default address', () => {
+    expect(FooterHTMLString).toContain('PO Box 2206');
   });
 
-  test('FooterHTMLString contains the sponsor from settings', () => {
-    expect(FooterHTMLString).toContain(settings.params.sponsor);
+  test('FooterHTMLString contains the default sponsor link', () => {
+    expect(FooterHTMLString).toContain('sponsor.hackernoon.com');
   });
 
-  test('FooterHTMLString contains the unsubscribe from settings', () => {
-    expect(FooterHTMLString).toContain(settings.params.unsubscribe);
+  test('FooterHTMLString contains an unsubscribe link element', () => {
+    expect(FooterHTMLString).toContain('unsubscribe');
   });
 
   test('FooterHTMLString contains a <table> element (email table layout)', () => {
     expect(FooterHTMLString).toContain('<table');
+  });
+
+  test('FooterHTMLString equals displayFooter() output', () => {
+    expect(FooterHTMLString).toBe(displayFooter());
   });
 });

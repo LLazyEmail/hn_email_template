@@ -1,54 +1,31 @@
-import { displayFactoryTwo } from 'email-template-object';
-
-// @TODO we need to finalize this file, so we can accept real data, not just static title...
-
-// partials
 import misc from 'atherdon-newsletter-js-layouts-misc';
-
 import headStylesComponent from '../components/headStyles';
-
 import headComponent from '../components/headComponent';
+import { createDisplaySection } from './createDisplaySection';
 
 const { fontsComponent } = misc;
 
-const title = `The Secrets of High-Performing DevOps teams`;
-
-
-
-
-
-//variant one
-const settings = {
-  component: headComponent,
-  params: {
-    title,
-    headStyles: headStylesComponent(),
-    fonts: fontsComponent(),
-  },
+const defaults = {
+  title: 'The Secrets of High-Performing DevOps teams',
+  headStyles: headStylesComponent(),
+  fonts: fontsComponent(),
 };
 
-const HeadFactory = new displayFactoryTwo();
-// Factory.create(settings);
-const HeadHTMLString = HeadFactory.create(settings);
-// export default HeadFactory.create(settings);
+export const displayHead = createDisplaySection({
+  sectionName: 'displayHead',
+  requiredFields: ['title', 'headStyles', 'fonts'],
+  defaults,
+  render: (params) => headComponent(params),
+});
+
+const settings = {
+  component: headComponent,
+  params: { ...defaults },
+};
+
+const HeadHTMLString = displayHead();
 
 export {
-  HeadFactory,
   settings,
-  HeadHTMLString
-}
-
-// export {
-
-// }
-
-//   checks: () => [
-//       // checkingTitle(this.params.title)
-
-
-// console.log(FruitFactory)
-
-// const fruit = FruitFactory.create({
-  // size: 10, sugar: 10}, 'constructor argument'
-  // );
-// console.log(fruit.name());
+  HeadHTMLString,
+};
