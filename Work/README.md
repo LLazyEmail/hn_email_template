@@ -40,4 +40,33 @@ Work/
 
 ## CI
 
-Continuous integration runs on Node.js 18.x and 20.x using `npm ci` to install dependencies and `npm test` to run tests. See `.github/workflows/node.js.yml` for details.
+Continuous integration is defined in `.github/workflows/node.js.yml` and enforces the following guardrails on every push and pull request to `main`:
+
+| Check | What it guards |
+|-------|---------------|
+| `npm ci` | Fails if `package-lock.json` is out of sync with `package.json` (lockfile consistency) |
+| `npm run lint` | Fails on ESLint errors in any module |
+| `npm run build` | Fails if rollup cannot bundle the package (catches unresolved imports) |
+| `npx madge --circular src/index.js` | Fails if circular imports are detected in `Work/` |
+| `npm test` | Fails if any unit or integration test fails |
+
+The same lockfile, lint, build, and test checks run for each sub-module (`Typography`, `innerComponents`, `Miscellaneous`) in a parallel matrix job.
+
+### Equivalent local commands
+
+```bash
+# Work/ package
+cd Work
+npm ci                              # lockfile check
+npm run lint                        # ESLint
+npm run build                       # bundle + unresolved-import check
+npx madge --circular src/index.js  # circular import check
+npm test                            # tests
+
+# Any sub-module (e.g. Typography)
+cd Work/sub-modules/Typography
+npm ci
+npm run lint
+npm run build
+npm test
+```
