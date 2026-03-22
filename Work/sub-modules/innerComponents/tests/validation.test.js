@@ -2,6 +2,7 @@ import {
   InnerComponentsValidationError,
   assertRequired,
   assertNonEmptyString,
+  assertEnum,
 } from '../src/validation';
 
 import headlineComponent from '../src/components/headline';
@@ -97,6 +98,36 @@ describe('assertNonEmptyString', () => {
   test('error message for wrong type contains context, field, and received value', () => {
     expect(() => assertNonEmptyString('previewTextComponent', 'content', 123)).toThrow(
       '[innerComponents.previewTextComponent] Invalid param "content". Expected a non-empty string. Received: 123.'
+    );
+  });
+});
+
+// ---------------------------------------------------------------------------
+// assertEnum
+// ---------------------------------------------------------------------------
+
+describe('assertEnum', () => {
+  const allowed = ['left', 'center', 'right'];
+
+  test('does not throw when value is in the allowed list', () => {
+    expect(() => assertEnum('ctx', 'align', 'left', allowed)).not.toThrow();
+  });
+
+  test('throws InnerComponentsValidationError when value is not in the allowed list', () => {
+    expect(() => assertEnum('ctx', 'align', 'justify', allowed)).toThrow(InnerComponentsValidationError);
+  });
+
+  test('throws for undefined', () => {
+    expect(() => assertEnum('ctx', 'align', undefined, allowed)).toThrow(InnerComponentsValidationError);
+  });
+
+  test('throws for null', () => {
+    expect(() => assertEnum('ctx', 'align', null, allowed)).toThrow(InnerComponentsValidationError);
+  });
+
+  test('error message lists all allowed values', () => {
+    expect(() => assertEnum('ctx', 'align', 'unknown', allowed)).toThrow(
+      '[innerComponents.ctx] Invalid param "align". Expected one of: left|center|right. Received: "unknown".'
     );
   });
 });

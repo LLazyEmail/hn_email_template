@@ -37,3 +37,54 @@ Work/ (atherdon-old-newsletter-js-outertemplate)
    - Build / test / lint commands
    - Known limitations / TODOs
 7. Add a row for the new module in the table above and link it back to `Work/sub-modules/README.md`.
+
+## Validation pattern
+
+All modules that accept parameters implement a consistent runtime validation pattern so that missing or invalid arguments produce clear, actionable error messages instead of silent failures.
+
+### Per-module error class and helpers
+
+Each module has a `src/validation.js` file that exports:
+
+| Export | Purpose |
+|--------|---------|
+| `<Module>ValidationError` | Custom error class extending `Error`; `name` is set to the class name for easy `instanceof` checks. |
+| `assertRequired(context, field, value)` | Throws when `value` is `null` or `undefined`. |
+| `assertNonEmptyString(context, field, value)` | Throws when `value` is not a non-empty string (calls `assertRequired` first). |
+| `assertEnum(context, field, value, allowed)` | Throws when `value` is not in the `allowed` array (calls `assertRequired` first). |
+
+### Error message format
+
+Every thrown error has the structure:
+
+```
+[<Module>.<componentName>] <description>. Expected: <expected>. Received: <received>.
+```
+
+Examples:
+
+```
+[Miscellaneous.addressComponent] Missing required param "mailingAddress". Expected a value. Received: undefined.
+[innerComponents.sponsorComponent] Invalid param "href". Expected a non-empty string. Received: "".
+[Typography.headingComponent] Invalid param "variant". Expected one of: title|subtitle|heading|body|meta|link. Received: "banner".
+```
+
+### Adding validation to a new component
+
+1. Import the helpers from the module's `src/validation.js`:
+   ```js
+   import { assertNonEmptyString, assertEnum } from '../validation';
+   ```
+2. Call the appropriate helper at the top of the component function, before any other logic:
+   ```js
+   const myComponent = ({ href, type }) => {
+     assertNonEmptyString('myComponent', 'href', href);
+     assertEnum('myComponent', 'type', type, ['primary', 'secondary']);
+     // ... rest of implementation
+   };
+   ```
+3. Add test cases in `tests/validation.test.js` for each validated parameter:
+   - missing / `null` / `undefined` → throws the module's `ValidationError`
+   - empty string → throws
+   - invalid enum value → throws with the full allowed-values list in the message
+   - valid input → does **not** throw
