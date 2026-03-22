@@ -1,5 +1,7 @@
+import { assertNonEmptyString } from '../validation';
 
 const sectionComponent = (content) => {
+  assertNonEmptyString('sectionComponent', 'content', content);
   return `
   <table
                       border="0"

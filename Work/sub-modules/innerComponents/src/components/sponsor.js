@@ -1,4 +1,9 @@
+import { assertNonEmptyString } from '../validation';
+
 const sponsorComponent = ({ href, src, content }) => {
+  assertNonEmptyString('sponsorComponent', 'href', href);
+  assertNonEmptyString('sponsorComponent', 'src', src);
+  assertNonEmptyString('sponsorComponent', 'content', content);
   return `<table
   border="0"
   cellpadding="0"

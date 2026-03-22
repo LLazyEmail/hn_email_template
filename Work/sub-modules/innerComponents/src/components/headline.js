@@ -1,7 +1,8 @@
+import { assertNonEmptyString } from '../validation';
 
 const headlineComponent = (content) => {
-    // if (!unsubscribe) new Error('invalid unsubscribe');
-    return `content`;
+    assertNonEmptyString('headlineComponent', 'content', content);
+    return `${content}`;
 }
 
 export default headlineComponent;

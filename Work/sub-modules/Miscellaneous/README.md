@@ -28,10 +28,10 @@ const {
 
 | Component | Parameters | Returns |
 |-----------|-----------|---------|
-| `addressComponent` | `{ mailingAddress: string }` | HTML string — throws if `mailingAddress` is falsy |
-| `copyrightsComponent` | *(none / implementation-defined)* | HTML string |
-| `fontsComponent` | *(none / implementation-defined)* | HTML `<link>` string(s) |
-| `newsletterSponsorshipLinkComponent` | *(implementation-defined)* | HTML anchor string |
+| `addressComponent` | `{ mailingAddress: string }` | HTML string |
+| `copyrightsComponent` | *(none)* | HTML string |
+| `fontsComponent` | *(none)* | HTML `<link>` string(s) |
+| `newsletterSponsorshipLinkComponent` | `{ contact: string }` | HTML anchor string |
 | `unsubscribeComponent` | `{ unsubscribe: string }` | HTML anchor string |
 
 ### Default config values (`src/config.js`)
@@ -75,7 +75,36 @@ None — this module has no runtime dependencies.
 
 ### Dev / build
 
-`@babel/*`, `rollup` + plugins, `eslint`, `prettier`, `shx` (see `package.json`).
+`@babel/*`, `rollup` + plugins, `eslint`, `prettier`, `jest`, `shx` (see `package.json`).
+
+## Runtime validation
+
+Components that accept required parameters throw a `MiscValidationError` when called with missing or invalid input. This provides immediate, actionable feedback during development.
+
+### Error class
+
+```js
+import { MiscValidationError } from 'atherdon-newsletter-js-layouts-misc/src/validation';
+```
+
+`MiscValidationError` extends `Error` with `name = 'MiscValidationError'`.
+
+### Error message format
+
+```
+[Miscellaneous.<componentName>] Missing required param "<field>". Expected a value. Received: undefined.
+[Miscellaneous.<componentName>] Invalid param "<field>". Expected a non-empty string. Received: "".
+```
+
+### Validated components
+
+| Component | Validated param(s) |
+|-----------|-------------------|
+| `addressComponent` | `mailingAddress` — required non-empty string |
+| `newsletterSponsorshipLinkComponent` | `contact` — required non-empty string |
+| `unsubscribeComponent` | `unsubscribe` — required non-empty string |
+
+`copyrightsComponent` and `fontsComponent` take no parameters and are not validated.
 
 ## Commands
 
@@ -84,7 +113,7 @@ Run these from inside the `Miscellaneous/` directory (or from a parent workspace
 ```bash
 npm run build      # clean dist/ and bundle with Rollup
 npm run dev        # watch mode (Rollup)
-npm run test       # run Jest (passes with no tests)
+npm run test       # run Jest validation tests
 npm run lint       # ESLint check
 npm run lint:fix   # ESLint auto-fix
 npm run lint:prettier  # Prettier reformat src/
@@ -92,6 +121,4 @@ npm run lint:prettier  # Prettier reformat src/
 
 ## Known limitations / TODOs
 
-- No tests are currently present (`jest ./tests --passWithNoTests` passes vacuously).
-- `copyrightsComponent`, `fontsComponent`, and `newsletterSponsorshipLinkComponent` signatures are not documented in code; review `src/components/` for current call shapes before using.
-- `unsubscribeComponent` constructs an `Error` object without throwing it — the guard is a no-op and should be fixed to use `throw new Error(...)` for proper validation.
+- `copyrightsComponent` and `fontsComponent` take no parameters and are not validated.
