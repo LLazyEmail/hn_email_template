@@ -2,6 +2,7 @@ import {
   MiscValidationError,
   assertRequired,
   assertNonEmptyString,
+  assertEnum,
 } from '../src/validation';
 
 import addressComponent from '../src/components/address';
@@ -96,6 +97,36 @@ describe('assertNonEmptyString', () => {
   test('error message for wrong type contains context, field, and received value', () => {
     expect(() => assertNonEmptyString('addressComponent', 'mailingAddress', 123)).toThrow(
       '[Miscellaneous.addressComponent] Invalid param "mailingAddress". Expected a non-empty string. Received: 123.'
+    );
+  });
+});
+
+// ---------------------------------------------------------------------------
+// assertEnum
+// ---------------------------------------------------------------------------
+
+describe('assertEnum', () => {
+  const allowed = ['weekly', 'daily', 'monthly'];
+
+  test('does not throw when value is in the allowed list', () => {
+    expect(() => assertEnum('ctx', 'frequency', 'weekly', allowed)).not.toThrow();
+  });
+
+  test('throws MiscValidationError when value is not in the allowed list', () => {
+    expect(() => assertEnum('ctx', 'frequency', 'yearly', allowed)).toThrow(MiscValidationError);
+  });
+
+  test('throws for undefined', () => {
+    expect(() => assertEnum('ctx', 'frequency', undefined, allowed)).toThrow(MiscValidationError);
+  });
+
+  test('throws for null', () => {
+    expect(() => assertEnum('ctx', 'frequency', null, allowed)).toThrow(MiscValidationError);
+  });
+
+  test('error message lists all allowed values', () => {
+    expect(() => assertEnum('ctx', 'frequency', 'unknown', allowed)).toThrow(
+      '[Miscellaneous.ctx] Invalid param "frequency". Expected one of: weekly|daily|monthly. Received: "unknown".'
     );
   });
 });

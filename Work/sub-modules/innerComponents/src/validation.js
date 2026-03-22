@@ -49,3 +49,20 @@ export function assertNonEmptyString(context, field, value) {
     );
   }
 }
+
+/**
+ * Assert that a parameter belongs to a set of allowed values.
+ *
+ * @param {string}   context  - Function/component name for the error message.
+ * @param {string}   field    - Parameter name.
+ * @param {*}        value    - Actual value received.
+ * @param {string[]} allowed  - Array of allowed values.
+ */
+export function assertEnum(context, field, value, allowed) {
+  assertRequired(context, field, value);
+  if (!allowed.includes(value)) {
+    throw new InnerComponentsValidationError(
+      `[innerComponents.${context}] Invalid param "${field}". Expected one of: ${allowed.join('|')}. Received: ${JSON.stringify(value)}.`
+    );
+  }
+}
