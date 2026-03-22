@@ -1,10 +1,7 @@
-// import { mailingAddress } from '../config';
-// import { config } from '../config';
+import { assertNonEmptyString } from '../validation';
 
 const addressComponent = ({mailingAddress}) => {
-  if (!mailingAddress) {
-    throw new Error('no mailingAddress was passed');
-  }
+  assertNonEmptyString('addressComponent', 'mailingAddress', mailingAddress);
 
   return `<strong>Our mailing address is:</strong>
     <br>

@@ -36,13 +36,13 @@ Additional (non-default-export) components available in `src/components/`:
 
 | Component | Parameters | Returns |
 |-----------|-----------|---------|
-| `headlineComponent` | *(implementation-defined)* | Headline banner HTML string |
-| `logoBottomComponent` | *(implementation-defined)* | Bottom logo HTML string |
-| `logoTopComponent` | *(implementation-defined)* | Top logo HTML string |
-| `previewTextComponent` | *(implementation-defined)* | Email preview text HTML string |
+| `headlineComponent` | `content: string` | Headline banner HTML string |
+| `logoBottomComponent` | *(none)* | Bottom logo HTML string |
+| `logoTopComponent` | *(none)* | Top logo HTML string |
+| `previewTextComponent` | `{ content: string }` | Email preview text HTML string |
 | `sectionComponent` | `content: string` | Full-width section table HTML string |
 | `sponsorComponent` | `{ href: string, src: string, content: string }` | Sponsor card HTML string |
-| `ctaComponent` | *(implementation-defined)* | CTA list HTML string |
+| `ctaComponent` | *(none)* | CTA list HTML string |
 
 ## Usage example
 
@@ -84,7 +84,37 @@ Rollup produces three bundle formats via `rollup.config.js`:
 
 ### Dev / build
 
-`@babel/*`, `rollup` + plugins, `eslint`, `prettier`, `shx` (see `package.json`).
+`@babel/*`, `rollup` + plugins, `eslint`, `prettier`, `jest`, `shx` (see `package.json`).
+
+## Runtime validation
+
+Components that accept required parameters throw an `InnerComponentsValidationError` when called with missing or invalid input.
+
+### Error class
+
+```js
+import { InnerComponentsValidationError } from 'atherdon-newsletter-js-layouts-body/src/validation';
+```
+
+`InnerComponentsValidationError` extends `Error` with `name = 'InnerComponentsValidationError'`.
+
+### Error message format
+
+```
+[innerComponents.<componentName>] Missing required param "<field>". Expected a value. Received: undefined.
+[innerComponents.<componentName>] Invalid param "<field>". Expected a non-empty string. Received: "".
+```
+
+### Validated components
+
+| Component | Validated param(s) |
+|-----------|-------------------|
+| `headlineComponent` | `content` — required non-empty string (positional) |
+| `previewTextComponent` | `content` — required non-empty string |
+| `sectionComponent` | `content` — required non-empty string (positional) |
+| `sponsorComponent` | `href`, `src`, `content` — all required non-empty strings |
+
+`logoTopComponent`, `logoBottomComponent`, and `ctaComponent` take no parameters and are not validated.
 
 ## Commands
 
@@ -93,7 +123,7 @@ Run these from inside the `innerComponents/` directory:
 ```bash
 npm run build      # clean dist/ and bundle with Rollup
 npm run dev        # watch mode (Rollup)
-npm run test       # run Jest (passes with no tests currently)
+npm run test       # run Jest validation tests
 npm run lint       # ESLint check
 npm run lint:fix   # ESLint auto-fix
 npm run lint:prettier  # Prettier reformat src/
@@ -101,8 +131,7 @@ npm run lint:prettier  # Prettier reformat src/
 
 ## Known limitations / TODOs
 
-- Test file is named `index.te-st.js` — the hyphen in `.te-st.js` is likely a typo; Jest does not pick it up as a test file by default (`*.test.js` is expected). Rename to `index.test.js` to enable testing.
-- Signatures for `headlineComponent`, `logoTopComponent`, `logoBottomComponent`, `previewTextComponent`, and `ctaComponent` are not yet documented; review `src/components/<name>.js` for current call shapes.
+- The legacy test file `tests/index.te-st.js` is intentionally not picked up by Jest (hyphen in extension prevents matching `*.test.js`).
 - No integration tests exist for composed body layouts.
 
 ---

@@ -1,7 +1,7 @@
+import { assertNonEmptyString } from '../validation';
+
 const newsletterSponsorshipLinkComponent = ({contact}) => {
-  if (!contact) {
-    throw new Error('no contact was passed');
-  }
+  assertNonEmptyString('newsletterSponsorshipLinkComponent', 'contact', contact);
 
   return `<div style="text-align: center;">
   <br>
