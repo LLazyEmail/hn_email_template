@@ -12,13 +12,17 @@ import separatorComponent from '../src/components/separator';
 
 
 describe('all display methods must be initialized', () => {
-    // test('display body', () => {
-    //   expect(BodyHTMLString === true).toBe(true);
-    // });
-  
-    test('display body', () => {
-      expect(typeof BodyHTMLString === 'string').toBe(true);
+    test('every component returns a non-empty HTML string', () => {
+      expect(typeof headingComponent({ content: 'Heading' })).toBe('string');
+      expect(typeof imageComponent({ src: 'img.png', altText: 'alt' })).toBe('string');
+      expect(typeof italicComponent({ content: 'italic' })).toBe('string');
+      expect(typeof linkComponent({ href: 'https://example.com', content: 'link' })).toBe('string');
+      expect(typeof listComponent({ content: '<li>item</li>' })).toBe('string');
+      expect(typeof listItemComponent({ content: 'item' })).toBe('string');
+      expect(typeof titleComponent({ content: 'Title' })).toBe('string');
+      expect(typeof paragraphComponent({ content: 'paragraph' })).toBe('string');
+      expect(typeof strongComponent({ content: 'bold' })).toBe('string');
+      expect(typeof subtitleComponent({ content: 'Subtitle' })).toBe('string');
+      expect(typeof separatorComponent()).toBe('string');
     });
-
-
 });

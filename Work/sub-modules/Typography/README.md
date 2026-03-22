@@ -60,6 +60,37 @@ export const config = {
 };
 ```
 
+## Semantic style presets (`src/presets.js`)
+
+`presets` is a plain object of named style tokens. Each preset maps to the
+corresponding component's visual role and can be used as a reference when
+authoring new components or validating consistent style values.
+
+| Preset | Role | Key styles |
+|--------|------|-----------|
+| `title` | Main newsletter / article title | 30 px · bold · `#111111` · 125 % line-height |
+| `subtitle` | Section subtitle | 17 px · bold · `#111111` · 150 % line-height |
+| `heading` | In-body section heading | 18 px · bold · `#111111` · 125 % line-height |
+| `body` | Standard paragraph text | 16 px · normal · `#111111` · 150 % line-height |
+| `meta` | Timestamps, source labels, captions | 14 px · normal · `#555555` · 150 % line-height |
+| `link` | Inline hyperlink | bold · underline · `#111111` |
+
+All presets share the same `FONT_FAMILY` constant:
+
+```
+trebuchet ms, lucida grande, lucida sans unicode, lucida sans, tahoma, sans-serif
+```
+
+### Importing presets
+
+```js
+import presets, { FONT_FAMILY } from 'atherdon-newsletter-js-layouts-typography/src/presets';
+
+// presets.title  → { fontFamily, fontSize: '30px', fontWeight: 'bold', … }
+// presets.body   → { fontFamily, fontSize: '16px', fontWeight: 'normal', … }
+// presets.link   → { color: '#111111', fontWeight: 'bold', textDecoration: 'underline' }
+```
+
 ## Usage example
 
 ```js
@@ -69,7 +100,7 @@ const articleHtml = `
   ${typography.titleComponent({ content: 'Top Stories This Week' })}
   ${typography.paragraphComponent({ content: 'Here is a summary of this week\'s news...' })}
   ${typography.headingComponent({ content: 'Section One' })}
-  ${typography.linkComponent({ href: 'https://hackernoon.com', text: 'Read more' })}
+  ${typography.linkComponent({ href: 'https://hackernoon.com', content: 'Read more' })}
   ${typography.separatorComponent()}
 `;
 ```
@@ -121,11 +152,13 @@ Tests live in `tests/` and are run with Jest. Covered scenarios include:
 - `link/` — complex links, exclamation marks, links-only, spacing
 - `paragraph/`, `separator/`, `strong/`
 - `html-comments`
+- `presets.test.js` — snapshot tests for all semantic presets and component HTML output
 
 Run a single test scenario:
 
 ```bash
 npx jest tests/paragraph
+npx jest tests/presets
 ```
 
 ## Known limitations / TODOs
