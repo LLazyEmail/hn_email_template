@@ -1,6 +1,9 @@
 import stringifyAttributes from 'stringify-attributes';
+import { assertNonEmptyString } from '../validation';
 
 const buttonComponent = ({href, content}) => {
+  assertNonEmptyString('buttonComponent', 'href', href);
+  assertNonEmptyString('buttonComponent', 'content', content);
 
   const attributes = {
     class: `mlContentButton`,
