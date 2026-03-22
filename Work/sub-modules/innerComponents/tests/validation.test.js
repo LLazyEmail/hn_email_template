@@ -127,6 +127,10 @@ describe('headlineComponent validation', () => {
   test('does not throw for valid input', () => {
     expect(() => headlineComponent('Top Tech Stories')).not.toThrow();
   });
+
+  test('returns the content string', () => {
+    expect(headlineComponent('Top Tech Stories')).toBe('Top Tech Stories');
+  });
 });
 
 describe('previewTextComponent validation', () => {
