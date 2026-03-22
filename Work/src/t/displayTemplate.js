@@ -18,12 +18,12 @@ import {
 // const title = `The Secrets of High-Performing DevOps teams`;
 //     const head = displayHead(title);
 
-function displayTemplate(generated_content) {
+function displayTemplate(generatedContent) {
 
 
     const BodyFactory = new displayFactoryTwo();
 
-    bodySettings.params.content = generated_content;
+    bodySettings.params.content = generatedContent;
 
 
     const BodyHTMLString = BodyFactory.create(bodySettings);
