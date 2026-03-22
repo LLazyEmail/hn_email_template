@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component HTML snapshots headingComponent renders expected HTML 1`] = `"<h3 class="mc-toc-title" dir="ltr" style="text-align: center;display: block;margin: 0;padding: 0;color: #111111;font-family: 'Merriweather Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 18px;font-style: normal;font-weight: bold;line-height: 125%;letter-spacing: normal;"><span style="font-family:trebuchet ms,lucida grande,lucida sans unicode,lucida sans,tahoma,sans-serif"><span style="font-size:18px">Article Title</span></span></h3>"`;
+
+exports[`component HTML snapshots italicComponent renders expected HTML 1`] = `"<i>emphasis</i>"`;
+
+exports[`component HTML snapshots linkComponent renders expected HTML 1`] = `"<a href="https://hackernoon.com" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #111111;font-weight: bold;text-decoration: underline;">Read more</a>"`;
+
+exports[`component HTML snapshots listComponent with a single item renders expected HTML 1`] = `"<ul dir="ltr"><li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><p dir="ltr" role="presentation" style="line-height: 125%;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #111111;font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 18px;text-align: left;">Item one</p></li></ul>"`;
+
+exports[`component HTML snapshots listItemComponent renders expected HTML 1`] = `"<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><p dir="ltr" role="presentation" style="line-height: 125%;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #111111;font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 18px;text-align: left;">List entry</p></li>"`;
+
+exports[`component HTML snapshots paragraphComponent renders expected HTML 1`] = `"<div dir="ltr" style="text-align: justify;"><span style="font-size:16px"><span style="font-family:trebuchet ms,lucida grande,lucida sans unicode,lucida sans,tahoma,sans-serif">Hello world.</span></span></div>"`;
+
+exports[`component HTML snapshots separatorComponent renders expected HTML 1`] = `"<div dir="ltr" style="text-align: center;"><span style="font-size:16px"><span style="font-family:trebuchet ms,lucida grande,lucida sans unicode,lucida sans,tahoma,sans-serif"><em>***</em></span></span></div>"`;
+
+exports[`component HTML snapshots strongComponent renders expected HTML 1`] = `"<strong style="font-weight: bolder;">important</strong>"`;
+
+exports[`component HTML snapshots subtitleComponent renders expected HTML 1`] = `"<p dir="ltr" style="text-align: left;line-height: 150%;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #111111;font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 18px;"><span style="font-size:17px"><span style="font-family:trebuchet ms,lucida grande,lucida sans unicode,lucida sans,tahoma,sans-serif"><strong id="dofc6f2">Section intro</strong></span></span></p>"`;
+
+exports[`component HTML snapshots titleComponent renders expected HTML 1`] = `"<h1 class="mc-toc-title" dir="ltr" style="text-align: center;display: block;margin: 0;padding: 0;color: #111111;font-family: 'Merriweather Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 26px;font-style: normal;font-weight: bold;line-height: 125%;letter-spacing: normal;"><span style="font-family:trebuchet ms,lucida grande,lucida sans unicode,lucida sans,tahoma,sans-serif"><span style="font-size:30px">Top Stories</span></span></h1>"`;
+
+exports[`presets body preset snapshot 1`] = `
+{
+  "color": "#111111",
+  "fontFamily": "trebuchet ms,lucida grande,lucida sans unicode,lucida sans,tahoma,sans-serif",
+  "fontSize": "16px",
+  "fontWeight": "normal",
+  "lineHeight": "150%",
+}
+`;
+
+exports[`presets heading preset snapshot 1`] = `
+{
+  "color": "#111111",
+  "fontFamily": "trebuchet ms,lucida grande,lucida sans unicode,lucida sans,tahoma,sans-serif",
+  "fontSize": "18px",
+  "fontWeight": "bold",
+  "lineHeight": "125%",
+}
+`;
+
+exports[`presets link preset snapshot 1`] = `
+{
+  "color": "#111111",
+  "fontWeight": "bold",
+  "textDecoration": "underline",
+}
+`;
+
+exports[`presets meta preset snapshot 1`] = `
+{
+  "color": "#555555",
+  "fontFamily": "trebuchet ms,lucida grande,lucida sans unicode,lucida sans,tahoma,sans-serif",
+  "fontSize": "14px",
+  "fontWeight": "normal",
+  "lineHeight": "150%",
+}
+`;
+
+exports[`presets subtitle preset snapshot 1`] = `
+{
+  "color": "#111111",
+  "fontFamily": "trebuchet ms,lucida grande,lucida sans unicode,lucida sans,tahoma,sans-serif",
+  "fontSize": "17px",
+  "fontWeight": "bold",
+  "lineHeight": "150%",
+}
+`;
+
+exports[`presets title preset snapshot 1`] = `
+{
+  "color": "#111111",
+  "fontFamily": "trebuchet ms,lucida grande,lucida sans unicode,lucida sans,tahoma,sans-serif",
+  "fontSize": "30px",
+  "fontWeight": "bold",
+  "lineHeight": "125%",
+}
+`;
