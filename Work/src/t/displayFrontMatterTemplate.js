@@ -21,7 +21,7 @@ import {
 // const title = `The Secrets of High-Performing DevOps teams`;
 //     const head = displayHead(title);
 
-function displayFrontMatterTemplate({ generated_content, data }) {
+function displayFrontMatterTemplate({ string: generatedContent, data }) {
 
     const HeadFactory = new displayFactoryTwo();
     headSettings.params.title = data.title;
@@ -30,7 +30,7 @@ function displayFrontMatterTemplate({ generated_content, data }) {
     // ----------------
     const BodyFactory = new displayFactoryTwo();
 
-    bodySettings.params.content = generated_content;
+    bodySettings.params.content = generatedContent;
     bodySettings.params.previewText = previewTextComponent(data.preview);  
 
     const BodyHTMLString = BodyFactory.create(bodySettings);
