@@ -1,50 +1,59 @@
-# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
-# For more information see: https://help.github.com/actions/language-and-framework-guides/publishing-nodejs-packages
-
-name: Node.js Package
+name: Release packages
 
 on:
-  release:
-    types: [created]
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
-  build:
+  release:
+    name: Version or publish with Changesets
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Work
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-          node-version: 16
-      - run: npm ci
-      - run: npm test
-      
-      
+          fetch-depth: 0
 
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 20
+          cache: npm
+          cache-dependency-path: |
+            Work/package-lock.json
+            Work/sub-modules/Typography/package-lock.json
+            Work/sub-modules/innerComponents/package-lock.json
+            Work/sub-modules/Miscellaneous/package-lock.json
           registry-url: https://registry.npmjs.org/
-      - run: npm ci
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-          
-          
-  publish-npm-misc:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
+
+      - name: Test
+        run: npm test
+
+      - name: Create release PR or publish
+        uses: changesets/action@v1
         with:
-          node-version: 16
-          registry-url: https://registry.npmjs.org/
-      - run: npm ci
-      - run: npm publish
+          cwd: Work
+          version: npm run version-packages
+          publish: npm run release
+          title: "chore(release): version packages"
+          commit: "chore(release): version packages"
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}          
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.npm_token }}
