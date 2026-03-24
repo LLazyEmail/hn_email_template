@@ -60,7 +60,7 @@
   "license": "MIT",
   "private": false,
   "workspaces": [
-    "sub-modules/Typography",
+    "../sub-modules/Typography",
     "sub-modules/innerComponents",
     "sub-modules/Miscellaneous"
   ],

@@ -31,7 +31,7 @@ npm ci
 ```
 Work/
 ├── src/             # Source files
-├── sub-modules/     # Sub-module packages (Typography, innerComponents, Miscellaneous)
+├── sub-modules/     # Sub-module packages (innerComponents, Miscellaneous)
 ├── tests/           # Unit and integration tests
 ├── bash/            # Helper shell scripts
 ├── dist/            # Build output (git-ignored)
@@ -64,7 +64,7 @@ npx madge --circular src/index.js  # circular import check
 npm test                            # tests
 
 # Any sub-module (e.g. Typography)
-cd Work/sub-modules/Typography
+cd sub-modules/Typography
 npm ci
 npm run lint
 npm run build

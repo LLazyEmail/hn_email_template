@@ -51,11 +51,20 @@ jobs:
       contents: read
     strategy:
       matrix:
-        submodule: [Typography, innerComponents, Miscellaneous]
+        include:
+          - submodule: Typography
+            module-path: ./sub-modules/Typography
+            lockfile-path: sub-modules/Typography/package-lock.json
+          - submodule: innerComponents
+            module-path: ./Work/sub-modules/innerComponents
+            lockfile-path: Work/sub-modules/innerComponents/package-lock.json
+          - submodule: Miscellaneous
+            module-path: ./Work/sub-modules/Miscellaneous
+            lockfile-path: Work/sub-modules/Miscellaneous/package-lock.json
 
     defaults:
       run:
-        working-directory: ./Work/sub-modules/${{ matrix.submodule }}
+        working-directory: ${{ matrix.module-path }}
 
     steps:
     - uses: actions/checkout@v3
@@ -65,7 +74,7 @@ jobs:
         node-version: 20.x
         cache: 'npm'
         # Fails the job if the sub-module lockfile is out of sync
-        cache-dependency-path: Work/sub-modules/${{ matrix.submodule }}/package-lock.json
+        cache-dependency-path: ${{ matrix.lockfile-path }}
     - name: Install dependencies (lockfile consistency check)
       run: npm ci
     - name: Lint

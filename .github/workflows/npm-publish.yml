@@ -29,7 +29,7 @@ jobs:
           cache: npm
           cache-dependency-path: |
             Work/package-lock.json
-            Work/sub-modules/Typography/package-lock.json
+            sub-modules/Typography/package-lock.json
             Work/sub-modules/innerComponents/package-lock.json
             Work/sub-modules/Miscellaneous/package-lock.json
           registry-url: https://registry.npmjs.org/
