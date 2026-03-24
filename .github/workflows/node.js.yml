@@ -56,8 +56,8 @@ jobs:
             module-path: ./sub-modules/Typography
             lockfile-path: sub-modules/Typography/package-lock.json
           - submodule: innerComponents
-            module-path: ./Work/sub-modules/innerComponents
-            lockfile-path: Work/sub-modules/innerComponents/package-lock.json
+            module-path: ./sub-modules/innerComponents
+            lockfile-path: sub-modules/innerComponents/package-lock.json
           - submodule: Miscellaneous
             module-path: ./Work/sub-modules/Miscellaneous
             lockfile-path: Work/sub-modules/Miscellaneous/package-lock.json
