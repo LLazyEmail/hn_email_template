@@ -62,7 +62,7 @@
   "workspaces": [
     "../sub-modules/Typography",
     "../sub-modules/innerComponents",
-    "sub-modules/Miscellaneous"
+    "../sub-modules/Miscellaneous"
   ],
   "release": {
     "publishDir": "dist"

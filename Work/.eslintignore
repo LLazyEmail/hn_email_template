@@ -3,5 +3,5 @@ dist
 rollup.config.js
 babel.config.js
 ../sub-modules/innerComponents
-sub-modules/Miscellaneous
+../sub-modules/Miscellaneous
 ../sub-modules/Typography
