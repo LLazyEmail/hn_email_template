@@ -61,7 +61,7 @@
   "private": false,
   "workspaces": [
     "../sub-modules/Typography",
-    "sub-modules/innerComponents",
+    "../sub-modules/innerComponents",
     "sub-modules/Miscellaneous"
   ],
   "release": {
