@@ -1,3 +1,22 @@
+jest.mock('atherdon-newsletter-js-layouts-misc', () => ({
+  __esModule: true,
+  default: {
+    fontsComponent: () => '<fonts-component />',
+    addressComponent: ({ mailingAddress }) => `<address>${mailingAddress}</address>`,
+    copyrightsComponent: () => '<copyrights-component />',
+    newsletterSponsorshipLinkComponent: ({ contact }) => `<sponsor>${contact}</sponsor>`,
+    unsubscribeComponent: ({ unsubscribeLink }) => `<unsubscribe>${unsubscribeLink}</unsubscribe>`,
+  },
+}), { virtual: true });
+
+jest.mock('atherdon-newsletter-js-layouts-body', () => ({
+  __esModule: true,
+  default: {
+    logoTopComponent: () => '<logo-top-component />',
+    logoBottomComponent: () => '<logo-bottom-component />',
+  },
+}), { virtual: true });
+
 const { registry, renderTemplate } = require('../../src/templates');
 
 describe('template registry', () => {
