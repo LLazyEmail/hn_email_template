@@ -2,7 +2,7 @@
 
 **npm package:** `atherdon-newsletter-js-layouts-typography` · **version:** 3.1.0
 
-> Part of the [Work/sub-modules](../README.md) component library.
+> Part of the [sub-modules](../README.md) component library.
 
 ## Purpose
 

@@ -1,4 +1,4 @@
-# Work/sub-modules
+# sub-modules
 
 This directory contains the independently-published npm packages that make up the HN Email Template component system. Each sub-module is a self-contained library that can be installed, built, and tested on its own.
 
@@ -23,7 +23,7 @@ Work/ (atherdon-old-newsletter-js-outertemplate)
 
 ## Adding a new module
 
-1. Create a directory under `Work/sub-modules/<ModuleName>/`.
+1. Create a directory under `sub-modules/<ModuleName>/`.
 2. Inside it, initialise a package with the naming convention `atherdon-newsletter-js-layouts-<name>`.
 3. Add the standard toolchain files: `package.json`, `rollup.config.js`, `.babelrc`, `.eslintrc.json`, `.prettierrc`, `.eslintignore`, `.prettierignore`, `.npmignore`, `.gitignore`.
 4. Put source code under `src/` with a single `src/index.js` entry point that exports a plain object of components.
@@ -36,7 +36,7 @@ Work/ (atherdon-old-newsletter-js-outertemplate)
    - Dependencies
    - Build / test / lint commands
    - Known limitations / TODOs
-7. Add a row for the new module in the table above and link it back to `Work/sub-modules/README.md`.
+7. Add a row for the new module in the table above and link it back to `sub-modules/README.md`.
 
 ## Validation pattern
 
