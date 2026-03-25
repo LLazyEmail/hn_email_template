@@ -18,11 +18,19 @@ jest.mock('atherdon-newsletter-js-layouts-body', () => ({
 }), { virtual: true });
 
 const { registry, renderTemplate } = require('../../src/templates');
+const {
+  createRegistry,
+  renderTemplate: engineRenderById,
+} = require('../../src/engine/templates');
 
 describe('template registry', () => {
   test('contains the "hn" template', () => {
     expect(registry).toHaveProperty('hn');
     expect(typeof registry.hn.render).toBe('function');
+  });
+
+  test('legacy template registry delegates to engine registry', () => {
+    expect(registry).toEqual(createRegistry([registry.hn]));
   });
 });
 
@@ -31,6 +39,11 @@ describe('renderTemplate — success path', () => {
     const result = renderTemplate('hn', '<p>Hello</p>');
     expect(typeof result).toBe('string');
     expect(result.length).toBeGreaterThan(0);
+  });
+
+  test('legacy renderTemplate delegates to engine renderTemplate', () => {
+    const payload = '<p>Delegation check</p>';
+    expect(renderTemplate('hn', payload)).toBe(engineRenderById(registry, 'hn', payload));
   });
 });
 
