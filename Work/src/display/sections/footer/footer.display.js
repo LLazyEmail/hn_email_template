@@ -1,4 +1,4 @@
-import footerComponent from '../../../components/footer';
+import footerComponent from '../../../components/footer/index';
 import { createDisplaySection } from '../../core/createDisplaySection';
 import { footerModelDefaults } from './footer.model';
 import { buildFooterModel } from './footer.mapper';

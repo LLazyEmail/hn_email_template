@@ -1,4 +1,4 @@
-import headComponent from '../../../components/headComponent';
+import headComponent from '../../../components/headComponent/index';
 import { createDisplaySection } from '../../core/createDisplaySection';
 import { headModelDefaults } from './head.model';
 import { buildHeadModel } from './head.mapper';
