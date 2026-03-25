@@ -1,11 +1,13 @@
 import { validateInput } from './validation/validateInput';
 
-// const ERROR_PREVIEW = '`previewText` is a required option for `renderTemplate`';
+const PREVIEW_TEXT_ERROR = '`previewText` is a required option for `renderTemplate`';
+const INVALID_PREVIEW_TEXT_ERROR = 'invalid preview text';
+
 export const checkingPreviewText = (previewText) => {
   validateInput({ previewText }, [
     {
       field: 'previewText',
-      errorMessage: '`previewText` is a required option for `renderTemplate`',
+      errorMessage: PREVIEW_TEXT_ERROR,
       rules: ['required', 'nonEmptyString'],
     },
   ]);
@@ -15,7 +17,7 @@ const previewTextComponent = (content) => {
   validateInput({ content }, [
     {
       field: 'content',
-      errorMessage: 'invalid preview text',
+      errorMessage: INVALID_PREVIEW_TEXT_ERROR,
       rules: ['required', 'nonEmptyString'],
     },
   ]);

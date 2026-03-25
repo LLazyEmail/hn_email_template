@@ -1,28 +1,26 @@
 import { validateInput } from './validation/validateInput';
 
+const MAIN_VALIDATION_CHECKS = [
+  {
+    field: 'head',
+    errorMessage: 'no head was passed',
+    rules: ['required', 'string', 'nonEmptyString'],
+  },
+  {
+    field: 'body',
+    errorMessage: 'no body was passed',
+    rules: ['required', 'string', 'nonEmptyString'],
+  },
+];
+
 const mainComponent = (params) => {
   if (!params) {
     throw new Error('no Sub Components was passed');
   }
 
-  // TODO make it better
   const { head, body } = params;
 
-  validateInput(params, [
-    {
-      field: 'head',
-      errorMessage: 'no head was passed',
-      rules: ['required', 'string', 'nonEmptyString'],
-    },
-    {
-      field: 'body',
-      errorMessage: 'no body was passed',
-      rules: ['required', 'string', 'nonEmptyString'],
-    },
-  ]);
-
-  // headComponent.isError();
-  // bodyComponent.isError();
+  validateInput(params, MAIN_VALIDATION_CHECKS);
 
   return `<!DOCTYPE html>
   <html
