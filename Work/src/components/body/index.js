@@ -1,4 +1,5 @@
-import { validateInput } from './validation/validateInput';
+import { validateInput } from '../validation/validateInput';
+import { BODY_CHECKS } from './body.config';
 
 const EmailTemplateBodyComponent = (params) => {
   const { footer, logoTop, logoBottom, content, previewText } = params || {};
@@ -6,28 +7,7 @@ const EmailTemplateBodyComponent = (params) => {
   // console.log(logoTop);
   // console.log(logoBottom);
 
-  validateInput(params, [
-    {
-      field: 'footer',
-      errorMessage: 'no footer was passed',
-      rules: ['required', 'nonEmptyString'],
-    },
-    {
-      field: 'logoTop',
-      errorMessage: 'invalid logo',
-      rules: ['required', 'nonEmptyString'],
-    },
-    {
-      field: 'logoBottom',
-      errorMessage: 'invalid logo',
-      rules: ['required', 'nonEmptyString'],
-    },
-    {
-      field: 'previewText',
-      errorMessage: 'invalid preview text',
-      rules: ['required', 'nonEmptyString'],
-    },
-  ]);
+  validateInput(params, BODY_CHECKS);
 
   return `<body
     style="

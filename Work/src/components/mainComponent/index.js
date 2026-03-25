@@ -1,17 +1,5 @@
-import { validateInput } from './validation/validateInput';
-
-const MAIN_VALIDATION_CHECKS = [
-  {
-    field: 'head',
-    errorMessage: 'no head was passed',
-    rules: ['required', 'string', 'nonEmptyString'],
-  },
-  {
-    field: 'body',
-    errorMessage: 'no body was passed',
-    rules: ['required', 'string', 'nonEmptyString'],
-  },
-];
+import { validateInput } from '../validation/validateInput';
+import { MAIN_VALIDATION_CHECKS } from './mainComponent.config';
 
 const mainComponent = (params) => {
   if (!params) {
