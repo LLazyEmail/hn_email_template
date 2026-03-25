@@ -34,7 +34,9 @@ describe('displayFooter function', () => {
   });
 
   test('displayFooter() with custom address includes it in output', () => {
-    const { addressComponent } = require('atherdon-newsletter-js-layouts-misc');
+    const miscModule = require('atherdon-newsletter-js-layouts-misc');
+    const misc = miscModule.default || miscModule;
+    const { addressComponent } = misc;
     const customAddress = addressComponent({ mailingAddress: '123 Custom St, Denver CO, 80202' });
     const result = displayFooter({ address: customAddress });
     expect(result).toContain('123 Custom St');

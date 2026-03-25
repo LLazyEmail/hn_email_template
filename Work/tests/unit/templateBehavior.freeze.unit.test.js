@@ -3,7 +3,8 @@ jest.mock('atherdon-newsletter-js-layouts-misc', () => {
     addressComponent: ({ mailingAddress }) => `<address>${mailingAddress}</address>`,
     copyrightsComponent: () => '<span>copyright</span>',
     newsletterSponsorshipLinkComponent: ({ contact }) => `<a href="${contact}">sponsor</a>`,
-    unsubscribeComponent: ({ unsubscribeLink }) => `<a href="${unsubscribeLink}">unsubscribe</a>`,
+    unsubscribeComponent: ({ unsubscribe, unsubscribeLink }) =>
+      `<a href="${unsubscribe ?? unsubscribeLink}">unsubscribe</a>`,
     fontsComponent: () => '<style>.mock-fonts{}</style>',
   };
   return {
