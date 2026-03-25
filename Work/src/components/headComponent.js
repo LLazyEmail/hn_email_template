@@ -1,17 +1,25 @@
-const headComponent = (params) => {
+import { validateInput } from './validation/validateInput';
+
+const headComponent = (params = {}) => {
+  validateInput(params, [
+    {
+      field: 'title',
+      errorMessage: 'no title was passed',
+      rules: ['required', 'nonEmptyString'],
+    },
+    {
+      field: 'headStyles',
+      errorMessage: 'no headStyles was passed',
+      rules: ['required', 'nonEmptyString'],
+    },
+    {
+      field: 'fonts',
+      errorMessage: 'no fonts was passed',
+      rules: ['required', 'nonEmptyString'],
+    },
+  ]);
+
   const { title, headStyles, fonts } = params;
-
-  if (!title) {
-    throw new Error('no title was passed');
-  }
-
-  if (!headStyles) {
-    throw new Error('no headStyles was passed');
-  }
-
-  if (!fonts) {
-    throw new Error('no fonts was passed');
-  }
 
   return `<head>
   <!-- NAME: 1 COLUMN -->

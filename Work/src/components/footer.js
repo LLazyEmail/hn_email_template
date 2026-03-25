@@ -1,37 +1,7 @@
+import { validateInput } from './validation/validateInput';
+
 const renderCustomBlock = (params) => {
-
-
   const { address, sponsor, copyright, unsubscribe } = params;
-
-
-  if (!copyright) {
-    throw new Error('no copyrights was passed');
-  }
-  // if (typeof copyright != 'function') {
-  //   throw new Error('no copyrights was passed');
-  // }
-
-  if (!address) {
-    throw new Error('invalid address');
-  }
-  if (!unsubscribe) {
-    throw new Error('invalid unsubscribe');
-  }
-  
-  // if (typeof address != 'function'){
-  //   throw new Error('invalid invalid address, must be a function');
-  // }
-
-  // if (typeof unsubscribe != 'function') {
-  //   throw new Error('invalid unsubscribe, must be a function');
-  // }
-
-  if (!sponsor) {
-    throw new Error('invalid newsletterSponsorshipLink');
-  }
-  // if (typeof newsletterSponsorshipLink != 'function'){
-  //   throw new Error('invalid newsletterSponsorshipLink, must be a function');
-  // }
 
   return `<tr>
     <td
@@ -58,7 +28,30 @@ const renderCustomBlock = (params) => {
 };
 
 const footerComponent = ( params ) => {
-  const { address, sponsor, copyright, unsubscribe } = params;
+  validateInput(params, [
+    {
+      field: 'copyright',
+      errorMessage: 'no copyright was passed in footer component',
+      rules: ['required', 'nonEmptyString'],
+    },
+    {
+      field: 'address',
+      errorMessage: 'no address was passed',
+      rules: ['required', 'nonEmptyString'],
+    },
+    {
+      field: 'unsubscribe',
+      errorMessage: 'no unsubscribe was passed',
+      rules: ['required', 'nonEmptyString'],
+    },
+    {
+      field: 'sponsor',
+      errorMessage: 'no newsletterSponsorshipLink was passed',
+      rules: ['required', 'nonEmptyString'],
+    },
+  ]);
+
+  const { address, sponsor, copyright, unsubscribe } = params || {};
 
   // const {
   //   copyrightsComponent,
@@ -66,11 +59,6 @@ const footerComponent = ( params ) => {
   //   unsubscribeComponent,
   //   // newsletterSponsorshipLinkComponent
   // } = subcomponents;
-
-  if (!copyright) throw new Error('no copyright was passed in footer component');
-  if (!address) throw new Error('no address was passed');
-  if (!unsubscribe) throw new Error('no unsubscribe was passed');
-  if (!sponsor) throw new Error('no newsletterSponsorshipLink was passed');
 
   // console.log(copyright)
 
