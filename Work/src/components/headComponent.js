@@ -1,24 +1,25 @@
 import { validateInput } from './validation/validateInput';
 
-const headComponent = (params = {}) => {
-  validateInput(params, [
-    {
-      field: 'title',
-      errorMessage: 'no title was passed',
-      rules: ['required', 'nonEmptyString'],
-    },
-    {
-      field: 'headStyles',
-      errorMessage: 'no headStyles was passed',
-      rules: ['required', 'nonEmptyString'],
-    },
-    {
-      field: 'fonts',
-      errorMessage: 'no fonts was passed',
-      rules: ['required', 'nonEmptyString'],
-    },
-  ]);
+const HEAD_CHECKS = [
+  {
+    field: 'title',
+    errorMessage: 'no title was passed',
+    rules: ['required', 'nonEmptyString'],
+  },
+  {
+    field: 'headStyles',
+    errorMessage: 'no headStyles was passed',
+    rules: ['required', 'nonEmptyString'],
+  },
+  {
+    field: 'fonts',
+    errorMessage: 'no fonts was passed',
+    rules: ['required', 'nonEmptyString'],
+  },
+];
 
+const headComponent = (params = {}) => {
+  validateInput(params, HEAD_CHECKS);
   const { title, headStyles, fonts } = params;
 
   return `<head>

@@ -1,84 +1,214 @@
 import { validateInput } from './validation/validateInput';
 
-const renderCustomBlock = (params) => {
+const FOOTER_CHECKS = [
+  {
+    field: 'copyright',
+    errorMessage: 'no copyright was passed in footer component',
+    rules: ['required', 'nonEmptyString'],
+  },
+  {
+    field: 'address',
+    errorMessage: 'no address was passed',
+    rules: ['required', 'nonEmptyString'],
+  },
+  {
+    field: 'unsubscribe',
+    errorMessage: 'no unsubscribe was passed',
+    rules: ['required', 'nonEmptyString'],
+  },
+  {
+    field: 'sponsor',
+    errorMessage: 'no newsletterSponsorshipLink was passed',
+    rules: ['required', 'nonEmptyString'],
+  },
+];
+
+const SOCIAL_LINKS = [
+  {
+    href: 'https://twitter.com/hackernoon',
+    icon: 'https://creative-images-upld.s3.amazonaws.com/creative/newsletters/icons/twitter.png',
+    alt: 'Twitter',
+  },
+  {
+    href: 'https://www.facebook.com/hackernoon',
+    icon: 'https://creative-images-upld.s3.amazonaws.com/creative/newsletters/icons/facebook.png',
+    alt: 'Facebook',
+  },
+  {
+    href: 'https://instagram.com/hackernoon/',
+    icon: 'https://creative-images-upld.s3.amazonaws.com/creative/newsletters/icons/instagram.png',
+    alt: 'Instagram',
+  },
+  {
+    href: 'https://hackernoon.com',
+    icon: 'https://creative-images-upld.s3.amazonaws.com/creative/newsletters/icons/link.png',
+    alt: 'Website',
+  },
+  {
+    href: 'https://www.youtube.com/channel/UChu5YILgrOYOfkfRlTB-D-g',
+    icon: 'https://creative-images-upld.s3.amazonaws.com/creative/newsletters/icons/youtube.png',
+    alt: 'YouTube',
+  },
+  {
+    href: 'mailto:stories@hackernoon.com',
+    icon: 'https://creative-images-upld.s3.amazonaws.com/creative/newsletters/icons/forwardtofriend.png',
+    alt: 'Email',
+  },
+];
+
+const renderSocialIcon = ({ href, icon, alt }) => `
+  <table
+    align="left"
+    border="0"
+    cellpadding="0"
+    cellspacing="0"
+    style="
+      display: inline;
+      border-collapse: collapse;
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+      -ms-text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
+    "
+  >
+    <tbody>
+      <tr>
+        <td
+          valign="top"
+          style="
+            padding-right: 10px;
+            padding-bottom: 9px;
+            mso-line-height-rule: exactly;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+          "
+          class="mcnFollowContentItemContainer"
+        >
+          <table
+            border="0"
+            cellpadding="0"
+            cellspacing="0"
+            width="100%"
+            class="mcnFollowContentItem"
+            style="
+              border-collapse: collapse;
+              mso-table-lspace: 0pt;
+              mso-table-rspace: 0pt;
+              -ms-text-size-adjust: 100%;
+              -webkit-text-size-adjust: 100%;
+            "
+          >
+            <tbody>
+              <tr>
+                <td
+                  align="left"
+                  valign="middle"
+                  style="
+                    padding-top: 5px;
+                    padding-right: 10px;
+                    padding-bottom: 5px;
+                    padding-left: 9px;
+                    mso-line-height-rule: exactly;
+                    -ms-text-size-adjust: 100%;
+                    -webkit-text-size-adjust: 100%;
+                  "
+                >
+                  <table
+                    align="left"
+                    border="0"
+                    cellpadding="0"
+                    cellspacing="0"
+                    width=""
+                    style="
+                      border-collapse: collapse;
+                      mso-table-lspace: 0pt;
+                      mso-table-rspace: 0pt;
+                      -ms-text-size-adjust: 100%;
+                      -webkit-text-size-adjust: 100%;
+                    "
+                  >
+                    <tbody>
+                      <tr>
+                        <td
+                          align="center"
+                          valign="middle"
+                          width="24"
+                          class="mcnFollowIconContent"
+                          style="
+                            mso-line-height-rule: exactly;
+                            -ms-text-size-adjust: 100%;
+                            -webkit-text-size-adjust: 100%;
+                          "
+                        >
+                          <a
+                            href="${href}"
+                            target="_blank"
+                            style="
+                              mso-line-height-rule: exactly;
+                              -ms-text-size-adjust: 100%;
+                              -webkit-text-size-adjust: 100%;
+                            "
+                          >
+                            <img
+                              src="${icon}"
+                              alt="${alt}"
+                              style="
+                                display: block;
+                                border: 0;
+                                height: auto;
+                                outline: none;
+                                text-decoration: none;
+                                -ms-interpolation-mode: bicubic;
+                              "
+                              height="24"
+                              width="24"
+                            />
+                          </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>`;
+
+const renderSocialRow = () => SOCIAL_LINKS.map(renderSocialIcon).join('\n');
+
+const renderCustomBlock = ({ address, sponsor, copyright, unsubscribe }) => `<tr>
+  <td
+    valign="top"
+    class="mcnTextContent"
+    style="
+      padding-top: 0; padding-right: 18px; padding-bottom: 9px;
+      padding-left: 18px; mso-line-height-rule: exactly;
+      -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;
+      word-break: break-word; color: #656565;
+      font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 12px; line-height: 150%; text-align: center;
+    "
+  >
+    ${copyright}
+    <br />
+    ${address}
+    <br />
+    ${unsubscribe}
+    ${sponsor}
+  </td>
+</tr>`;
+
+const footerComponent = (params = {}) => {
+  validateInput(params, FOOTER_CHECKS);
+
   const { address, sponsor, copyright, unsubscribe } = params;
+  const socialRow = renderSocialRow();
+  const customBlock = renderCustomBlock({ address, sponsor, copyright, unsubscribe });
 
   return `<tr>
-    <td
-      valign="top"
-      class="mcnTextContent"
-      style="
-        padding-top: 0; padding-right: 18px; padding-bottom: 9px;
-        padding-left: 18px; mso-line-height-rule: exactly;
-        -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;
-        word-break: break-word; color: #656565;
-        font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial,  sans-serif; 
-        font-size: 12px;line-height: 150%; text-align: center;
-      "
-    >
-      ${copyright}
-
-      <br />
-      ${address}
-      <br />
-      ${unsubscribe}
-      ${sponsor}
-    </td>
-  </tr>`;
-};
-
-const footerComponent = ( params ) => {
-  validateInput(params, [
-    {
-      field: 'copyright',
-      errorMessage: 'no copyright was passed in footer component',
-      rules: ['required', 'nonEmptyString'],
-    },
-    {
-      field: 'address',
-      errorMessage: 'no address was passed',
-      rules: ['required', 'nonEmptyString'],
-    },
-    {
-      field: 'unsubscribe',
-      errorMessage: 'no unsubscribe was passed',
-      rules: ['required', 'nonEmptyString'],
-    },
-    {
-      field: 'sponsor',
-      errorMessage: 'no newsletterSponsorshipLink was passed',
-      rules: ['required', 'nonEmptyString'],
-    },
-  ]);
-
-  const { address, sponsor, copyright, unsubscribe } = params || {};
-
-  // const {
-  //   copyrightsComponent,
-  //   // addressComponent,
-  //   unsubscribeComponent,
-  //   // newsletterSponsorshipLinkComponent
-  // } = subcomponents;
-
-  // console.log(copyright)
-
-
-  // if (typeof copyrightsComponent != 'function') {
-  //   throw new Error('no copyrights was passed');
-  // }
-
-  // if (typeof unsubscribeComponent != 'function') {
-  //   throw new Error('invalid unsubscribeComponent, must be a function');
-  // }
-
-  // if (!newsletterSponsorshipLink)  {
-  //   throw new Error('invalid newsletterSponsorshipLink');
-  // }
-
-
-
-  return (
-    `<tr>
 <td
   valign="top"
   id="templateFooter"
@@ -210,713 +340,7 @@ const footerComponent = ( params ) => {
                     <table align="center" border="0" cellspacing="0" cellpadding="0">
                     <tr>
                     <![endif]-->
-
-                                  <!--[if mso]>
-                        <td align="center" valign="top">
-                        <![endif]-->
-
-                                  <table
-                                    align="left"
-                                    border="0"
-                                    cellpadding="0"
-                                    cellspacing="0"
-                                    style="
-                                      display: inline;
-                                      border-collapse: collapse;
-                                      mso-table-lspace: 0pt;
-                                      mso-table-rspace: 0pt;
-                                      -ms-text-size-adjust: 100%;
-                                      -webkit-text-size-adjust: 100%;
-                                    "
-                                  >
-                                    <tbody>
-                                      <tr>
-                                        <td
-                                          valign="top"
-                                          style="
-                                            padding-right: 10px;
-                                            padding-bottom: 9px;
-                                            mso-line-height-rule: exactly;
-                                            -ms-text-size-adjust: 100%;
-                                            -webkit-text-size-adjust: 100%;
-                                          "
-                                          class="mcnFollowContentItemContainer"
-                                        >
-                                          <table
-                                            border="0"
-                                            cellpadding="0"
-                                            cellspacing="0"
-                                            width="100%"
-                                            class="mcnFollowContentItem"
-                                            style="
-                                              border-collapse: collapse;
-                                              mso-table-lspace: 0pt;
-                                              mso-table-rspace: 0pt;
-                                              -ms-text-size-adjust: 100%;
-                                              -webkit-text-size-adjust: 100%;
-                                            "
-                                          >
-                                            <tbody>
-                                              <tr>
-                                                <td
-                                                  align="left"
-                                                  valign="middle"
-                                                  style="
-                                                    padding-top: 5px;
-                                                    padding-right: 10px;
-                                                    padding-bottom: 5px;
-                                                    padding-left: 9px;
-                                                    mso-line-height-rule: exactly;
-                                                    -ms-text-size-adjust: 100%;
-                                                    -webkit-text-size-adjust: 100%;
-                                                  "
-                                                >
-                                                  <table
-                                                    align="left"
-                                                    border="0"
-                                                    cellpadding="0"
-                                                    cellspacing="0"
-                                                    width=""
-                                                    style="
-                                                      border-collapse: collapse;
-                                                      mso-table-lspace: 0pt;
-                                                      mso-table-rspace: 0pt;
-                                                      -ms-text-size-adjust: 100%;
-                                                      -webkit-text-size-adjust: 100%;
-                                                    "
-                                                  >
-                                                    <tbody>
-                                                      <tr>
-                                                        <td
-                                                          align="center"
-                                                          valign="middle"
-                                                          width="24"
-                                                          class="mcnFollowIconContent"
-                                                          style="
-                                                            mso-line-height-rule: exactly;
-                                                            -ms-text-size-adjust: 100%;
-                                                            -webkit-text-size-adjust: 100%;
-                                                          "
-                                                        >
-                                                          <a
-                                                            href="https://twitter.com/hackernoon"
-                                                            target="_blank"
-                                                            style="
-                                                              mso-line-height-rule: exactly;
-                                                              -ms-text-size-adjust: 100%;
-                                                              -webkit-text-size-adjust: 100%;
-                                                            "
-                                                          >
-                                                            <img
-                                                              src="https://creative-images-upld.s3.amazonaws.com/creative/newsletters/icons/twitter.png"
-                                                              alt="Twitter"
-                                                              style="
-                                                                display: block;
-                                                                border: 0;
-                                                                height: auto;
-                                                                outline: none;
-                                                                text-decoration: none;
-                                                                -ms-interpolation-mode: bicubic;
-                                                              "
-                                                              height="24"
-                                                              width="24"
-                                                              class=""
-                                                          /></a>
-                                                        </td>
-                                                      </tr>
-                                                    </tbody>
-                                                  </table>
-                                                </td>
-                                              </tr>
-                                            </tbody>
-                                          </table>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-
-                                  <!--[if mso]>
-                        </td>
-                        <![endif]-->
-
-                                  <!--[if mso]>
-                        <td align="center" valign="top">
-                        <![endif]-->
-
-                                  <table
-                                    align="left"
-                                    border="0"
-                                    cellpadding="0"
-                                    cellspacing="0"
-                                    style="
-                                      display: inline;
-                                      border-collapse: collapse;
-                                      mso-table-lspace: 0pt;
-                                      mso-table-rspace: 0pt;
-                                      -ms-text-size-adjust: 100%;
-                                      -webkit-text-size-adjust: 100%;
-                                    "
-                                  >
-                                    <tbody>
-                                      <tr>
-                                        <td
-                                          valign="top"
-                                          style="
-                                            padding-right: 10px;
-                                            padding-bottom: 9px;
-                                            mso-line-height-rule: exactly;
-                                            -ms-text-size-adjust: 100%;
-                                            -webkit-text-size-adjust: 100%;
-                                          "
-                                          class="mcnFollowContentItemContainer"
-                                        >
-                                          <table
-                                            border="0"
-                                            cellpadding="0"
-                                            cellspacing="0"
-                                            width="100%"
-                                            class="mcnFollowContentItem"
-                                            style="
-                                              border-collapse: collapse;
-                                              mso-table-lspace: 0pt;
-                                              mso-table-rspace: 0pt;
-                                              -ms-text-size-adjust: 100%;
-                                              -webkit-text-size-adjust: 100%;
-                                            "
-                                          >
-                                            <tbody>
-                                              <tr>
-                                                <td
-                                                  align="left"
-                                                  valign="middle"
-                                                  style="
-                                                    padding-top: 5px;
-                                                    padding-right: 10px;
-                                                    padding-bottom: 5px;
-                                                    padding-left: 9px;
-                                                    mso-line-height-rule: exactly;
-                                                    -ms-text-size-adjust: 100%;
-                                                    -webkit-text-size-adjust: 100%;
-                                                  "
-                                                >
-                                                  <table
-                                                    align="left"
-                                                    border="0"
-                                                    cellpadding="0"
-                                                    cellspacing="0"
-                                                    width=""
-                                                    style="
-                                                      border-collapse: collapse;
-                                                      mso-table-lspace: 0pt;
-                                                      mso-table-rspace: 0pt;
-                                                      -ms-text-size-adjust: 100%;
-                                                      -webkit-text-size-adjust: 100%;
-                                                    "
-                                                  >
-                                                    <tbody>
-                                                      <tr>
-                                                        <td
-                                                          align="center"
-                                                          valign="middle"
-                                                          width="24"
-                                                          class="mcnFollowIconContent"
-                                                          style="
-                                                            mso-line-height-rule: exactly;
-                                                            -ms-text-size-adjust: 100%;
-                                                            -webkit-text-size-adjust: 100%;
-                                                          "
-                                                        >
-                                                          <a
-                                                            href="https://www.facebook.com/hackernoon"
-                                                            target="_blank"
-                                                            style="
-                                                              mso-line-height-rule: exactly;
-                                                              -ms-text-size-adjust: 100%;
-                                                              -webkit-text-size-adjust: 100%;
-                                                            "
-                                                          >
-                                                            <img
-                                                              src="https://creative-images-upld.s3.amazonaws.com/creative/newsletters/icons/facebook.png"
-                                                              alt="Facebook"
-                                                              style="
-                                                                display: block;
-                                                                border: 0;
-                                                                height: auto;
-                                                                outline: none;
-                                                                text-decoration: none;
-                                                                -ms-interpolation-mode: bicubic;
-                                                              "
-                                                              height="24"
-                                                              width="24"
-                                                              class=""
-                                                          /></a>
-                                                        </td>
-                                                      </tr>
-                                                    </tbody>
-                                                  </table>
-                                                </td>
-                                              </tr>
-                                            </tbody>
-                                          </table>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-
-                                  <!--[if mso]>
-                        </td>
-                        <![endif]-->
-
-                                  <!--[if mso]>
-                        <td align="center" valign="top">
-                        <![endif]-->
-
-                                  <table
-                                    align="left"
-                                    border="0"
-                                    cellpadding="0"
-                                    cellspacing="0"
-                                    style="
-                                      display: inline;
-                                      border-collapse: collapse;
-                                      mso-table-lspace: 0pt;
-                                      mso-table-rspace: 0pt;
-                                      -ms-text-size-adjust: 100%;
-                                      -webkit-text-size-adjust: 100%;
-                                    "
-                                  >
-                                    <tbody>
-                                      <tr>
-                                        <td
-                                          valign="top"
-                                          style="
-                                            padding-right: 10px;
-                                            padding-bottom: 9px;
-                                            mso-line-height-rule: exactly;
-                                            -ms-text-size-adjust: 100%;
-                                            -webkit-text-size-adjust: 100%;
-                                          "
-                                          class="mcnFollowContentItemContainer"
-                                        >
-                                          <table
-                                            border="0"
-                                            cellpadding="0"
-                                            cellspacing="0"
-                                            width="100%"
-                                            class="mcnFollowContentItem"
-                                            style="
-                                              border-collapse: collapse;
-                                              mso-table-lspace: 0pt;
-                                              mso-table-rspace: 0pt;
-                                              -ms-text-size-adjust: 100%;
-                                              -webkit-text-size-adjust: 100%;
-                                            "
-                                          >
-                                            <tbody>
-                                              <tr>
-                                                <td
-                                                  align="left"
-                                                  valign="middle"
-                                                  style="
-                                                    padding-top: 5px;
-                                                    padding-right: 10px;
-                                                    padding-bottom: 5px;
-                                                    padding-left: 9px;
-                                                    mso-line-height-rule: exactly;
-                                                    -ms-text-size-adjust: 100%;
-                                                    -webkit-text-size-adjust: 100%;
-                                                  "
-                                                >
-                                                  <table
-                                                    align="left"
-                                                    border="0"
-                                                    cellpadding="0"
-                                                    cellspacing="0"
-                                                    width=""
-                                                    style="
-                                                      border-collapse: collapse;
-                                                      mso-table-lspace: 0pt;
-                                                      mso-table-rspace: 0pt;
-                                                      -ms-text-size-adjust: 100%;
-                                                      -webkit-text-size-adjust: 100%;
-                                                    "
-                                                  >
-                                                    <tbody>
-                                                      <tr>
-                                                        <td
-                                                          align="center"
-                                                          valign="middle"
-                                                          width="24"
-                                                          class="mcnFollowIconContent"
-                                                          style="
-                                                            mso-line-height-rule: exactly;
-                                                            -ms-text-size-adjust: 100%;
-                                                            -webkit-text-size-adjust: 100%;
-                                                          "
-                                                        >
-                                                          <a
-                                                            href="https://instagram.com/hackernoon/"
-                                                            target="_blank"
-                                                            style="
-                                                              mso-line-height-rule: exactly;
-                                                              -ms-text-size-adjust: 100%;
-                                                              -webkit-text-size-adjust: 100%;
-                                                            "
-                                                            ><img
-                                                              src="https://creative-images-upld.s3.amazonaws.com/creative/newsletters/icons/instagram.png"
-                                                              alt="Instagram"
-                                                              style="
-                                                                display: block;
-                                                                border: 0;
-                                                                height: auto;
-                                                                outline: none;
-                                                                text-decoration: none;
-                                                                -ms-interpolation-mode: bicubic;
-                                                              "
-                                                              height="24"
-                                                              width="24"
-                                                              class=""
-                                                          /></a>
-                                                        </td>
-                                                      </tr>
-                                                    </tbody>
-                                                  </table>
-                                                </td>
-                                              </tr>
-                                            </tbody>
-                                          </table>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-
-                                  <!--[if mso]>
-                        </td>
-                        <![endif]-->
-
-                                  <!--[if mso]>
-                        <td align="center" valign="top">
-                        <![endif]-->
-
-                                  <table
-                                    align="left"
-                                    border="0"
-                                    cellpadding="0"
-                                    cellspacing="0"
-                                    style="
-                                      display: inline;
-                                      border-collapse: collapse;
-                                      mso-table-lspace: 0pt;
-                                      mso-table-rspace: 0pt;
-                                      -ms-text-size-adjust: 100%;
-                                      -webkit-text-size-adjust: 100%;
-                                    "
-                                  >
-                                    <tbody>
-                                      <tr>
-                                        <td
-                                          valign="top"
-                                          style="
-                                            padding-right: 10px;
-                                            padding-bottom: 9px;
-                                            mso-line-height-rule: exactly;
-                                            -ms-text-size-adjust: 100%;
-                                            -webkit-text-size-adjust: 100%;
-                                          "
-                                          class="mcnFollowContentItemContainer"
-                                        >
-                                          <table
-                                            border="0"
-                                            cellpadding="0"
-                                            cellspacing="0"
-                                            width="100%"
-                                            class="mcnFollowContentItem"
-                                            style="
-                                              border-collapse: collapse;
-                                              mso-table-lspace: 0pt;
-                                              mso-table-rspace: 0pt;
-                                              -ms-text-size-adjust: 100%;
-                                              -webkit-text-size-adjust: 100%;
-                                            "
-                                          >
-                                            <tbody>
-                                              <tr>
-                                                <td
-                                                  align="left"
-                                                  valign="middle"
-                                                  style="
-                                                    padding-top: 5px;
-                                                    padding-right: 10px;
-                                                    padding-bottom: 5px;
-                                                    padding-left: 9px;
-                                                    mso-line-height-rule: exactly;
-                                                    -ms-text-size-adjust: 100%;
-                                                    -webkit-text-size-adjust: 100%;
-                                                  "
-                                                >
-                                                  <table
-                                                    align="left"
-                                                    border="0"
-                                                    cellpadding="0"
-                                                    cellspacing="0"
-                                                    width=""
-                                                    style="
-                                                      border-collapse: collapse;
-                                                      mso-table-lspace: 0pt;
-                                                      mso-table-rspace: 0pt;
-                                                      -ms-text-size-adjust: 100%;
-                                                      -webkit-text-size-adjust: 100%;
-                                                    "
-                                                  >
-                                                    <tbody>
-                                                      <tr>
-                                                        <td
-                                                          align="center"
-                                                          valign="middle"
-                                                          width="24"
-                                                          class="mcnFollowIconContent"
-                                                          style="
-                                                            mso-line-height-rule: exactly;
-                                                            -ms-text-size-adjust: 100%;
-                                                            -webkit-text-size-adjust: 100%;
-                                                          "
-                                                        >
-                                                          <a
-                                                            href="https://hackernoon.com"
-                                                            target="_blank"
-                                                            style="
-                                                              mso-line-height-rule: exactly;
-                                                              -ms-text-size-adjust: 100%;
-                                                              -webkit-text-size-adjust: 100%;
-                                                            "
-                                                            ><img
-                                                              src="https://creative-images-upld.s3.amazonaws.com/creative/newsletters/icons/link.png"
-                                                              alt="Website"
-                                                              style="
-                                                                display: block;
-                                                                border: 0;
-                                                                height: auto;
-                                                                outline: none;
-                                                                text-decoration: none;
-                                                                -ms-interpolation-mode: bicubic;
-                                                              "
-                                                              height="24"
-                                                              width="24"
-                                                              class=""
-                                                          /></a>
-                                                        </td>
-                                                      </tr>
-                                                    </tbody>
-                                                  </table>
-                                                </td>
-                                              </tr>
-                                            </tbody>
-                                          </table>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-
-                                  <!--[if mso]>
-                        </td>
-                        <![endif]-->
-
-                                  <!--[if mso]>
-                        <td align="center" valign="top">
-                        <![endif]-->
-
-                                  <table
-                                    align="left"
-                                    border="0"
-                                    cellpadding="0"
-                                    cellspacing="0"
-                                    style="
-                                      display: inline;
-                                      border-collapse: collapse;
-                                      mso-table-lspace: 0pt;
-                                      mso-table-rspace: 0pt;
-                                      -ms-text-size-adjust: 100%;
-                                      -webkit-text-size-adjust: 100%;
-                                    "
-                                  >
-                                    <tbody>
-                                      <tr>
-                                        <td
-                                          valign="top"
-                                          style="
-                                            padding-right: 10px;padding-bottom: 9px;mso-line-height-rule: exactly;
-                                            -ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
-                                          class="mcnFollowContentItemContainer"
-                                        >
-                                          <table
-                                            border="0"
-                                            cellpadding="0"
-                                            cellspacing="0"
-                                            width="100%"
-                                            class="mcnFollowContentItem"
-                                            style="
-                                              border-collapse: collapse;mso-table-lspace: 0pt;
-                                              mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
-                                          >
-                                            <tbody>
-                                              <tr>
-                                                <td
-                                                  align="left"
-                                                  valign="middle"
-                                                  style="
-                                                    padding-top: 5px;padding-right: 10px;padding-bottom: 5px;
-                                                    padding-left: 9px;mso-line-height-rule: exactly;
-                                                    -ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;
-                                                  "
-                                                >
-                                                  <table
-                                                    align="left"
-                                                    border="0"
-                                                    cellpadding="0"
-                                                    cellspacing="0"
-                                                    width=""
-                                                    style="
-                                                      border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;
-                                                    "
-                                                  >
-                                                    <tbody>
-                                                      <tr>
-                                                        <td
-                                                          align="center"
-                                                          valign="middle"
-                                                          width="24"
-                                                          class="mcnFollowIconContent"
-                                                          style="
-                                                            mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;
-                                                          "
-                                                        >
-                                                          <a
-                                                            href="https://www.youtube.com/channel/UChu5YILgrOYOfkfRlTB-D-g"
-                                                            target="_blank"
-                                                            style="
-                                                              mso-line-height-rule: exactly;
-                                                              -ms-text-size-adjust: 100%;
-                                                              -webkit-text-size-adjust: 100%;
-                                                            "
-                                                            ><img
-                                                              src="https://creative-images-upld.s3.amazonaws.com/creative/newsletters/icons/youtube.png"
-                                                              alt="YouTube"
-                                                              style="display: block;  border: 0;
-                                                                height: auto; outline: none;
-                                                                text-decoration: none;  -ms-interpolation-mode: bicubic;"
-                                                              height="24"
-                                                              width="24"
-                                                              class=""
-                                                          /></a>
-                                                        </td>
-                                                      </tr>
-                                                    </tbody>
-                                                  </table>
-                                                </td>
-                                              </tr>
-                                            </tbody>
-                                          </table>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-
-                                  <!--[if mso]>
-                        </td>
-                        <![endif]-->
-
-                                  <!--[if mso]>
-                        <td align="center" valign="top">
-                        <![endif]-->
-
-                                  <table
-                                    align="left"
-                                    border="0"
-                                    cellpadding="0"
-                                    cellspacing="0"
-                                    style="
-                                      display: inline;border-collapse: collapse;mso-table-lspace: 0pt;
-                                      mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
-                                  >
-                                    <tbody>
-                                      <tr>
-                                        <td
-                                          valign="top"
-                                          style="
-                                            padding-right: 0;padding-bottom: 9px;
-                                            mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;
-                                          "
-                                          class="mcnFollowContentItemContainer"
-                                        >
-                                          <table
-                                            border="0"
-                                            cellpadding="0"
-                                            cellspacing="0"
-                                            width="100%"
-                                            class="mcnFollowContentItem"
-                                            style="border-collapse: collapse;mso-table-lspace: 0pt;
-                                              mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
-                                          >
-                                            <tbody>
-                                              <tr>
-                                                <td
-                                                  align="left"
-                                                  valign="middle"
-                                                  style="padding-top: 5px;padding-right: 10px; padding-bottom: 5px;padding-left: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
-                                                >
-                                                  <table
-                                                    align="left"
-                                                    border="0"
-                                                    cellpadding="0"
-                                                    cellspacing="0"
-                                                    width=""
-                                                    style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
-                                                  >
-                                                    <tbody>
-                                                      <tr>
-                                                        <td
-                                                          align="center"
-                                                          valign="middle"
-                                                          width="24"
-                                                          class="mcnFollowIconContent"
-                                                          style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
-                                                        >
-                                                          <a
-                                                            href="mailto:stories@hackernoon.com"
-                                                            target="_blank"
-                                                            style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;                                                            "
-                                                            ><img
-                                                              src="https://creative-images-upld.s3.amazonaws.com/creative/newsletters/icons/forwardtofriend.png"
-                                                              alt="Email"
-                                                              style="
-                                                                display: block;
-                                                                border: 0;
-                                                                height: auto;
-                                                                outline: none;
-                                                                text-decoration: none;
-                                                                -ms-interpolation-mode: bicubic;
-                                                              "
-                                                              height="24"
-                                                              width="24"
-                                                              class=""
-                                                          /></a>
-                                                        </td>
-                                                      </tr>
-                                                    </tbody>
-                                                  </table>
-                                                </td>
-                                              </tr>
-                                            </tbody>
-                                          </table>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-
-                                  <!--[if mso]>
-                        </td>
-                        <![endif]-->
-
+                                  ${socialRow}
                                   <!--[if mso]>
                     </tr>
                     </table>
@@ -944,9 +368,12 @@ const footerComponent = ( params ) => {
     width="100%"
     class="mcnTextBlock"
     style="
-      min-width: 100%;border-collapse: collapse;
-      mso-table-lspace: 0pt;mso-table-rspace: 0pt;
-      -ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;
+      min-width: 100%;
+      border-collapse: collapse;
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+      -ms-text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
     "
   >
     <tbody class="mcnTextBlockOuter">
@@ -955,15 +382,16 @@ const footerComponent = ( params ) => {
           valign="top"
           class="mcnTextBlockInner"
           style="
-            padding-top: 9px;mso-line-height-rule: exactly;
-            -ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;
+            padding-top: 9px;
+            mso-line-height-rule: exactly;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
           "
         >
           <!--[if mso]>
 <table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
 <tr>
 <![endif]-->
-
           <!--[if mso]>
 <td valign="top" width="600" style="width:600px;">
 <![endif]-->
@@ -973,28 +401,24 @@ const footerComponent = ( params ) => {
             cellpadding="0"
             cellspacing="0"
             style="
-              max-width: 100%;min-width: 100%;border-collapse: collapse;
-              mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;
+              max-width: 100%;
+              min-width: 100%;
+              border-collapse: collapse;
+              mso-table-lspace: 0pt;
+              mso-table-rspace: 0pt;
+              -ms-text-size-adjust: 100%;
+              -webkit-text-size-adjust: 100%;
             "
             width="100%"
             class="mcnTextContentContainer"
           >
             <tbody>
-              ` +
-    renderCustomBlock(
-      params
-      // copyright,
-      // address,
-      // unsubscribe,
-      // sponsor
-    ) +
-    `
+              ${customBlock}
             </tbody>
           </table>
           <!--[if mso]>
 </td>
 <![endif]-->
-
           <!--[if mso]>
 </tr>
 </table>
@@ -1004,8 +428,7 @@ const footerComponent = ( params ) => {
     </tbody>
   </table>
 </td>
-</tr>`
-  );
+</tr>`;
 };
 
 export default footerComponent;
