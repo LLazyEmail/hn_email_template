@@ -1,14 +1,24 @@
-//const ERROR_PREVIEW = '`previewText` is a required option for `renderTemplate`';
-const checkingPreviewText = (previewText) => {
-  if (!previewText) {
-    throw new Error('`previewText` is a required option for `renderTemplate`');
-  }
+import { validateInput } from './validation/validateInput';
+
+// const ERROR_PREVIEW = '`previewText` is a required option for `renderTemplate`';
+export const checkingPreviewText = (previewText) => {
+  validateInput({ previewText }, [
+    {
+      field: 'previewText',
+      errorMessage: '`previewText` is a required option for `renderTemplate`',
+      rules: ['required', 'nonEmptyString'],
+    },
+  ]);
 };
 
 const previewTextComponent = (content) => {
-  if (!content) {
-    throw new Error('invalid preview text');
-  }
+  validateInput({ content }, [
+    {
+      field: 'content',
+      errorMessage: 'invalid preview text',
+      rules: ['required', 'nonEmptyString'],
+    },
+  ]);
 
   return `<!--[if !gte mso 9]><!---->
     ${content}

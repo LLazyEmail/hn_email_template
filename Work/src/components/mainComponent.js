@@ -1,3 +1,5 @@
+import { validateInput } from './validation/validateInput';
+
 const mainComponent = (params) => {
   if (!params) {
     throw new Error('no Sub Components was passed');
@@ -6,13 +8,18 @@ const mainComponent = (params) => {
   // TODO make it better
   const { head, body } = params;
 
-  if (!head || typeof head !== 'string') {
-    throw new Error('no head was passed');
-  }
-
-  if (!body || typeof body !== 'string') {
-    throw new Error('no body was passed');
-  }
+  validateInput(params, [
+    {
+      field: 'head',
+      errorMessage: 'no head was passed',
+      rules: ['required', 'string', 'nonEmptyString'],
+    },
+    {
+      field: 'body',
+      errorMessage: 'no body was passed',
+      rules: ['required', 'string', 'nonEmptyString'],
+    },
+  ]);
 
   // headComponent.isError();
   // bodyComponent.isError();

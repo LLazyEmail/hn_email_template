@@ -1,20 +1,33 @@
+import { validateInput } from './validation/validateInput';
+
 const EmailTemplateBodyComponent = (params) => {
-  const { footer, logoTop, logoBottom, content, previewText } = params;
+  const { footer, logoTop, logoBottom, content, previewText } = params || {};
 
   // console.log(logoTop);
   // console.log(logoBottom);
 
-  if (!footer) {
-    throw new Error('no footer was passed');
-  }
-
-  if (!logoTop || !logoBottom) {
-    throw new Error('invalid logo');
-  }
-
-  if (!previewText) {
-    throw new Error('invalid preview text');
-  }
+  validateInput(params, [
+    {
+      field: 'footer',
+      errorMessage: 'no footer was passed',
+      rules: ['required', 'nonEmptyString'],
+    },
+    {
+      field: 'logoTop',
+      errorMessage: 'invalid logo',
+      rules: ['required', 'nonEmptyString'],
+    },
+    {
+      field: 'logoBottom',
+      errorMessage: 'invalid logo',
+      rules: ['required', 'nonEmptyString'],
+    },
+    {
+      field: 'previewText',
+      errorMessage: 'invalid preview text',
+      rules: ['required', 'nonEmptyString'],
+    },
+  ]);
 
   return `<body
     style="
