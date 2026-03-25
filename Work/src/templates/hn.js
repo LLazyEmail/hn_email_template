@@ -1,5 +1,7 @@
-import displayTemplate from '../t/displayTemplate';
-import displayFrontMatterTemplate from '../t/displayFrontMatterTemplate';
+import {
+  renderDisplayTemplate,
+  renderDisplayFrontMatterTemplate,
+} from '../engine/display';
 
 /**
  * HN (Hacker News digest) email template.
@@ -18,9 +20,9 @@ const hnTemplate = {
         // front-matter fields (title, preview, …).  A plain string means
         // simple content-only rendering.
         if (data && typeof data === 'object' && data.data !== undefined) {
-            return displayFrontMatterTemplate(data);
+            return renderDisplayFrontMatterTemplate(data);
         }
-        return displayTemplate(data);
+        return renderDisplayTemplate(data);
     },
 };
 
