@@ -31,7 +31,7 @@ jobs:
             Work/package-lock.json
             sub-modules/Typography/package-lock.json
             sub-modules/innerComponents/package-lock.json
-            Work/sub-modules/Miscellaneous/package-lock.json
+            sub-modules/Miscellaneous/package-lock.json
           registry-url: https://registry.npmjs.org/
 
       - name: Install dependencies

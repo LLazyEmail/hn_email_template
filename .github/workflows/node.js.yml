@@ -59,8 +59,8 @@ jobs:
             module-path: ./sub-modules/innerComponents
             lockfile-path: sub-modules/innerComponents/package-lock.json
           - submodule: Miscellaneous
-            module-path: ./Work/sub-modules/Miscellaneous
-            lockfile-path: Work/sub-modules/Miscellaneous/package-lock.json
+            module-path: ./sub-modules/Miscellaneous
+            lockfile-path: sub-modules/Miscellaneous/package-lock.json
 
     defaults:
       run:
