@@ -1,6 +1,6 @@
 # outerTemplate
 
-> Part of the [Work/sub-modules](../README.md) component library.
+> Part of the [sub-modules](../README.md) component library.
 
 ## Purpose
 
@@ -22,4 +22,4 @@ When implemented, this module should:
 
 - No `package.json`, `src/`, or `rollup.config.js` present — the module is not buildable or publishable yet.
 - Migrate or extract the relevant code from `Work/` into this directory to make it a proper standalone package.
-- Once implemented, add an npm package name (suggested: `atherdon-newsletter-js-layouts-outertemplate`) and register it in the dependency graph documented in [Work/sub-modules/README.md](../README.md).
+- Once implemented, add an npm package name (suggested: `atherdon-newsletter-js-layouts-outertemplate`) and register it in the dependency graph documented in [sub-modules/README.md](../README.md).
