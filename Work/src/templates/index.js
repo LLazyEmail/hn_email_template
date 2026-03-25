@@ -1,29 +1,14 @@
+import { createRegistry, renderTemplate as renderTemplateById } from '../engine/templates';
 import hnTemplate from './hn';
 
 /**
  * Registry of all available templates, keyed by template id.
  *
- * To add a new template: import it here and add an entry to this object.
- *
- * @type {Object.<string, import('./types').Template>}
+ * Kept for backward compatibility. Internally this now uses the shared
+ * template-engine registry helper introduced in Phase 2.
  */
-const registry = {
-    [hnTemplate.id]: hnTemplate,
-};
+export const registry = createRegistry([hnTemplate]);
 
-/**
- * Render a template by id.
- *
- * @param {string} templateId - The id of the template to render (e.g. `'hn'`).
- * @param {*}      data       - Data passed through to the template's `render` method.
- * @returns {string} Rendered HTML string.
- */
-const renderTemplate = (templateId, data) => {
-    const template = registry[templateId];
-    if (!template) {
-        throw new Error(`Unknown template: "${templateId}"`);
-    }
-    return template.render(data);
+export const renderTemplate = (templateId, data) => {
+  return renderTemplateById(registry, templateId, data);
 };
-
-export { registry, renderTemplate };
