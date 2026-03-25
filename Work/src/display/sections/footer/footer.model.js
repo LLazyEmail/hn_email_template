@@ -15,5 +15,5 @@ export const footerModelDefaults = {
   address: addressComponent({ mailingAddress }),
   sponsor: newsletterSponsorshipLinkComponent({ contact }),
   copyright: copyrightsComponent(),
-  unsubscribe: unsubscribeComponent({ unsubscribeLink }),
+  unsubscribe: unsubscribeComponent({ unsubscribe: unsubscribeLink }),
 };
