@@ -1,0 +1,8 @@
+{
+  "name": "@llazyemail/template-presets-hn",
+  "version": "0.1.0",
+  "private": true,
+  "description": "HN template preset definitions (metadata + payload mapping).",
+  "main": "src/index.js",
+  "license": "MIT"
+}

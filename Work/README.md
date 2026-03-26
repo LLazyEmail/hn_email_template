@@ -195,6 +195,27 @@ Workspace wiring updates:
 - `Work/package.json` now includes `../packages/template-engine` in workspaces
 - `Work/package.json` now depends on `@llazyemail/template-engine`
 
+### Module split — Step 2 (extract `template-presets-hn` package)
+
+Moved HN preset metadata/mapping into a dedicated workspace package:
+
+- `packages/template-presets-hn/`
+  - `src/hnPreset.js`
+  - `src/hnWithoutAdsPreset.js`
+  - `src/index.js`
+
+`Work` keeps the same public behavior by composing runtime adapters
+(display renderers + validation hooks) on top of those preset exports:
+
+- `src/templates/definitions/hn-preset-adapters.js`
+- `src/templates/definitions/hn.definition.js` (wrapper export)
+- `src/templates/definitions/hn-without-ads.definition.js` (wrapper export)
+
+Workspace wiring updates:
+
+- `Work/package.json` now includes `../packages/template-presets-hn` in workspaces
+- `Work/package.json` now depends on `@llazyemail/template-presets-hn`
+
 ## Structure
 
 ```
