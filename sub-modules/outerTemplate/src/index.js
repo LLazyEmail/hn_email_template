@@ -19,10 +19,15 @@ const methods = {
   printTemplateData,
 };
 
+const templates = {
+  renderTemplate,
+  registry,
+};
+
 const outerTemplate = {
   ...components,
-  registry,
-  renderTemplate,
+  ...templates,
+  templates,
   methods,
   ...methods,
 };
