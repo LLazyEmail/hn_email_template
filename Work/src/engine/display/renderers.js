@@ -4,30 +4,49 @@ import { settings as headSettings } from '../../display/sections/head';
 import { settings as bodySettings } from '../../display/sections/body';
 import { settings as mainSettings } from '../../display/sections/main';
 
-export const renderDisplayTemplate = (generatedContent) => {
-  // Keep legacy mutation semantics for backward compatibility.
-  const bodyFactory = new displayFactoryTwo();
-  bodySettings.params.content = generatedContent;
-  const bodyHTMLString = bodyFactory.create(bodySettings);
+const createSettings = (baseSettings, paramsOverrides = {}) => ({
+  ...baseSettings,
+  params: {
+    ...baseSettings.params,
+    ...paramsOverrides,
+  },
+});
 
+export const renderDisplayTemplate = (generatedContent) => {
+  const bodyRenderSettings = createSettings(bodySettings, {
+    content: generatedContent,
+  });
+  const bodyFactory = new displayFactoryTwo();
+  const bodyHTMLString = bodyFactory.create(bodyRenderSettings);
+
+  const mainRenderSettings = createSettings(mainSettings, {
+    body: bodyHTMLString,
+  });
   const mainFactory = new displayFactoryTwo();
-  mainSettings.params.body = bodyHTMLString;
-  return mainFactory.create(mainSettings);
+  return mainFactory.create(mainRenderSettings);
 };
 
-export const renderDisplayFrontMatterTemplate = ({ string: generatedContent, data }) => {
-  // Keep legacy mutation semantics for backward compatibility.
+export const renderDisplayFrontMatterTemplate = ({
+  string: generatedContent,
+  data,
+}) => {
+  const headRenderSettings = createSettings(headSettings, {
+    title: data.title,
+  });
   const headFactory = new displayFactoryTwo();
-  headSettings.params.title = data.title;
-  const headHTMLString = headFactory.create(headSettings);
+  const headHTMLString = headFactory.create(headRenderSettings);
 
+  const bodyRenderSettings = createSettings(bodySettings, {
+    content: generatedContent,
+    previewText: previewTextComponent(data.preview),
+  });
   const bodyFactory = new displayFactoryTwo();
-  bodySettings.params.content = generatedContent;
-  bodySettings.params.previewText = previewTextComponent(data.preview);
-  const bodyHTMLString = bodyFactory.create(bodySettings);
+  const bodyHTMLString = bodyFactory.create(bodyRenderSettings);
 
+  const mainRenderSettings = createSettings(mainSettings, {
+    head: headHTMLString,
+    body: bodyHTMLString,
+  });
   const mainFactory = new displayFactoryTwo();
-  mainSettings.params.head = headHTMLString;
-  mainSettings.params.body = bodyHTMLString;
-  return mainFactory.create(mainSettings);
+  return mainFactory.create(mainRenderSettings);
 };
