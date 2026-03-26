@@ -146,7 +146,7 @@ hook and reusable validator helpers:
 Validation errors are explicit and template-scoped, for example:
 
 - `[template:hn] invalid input: expected a non-empty string payload`
-- `[template:hn] missing required field for frontMatter payload: data.title`
+- `[template:hn] missing required field: data.title`
 
 Validation:
 

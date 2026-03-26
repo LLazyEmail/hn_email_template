@@ -33,7 +33,7 @@ describe('template input schema validation', () => {
         string: '<p>x</p>',
         data: { preview: 'preview only' },
       })
-    ).toThrow('[template:hn] missing required field for frontMatter payload: data.title');
+    ).toThrow('[template:hn] missing required field: data.title');
   });
 
   test('throws for front-matter payload without data.preview', () => {
@@ -42,7 +42,7 @@ describe('template input schema validation', () => {
         string: '<p>x</p>',
         data: { title: 'Title only' },
       })
-    ).toThrow('[template:hn] missing required field for frontMatter payload: data.preview');
+    ).toThrow('[template:hn] missing required field: data.preview');
   });
 
   test('throws for front-matter payload without string content', () => {
@@ -50,7 +50,7 @@ describe('template input schema validation', () => {
       hnTemplate.render({
         data: { title: 'Title', preview: 'Preview' },
       })
-    ).toThrow('[template:hn] missing required field for frontMatter payload: string');
+    ).toThrow('[template:hn] missing required field: string');
   });
 
   test('hn-without-ads uses template-scoped validation errors', () => {
@@ -59,8 +59,6 @@ describe('template input schema validation', () => {
         string: '<p>x</p>',
         data: { preview: 'preview only' },
       })
-    ).toThrow(
-      '[template:hn-without-ads] missing required field for frontMatter payload: data.title'
-    );
+    ).toThrow('[template:hn-without-ads] missing required field: data.title');
   });
 });
