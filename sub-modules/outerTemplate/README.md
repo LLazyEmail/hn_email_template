@@ -14,20 +14,24 @@ outer-template extraction from `Work/`.
 `outerTemplate` is intentionally an **empty scaffold**:
 
 - has full package/tooling structure (`package.json`, `rollup.config.js`, `src/`, `tests/`)
-- exports an empty default object for now
+- has an initial component surface (`body`, `head`, `main`) plus a placeholder
+  `footer` component folder
 - can run basic build/test/lint commands
 
 ## Public API
 
 ```js
 import outerTemplate from 'atherdon-newsletter-js-layouts-outertemplate';
+
+const { bodyComponent, headComponent, mainComponent, footerComponent } = outerTemplate;
 ```
 
-Current export shape:
+Current component behavior:
 
-```js
-{}
-```
+- `bodyComponent()` returns an empty string (`''`)
+- `headComponent()` returns an empty string (`''`)
+- `mainComponent()` returns an empty string (`''`)
+- `footerComponent()` returns an empty string (`''`)
 
 ## Commands
 
