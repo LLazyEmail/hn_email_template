@@ -4,6 +4,7 @@ sub-modules
 images
 node_modules
 generated
+generated/**
 _depricated
 .github
 .gitpod.yml   
