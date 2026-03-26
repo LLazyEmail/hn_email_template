@@ -21,10 +21,71 @@ npm ci
 | `npm run build` | Clean and bundle the package |
 | `npm run dev` | Watch mode bundling |
 | `npm run test` | Run unit and integration tests |
+| `npm run test:real-data` | Generate a full template using `src/data.js` real payload |
 | `npm run lint` | Run ESLint |
 | `npm run lint:fix` | Run ESLint with auto-fix |
 | `npm run format` | Format source files with Prettier |
 | `npm run format:check` | Check formatting with Prettier |
+
+## Real-data template generation (What I changed)
+
+To test the full display-layer logic with real payload data, the project now includes an integration flow that renders a full HTML template from display partials and writes it to disk.
+
+### What was added
+
+1. **Integration generation test**
+   - `tests/integration/display.real-data.generation.test.js`
+   - Uses real data from `src/data.js`
+   - Builds template through:
+     - `displayHead`
+     - `displayFooter`
+     - `displayBody`
+     - `displayMain`
+   - Maps real `ads` and `images` into body `content` HTML.
+
+2. **Script for running it**
+   - `package.json` includes:
+     - `npm run test:real-data`
+
+3. **Generated output artifact**
+   - Output folder/file:
+     - `generated-real-data/real-data-template.html`
+   - File is created by the integration test and can be opened directly for inspection.
+
+### How to use
+
+```bash
+cd Work
+npm ci
+npm run test:real-data
+```
+
+After the command completes, inspect:
+
+```bash
+Work/generated-real-data/real-data-template.html
+```
+
+### Troubleshooting
+
+- **`jest: not found` when running `npm run test:real-data`**
+  - Install dependencies first:
+  ```bash
+  cd Work
+  npm ci
+  ```
+
+- **`generated-real-data/real-data-template.html` was not created**
+  - Re-run the command and check test output for failures:
+  ```bash
+  cd Work
+  npm run test:real-data
+  ```
+  - The file is written only when the integration test passes.
+
+- **Template generated, but content looks stale**
+  - The generated file is overwritten on each successful run.
+  - Re-run `npm run test:real-data` after changing `src/data.js`.
 
 ## Structure
 
