@@ -66,6 +66,27 @@ After the command completes, inspect:
 Work/generated-real-data/real-data-template.html
 ```
 
+### Troubleshooting
+
+- **`jest: not found` when running `npm run test:real-data`**
+  - Install dependencies first:
+  ```bash
+  cd Work
+  npm ci
+  ```
+
+- **`generated-real-data/real-data-template.html` was not created**
+  - Re-run the command and check test output for failures:
+  ```bash
+  cd Work
+  npm run test:real-data
+  ```
+  - The file is written only when the integration test passes.
+
+- **Template generated, but content looks stale**
+  - The generated file is overwritten on each successful run.
+  - Re-run `npm run test:real-data` after changing `src/data.js`.
+
 ## Structure
 
 ```
