@@ -174,6 +174,27 @@ Arguments:
 The script renders via `renderTemplate(...)`, writes the output file, and prints
 the output path to stdout.
 
+### Module split — Step 1 (extract `template-engine` package)
+
+Started modularization by extracting shared template-engine primitives from
+`Work/src/templates/definitions/*` into a new workspace package:
+
+- `packages/template-engine/`
+  - `src/createTemplateFromDefinition.js`
+  - `src/validation.js`
+  - `src/index.js`
+
+`Work` keeps backward compatibility by re-exporting these APIs through
+compatibility wrappers:
+
+- `src/templates/definitions/createTemplateFromDefinition.js`
+- `src/templates/definitions/validation.js`
+
+Workspace wiring updates:
+
+- `Work/package.json` now includes `../packages/template-engine` in workspaces
+- `Work/package.json` now depends on `@llazyemail/template-engine`
+
 ## Structure
 
 ```
