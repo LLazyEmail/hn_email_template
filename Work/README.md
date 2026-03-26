@@ -22,6 +22,7 @@ npm ci
 | `npm run dev` | Watch mode bundling |
 | `npm run test` | Run unit and integration tests |
 | `npm run test:real-data` | Generate a full template using `src/data.js` real payload |
+| `npm run generate:template -- --template=hn --data=src/data.js --out=generated/hn.html` | Generate template HTML from CLI args |
 | `npm run lint` | Run ESLint |
 | `npm run lint:fix` | Run ESLint with auto-fix |
 | `npm run format` | Format source files with Prettier |
@@ -126,6 +127,52 @@ Validation:
 
 - `tests/unit/displayRenderers.pure.unit.test.js`
 - existing template contract and snapshot tests continue to pass
+
+### Phase 4 — Add explicit schema validation for template input
+
+Template definitions now support input schema validation via a `validateInput`
+hook and reusable validator helpers:
+
+- `src/templates/definitions/validation.js`
+- `src/templates/definitions/createTemplateFromDefinition.js` now calls
+  `validateInput` before mapping/rendering
+- `src/templates/definitions/hn.definition.js` validates both payload shapes:
+  - simple string payload must be a non-empty string
+  - front-matter payload must include non-empty:
+    - `string`
+    - `data.title`
+    - `data.preview`
+
+Validation errors are explicit and template-scoped, for example:
+
+- `[template:hn] invalid input: expected a non-empty string payload`
+- `[template:hn] missing required field: data.title`
+
+Validation:
+
+- `tests/unit/templateValidation.unit.test.js`
+
+### Phase 5 — Add a generator entrypoint
+
+Added a CLI-style generator script:
+
+- `scripts/generate-template.js`
+
+Usage:
+
+```bash
+cd Work
+npm run generate:template -- --template=hn --data=src/data.js --out=generated/hn.html
+```
+
+Arguments:
+
+- `--template` template id (default: `hn`)
+- `--data` path to payload module file (must export default/object)
+- `--out` output HTML path
+
+The script renders via `renderTemplate(...)`, writes the output file, and prints
+the output path to stdout.
 
 ## Structure
 

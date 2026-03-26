@@ -2,6 +2,7 @@ import {
   renderDisplayTemplate,
   renderDisplayFrontMatterTemplate,
 } from '../../engine/display';
+import { validateHnWithoutAdsTemplateInput } from './validation';
 
 /**
  * Declarative definition for the `hn-without-ads` template.
@@ -31,6 +32,7 @@ const hnWithoutAdsDefinition = {
     simple: renderDisplayTemplate,
     frontMatter: renderDisplayFrontMatterTemplate,
   },
+  validateInput: validateHnWithoutAdsTemplateInput,
 };
 
 export default hnWithoutAdsDefinition;
