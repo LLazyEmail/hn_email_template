@@ -1,0 +1,8 @@
+{
+  "name": "@llazyemail/template-runtime-display",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Display runtime renderer helpers for HTML template composition.",
+  "main": "src/index.js",
+  "license": "MIT"
+}
