@@ -4,7 +4,13 @@ import { BodyHTMLString } from '../../../../Work/src/display/sections/body';
 import { FooterHTMLString } from '../../../../Work/src/display/sections/footer';
 import { MainHTMLString } from '../../../../Work/src/display/sections/main';
 import { validateHnTemplateInput } from '@llazyemail/template-engine';
-import { createHnPresetDefinition } from '@llazyemail/template-presets-hn';
+import {
+  createHnPresetDefinition,
+  createHnWithoutAdsPresetDefinition,
+} from '@llazyemail/template-presets-hn';
+import {
+  validateHnWithoutAdsTemplateInput,
+} from '@llazyemail/template-engine';
 
 const displayDeps = {
   headString: HeadHTMLString,
@@ -22,9 +28,19 @@ const buildHnDefinition = () =>
     validateInput: validateHnTemplateInput,
   });
 
+const buildHnWithoutAdsDefinition = () =>
+  createHnWithoutAdsPresetDefinition({
+    renderers: {
+      simple: renderDisplayTemplate,
+      frontMatter: renderDisplayFrontMatterTemplate,
+    },
+    validateInput: validateHnWithoutAdsTemplateInput,
+  });
+
 export {
   renderDisplayTemplate,
   renderDisplayFrontMatterTemplate,
   displayDeps,
   buildHnDefinition,
+  buildHnWithoutAdsDefinition,
 };

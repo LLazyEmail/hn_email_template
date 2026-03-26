@@ -234,6 +234,32 @@ Workspace wiring updates:
 - `Work/package.json` now includes `../packages/template-runtime-display` in workspaces
 - `Work/package.json` now depends on `@llazyemail/template-runtime-display`
 
+### OuterTemplate migration — Step 3 (move `hn-without-ads` definition assembly source)
+
+Moved `hn-without-ads` runtime definition assembly into `sub-modules/outerTemplate`
+to continue extracting template runtime responsibilities from `Work` without changing
+the public `Work/src/templates/index.js` registry contract yet.
+
+What changed:
+
+- `sub-modules/outerTemplate/src/runtime/displayRuntimeDeps.js`
+  - now exports `buildHnWithoutAdsDefinition`
+  - composes it from:
+    - `createHnWithoutAdsPresetDefinition` (`@llazyemail/template-presets-hn`)
+    - display renderers (`renderDisplayTemplate`, `renderDisplayFrontMatterTemplate`)
+    - `validateHnWithoutAdsTemplateInput` (`@llazyemail/template-engine`)
+- `sub-modules/outerTemplate/src/index.js`
+  - now exports `buildHnWithoutAdsDefinition` for compatibility delegates
+- `Work/src/templates/hn-without-ads.js`
+  - now builds template via `buildHnWithoutAdsDefinition(...)` from `outerTemplate`
+  - keeps existing render/validation behavior for consumers
+
+Validation:
+
+- `tests/unit/outerTemplate.step3.hnWithoutAdsDefinitionSource.unit.test.js`
+  - verifies preset mapping source and metadata (`sections`, `featureFlags`)
+- existing contract tests still pass with registry shape unchanged (`['hn']`)
+
 ## Structure
 
 ```
