@@ -87,6 +87,46 @@ Work/generated-real-data/real-data-template.html
   - The generated file is overwritten on each successful run.
   - Re-run `npm run test:real-data` after changing `src/data.js`.
 
+## Template scalability roadmap progress
+
+### Phase 1 — Introduce template definitions
+
+Implemented a new definition layer to make adding templates declarative instead of
+copying render logic.
+
+Added:
+
+- `src/templates/definitions/createTemplateFromDefinition.js`
+- `src/templates/definitions/hn.definition.js`
+- `src/templates/definitions/hn-without-ads.definition.js`
+- `src/templates/definitions/index.js`
+
+Updated:
+
+- `src/templates/hn.js` now builds the template from `hn.definition.js`
+- `src/templates/hn-without-ads.js` now builds from `hn-without-ads.definition.js`
+
+Validation:
+
+- `tests/unit/templateDefinitions.unit.test.js`
+
+### Phase 2 — Make display rendering pipeline pure (non-mutating)
+
+Refactored `src/engine/display/renderers.js` to avoid mutating imported shared
+`settings` objects (`headSettings`, `bodySettings`, `mainSettings`).
+
+What changed:
+
+- each render call now creates fresh settings objects by cloning base params
+- head/body/main params are overridden per call in local copies only
+- resulting HTML output contract is preserved, but renderer internals are now
+  deterministic and side-effect free
+
+Validation:
+
+- `tests/unit/displayRenderers.pure.unit.test.js`
+- existing template contract and snapshot tests continue to pass
+
 ## Structure
 
 ```
