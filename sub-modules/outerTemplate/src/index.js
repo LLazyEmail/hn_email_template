@@ -1,3 +1,3 @@
-const outerTemplate = {};
+import outerTemplateComponents from './components';
 
-export default outerTemplate;
+export default outerTemplateComponents;
