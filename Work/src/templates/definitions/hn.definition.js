@@ -2,6 +2,7 @@ import {
   renderDisplayTemplate,
   renderDisplayFrontMatterTemplate,
 } from '../../engine/display';
+import { validateHnTemplateInput } from './validation';
 
 /**
  * Declarative definition for the `hn` template.
@@ -31,6 +32,7 @@ const hnDefinition = {
     }
     return { variant: 'simple', payload: input };
   },
+  validateInput: validateHnTemplateInput,
 };
 
 export default hnDefinition;
