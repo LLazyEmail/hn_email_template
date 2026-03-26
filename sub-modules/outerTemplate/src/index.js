@@ -1,6 +1,7 @@
 import components from './components';
 import { renderTemplate } from './templates';
 import { registry } from './templates';
+import { buildHnWithoutAdsDefinition } from './runtime/displayRuntimeDeps';
 import {
   printMain,
   printFooter,
@@ -32,5 +33,5 @@ const outerTemplate = {
   ...methods,
 };
 
-export { registry, renderTemplate, methods };
+export { registry, renderTemplate, methods, buildHnWithoutAdsDefinition };
 export default outerTemplate;
