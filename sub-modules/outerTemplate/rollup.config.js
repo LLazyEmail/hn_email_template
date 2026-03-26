@@ -16,6 +16,15 @@ const includePathOptions = {
   extensions,
 };
 
+const external = [
+  '@llazyemail/template-engine',
+  '@llazyemail/template-runtime-display',
+  '@llazyemail/template-presets-hn',
+  'email-template-object',
+  'atherdon-newsletter-js-layouts-body',
+  'atherdon-newsletter-js-layouts-misc',
+];
+
 const plugins = () => [
   resolve({
     extensions,
@@ -37,6 +46,7 @@ const plugins = () => [
 
 export default {
   input: 'src/index.js',
+  external,
   plugins: plugins(),
   output: [
     {

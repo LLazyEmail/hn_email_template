@@ -15,8 +15,7 @@ import { MainHTMLString } from './display/sections/main';
 
 // import {}
 
-import { renderTemplate } from './templates';
-
+import outerTemplateModule from 'atherdon-newsletter-js-layouts-outertemplate';
 
 const printHead = () => {
   return HeadHTMLString;
@@ -35,12 +34,12 @@ const printBody = () => {
 };
 
 const printTemplate = (string) => {
-  return renderTemplate('hn', string);
-}
+  return outerTemplateModule.printTemplate(string);
+};
 
-const printTemplateData = ({string, data}) => {
-  return renderTemplate('hn', {string, data});
-}
+const printTemplateData = ({ string, data }) => {
+  return outerTemplateModule.printTemplateData({ string, data });
+};
 
 const ERROR_BODY = '`bodyContent` is a required option for `renderTemplate`';
 
@@ -64,8 +63,12 @@ const checkingTitle = (title) => {
 //   checkingPreviewText
 // } from './t/display'
 
-export { 
-  printMain, printFooter, printBody, printHead, printTemplate, 
-  printTemplateData, 
-  // writingFile 
+export {
+  printMain,
+  printFooter,
+  printBody,
+  printHead,
+  printTemplate,
+  printTemplateData,
+  // writingFile
 };

@@ -20,4 +20,11 @@ describe('outerTemplate scaffold', () => {
     expect(outerTemplate.mainComponent({})).toBe('');
     expect(outerTemplate.footerComponent({})).toBe('');
   });
+
+  test('exports renderTemplate and methods facade', () => {
+    expect(typeof outerTemplate.renderTemplate).toBe('function');
+    expect(typeof outerTemplate.methods).toBe('object');
+    expect(typeof outerTemplate.methods.printTemplate).toBe('function');
+    expect(typeof outerTemplate.methods.printTemplateData).toBe('function');
+  });
 });
