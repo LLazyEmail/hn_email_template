@@ -3,5 +3,4 @@ export {
   validateHnTemplateInput,
   validateHnWithoutAdsTemplateInput,
 } from './validation';
-export { default as hnDefinition } from './hn.definition';
-export { default as hnWithoutAdsDefinition } from './hn-without-ads.definition';
+export { hnDefinition, hnWithoutAdsDefinition } from './hn-preset-adapters';
