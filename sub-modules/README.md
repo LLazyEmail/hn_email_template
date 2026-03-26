@@ -9,7 +9,7 @@ This directory contains the independently-published npm packages that make up th
 | [Miscellaneous](./Miscellaneous/README.md) | `atherdon-newsletter-js-layouts-misc` | Footer and utility components (address, copyrights, fonts, unsubscribe, sponsorship link) |
 | [Typography](./Typography/README.md) | `atherdon-newsletter-js-layouts-typography` | Text-formatting and layout components (headings, paragraphs, links, lists, images, separators, buttons) |
 | [innerComponents](./innerComponents/README.md) | `atherdon-newsletter-js-layouts-body` | Body-structure components (headline, logos, preview text, sections, sponsor block, CTA) |
-| [outerTemplate](./outerTemplate/README.md) | *(stub — see `Work/`)* | Placeholder directory; the outer template implementation lives in `Work/` |
+| [outerTemplate](./outerTemplate/README.md) | `atherdon-newsletter-js-layouts-outertemplate` *(scaffold)* | Scaffolded standalone package for future outer template extraction; currently exports placeholder API |
 
 ## Dependency graph
 
