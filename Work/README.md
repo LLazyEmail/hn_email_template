@@ -216,6 +216,24 @@ Workspace wiring updates:
 - `Work/package.json` now includes `../packages/template-presets-hn` in workspaces
 - `Work/package.json` now depends on `@llazyemail/template-presets-hn`
 
+### Module split — Step 3 (extract `template-runtime-display` package)
+
+Moved display runtime rendering helpers into a dedicated workspace package:
+
+- `packages/template-runtime-display/`
+  - `src/renderers.js`
+  - `src/index.js`
+
+`Work` keeps the same `engine/display` API by delegating to the runtime package:
+
+- `src/engine/display/renderers.js` now imports and re-exports runtime renderers
+  from `@llazyemail/template-runtime-display`
+
+Workspace wiring updates:
+
+- `Work/package.json` now includes `../packages/template-runtime-display` in workspaces
+- `Work/package.json` now depends on `@llazyemail/template-runtime-display`
+
 ## Structure
 
 ```
