@@ -1,25 +1,47 @@
 # outerTemplate
 
+**npm package:** `atherdon-newsletter-js-layouts-outertemplate` · **version:** 0.1.0
+
 > Part of the [sub-modules](../README.md) component library.
 
 ## Purpose
 
-This directory is a **stub placeholder** for a future self-contained `outerTemplate` sub-module. The outer template implementation currently lives in the parent `Work/` directory (`atherdon-old-newsletter-js-outertemplate` v3.9.0).
+This module is now scaffolded as a standalone package placeholder for the future
+outer-template extraction from `Work/`.
 
 ## Current status
 
-This module contains no source code yet. It exists to reserve the sub-module slot and document intent.
+`outerTemplate` is intentionally an **empty scaffold**:
 
-## Planned responsibility
+- has full package/tooling structure (`package.json`, `rollup.config.js`, `src/`, `tests/`)
+- exports an empty default object for now
+- can run basic build/test/lint commands
 
-When implemented, this module should:
+## Public API
 
-- Provide the top-level HTML wrapper for a complete newsletter email.
-- Consume `innerComponents` (`atherdon-newsletter-js-layouts-body`) and `Typography` (`atherdon-newsletter-js-layouts-typography`) as dependencies.
-- Export a single function that accepts a structured content object and returns a complete HTML email string.
+```js
+import outerTemplate from 'atherdon-newsletter-js-layouts-outertemplate';
+```
 
-## Known limitations / TODOs
+Current export shape:
 
-- No `package.json`, `src/`, or `rollup.config.js` present — the module is not buildable or publishable yet.
-- Migrate or extract the relevant code from `Work/` into this directory to make it a proper standalone package.
-- Once implemented, add an npm package name (suggested: `atherdon-newsletter-js-layouts-outertemplate`) and register it in the dependency graph documented in [sub-modules/README.md](../README.md).
+```js
+{}
+```
+
+## Commands
+
+Run inside `sub-modules/outerTemplate`:
+
+```bash
+npm run build
+npm run test
+npm run lint
+npm run lint:fix
+```
+
+## Next extraction milestones
+
+- move outer-template composition logic from `Work/` into this package
+- define stable public API for rendering full templates
+- add integration tests for template assembly contracts
