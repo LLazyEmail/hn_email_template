@@ -1,7 +1,5 @@
-import {
-  renderDisplayTemplate,
-  renderDisplayFrontMatterTemplate,
-} from '../engine/display';
+import { createTemplateFromDefinition } from './definitions/createTemplateFromDefinition';
+import hnDefinition from './definitions/hn.definition';
 
 /**
  * HN (Hacker News digest) email template.
@@ -12,18 +10,6 @@ import {
  *
  * @type {import('./types').Template}
  */
-const hnTemplate = {
-    id: 'hn',
-
-    render: (data) => {
-        // When `data` is `{ string, data }` the nested `data` property carries
-        // front-matter fields (title, preview, …).  A plain string means
-        // simple content-only rendering.
-        if (data && typeof data === 'object' && data.data !== undefined) {
-            return renderDisplayFrontMatterTemplate(data);
-        }
-        return renderDisplayTemplate(data);
-    },
-};
+const hnTemplate = createTemplateFromDefinition(hnDefinition);
 
 export default hnTemplate;
