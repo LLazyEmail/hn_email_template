@@ -65,6 +65,7 @@
     "../packages/template-engine",
     "../packages/template-presets-hn",
     "../packages/template-runtime-display",
+    "../sub-modules/outerTemplate",
     "../sub-modules/Typography",
     "../sub-modules/innerComponents",
     "../sub-modules/Miscellaneous"
@@ -79,6 +80,7 @@
     "@llazyemail/template-engine": "0.1.0",
     "@llazyemail/template-presets-hn": "0.1.0",
     "@llazyemail/template-runtime-display": "0.1.0",
+    "atherdon-newsletter-js-layouts-outertemplate": "0.1.0",
     "atherdon-newsletter-js-layouts-body": "^3.2.0",
     "atherdon-newsletter-js-layouts-misc": "^3.0.0",
     "atherdon-newsletter-js-layouts-typography": "^3.1.0",

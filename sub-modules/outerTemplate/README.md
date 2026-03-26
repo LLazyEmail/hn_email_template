@@ -6,16 +6,19 @@
 
 ## Purpose
 
-This module is now scaffolded as a standalone package placeholder for the future
-outer-template extraction from `Work/`.
+This module now contains the first extracted runtime slice from `Work/`:
+template registry/render logic (`renderTemplate`) and methods facade helpers
+(`printTemplate`, `printTemplateData`).
 
 ## Current status
 
-`outerTemplate` is intentionally an **empty scaffold**:
+`outerTemplate` is currently a **hybrid scaffold + runtime package**:
 
-- has full package/tooling structure (`package.json`, `rollup.config.js`, `src/`, `tests/`)
-- has an initial component surface (`body`, `head`, `main`) plus a placeholder
-  `footer` component folder
+- keeps placeholder structural components (`body`, `head`, `main`, `footer`)
+- provides extracted template runtime surface:
+  - `renderTemplate`
+  - `printTemplate`
+  - `printTemplateData`
 - can run basic build/test/lint commands
 
 ## Public API
@@ -23,7 +26,15 @@ outer-template extraction from `Work/`.
 ```js
 import outerTemplate from 'atherdon-newsletter-js-layouts-outertemplate';
 
-const { bodyComponent, headComponent, mainComponent, footerComponent } = outerTemplate;
+const {
+  bodyComponent,
+  headComponent,
+  mainComponent,
+  footerComponent,
+  renderTemplate,
+  printTemplate,
+  printTemplateData,
+} = outerTemplate;
 ```
 
 Current component behavior:
@@ -32,6 +43,12 @@ Current component behavior:
 - `headComponent()` returns an empty string (`''`)
 - `mainComponent()` returns an empty string (`''`)
 - `footerComponent()` returns an empty string (`''`)
+
+Current template runtime behavior:
+
+- `renderTemplate(templateId, data)` delegates to internal template registry
+- `printTemplate(string)` renders `hn` template from string payload
+- `printTemplateData({ string, data })` renders `hn` template from front-matter payload
 
 ## Commands
 
@@ -46,6 +63,6 @@ npm run lint:fix
 
 ## Next extraction milestones
 
-- move outer-template composition logic from `Work/` into this package
-- define stable public API for rendering full templates
-- add integration tests for template assembly contracts
+- migrate `printMain`, `printHead`, `printBody`, `printFooter` ownership from `Work/`
+- move display section composition contracts to this package
+- add deeper integration tests for full template assembly contracts
