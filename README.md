@@ -30,9 +30,10 @@
 17. [Contributing](#contributing)
 18. [Roadmap](#roadmap)
 19. [Related Resources & Articles](#related-resources--articles)
-20. [Legacy README](#legacy-readme)
-21. [License](#license)
-22. [Acknowledgements](#acknowledgements)
+20. [Recent Changes](#recent-changes)
+21. [Legacy README](#legacy-readme)
+22. [License](#license)
+23. [Acknowledgements](#acknowledgements)
 
 ---
 
@@ -623,6 +624,20 @@ Please keep PRs focused and atomic. If you have a large change, consider opening
 
 - [Created a Module for Markdown Regexes](https://dev.to/atherdon/created-a-module-for-markdown-regexes-3a1b)
 - [How I Created a Simple npm Package with Basic Email Templates](https://dev.to/atherdon/how-i-created-a-simple-npm-package-with-basic-email-templates-1efo)
+
+---
+
+## Recent Changes
+
+### Major Recent Changes (March 2026)
+
+- **Template Modularization:** Refactored the codebase to modularize the template system. Introduced `outerTemplate`, `display runtime`, `HN preset definitions`, and `template-engine` workspace packages to enhance code maintainability.
+- **Template Definition Updates:** Moved `hn-without-ads` and HN template definitions, along with their assembly logic, to the new `outerTemplate` runtime, improving isolation between data, definitions, and generation.
+- **Testing & Artifacts:** Added integration tests using real data, generating and committing verified HTML outputs for visual and functional validation.
+- **Validation & CLI:** Introduced robust template input schema validation and a new generator CLI for automation and error reduction.
+- **File & Package Structure:** Created new folders and packages for `outerTemplate`, `display runtime`, HN definitions, and utility modules.
+- **Documentation:** Updated README and documentation with new architectural details and a roadmap for further development.
+- **NPM Packaging:** Updated `.npmignore` to properly exclude generated artifacts and ensure clean npm releases.
 
 ---
 
