@@ -32,9 +32,10 @@
 19. [Related Resources & Articles](#related-resources--articles)
 20. [Recent Changes](#recent-changes)
 21. [About the `outerTemplate` Module](#about-the-outertemplate-module)
-22. [Legacy README](#legacy-readme)
-23. [License](#license)
-24. [Acknowledgements](#acknowledgements)
+22. [Architecture Decisions](#architecture-decisions)
+23. [Legacy README](#legacy-readme)
+24. [License](#license)
+25. [Acknowledgements](#acknowledgements)
 
 ---
 
@@ -645,6 +646,31 @@ Please keep PRs focused and atomic. If you have a large change, consider opening
 ## About the `outerTemplate` Module
 
 The `outerTemplate` module is responsible for encapsulating the structure, definitions, and static assembly logic for email templates (such as "HN" and "hn-without-ads"). This module organizes all static aspects of template construction, providing a clear separation from dynamic, data-driven, or rendering-specific logic. While `outerTemplate` holds most or all static components, actual HTML rendering and runtime processing may also involve related modules like `display runtime` and `template-engine`. This modular approach enhances maintainability and makes each concern explicit within the repository's structure.
+
+---
+
+## Architecture Decisions
+
+Architecture Decision Records (ADRs) capture significant design choices made during the evolution of this project. They are stored in [`docs/adr/`](docs/adr/).
+
+| ADR | Title | Status |
+|-----|-------|--------|
+| [0001](docs/adr/0001-module-boundaries.md) | Module Boundaries and Dependency Direction | Accepted |
+
+### Summary — ADR 0001: Module Boundaries
+
+The repository is structured around four primary areas of responsibility:
+
+| Area | Owns |
+|------|------|
+| `sub-modules/outerTemplate` | Outer-shell layout components, template registry, and template definitions |
+| `packages/template-runtime-display` | The three-step display pipeline (mapper → model → renderer) and all section implementations |
+| `packages/template-engine` | Generic template factory utilities, shared types, and input validation helpers |
+| `Work/` | Integration tests, CLI scripts, build configuration, and sample fixture data — **no core logic** |
+
+**Dependency direction:** `Work/` may depend on any package or sub-module. Packages and sub-modules must never import from `Work/`. Lower-level packages (`template-engine`) must not import from higher-level ones (`template-runtime-display`, `outerTemplate`).
+
+See [`docs/adr/0001-module-boundaries.md`](docs/adr/0001-module-boundaries.md) for the full rules, migration guidance, and acceptance criteria.
 
 ---
 
