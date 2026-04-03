@@ -43,6 +43,8 @@ jobs:
       run: npx madge --circular src/index.js
     - name: Test
       run: npm test
+    - name: Test real-data generation
+      run: npm run test:real-data
 
   # ── Sub-modules (Typography, innerComponents, Miscellaneous) ─────────────────
   sub-modules:
