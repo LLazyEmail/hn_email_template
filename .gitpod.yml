@@ -3,7 +3,7 @@
 # and commit this file to your remote git repository to share the goodness with others.
 
 tasks:
-  - init: cd hackernoon && npm install && npm run build
-    command: npm run dev
+  - init: cd Work && npm ci
+    command: cd Work && npm run test
 
 

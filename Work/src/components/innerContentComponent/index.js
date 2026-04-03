@@ -1,4 +1,5 @@
 // Hey, this component was created only for testing purposes. it wouldnt be returned or used at all.
+/* eslint-disable max-len */
 
 const innerContentComponent = () => {
   return `                <table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width: 100%;min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" width="100%" class="mcnTextContentContainer">
