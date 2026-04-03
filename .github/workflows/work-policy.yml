@@ -1,0 +1,73 @@
+# Guardrail: enforce the Work/ integration-only policy.
+#
+# This workflow runs on every pull request that touches Work/src/** and fails
+# if any *new* .js source files are added to the restricted subdirectories
+# (Work/src/templates/, Work/src/display/, Work/src/components/).
+#
+# These directories are off-limits for new core logic — all new template
+# definitions, display pipeline sections, and component functions must live
+# in the appropriate package (sub-modules/outerTemplate,
+# packages/template-runtime-display, etc.).
+#
+# See docs/adr/0001-module-boundaries.md and CONTRIBUTING.md for the full policy.
+
+name: Work Directory Policy
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'Work/src/**'
+
+jobs:
+  check-work-policy:
+    name: No new core logic in Work/src
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          # Full history is required so we can diff against the PR base commit.
+          fetch-depth: 0
+
+      - name: Check for new core-logic files in Work/src
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          # Directories where new .js source files are prohibited.
+          RESTRICTED_DIRS=(
+            "Work/src/templates"
+            "Work/src/display"
+            "Work/src/components"
+          )
+
+          NEW_FILES=""
+          for dir in "${RESTRICTED_DIRS[@]}"; do
+            FOUND=$(git diff --name-only --diff-filter=A "$BASE_SHA" "$HEAD_SHA" -- "${dir}/" 2>/dev/null || true)
+            if [ -n "$FOUND" ]; then
+              NEW_FILES="${NEW_FILES}${FOUND}\n"
+            fi
+          done
+
+          if [ -n "$NEW_FILES" ]; then
+            echo "::error::Work/ policy violation — new core logic files detected."
+            echo ""
+            echo "The following new files were added to restricted Work/src directories:"
+            printf "%b" "$NEW_FILES"
+            echo ""
+            echo "Work/ is integration-only. New template definitions, display pipeline"
+            echo "sections, and component functions must live in the appropriate package:"
+            echo "  • New templates       → sub-modules/outerTemplate/src/templates/"
+            echo "  • Display sections    → packages/template-runtime-display/src/"
+            echo "  • Component functions → sub-modules/outerTemplate/src/components/"
+            echo "  • Template utilities  → packages/template-engine/src/"
+            echo "  • HN preset data      → packages/template-presets-hn/src/"
+            echo ""
+            echo "See docs/adr/0001-module-boundaries.md and CONTRIBUTING.md for full details."
+            exit 1
+          fi
+
+          echo "✓ Work/ policy check passed — no new core logic files detected."
