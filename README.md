@@ -31,9 +31,10 @@
 18. [Roadmap](#roadmap)
 19. [Related Resources & Articles](#related-resources--articles)
 20. [Recent Changes](#recent-changes)
-21. [Legacy README](#legacy-readme)
-22. [License](#license)
-23. [Acknowledgements](#acknowledgements)
+21. [About the `outerTemplate` Module](#about-the-outertemplate-module)
+22. [Legacy README](#legacy-readme)
+23. [License](#license)
+24. [Acknowledgements](#acknowledgements)
 
 ---
 
@@ -638,6 +639,12 @@ Please keep PRs focused and atomic. If you have a large change, consider opening
 - **File & Package Structure:** Created new folders and packages for `outerTemplate`, `display runtime`, HN definitions, and utility modules.
 - **Documentation:** Updated README and documentation with new architectural details and a roadmap for further development.
 - **NPM Packaging:** Updated `.npmignore` to properly exclude generated artifacts and ensure clean npm releases.
+
+---
+
+## About the `outerTemplate` Module
+
+The `outerTemplate` module is responsible for encapsulating the structure, definitions, and static assembly logic for email templates (such as "HN" and "hn-without-ads"). This module organizes all static aspects of template construction, providing a clear separation from dynamic, data-driven, or rendering-specific logic. While `outerTemplate` holds most or all static components, actual HTML rendering and runtime processing may also involve related modules like `display runtime` and `template-engine`. This modular approach enhances maintainability and makes each concern explicit within the repository's structure.
 
 ---
 
