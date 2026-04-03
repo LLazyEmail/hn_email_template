@@ -32,7 +32,7 @@ const { innerContentComponent } = require('../../src/components');
 
 describe('Phase 1 freeze: template behavior contract', () => {
   test('registry keeps current template ids stable', () => {
-    expect(Object.keys(registry)).toEqual(['hn']);
+    expect(Object.keys(registry)).toEqual(['hn', 'hn-without-ads']);
   });
 
   test('hn template delegates string payloads to displayTemplate', () => {

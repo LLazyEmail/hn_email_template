@@ -30,7 +30,7 @@ describe('template registry', () => {
   });
 
   test('legacy template registry delegates to engine registry', () => {
-    expect(registry).toEqual(createRegistry([registry.hn]));
+    expect(registry).toEqual(createRegistry([registry.hn, registry['hn-without-ads']]));
   });
 });
 

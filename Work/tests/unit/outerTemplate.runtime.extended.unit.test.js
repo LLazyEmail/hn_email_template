@@ -41,7 +41,7 @@ describe('outerTemplate runtime extended coverage', () => {
   });
 
   test('registry contains hn template with callable renderer', () => {
-    expect(Object.keys(outerTemplate.registry)).toEqual(['hn']);
+    expect(Object.keys(outerTemplate.registry)).toEqual(['hn', 'hn-without-ads']);
     expect(typeof outerTemplate.registry.hn.render).toBe('function');
   });
 
