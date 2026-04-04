@@ -75,12 +75,14 @@ xdg-open Work/generated-real-data/real-data-template.html  # Linux
 
 ### CI artifacts
 
-The CI workflow (`.github/workflows/node.js.yml`) uploads `Work/generated-real-data/` as a downloadable artifact named **`generated-html-real-data`** after each successful run on Node 20.
+The CI workflow (`.github/workflows/node.js.yml`) uploads `Work/generated-real-data/` as a downloadable artifact named **`generated-html-preview`** after each successful run on Node 20.
+
+The run summary (visible in the **Summary** tab of the workflow run) shows a pass/fail statement, download instructions, and a short inline preview of the generated HTML.
 
 To download:
 1. Open the GitHub Actions workflow run.
 2. Scroll to the **Artifacts** section at the bottom of the run summary.
-3. Click **`generated-html-real-data`** to download the ZIP.
+3. Click **`generated-html-preview`** to download the ZIP.
 4. Unzip and open `real-data-template.html` in any browser.
 
 ### Troubleshooting
@@ -319,7 +321,7 @@ Continuous integration is defined in `.github/workflows/node.js.yml` and enforce
 | `npm run build` | Fails if rollup cannot bundle the package (catches unresolved imports) |
 | `npx madge --circular src/index.js` | Fails if circular imports are detected in `Work/` |
 | `npm test` | Fails if any unit or integration test fails |
-| `npm run test:real-data` | Fails if end-to-end HTML generation from `src/data.js` fixtures fails; uploads `generated-html-real-data` artifact (Node 20 run) |
+| `npm run test:real-data` | Fails if end-to-end HTML generation from `src/data.js` fixtures fails; uploads `generated-html-preview` artifact (Node 20 run) |
 
 The same lockfile, lint, build, and test checks run for each sub-module (`Typography`, `innerComponents`, `Miscellaneous`) in a parallel matrix job.
 
