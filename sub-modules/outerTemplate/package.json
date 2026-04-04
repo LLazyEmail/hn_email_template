@@ -46,9 +46,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@llazyemail/template-engine": "0.1.0",
-    "@llazyemail/template-presets-hn": "0.1.0",
-    "@llazyemail/template-runtime-display": "0.1.0",
+    "@llazyemail/template-engine": "file:../../packages/template-engine",
+    "@llazyemail/template-presets-hn": "file:../../packages/template-presets-hn",
+    "@llazyemail/template-runtime-display": "file:../../packages/template-runtime-display",
     "atherdon-newsletter-js-layouts-body": "^3.2.0",
     "atherdon-newsletter-js-layouts-misc": "^3.0.0",
     "email-template-object": "^0.2.0"
