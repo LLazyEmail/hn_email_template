@@ -22,7 +22,7 @@
     "test:unit": "jest ./tests/unit/ --passWithNoTests",
     "test:integration": "jest ./tests/integration/ --passWithNoTests",
     "test:template": "jest ./tests/integration/template.test.js --passWithNoTests",
-    "test:real-data": "jest ./tests/integration/display.real-data.generation.test.js --passWithNoTests",
+    "test:real-data": "jest ./tests/integration/display.real-data.generation.test.js ./tests/integration/display.real-data.integration2.test.js --passWithNoTests",
     "generate:template": "node ./scripts/generate-template.js",
     "changeset": "changeset",
     "version-packages": "changeset version",
