@@ -40,7 +40,7 @@ This rule is locked in [ADR 0001 — Module Boundaries](docs/adr/0001-module-bou
 | CLI and generation scripts | `Work/scripts/` |
 | Build and tooling configuration | `Work/rollup.config.js`, `Work/jest.config.js`, `Work/.babelrc` |
 | Sample / fixture data used by integration tests and CLI | `Work/src/data.js` |
-| Compatibility re-exports / thin shims delegating to packages | `Work/src/templates/hn.js` (delegates to `outerTemplate`) |
+| Compatibility re-exports / thin shims delegating to packages | `Work/src/index.js` (re-exports `renderTemplate` from `outerTemplate`) |
 
 ### What `Work/` must NOT own (prohibited)
 

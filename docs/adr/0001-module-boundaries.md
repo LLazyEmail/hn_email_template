@@ -121,17 +121,17 @@ Work/  (integration / orchestration)
 
 ## Migration Guidance
 
-The following template logic currently residing in `Work/` must be moved to the appropriate package as part of completing this migration.
+The following template logic previously resided in `Work/src/templates/` and has been fully migrated to `sub-modules/outerTemplate` as part of completing this migration (Step 3).
 
-| Current location in `Work/` | Move to | Notes |
+| Migrated item | Canonical location | Status |
 |---|---|---|
-| `src/templates/hn.js` | `sub-modules/outerTemplate/src/templates/` | Already partially done — `Work/src/templates/hn.js` now re-exports from `outerTemplate`; verify re-export is complete and remove dead code |
-| `src/templates/hn-without-ads.js` | `sub-modules/outerTemplate/src/templates/` | Same as above |
-| `src/templates/definitions/hn.definition.js` | `sub-modules/outerTemplate/src/templates/definitions/` or `packages/template-presets-hn/src/` | Consolidate definition ownership |
-| `src/templates/definitions/hn-without-ads.definition.js` | Same destination as above | |
-| `src/templates/definitions/hn-preset-adapters.js` | `packages/template-presets-hn/src/` | Preset adapters belong with preset definitions |
-| `src/display/` (all sections + core) | `packages/template-runtime-display/src/` | Display pipeline must not live in `Work/`; migrate section by section, update all imports |
-| `src/components/` (low-level HTML components) | `sub-modules/outerTemplate/src/components/` | Already partially done in `sub-modules/outerTemplate/src/components.js`; complete the migration |
+| `hn` template | `sub-modules/outerTemplate/src/templates/hn.js` | ✅ Done |
+| `hn-without-ads` template | `sub-modules/outerTemplate/src/templates/hn-without-ads.js` | ✅ Done |
+| HN definition assembly (`buildHnDefinition`) | `sub-modules/outerTemplate/src/runtime/displayRuntimeDeps.js` | ✅ Done |
+| HN-without-ads definition assembly (`buildHnWithoutAdsDefinition`) | `sub-modules/outerTemplate/src/runtime/displayRuntimeDeps.js` | ✅ Done |
+| Template registry and `renderTemplate` | `sub-modules/outerTemplate/src/templates/index.js` | ✅ Done |
+| `src/display/` (all sections + core) | `packages/template-runtime-display/src/` | Pending future step |
+| `src/components/` (low-level HTML components) | `sub-modules/outerTemplate/src/components/` | Pending future step |
 
 ### Migration steps per item
 
@@ -149,7 +149,7 @@ The following template logic currently residing in `Work/` must be moved to the 
 
 Maintainers can use the following checklist when reviewing PRs that touch module boundaries:
 
-- [ ] No new template definition files have been added to `Work/src/templates/`.
+- [x] No new template definition files have been added to `Work/src/templates/` — directory fully removed.
 - [ ] No new display pipeline section implementations have been added to `Work/src/display/`.
 - [ ] No new reusable component functions have been added to `Work/src/components/`.
 - [ ] No package or sub-module imports from `Work/` (check `package.json` dependencies and `import`/`require` statements).

@@ -5,7 +5,7 @@ import {
   printTemplate,
   printTemplateData,
 } from './methods';
-import { renderTemplate } from './templates';
+import { renderTemplate } from 'atherdon-newsletter-js-layouts-outertemplate';
 import outerTemplate from 'atherdon-newsletter-js-layouts-outertemplate';
 
 // import generateTemplateComponent from './t/generateTemplate'

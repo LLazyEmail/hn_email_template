@@ -17,7 +17,7 @@ jest.mock('atherdon-newsletter-js-layouts-body', () => ({
   },
 }), { virtual: true });
 
-const { registry, renderTemplate } = require('../../src/templates');
+const { registry, renderTemplate } = require('atherdon-newsletter-js-layouts-outertemplate');
 const {
   createRegistry,
   renderTemplate: engineRenderById,
