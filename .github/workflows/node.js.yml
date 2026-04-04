@@ -45,41 +45,52 @@ jobs:
       run: npm test
     - name: Generate and verify HTML template from real data
       run: npm run test:real-data
+    - name: Generate HTML from content fixtures
+      if: matrix.node-version == '20.x'
+      run: npm run generate:fixtures
     - name: Write job summary
       if: matrix.node-version == '20.x'
       run: |
         GENERATED_FILE="generated-real-data/real-data-template.html"
-        ARTIFACT_NAME="generated-html-preview"
+        FIXTURES_DIR="generated/fixtures"
+        ARTIFACT_NAME="generated-html-comparison"
         echo "## 🗞️ HTML Generation Summary" >> "$GITHUB_STEP_SUMMARY"
         echo "" >> "$GITHUB_STEP_SUMMARY"
         if [ -f "$GENERATED_FILE" ]; then
-          echo "✅ **HTML generation passed** — \`real-data-template.html\` was created successfully." >> "$GITHUB_STEP_SUMMARY"
+          echo "✅ **Real-data template** — \`real-data-template.html\` was created successfully." >> "$GITHUB_STEP_SUMMARY"
         else
-          echo "❌ **HTML generation failed** — \`real-data-template.html\` was not found." >> "$GITHUB_STEP_SUMMARY"
+          echo "❌ **Real-data template** — \`real-data-template.html\` was not found." >> "$GITHUB_STEP_SUMMARY"
         fi
         echo "" >> "$GITHUB_STEP_SUMMARY"
-        echo "### 📦 Download the generated HTML artifact" >> "$GITHUB_STEP_SUMMARY"
+        echo "### 🧪 Fixture renders" >> "$GITHUB_STEP_SUMMARY"
+        echo "" >> "$GITHUB_STEP_SUMMARY"
+        if [ -d "$FIXTURES_DIR" ]; then
+          for f in "$FIXTURES_DIR"/*.html; do
+            [ -f "$f" ] || continue
+            fname="$(basename "$f")"
+            echo "- ✅ \`$fname\`" >> "$GITHUB_STEP_SUMMARY"
+          done
+        else
+          echo "❌ No fixture outputs found in \`$FIXTURES_DIR\`." >> "$GITHUB_STEP_SUMMARY"
+        fi
+        echo "" >> "$GITHUB_STEP_SUMMARY"
+        echo "### 📦 Download the comparison artifact" >> "$GITHUB_STEP_SUMMARY"
         echo "" >> "$GITHUB_STEP_SUMMARY"
         echo "1. Open this workflow run in the GitHub Actions UI." >> "$GITHUB_STEP_SUMMARY"
         echo "2. Scroll to the **Artifacts** section at the bottom of the run summary page." >> "$GITHUB_STEP_SUMMARY"
         echo "3. Click **\`${ARTIFACT_NAME}\`** to download the ZIP." >> "$GITHUB_STEP_SUMMARY"
-        echo "4. Unzip and open \`real-data-template.html\` in any browser." >> "$GITHUB_STEP_SUMMARY"
+        echo "4. Unzip and open any \`.html\` file in a browser to compare renders." >> "$GITHUB_STEP_SUMMARY"
         echo "" >> "$GITHUB_STEP_SUMMARY"
         echo "> **Artifact name:** \`${ARTIFACT_NAME}\`" >> "$GITHUB_STEP_SUMMARY"
-        if [ -f "$GENERATED_FILE" ]; then
-          echo "" >> "$GITHUB_STEP_SUMMARY"
-          echo "### 🔍 Inline preview (first 20 lines)" >> "$GITHUB_STEP_SUMMARY"
-          echo "" >> "$GITHUB_STEP_SUMMARY"
-          echo '```html' >> "$GITHUB_STEP_SUMMARY"
-          head -20 "$GENERATED_FILE" >> "$GITHUB_STEP_SUMMARY"
-          echo '```' >> "$GITHUB_STEP_SUMMARY"
-        fi
+        echo "> Fixture renders are in the \`fixtures/\` subfolder; the real-data render is at the root." >> "$GITHUB_STEP_SUMMARY"
     - name: Upload generated HTML artifacts
       if: matrix.node-version == '20.x'
       uses: actions/upload-artifact@v4
       with:
-        name: generated-html-preview
-        path: Work/generated-real-data/
+        name: generated-html-comparison
+        path: |
+          Work/generated-real-data/
+          Work/generated/fixtures/
         if-no-files-found: error
         retention-days: 7
 

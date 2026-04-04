@@ -465,6 +465,56 @@ Key unit test files:
 
 ---
 
+### Multi-fixture comparison renders
+
+The repository ships a small set of **content fixtures** under `Work/fixtures/` — JSON files that each represent a different newsletter payload. Running the fixture generator renders the same template for every fixture and writes one HTML file per fixture to `Work/generated/fixtures/`.
+
+| Fixture | Description |
+|---|---|
+| `default.json` | Full payload matching the default `src/data.js` (title, preview, ads, images) |
+| `minimal.json` | Bare-minimum payload — title and preview only, no ads or images |
+| `no-images.json` | Ads included but no images — validates layout with a missing images array |
+
+#### Run fixture renders locally
+
+```bash
+cd Work
+npm run generate:fixtures
+# outputs: generated/fixtures/default.html  minimal.html  no-images.html
+```
+
+Open any of the generated files in a browser and compare side-by-side.
+
+#### Add a new fixture
+
+1. Create a new JSON file in `Work/fixtures/`, e.g. `Work/fixtures/my-variant.json`:
+
+```json
+{
+  "title": "My Variant Title",
+  "preview": "Short preview text for this variant.",
+  "ads": [],
+  "images": []
+}
+```
+
+2. Run `npm run generate:fixtures` — the new fixture is picked up automatically (no code changes needed).
+
+3. Open `Work/generated/fixtures/my-variant.html` in a browser to review.
+
+#### CI artifact
+
+The `Node.js CI` workflow runs `npm run generate:fixtures` on every push/PR (Node 20 only) and uploads all generated HTML files — including fixture renders — as a single artifact named **`generated-html-comparison`**. To download it:
+
+1. Open the workflow run in the GitHub Actions UI.
+2. Scroll to **Artifacts** at the bottom of the run summary.
+3. Click **`generated-html-comparison`** to download the ZIP.
+4. Unzip and open the `.html` files in a browser to compare renders across fixtures.
+
+The CI job summary also lists every fixture that was rendered in that run.
+
+---
+
 ## Building & Bundling
 
 The project uses [Rollup](https://rollupjs.org/) to produce three output formats from `Work/src/index.js`:

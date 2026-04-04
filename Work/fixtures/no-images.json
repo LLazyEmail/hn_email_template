@@ -1,0 +1,10 @@
+{
+  "title": "No-Images Fixture: Ads Without Visuals",
+  "preview": "This fixture includes sponsor ad data but deliberately omits all images. It validates that the template handles a missing images array gracefully without breaking layout.",
+  "ads": [
+    { "slogan": "Ship faster with automated security scanning" },
+    { "link": "https://example.com/sponsor" },
+    { "logo": "https://gitlab.com/hackernoon/creative/-/raw/master/newsletters/logos/brand/hackernoon-logo.png" }
+  ],
+  "images": []
+}

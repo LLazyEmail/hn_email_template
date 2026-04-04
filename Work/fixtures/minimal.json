@@ -1,0 +1,6 @@
+{
+  "title": "Minimal Fixture: Title-Only Render",
+  "preview": "This fixture contains only a title and preview — no ads, no images. Use it to verify the template renders correctly with the bare minimum required fields.",
+  "ads": [],
+  "images": []
+}
