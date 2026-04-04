@@ -45,13 +45,43 @@ jobs:
       run: npm test
     - name: Test real-data generation
       run: npm run test:real-data
+    - name: Write job summary
+      if: matrix.node-version == '20.x'
+      run: |
+        GENERATED_FILE="generated-real-data/real-data-template.html"
+        ARTIFACT_NAME="generated-html-preview"
+        echo "## 🗞️ HTML Generation Summary" >> "$GITHUB_STEP_SUMMARY"
+        echo "" >> "$GITHUB_STEP_SUMMARY"
+        if [ -f "$GENERATED_FILE" ]; then
+          echo "✅ **HTML generation passed** — \`real-data-template.html\` was created successfully." >> "$GITHUB_STEP_SUMMARY"
+        else
+          echo "❌ **HTML generation failed** — \`real-data-template.html\` was not found." >> "$GITHUB_STEP_SUMMARY"
+        fi
+        echo "" >> "$GITHUB_STEP_SUMMARY"
+        echo "### 📦 Download the generated HTML artifact" >> "$GITHUB_STEP_SUMMARY"
+        echo "" >> "$GITHUB_STEP_SUMMARY"
+        echo "1. Open this workflow run in the GitHub Actions UI." >> "$GITHUB_STEP_SUMMARY"
+        echo "2. Scroll to the **Artifacts** section at the bottom of the run summary page." >> "$GITHUB_STEP_SUMMARY"
+        echo "3. Click **\`${ARTIFACT_NAME}\`** to download the ZIP." >> "$GITHUB_STEP_SUMMARY"
+        echo "4. Unzip and open \`real-data-template.html\` in any browser." >> "$GITHUB_STEP_SUMMARY"
+        echo "" >> "$GITHUB_STEP_SUMMARY"
+        echo "> **Artifact name:** \`${ARTIFACT_NAME}\`" >> "$GITHUB_STEP_SUMMARY"
+        if [ -f "$GENERATED_FILE" ]; then
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "### 🔍 Inline preview (first 20 lines)" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo '```html' >> "$GITHUB_STEP_SUMMARY"
+          head -20 "$GENERATED_FILE" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+        fi
     - name: Upload generated HTML artifacts
       if: matrix.node-version == '20.x'
       uses: actions/upload-artifact@v4
       with:
-        name: generated-html-real-data
+        name: generated-html-preview
         path: Work/generated-real-data/
         if-no-files-found: error
+        retention-days: 7
 
   # ── Sub-modules (Typography, innerComponents, Miscellaneous) ─────────────────
   sub-modules:
