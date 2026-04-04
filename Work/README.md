@@ -27,10 +27,52 @@ npm ci
 | `npm run test` | Run unit and integration tests |
 | `npm run test:real-data` | Generate a full template using `src/data.js` real payload |
 | `npm run generate:template -- --template=hn --data=src/data.js --out=generated/hn.html` | Generate template HTML from CLI args |
+| `npm run generate:compare` | Generate both comparison outputs (JSON-derived and markdown-derived) |
+| `npm run generate:compare:json` | Generate `generated/compare-from-json.html` from `src/data.js` |
+| `npm run generate:compare:markdown` | Generate `generated/compare-from-markdown.html` from `src/data-from-markdown.js` + `src/content-from-markdown.html` |
 | `npm run lint` | Run ESLint |
 | `npm run lint:fix` | Run ESLint with auto-fix |
 | `npm run format` | Format source files with Prettier |
 | `npm run format:check` | Check formatting with Prettier |
+
+## Side-by-side comparison generation
+
+This produces two HTML email outputs from the two source formats (JSON and Markdown) so you
+can compare them side by side in a browser.
+
+### Source files
+
+| File | Purpose |
+|------|---------|
+| `src/data.js` | JS data module converted from the root `hn.json` (title, preview, ads, images) |
+| `src/data-from-markdown.js` | Same data shape extracted from `01-hackernoon-source.md` |
+| `src/content-from-markdown.html` | Full article body HTML converted from `01-hackernoon-source.md` |
+
+### Run the comparison
+
+```bash
+cd Work
+npm ci          # first time only
+npm run generate:compare
+```
+
+### Outputs
+
+| File | Description |
+|------|-------------|
+| `generated/compare-from-json.html` | Template rendered from the JSON-derived data module (`src/data.js`) |
+| `generated/compare-from-markdown.html` | Template rendered from the markdown-derived data module and full article body |
+
+Open both files in a browser to compare the results. The JSON-derived output uses a minimal
+auto-generated content block (title + preview), while the markdown-derived output includes the
+full article text, images, and links from the original newsletter.
+
+You can also run each output individually:
+
+```bash
+npm run generate:compare:json       # → generated/compare-from-json.html
+npm run generate:compare:markdown   # → generated/compare-from-markdown.html
+```
 
 ## End-to-end HTML generation proof
 
