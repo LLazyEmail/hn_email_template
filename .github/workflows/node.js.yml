@@ -43,7 +43,7 @@ jobs:
       run: npx madge --circular src/index.js
     - name: Test
       run: npm test
-    - name: Test real-data generation
+    - name: Generate and verify HTML template from real data
       run: npm run test:real-data
     - name: Write job summary
       if: matrix.node-version == '20.x'
