@@ -48,11 +48,16 @@ jobs:
     - name: Generate HTML from content fixtures
       if: matrix.node-version == '20.x'
       run: npm run generate:fixtures
+    - name: Generate side-by-side comparison HTML
+      if: matrix.node-version == '20.x'
+      run: npm run generate:compare
     - name: Write job summary
       if: matrix.node-version == '20.x'
       run: |
         GENERATED_FILE="generated-real-data/real-data-template.html"
         FIXTURES_DIR="generated/fixtures"
+        COMPARE_FROM_JSON="generated/compare-from-json.html"
+        COMPARE_FROM_MARKDOWN="generated/compare-from-markdown.html"
         ARTIFACT_NAME="generated-html-comparison"
         echo "## 🗞️ HTML Generation Summary" >> "$GITHUB_STEP_SUMMARY"
         echo "" >> "$GITHUB_STEP_SUMMARY"
@@ -60,6 +65,19 @@ jobs:
           echo "✅ **Real-data template** — \`real-data-template.html\` was created successfully." >> "$GITHUB_STEP_SUMMARY"
         else
           echo "❌ **Real-data template** — \`real-data-template.html\` was not found." >> "$GITHUB_STEP_SUMMARY"
+        fi
+        echo "" >> "$GITHUB_STEP_SUMMARY"
+        echo "### 🔀 Side-by-side comparison renders" >> "$GITHUB_STEP_SUMMARY"
+        echo "" >> "$GITHUB_STEP_SUMMARY"
+        if [ -f "$COMPARE_FROM_JSON" ]; then
+          echo "- ✅ \`compare-from-json.html\` — generated from \`src/data.js\`" >> "$GITHUB_STEP_SUMMARY"
+        else
+          echo "- ❌ \`compare-from-json.html\` — not found" >> "$GITHUB_STEP_SUMMARY"
+        fi
+        if [ -f "$COMPARE_FROM_MARKDOWN" ]; then
+          echo "- ✅ \`compare-from-markdown.html\` — generated from \`src/data-from-markdown.js\`" >> "$GITHUB_STEP_SUMMARY"
+        else
+          echo "- ❌ \`compare-from-markdown.html\` — not found" >> "$GITHUB_STEP_SUMMARY"
         fi
         echo "" >> "$GITHUB_STEP_SUMMARY"
         echo "### 🧪 Fixture renders" >> "$GITHUB_STEP_SUMMARY"
@@ -87,6 +105,7 @@ jobs:
         echo "4. Unzip and open any \`.html\` file in a browser to compare renders." >> "$GITHUB_STEP_SUMMARY"
         echo "" >> "$GITHUB_STEP_SUMMARY"
         echo "> **Artifact name:** \`${ARTIFACT_NAME}\`" >> "$GITHUB_STEP_SUMMARY"
+        echo "> Side-by-side renders are \`compare-from-json.html\` and \`compare-from-markdown.html\`." >> "$GITHUB_STEP_SUMMARY"
         echo "> Fixture renders are in the \`fixtures/\` subfolder; the real-data render is at the root." >> "$GITHUB_STEP_SUMMARY"
     - name: Upload generated HTML artifacts
       if: matrix.node-version == '20.x'
@@ -96,6 +115,8 @@ jobs:
         path: |
           Work/generated-real-data/
           Work/generated/fixtures/
+          Work/generated/compare-from-json.html
+          Work/generated/compare-from-markdown.html
         if-no-files-found: error
         retention-days: 7
 
