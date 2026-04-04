@@ -9,6 +9,10 @@
  *
  * This module exposes the same shape as Work/src/data.js so it can be
  * consumed interchangeably by generate-template.js and the display pipeline.
+ *
+ * Note: the `images` array uses single-key wrapper objects (e.g. { image1: { src, link } })
+ * to match the existing data.js contract. The display pipeline iterates with
+ * `Object.values(entry)[0]` so this shape must be preserved for compatibility.
  */
 export default {
   "preview": "As a developer, you might have dreamed of a Google created specifically for techies. Just imagine, a digital platform brimming with content for coders, including Q&A and job listings. Every question about programming answered. Each inextricable bug is solved. A larger audience of qualified experts come-at-able. Sounds dreamlike, right?",
