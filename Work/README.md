@@ -27,10 +27,43 @@ npm ci
 | `npm run test` | Run unit and integration tests |
 | `npm run test:real-data` | Generate a full template using `src/data.js` real payload |
 | `npm run generate:template -- --template=hn --data=src/data.js --out=generated/hn.html` | Generate template HTML from CLI args |
+| `npm run generate:compare` | Generate both comparison outputs (see [Side-by-side comparison](#side-by-side-comparison)) |
 | `npm run lint` | Run ESLint |
 | `npm run lint:fix` | Run ESLint with auto-fix |
 | `npm run format` | Format source files with Prettier |
 | `npm run format:check` | Check formatting with Prettier |
+
+## Side-by-side comparison
+
+`src/data.js` at the repository root is a JavaScript data module converted from the original `hn.json` fixture. It is the JS-module equivalent of `Work/src/data.js` and uses the same data shape expected by the template renderer.
+
+Run both generation passes with a single command:
+
+```bash
+cd Work
+npm ci
+npm run generate:compare
+```
+
+This produces two output files under `Work/generated/`:
+
+| Output file | Data source |
+|-------------|-------------|
+| `generated/compare-default.html` | `Work/src/data.js` (default data) |
+| `generated/compare-hn-json.html` | `src/data.js` at repo root (converted from `hn.json`) |
+
+Open both files side-by-side in a browser to visually confirm the renders are equivalent:
+
+```bash
+# macOS
+open Work/generated/compare-default.html Work/generated/compare-hn-json.html
+
+# Linux
+xdg-open Work/generated/compare-default.html
+xdg-open Work/generated/compare-hn-json.html
+```
+
+In CI (Node 20 only), both files are generated automatically and included in the **`generated-html-comparison`** artifact alongside fixture renders.
 
 ## End-to-end HTML generation proof
 
