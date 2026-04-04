@@ -1,5 +1,9 @@
 # Work
 
+> ⚠️ **Integration-only zone.** No new core template or rendering logic should be added here.
+> See the [Work/ Directory Policy](#work-directory-policy) section below and
+> [ADR 0001](../docs/adr/0001-module-boundaries.md) for the full rules.
+
 This directory contains the main JavaScript package for `atherdon-old-newsletter-js-outertemplate`.
 
 ## Package Manager
@@ -259,6 +263,46 @@ Validation:
 - `tests/unit/outerTemplate.step3.hnWithoutAdsDefinitionSource.unit.test.js`
   - verifies preset mapping source and metadata (`sections`, `featureFlags`)
 - existing contract tests still pass with registry shape unchanged (`['hn']`)
+
+## Work/ Directory Policy
+
+`Work/` is the **integration and orchestration layer** for this repository. It wires together packages and sub-modules for end-to-end tests, the development CLI, and the published compatibility shim — nothing more.
+
+### Allowed in `Work/`
+
+| Type | Example |
+|------|---------|
+| End-to-end integration tests | `tests/integration/` |
+| CLI / generation scripts | `scripts/generate-template.js` |
+| Build and tooling config | `rollup.config.js`, `jest.config.js`, `.babelrc` |
+| Fixture / sample data used by tests and CLI | `src/data.js` |
+| Thin compatibility re-exports delegating to packages | `src/templates/hn.js` |
+
+### Prohibited in `Work/`
+
+Do **not** add any of the following under `Work/`:
+
+- New template definition files (`src/templates/`)
+- New display pipeline sections (`src/display/`)
+- New reusable HTML component functions (`src/components/`)
+
+If the logic could benefit any consumer of the published packages, it belongs in the appropriate package:
+
+| Logic type | Correct home |
+|------------|-------------|
+| Outer-shell layout + template definitions | `sub-modules/outerTemplate/` |
+| Display pipeline sections | `packages/template-runtime-display/` |
+| Template factory / shared types | `packages/template-engine/` |
+| HN-specific preset data | `packages/template-presets-hn/` |
+| Inner content components | `sub-modules/innerComponents/` |
+
+### CI enforcement
+
+The [`.github/workflows/work-policy.yml`](../.github/workflows/work-policy.yml) workflow runs on every PR that touches `Work/src/**`. It fails the PR if any new `.js` files are added to `Work/src/templates/`, `Work/src/display/`, or `Work/src/components/`.
+
+For full context see [ADR 0001 — Module Boundaries](../docs/adr/0001-module-boundaries.md) and [CONTRIBUTING.md](../CONTRIBUTING.md).
+
+---
 
 ## Structure
 

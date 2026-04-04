@@ -564,25 +564,23 @@ cd Work && npm test
 
 ## Contributing
 
-Contributions are welcome! Here is a quick guide:
+Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guide.
 
-1. **Fork** the repository and create a feature branch:
-   ```bash
-   git checkout -b feature/my-improvement
-   ```
-2. Make your changes inside the `Work/` directory (the primary source of truth).
-3. **Run tests** and make sure they pass:
-   ```bash
-   cd Work && npm test
-   ```
-4. **Run the linter** and fix any issues:
-   ```bash
-   npm run lint:fix
-   ```
-5. **Commit** using a clear commit message. Pre-commit hooks will run automatically.
-6. Open a **Pull Request** against the `main` branch with a description of your changes.
+Quick reference:
 
-Please keep PRs focused and atomic. If you have a large change, consider opening an issue first to discuss the approach.
+1. **Fork** the repository and create a feature branch.
+2. Add new code in the **correct module** — see the table in [CONTRIBUTING.md § Where to Add New Code](CONTRIBUTING.md#where-to-add-new-code).
+3. **Run tests** and make sure they pass: `cd Work && npm test`
+4. **Run the linter** and fix any issues: `cd Work && npm run lint:fix`
+5. Open a **Pull Request** against `main` with a clear description.
+
+### Work/ directory policy
+
+> **`Work/` is integration and orchestration only — no new core logic.**
+
+New template definitions, display sections, and component functions must live in the appropriate package (`sub-modules/outerTemplate`, `packages/template-runtime-display`, etc.), not in `Work/src/`. This rule is documented in [ADR 0001](docs/adr/0001-module-boundaries.md) and enforced by the [`work-policy` CI check](.github/workflows/work-policy.yml).
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for full details on what belongs where.
 
 ---
 
