@@ -32,32 +32,24 @@ npm ci
 | `npm run format` | Format source files with Prettier |
 | `npm run format:check` | Check formatting with Prettier |
 
-## Real-data template generation (What I changed)
+## End-to-end HTML generation proof
 
-To test the full display-layer logic with real payload data, the project now includes an integration flow that renders a full HTML template from display partials and writes it to disk.
+Running `npm run test:real-data` proves that the repository can generate a real HTML email template from fixture data. It is the canonical command for verifying end-to-end template generation.
 
-### What was added
+### What it does
 
-1. **Integration generation test**
-   - `tests/integration/display.real-data.generation.test.js`
-   - Uses real data from `src/data.js`
-   - Builds template through:
-     - `displayHead`
-     - `displayFooter`
-     - `displayBody`
-     - `displayMain`
-   - Maps real `ads` and `images` into body `content` HTML.
+Two integration tests run sequentially:
 
-2. **Script for running it**
-   - `package.json` includes:
-     - `npm run test:real-data`
+1. **`tests/integration/display.real-data.generation.test.js`**
+   - Builds a full HTML template using the display-layer sections (`displayHead`, `displayFooter`, `displayBody`, `displayMain`) with data from `src/data.js`.
+   - Writes the rendered HTML to `generated-real-data/real-data-template.html`.
+   - Asserts the file exists and the HTML contains `<!DOCTYPE html>`, the newsletter title, the preview text, and the sponsor logo marker.
 
-3. **Generated output artifact**
-   - Output folder/file:
-     - `generated-real-data/real-data-template.html`
-   - File is created by the integration test and can be opened directly for inspection.
+2. **`tests/integration/display.real-data.integration2.test.js`**
+   - Exercises the `renderTemplate('hn', { string, data })` registry path — the same call used in production flows.
+   - Asserts the output contains `<!DOCTYPE html>`, the correct `<title>`, the preview text, and a known content marker from `src/data.js`.
 
-### How to use
+### How to run locally
 
 ```bash
 cd Work
@@ -65,11 +57,31 @@ npm ci
 npm run test:real-data
 ```
 
-After the command completes, inspect:
+After the command completes, inspect the generated file:
 
 ```bash
-Work/generated-real-data/real-data-template.html
+open Work/generated-real-data/real-data-template.html   # macOS
+xdg-open Work/generated-real-data/real-data-template.html  # Linux
 ```
+
+### Pass / fail criteria
+
+| Criterion | Pass | Fail |
+|-----------|------|------|
+| All Jest assertions green | ✅ exit 0 | ❌ non-zero exit, assertion output shown |
+| `generated-real-data/real-data-template.html` exists after run | ✅ present | ❌ missing (generation test did not run or threw) |
+| HTML contains `<!DOCTYPE html>` | ✅ | ❌ |
+| HTML contains the newsletter title from `src/data.js` | ✅ | ❌ |
+
+### CI artifacts
+
+The CI workflow (`.github/workflows/node.js.yml`) uploads `Work/generated-real-data/` as a downloadable artifact named **`generated-html-real-data`** after each successful run on Node 20.
+
+To download:
+1. Open the GitHub Actions workflow run.
+2. Scroll to the **Artifacts** section at the bottom of the run summary.
+3. Click **`generated-html-real-data`** to download the ZIP.
+4. Unzip and open `real-data-template.html` in any browser.
 
 ### Troubleshooting
 
@@ -307,6 +319,7 @@ Continuous integration is defined in `.github/workflows/node.js.yml` and enforce
 | `npm run build` | Fails if rollup cannot bundle the package (catches unresolved imports) |
 | `npx madge --circular src/index.js` | Fails if circular imports are detected in `Work/` |
 | `npm test` | Fails if any unit or integration test fails |
+| `npm run test:real-data` | Fails if end-to-end HTML generation from `src/data.js` fixtures fails; uploads `generated-html-real-data` artifact (Node 20 run) |
 
 The same lockfile, lint, build, and test checks run for each sub-module (`Typography`, `innerComponents`, `Miscellaneous`) in a parallel matrix job.
 
