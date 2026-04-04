@@ -17,11 +17,11 @@ jest.mock('atherdon-newsletter-js-layouts-body', () => ({
   },
 }), { virtual: true });
 
-const { createTemplateFromDefinition } = require('../../src/templates/definitions');
+const { createTemplateFromDefinition } = require('@llazyemail/template-engine');
 const {
   hnDefinition,
   hnWithoutAdsDefinition,
-} = require('../../src/templates/definitions');
+} = require('atherdon-newsletter-js-layouts-outertemplate');
 
 describe('template definitions', () => {
   test('hn definition has expected metadata and maps plain string to simple variant', () => {

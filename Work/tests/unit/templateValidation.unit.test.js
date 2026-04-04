@@ -17,8 +17,9 @@ jest.mock('atherdon-newsletter-js-layouts-body', () => ({
   },
 }), { virtual: true });
 
-const hnTemplate = require('../../src/templates/hn').default;
-const hnWithoutAdsTemplate = require('../../src/templates/hn-without-ads').default;
+const { registry } = require('atherdon-newsletter-js-layouts-outertemplate');
+const hnTemplate = registry.hn;
+const hnWithoutAdsTemplate = registry['hn-without-ads'];
 
 describe('template input schema validation', () => {
   test('allows simple string payloads for hn', () => {

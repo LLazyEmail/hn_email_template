@@ -1,5 +1,5 @@
 import markdownData from '../../src/data';
-import { renderTemplate } from '../../src/templates';
+import { renderTemplate } from 'atherdon-newsletter-js-layouts-outertemplate';
 import { displayHead } from '../../src/display/sections/head';
 import { displayBody } from '../../src/display/sections/body';
 import { displayFooter } from '../../src/display/sections/footer';

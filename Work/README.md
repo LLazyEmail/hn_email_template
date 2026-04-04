@@ -180,19 +180,12 @@ the output path to stdout.
 
 ### Module split — Step 1 (extract `template-engine` package)
 
-Started modularization by extracting shared template-engine primitives from
-`Work/src/templates/definitions/*` into a new workspace package:
+Started modularization by extracting shared template-engine primitives into a new workspace package:
 
 - `packages/template-engine/`
   - `src/createTemplateFromDefinition.js`
   - `src/validation.js`
   - `src/index.js`
-
-`Work` keeps backward compatibility by re-exporting these APIs through
-compatibility wrappers:
-
-- `src/templates/definitions/createTemplateFromDefinition.js`
-- `src/templates/definitions/validation.js`
 
 Workspace wiring updates:
 
@@ -207,13 +200,6 @@ Moved HN preset metadata/mapping into a dedicated workspace package:
   - `src/hnPreset.js`
   - `src/hnWithoutAdsPreset.js`
   - `src/index.js`
-
-`Work` keeps the same public behavior by composing runtime adapters
-(display renderers + validation hooks) on top of those preset exports:
-
-- `src/templates/definitions/hn-preset-adapters.js`
-- `src/templates/definitions/hn.definition.js` (wrapper export)
-- `src/templates/definitions/hn-without-ads.definition.js` (wrapper export)
 
 Workspace wiring updates:
 
@@ -238,31 +224,25 @@ Workspace wiring updates:
 - `Work/package.json` now includes `../packages/template-runtime-display` in workspaces
 - `Work/package.json` now depends on `@llazyemail/template-runtime-display`
 
-### OuterTemplate migration — Step 3 (move `hn-without-ads` definition assembly source)
+### OuterTemplate migration — Complete template migration (Step 3)
 
-Moved `hn-without-ads` runtime definition assembly into `sub-modules/outerTemplate`
-to continue extracting template runtime responsibilities from `Work` without changing
-the public `Work/src/templates/index.js` registry contract yet.
+Completed the full migration of template ownership from `Work/src/templates/` to
+`sub-modules/outerTemplate`. All template logic now lives in `outerTemplate`;
+`Work/` no longer contains any active template source files.
 
 What changed:
 
-- `sub-modules/outerTemplate/src/runtime/displayRuntimeDeps.js`
-  - now exports `buildHnWithoutAdsDefinition`
-  - composes it from:
-    - `createHnWithoutAdsPresetDefinition` (`@llazyemail/template-presets-hn`)
-    - display renderers (`renderDisplayTemplate`, `renderDisplayFrontMatterTemplate`)
-    - `validateHnWithoutAdsTemplateInput` (`@llazyemail/template-engine`)
-- `sub-modules/outerTemplate/src/index.js`
-  - now exports `buildHnWithoutAdsDefinition` for compatibility delegates
-- `Work/src/templates/hn-without-ads.js`
-  - now builds template via `buildHnWithoutAdsDefinition(...)` from `outerTemplate`
-  - keeps existing render/validation behavior for consumers
+- `Work/src/templates/` — entire directory removed (was already delegating to `outerTemplate`)
+- `Work/src/index.js`
+  - now imports `renderTemplate` directly from `atherdon-newsletter-js-layouts-outertemplate`
+- All `Work/tests/` files that imported from `Work/src/templates/**`
+  - updated to import from `atherdon-newsletter-js-layouts-outertemplate` or
+    `@llazyemail/template-engine` as appropriate
 
 Validation:
 
-- `tests/unit/outerTemplate.step3.hnWithoutAdsDefinitionSource.unit.test.js`
-  - verifies preset mapping source and metadata (`sections`, `featureFlags`)
-- existing contract tests still pass with registry shape unchanged (`['hn']`)
+- All 389 unit and integration tests pass with the new import paths
+- Template rendering behavior is unchanged
 
 ## Work/ Directory Policy
 
@@ -276,7 +256,7 @@ Validation:
 | CLI / generation scripts | `scripts/generate-template.js` |
 | Build and tooling config | `rollup.config.js`, `jest.config.js`, `.babelrc` |
 | Fixture / sample data used by tests and CLI | `src/data.js` |
-| Thin compatibility re-exports delegating to packages | `src/templates/hn.js` |
+| Thin compatibility re-exports delegating to packages | `src/index.js` (re-exports from `outerTemplate`) |
 
 ### Prohibited in `Work/`
 

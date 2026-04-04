@@ -20,13 +20,13 @@ jest.mock('atherdon-newsletter-js-layouts-body', () => ({
   },
 }), { virtual: true });
 
-const workTemplates = require('../../src/templates');
+const workModule = require('../../src').default;
 const workMethods = require('../../src/methods');
 const outerTemplate = require('atherdon-newsletter-js-layouts-outertemplate').default;
 
 describe('Work delegates template runtime to outerTemplate module', () => {
   test('renderTemplate reference is delegated', () => {
-    expect(workTemplates.renderTemplate).toBe(outerTemplate.renderTemplate);
+    expect(workModule.renderTemplate).toBe(outerTemplate.renderTemplate);
   });
 
   test('printTemplate delegates to outerTemplate implementation', () => {

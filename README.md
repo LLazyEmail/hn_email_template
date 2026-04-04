@@ -114,7 +114,7 @@ Raw Input Data
 
 ### Template Rendering
 
-`renderTemplate('hn', { string, data })` in `Work/src/templates/hn.js` is the primary public API. It accepts a content string (or a `{ string, data }` object) and wraps it in the full Hackernoon outer template, producing a ready-to-send HTML email string.
+`renderTemplate('hn', { string, data })` in `sub-modules/outerTemplate/src/templates/hn.js` is the primary public API. It accepts a content string (or a `{ string, data }` object) and wraps it in the full Hackernoon outer template, producing a ready-to-send HTML email string.
 
 ---
 
@@ -309,7 +309,7 @@ There are **no required environment variables** for local development. If you ex
 ```js
 import { renderTemplate } from 'atherdon-old-newsletter-js-outertemplate';
 // or from local source:
-// import { renderTemplate } from './Work/src/templates';
+// import { renderTemplate } from 'atherdon-newsletter-js-layouts-outertemplate';
 
 // Render with a plain HTML string as body content
 const html = renderTemplate('hn', '<p>Hello, world!</p>');
