@@ -46,7 +46,18 @@ jobs:
       - name: Test
         run: npm test
 
+      - name: Check for .changeset directory
+        id: check_changeset
+        run: |
+          if [ -d "${{ github.workspace }}/.changeset" ]; then
+            echo "has_changeset=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_changeset=false" >> $GITHUB_OUTPUT
+            echo "Skipping release step: .changeset directory not found"
+          fi
+
       - name: Create release PR or publish
+        if: steps.check_changeset.outputs.has_changeset == 'true'
         uses: changesets/action@v1
         with:
           cwd: Work
