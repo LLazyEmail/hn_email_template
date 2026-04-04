@@ -27,43 +27,52 @@ npm ci
 | `npm run test` | Run unit and integration tests |
 | `npm run test:real-data` | Generate a full template using `src/data.js` real payload |
 | `npm run generate:template -- --template=hn --data=src/data.js --out=generated/hn.html` | Generate template HTML from CLI args |
-| `npm run generate:compare` | Generate both comparison outputs (see [Side-by-side comparison](#side-by-side-comparison)) |
+| `npm run generate:compare` | Generate both comparison outputs (JSON-derived and markdown-derived) |
+| `npm run generate:compare:json` | Generate `generated/compare-from-json.html` from `src/data.js` |
+| `npm run generate:compare:markdown` | Generate `generated/compare-from-markdown.html` from `src/data-from-markdown.js` + `src/content-from-markdown.html` |
 | `npm run lint` | Run ESLint |
 | `npm run lint:fix` | Run ESLint with auto-fix |
 | `npm run format` | Format source files with Prettier |
 | `npm run format:check` | Check formatting with Prettier |
 
-## Side-by-side comparison
+## Side-by-side comparison generation
 
-`src/data.js` at the repository root is a JavaScript data module converted from the original `hn.json` fixture. It is the JS-module equivalent of `Work/src/data.js` and uses the same data shape expected by the template renderer.
+This produces two HTML email outputs from the two source formats (JSON and Markdown) so you
+can compare them side by side in a browser.
 
-Run both generation passes with a single command:
+### Source files
+
+| File | Purpose |
+|------|---------|
+| `src/data.js` | JS data module converted from the root `hn.json` (title, preview, ads, images) |
+| `src/data-from-markdown.js` | Same data shape extracted from `01-hackernoon-source.md` |
+| `src/content-from-markdown.html` | Full article body HTML converted from `01-hackernoon-source.md` |
+
+### Run the comparison
 
 ```bash
 cd Work
-npm ci
+npm ci          # first time only
 npm run generate:compare
 ```
 
-This produces two output files under `Work/generated/`:
+### Outputs
 
-| Output file | Data source |
-|-------------|-------------|
-| `generated/compare-default.html` | `Work/src/data.js` (default data) |
-| `generated/compare-hn-json.html` | `src/data.js` at repo root (converted from `hn.json`) |
+| File | Description |
+|------|-------------|
+| `generated/compare-from-json.html` | Template rendered from the JSON-derived data module (`src/data.js`) |
+| `generated/compare-from-markdown.html` | Template rendered from the markdown-derived data module and full article body |
 
-Open both files side-by-side in a browser to visually confirm the renders are equivalent:
+Open both files in a browser to compare the results. The JSON-derived output uses a minimal
+auto-generated content block (title + preview), while the markdown-derived output includes the
+full article text, images, and links from the original newsletter.
+
+You can also run each output individually:
 
 ```bash
-# macOS
-open Work/generated/compare-default.html Work/generated/compare-hn-json.html
-
-# Linux
-xdg-open Work/generated/compare-default.html
-xdg-open Work/generated/compare-hn-json.html
+npm run generate:compare:json       # → generated/compare-from-json.html
+npm run generate:compare:markdown   # → generated/compare-from-markdown.html
 ```
-
-In CI (Node 20 only), both files are generated automatically and included in the **`generated-html-comparison`** artifact alongside fixture renders.
 
 ## End-to-end HTML generation proof
 
