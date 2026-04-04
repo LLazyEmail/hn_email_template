@@ -65,11 +65,16 @@ jobs:
         echo "### 🧪 Fixture renders" >> "$GITHUB_STEP_SUMMARY"
         echo "" >> "$GITHUB_STEP_SUMMARY"
         if [ -d "$FIXTURES_DIR" ]; then
+          fixture_count=0
           for f in "$FIXTURES_DIR"/*.html; do
             [ -f "$f" ] || continue
             fname="$(basename "$f")"
             echo "- ✅ \`$fname\`" >> "$GITHUB_STEP_SUMMARY"
+            fixture_count=$((fixture_count + 1))
           done
+          if [ "$fixture_count" -eq 0 ]; then
+            echo "❌ No fixture HTML outputs found in \`$FIXTURES_DIR\`." >> "$GITHUB_STEP_SUMMARY"
+          fi
         else
           echo "❌ No fixture outputs found in \`$FIXTURES_DIR\`." >> "$GITHUB_STEP_SUMMARY"
         fi

@@ -108,7 +108,7 @@ describe('multi-fixture display pipeline generation', () => {
       expect(typeof html).toBe('string');
       expect(html).toContain('<!DOCTYPE html>');
       expect(html).toContain(data.title);
-      expect(html).toContain(data.preview.slice(0, 40));
+      expect(html).toContain(data.preview.slice(0, Math.min(data.preview.length, 40)));
       expect(fs.existsSync(outFile)).toBe(true);
     }
   );
