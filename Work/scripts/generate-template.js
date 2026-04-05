@@ -111,6 +111,11 @@ const run = async () => {
   }
 
   const templateId = ensureString(args.template || 'hn', '--template');
+  // Default data path points to the new canonical content/ location.
+  // This script maintains its own implementation (rather than delegating to
+  // scripts/generate-template.js) to preserve `npm run generate:template`
+  // backward compatibility for consumers running from within Work/.
+  // Both scripts use the same logic; the top-level script is the canonical one.
   const dataPath = ensureString(args.data || '../content/content2.js', '--data');
   const outPath = ensureString(args.out || `generated/${templateId}.html`, '--out');
 
