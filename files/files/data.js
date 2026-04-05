@@ -10,9 +10,9 @@
  *                          (e.g. { image1: { src, link } }) to match the display-pipeline contract
  *
  * Consumed by:
- *   - Work/src/data.js           (re-exports this file)
+ *   - files/data.js                (re-exports this file for backward compatibility)
  *   - Work/scripts/generate-template.js (via --data flag)
- *   - Work/tests/* (via Work/src/data.js re-export)
+ *   - Work/tests/* (indirectly via Work/src/data.js → files/files/data-hn.js, which shares this shape)
  */
 export default {
   "preview": "As a developer, you might have dreamed of a Google created specifically for techies. Just imagine, a digital platform brimming with content for coders, including Q&A and job listings. Every question about programming answered. Each inextricable bug is solved. A larger audience of qualified experts come-at-able. Sounds dreamlike, right?",

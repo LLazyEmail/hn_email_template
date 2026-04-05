@@ -15,6 +15,11 @@
  * to match the existing data.js contract. The display pipeline iterates with
  * `Object.values(entry)[0]` so this shape must be preserved for compatibility.
  *
+ * Note: this file contains 5 images (not 6) because the source markdown file
+ * (01-hackernoon-source.md) references only 5 distinct image blocks.  The
+ * sixth image in files/files/data.js and files/files/data-hn.js is a
+ * duplicate added in the JSON-authored variants.
+ *
  * Re-exported by Work/src/data-from-markdown.js for backward compatibility.
  */
 export default {
