@@ -25,6 +25,7 @@
     "test:real-data": "jest ./tests/integration/display.real-data.generation.test.js ./tests/integration/display.real-data.integration2.test.js --passWithNoTests",
     "generate:fixtures": "jest ./tests/integration/display.fixtures.generation.test.js --passWithNoTests",
     "generate:template": "node ./scripts/generate-template.js",
+    "generate:template:new": "node ../scripts/generate-template.js",
     "generate:compare:json": "jest ./tests/integration/display.compare.generation.test.js --passWithNoTests -t 'compare-from-json'",
     "generate:compare:markdown": "jest ./tests/integration/display.compare.generation.test.js --passWithNoTests -t 'compare-from-markdown'",
     "generate:compare": "jest ./tests/integration/display.compare.generation.test.js --passWithNoTests",

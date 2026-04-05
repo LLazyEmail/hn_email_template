@@ -1,17 +1,44 @@
 #!/usr/bin/env node
 /**
- * @deprecated Canonical location is now scripts/generate-template.js at the project root.
- * This file is kept for backward compatibility with `npm run generate:template` (run from Work/).
+ * generate-template.js
+ * Top-level generator script. Canonical location: scripts/generate-template.js.
  *
- * To use the new canonical script directly (from project root):
+ * Previously located at Work/scripts/generate-template.js (which now delegates
+ * here). Content datasets have moved to content/ (content1.js, content2.js,
+ * content3.js); old files/ paths remain as backward-compat re-exports.
+ *
+ * Usage (run from project root or Work/):
  *   node scripts/generate-template.js [options]
+ *   npm run generate:template      (inside Work/, uses this script)
+ *
+ * Arguments:
+ *   --template   Template id from registry (default: "hn")
+ *   --data       Path to data module (.js/.mjs/.cjs/.json). Resolved from CWD.
+ *                Default: content/content2.js (relative to project root)
+ *   --out        Output HTML file path (resolved from CWD)
+ *   --content    Optional path to HTML content file (resolved from CWD).
+ *                If omitted, a basic fallback block is generated from data.title/preview.
  */
 
 const fs = require('fs');
 const path = require('path');
 const { pathToFileURL } = require('url');
 
-const { renderTemplate } = require('../dist/index.cjs.js');
+// The compiled bundle lives in Work/dist/ — path is relative to this script file.
+const { renderTemplate } = require('../Work/dist/index.cjs.js');
+
+const usage = `
+Usage:
+  node scripts/generate-template.js --template=hn --data=content/content2.js --out=generated/hn.html [--content=Work/src/content-from-markdown.html]
+
+Arguments:
+  --template   Template id from registry (default: "hn")
+  --data       Path to data module (.js/.mjs/.cjs/.json). Resolved from CWD.
+               Default: content/content2.js
+  --out        Output HTML file path (resolved from CWD)
+  --content    Optional path to HTML content file. If omitted, a basic content
+               block is generated from data.title/data.preview.
+`.trim();
 
 const parseArgv = (argv) => {
   const args = {};
@@ -35,18 +62,6 @@ const parseArgv = (argv) => {
   }
   return args;
 };
-
-const usage = `
-Usage:
-  npm run generate:template -- --template=hn --data=../content/content2.js --out=generated/hn.html [--content=src/content.html]
-
-Arguments:
-  --template   Template id from registry (default: "hn")
-  --data       Path to data module (.js/.mjs/.cjs/.json). For front-matter templates, data should contain title and preview.
-               Default: ../content/content2.js (new canonical location)
-  --out        Output HTML file path
-  --content    Optional path to HTML content file. If omitted, a basic content block is generated from data.title/data.preview.
-`.trim();
 
 const asAbsolute = (value) => path.resolve(process.cwd(), value);
 
@@ -102,6 +117,9 @@ const writeOutput = (outPath, html) => {
   return absolutePath;
 };
 
+// Default data path is relative to project root (one level up from this script's dir).
+const DEFAULT_DATA_PATH = path.resolve(__dirname, '../content/content2.js');
+
 const run = async () => {
   const args = parseArgv(process.argv);
 
@@ -111,12 +129,7 @@ const run = async () => {
   }
 
   const templateId = ensureString(args.template || 'hn', '--template');
-  // Default data path points to the new canonical content/ location.
-  // This script maintains its own implementation (rather than delegating to
-  // scripts/generate-template.js) to preserve `npm run generate:template`
-  // backward compatibility for consumers running from within Work/.
-  // Both scripts use the same logic; the top-level script is the canonical one.
-  const dataPath = ensureString(args.data || '../content/content2.js', '--data');
+  const dataPath = args.data ? asAbsolute(args.data) : DEFAULT_DATA_PATH;
   const outPath = ensureString(args.out || `generated/${templateId}.html`, '--out');
 
   const data = await loadData(dataPath);

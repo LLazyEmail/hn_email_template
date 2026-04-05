@@ -1,71 +1,11 @@
 /**
  * data-from-markdown.js
- * Data module derived from 01-hackernoon-source.md.
+ * @deprecated Use content/content3.js instead.
  *
- * The source markdown uses custom HackerNoon newsletter conventions:
- *   - "#~ text"          → preview text
- *   - "# Title"          → newsletter title (first heading after [separator])
- *   - "~[slogan][link][logo]" → ad block
- *   - standard markdown images → newsletter images
+ * Backward-compatibility re-export. The markdown-derived dataset has moved to
+ * content/content3.js as part of the project reorganization (steps 1-8).
+ * This shim will be removed in a future cleanup PR.
  *
- * This module exposes the same shape as files/data.js so it can be
- * consumed interchangeably by generate-template.js and the display pipeline.
- *
- * Note: the `images` array uses single-key wrapper objects (e.g. { image1: { src, link } })
- * to match the existing data.js contract. The display pipeline iterates with
- * `Object.values(entry)[0]` so this shape must be preserved for compatibility.
- *
- * Note: this file contains 5 images (not 6) because the source markdown file
- * (01-hackernoon-source.md) references only 5 distinct image blocks.  The
- * sixth image in files/data.js and files/data-hn.js is a
- * duplicate added in the JSON-authored variants.
- *
- * Re-exported by Work/src/data-from-markdown.js for backward compatibility.
+ * See content/content3.js for the full dataset and documentation.
  */
-export default {
-  "preview": "As a developer, you might have dreamed of a Google created specifically for techies. Just imagine, a digital platform brimming with content for coders, including Q&A and job listings. Every question about programming answered. Each inextricable bug is solved. A larger audience of qualified experts come-at-able. Sounds dreamlike, right?",
-  "title": "Secrets Of High-Performing Teams: Part II",
-  "ads": [
-    {
-      "slogan": "The security-as-code solution for developers"
-    },
-    {
-      "link": "https://bit.ly/3n9CgbE"
-    },
-    {
-      "logo": "https://gitlab.com/hackernoon/creative/-/raw/master/newsletters/logos/thematic/2020/October/Bridgecrew_stacked.jpg"
-    }
-  ],
-  "images": [
-    {
-      "image1": {
-        "src": "https://gitlab.com/hackernoon/creative/-/raw/master/newsletters/memes/2020/november/18.11/image3.gif",
-        "link": "https://media.giphy.com/media/QNFhOolVeCzPQ2Mx85/giphy.gif"
-      }
-    },
-    {
-      "image2": {
-        "src": "https://gitlab.com/hackernoon/creative/-/raw/master/newsletters/memes/2020/november/18.11/image4.gif",
-        "link": "https://media.giphy.com/media/l2JeierkQlHpJsGWY/giphy.gif"
-      }
-    },
-    {
-      "image3": {
-        "src": "https://gitlab.com/hackernoon/creative/-/raw/master/newsletters/memes/2020/november/18.11/image6.gif",
-        "link": "https://media.giphy.com/media/PvvSfSDFoAL5e/giphy.gif"
-      }
-    },
-    {
-      "image4": {
-        "src": "https://gitlab.com/hackernoon/creative/-/raw/master/newsletters/memes/2020/november/18.11/image1.gif",
-        "link": "https://media.giphy.com/media/3oFzmjFxbBiPQW4qVa/giphy.gif"
-      }
-    },
-    {
-      "image5": {
-        "src": "https://gitlab.com/hackernoon/creative/-/raw/master/newsletters/memes/2020/november/18.11/image5.gif",
-        "link": "https://media.giphy.com/media/3orieTeAMaKc4yhwmk/giphy.gif"
-      }
-    }
-  ]
-}
+export { default } from '../content/content3.js';
