@@ -171,6 +171,8 @@ hn_email_template/
 │   │   ├── index.js              # Public API exports
 │   │   ├── config.js             # Shared constants (contact URL, mailing address)
 │   │   ├── data.js               # Sample template data for development
+│   │   ├── data-from-markdown.js # Meta-data extracted from 01-hackernoon-source.md (title, preview, ads, images)
+│   │   ├── data-markdown.js      # Body content from content-from-markdown.html (lines 30–225) as a JS array of blocks
 │   │   ├── factory.js            # Display factory class
 │   │   ├── methods.js            # Top-level print* helper functions
 │   │   │
@@ -343,6 +345,25 @@ The display pipeline throws descriptive errors on invalid input, for example:
 
 // Missing required `bodyContent`
 // → Error: `bodyContent` is a required option for `renderTemplate`
+```
+
+### Markdown-derived content data
+
+`Work/src/data-markdown.js` contains the newsletter body content extracted from
+`Work/src/content-from-markdown.html` (lines 30–225) as an ordered JavaScript
+array of typed blocks. Each block has a `type` field (`"heading"`, `"image"`, or
+`"text"`) plus type-specific fields (`html`, `src`/`link`/`alt`). The array
+preserves the original document order and can be used for rendering comparison,
+content inspection, or as a data source for custom renderers.
+
+To generate a full email template using the markdown-derived data and content:
+
+```bash
+cd Work
+npm run generate:template -- \
+  --data=src/data-from-markdown.js \
+  --content=src/content-from-markdown.html \
+  --out=generated/hn-markdown.html
 ```
 
 ---
