@@ -1,20 +1,26 @@
 /**
- * data-hn.js
- * HackerNoon newsletter template dataset (JSON-authored variant).
+ * data-from-markdown.js
+ * Data module derived from 01-hackernoon-source.md.
  *
- * This file holds the same dataset as files/files/data.js and is the
- * source of truth for Work/src/data.js.  It is kept as a separate named
- * file under files/files/ so that all three content sources live together
- * in one place and can be referenced or compared without ambiguity.
+ * The source markdown uses custom HackerNoon newsletter conventions:
+ *   - "#~ text"          → preview text
+ *   - "# Title"          → newsletter title (first heading after [separator])
+ *   - "~[slogan][link][logo]" → ad block
+ *   - standard markdown images → newsletter images
  *
- * Shape:
- *   - preview  {string}  — preview / preheader text shown in inbox summary
- *   - title    {string}  — newsletter title / subject
- *   - ads      {Array}   — ad block descriptors ({ slogan?, link?, logo? })
- *   - images   {Array}   — image blocks; each entry is a single-key wrapper object
- *                          (e.g. { image1: { src, link } }) to match the display-pipeline contract
+ * This module exposes the same shape as files/data.js so it can be
+ * consumed interchangeably by generate-template.js and the display pipeline.
  *
- * Re-exported by Work/src/data.js for backward compatibility.
+ * Note: the `images` array uses single-key wrapper objects (e.g. { image1: { src, link } })
+ * to match the existing data.js contract. The display pipeline iterates with
+ * `Object.values(entry)[0]` so this shape must be preserved for compatibility.
+ *
+ * Note: this file contains 5 images (not 6) because the source markdown file
+ * (01-hackernoon-source.md) references only 5 distinct image blocks.  The
+ * sixth image in files/data.js and files/data-hn.js is a
+ * duplicate added in the JSON-authored variants.
+ *
+ * Re-exported by Work/src/data-from-markdown.js for backward compatibility.
  */
 export default {
   "preview": "As a developer, you might have dreamed of a Google created specifically for techies. Just imagine, a digital platform brimming with content for coders, including Q&A and job listings. Every question about programming answered. Each inextricable bug is solved. A larger audience of qualified experts come-at-able. Sounds dreamlike, right?",
@@ -59,12 +65,6 @@ export default {
       "image5": {
         "src": "https://gitlab.com/hackernoon/creative/-/raw/master/newsletters/memes/2020/november/18.11/image5.gif",
         "link": "https://media.giphy.com/media/3orieTeAMaKc4yhwmk/giphy.gif"
-      }
-    },
-    {
-      "image6": {
-        "src": "https://gitlab.com/hackernoon/creative/-/raw/master/newsletters/memes/2020/november/18.11/image6.gif",
-        "link": "https://media.giphy.com/media/PvvSfSDFoAL5e/giphy.gif"
       }
     }
   ]

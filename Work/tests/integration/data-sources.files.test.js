@@ -1,13 +1,13 @@
 /**
  * data-sources.files.test.js
  *
- * Validates that every dataset under files/files/ can be loaded, has the
+ * Validates that every dataset under files/ can be loaded, has the
  * expected shape, and can be used by the template-generation pipeline.
  *
  * Three content sources are exercised here (one test suite per file):
- *   1. files/files/data.js          — canonical dataset (originally from files/data.js)
- *   2. files/files/data-hn.js       — HN json-authored variant (originally Work/src/data.js)
- *   3. files/files/data-from-markdown.js — markdown-derived meta-data (originally Work/src/data-from-markdown.js)
+ *   1. files/data.js               — canonical dataset
+ *   2. files/data-hn.js            — HN json-authored variant (also used by Work/src/data.js)
+ *   3. files/data-from-markdown.js — markdown-derived meta-data (also used by Work/src/data-from-markdown.js)
  *
  * Backward-compat re-export paths are also verified so that any code still
  * importing from the old locations continues to receive the correct data.
@@ -18,9 +18,9 @@ import path from 'path';
 
 import { renderTemplate } from 'atherdon-newsletter-js-layouts-outertemplate';
 
-import dataCanonical from '../../../files/files/data.js';
-import dataHn from '../../../files/files/data-hn.js';
-import dataFromMarkdown from '../../../files/files/data-from-markdown.js';
+import dataCanonical from '../../../files/data.js';
+import dataHn from '../../../files/data-hn.js';
+import dataFromMarkdown from '../../../files/data-from-markdown.js';
 
 // Legacy re-export paths — must resolve to the same payload as the direct imports above.
 import dataLegacySrc from '../../src/data';
@@ -73,16 +73,16 @@ const expectValidDataShape = (data) => {
 };
 
 // ---------------------------------------------------------------------------
-// Parameterized: shape validation for every files/files/ source
+// Parameterized: shape validation for every files/ source
 // ---------------------------------------------------------------------------
 
 const DATA_SOURCES = [
-  { label: 'files/files/data.js', data: dataCanonical },
-  { label: 'files/files/data-hn.js', data: dataHn },
-  { label: 'files/files/data-from-markdown.js', data: dataFromMarkdown },
+  { label: 'files/data.js', data: dataCanonical },
+  { label: 'files/data-hn.js', data: dataHn },
+  { label: 'files/data-from-markdown.js', data: dataFromMarkdown },
 ];
 
-describe('files/files/ data sources — shape validation', () => {
+describe('files/ data sources — shape validation', () => {
   test.each(DATA_SOURCES)('$label has the expected template-data shape', ({ data }) => {
     expectValidDataShape(data);
   });
@@ -92,7 +92,7 @@ describe('files/files/ data sources — shape validation', () => {
 // Parameterized: each source can drive template generation
 // ---------------------------------------------------------------------------
 
-describe('files/files/ data sources — template generation', () => {
+describe('files/ data sources — template generation', () => {
   test.each(DATA_SOURCES)(
     '$label generates a valid HTML email template',
     ({ label, data }) => {
@@ -105,7 +105,7 @@ describe('files/files/ data sources — template generation', () => {
     }
   );
 
-  test('files/files/data-from-markdown.js generates template with real markdown content', () => {
+  test('files/data-from-markdown.js generates template with real markdown content', () => {
     const content = fs.readFileSync(CONTENT_FROM_MARKDOWN, 'utf8');
     const html = renderTemplate('hn', { string: content, data: dataFromMarkdown });
 
@@ -125,11 +125,11 @@ describe('files/files/ data sources — template generation', () => {
 // ---------------------------------------------------------------------------
 
 describe('backward-compat re-export paths', () => {
-  test('Work/src/data.js re-exports files/files/data-hn.js', () => {
+  test('Work/src/data.js re-exports files/data-hn.js', () => {
     expect(dataLegacySrc).toEqual(dataHn);
   });
 
-  test('Work/src/data-from-markdown.js re-exports files/files/data-from-markdown.js', () => {
+  test('Work/src/data-from-markdown.js re-exports files/data-from-markdown.js', () => {
     expect(dataLegacyMarkdown).toEqual(dataFromMarkdown);
   });
 });
