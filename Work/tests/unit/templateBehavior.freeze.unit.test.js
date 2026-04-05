@@ -27,7 +27,7 @@ jest.mock('atherdon-newsletter-js-layouts-body', () => {
 const { registry, renderTemplate } = require('atherdon-newsletter-js-layouts-outertemplate');
 const displayTemplate = require('../../src/t/displayTemplate').default;
 const displayFrontMatterTemplate = require('../../src/t/displayFrontMatterTemplate').default;
-const data = require('../../src/data').default;
+const data = require('../../../files/data-hn.js').default;
 const { innerContentComponent } = require('../../src/components');
 
 describe('Phase 1 freeze: template behavior contract', () => {

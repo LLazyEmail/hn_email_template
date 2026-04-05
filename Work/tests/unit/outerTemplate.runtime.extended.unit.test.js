@@ -19,7 +19,7 @@ jest.mock('atherdon-newsletter-js-layouts-body', () => ({
 
 const outerTemplateModule = require('atherdon-newsletter-js-layouts-outertemplate');
 const outerTemplate = outerTemplateModule.default;
-const data = require('../../src/data').default;
+const data = require('../../../files/data-hn.js').default;
 const { innerContentComponent } = require('../../src/components');
 
 describe('outerTemplate runtime extended coverage', () => {

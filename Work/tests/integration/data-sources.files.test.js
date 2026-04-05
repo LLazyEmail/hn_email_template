@@ -6,11 +6,8 @@
  *
  * Three content sources are exercised here (one test suite per file):
  *   1. files/data.js               — canonical dataset
- *   2. files/data-hn.js            — HN json-authored variant (also used by Work/src/data.js)
- *   3. files/data-from-markdown.js — markdown-derived meta-data (also used by Work/src/data-from-markdown.js)
- *
- * Backward-compat re-export paths are also verified so that any code still
- * importing from the old locations continues to receive the correct data.
+ *   2. files/data-hn.js            — HN json-authored variant
+ *   3. files/data-from-markdown.js — markdown-derived meta-data
  */
 
 import fs from 'fs';
@@ -21,10 +18,6 @@ import { renderTemplate } from 'atherdon-newsletter-js-layouts-outertemplate';
 import dataCanonical from '../../../files/data.js';
 import dataHn from '../../../files/data-hn.js';
 import dataFromMarkdown from '../../../files/data-from-markdown.js';
-
-// Legacy re-export paths — must resolve to the same payload as the direct imports above.
-import dataLegacySrc from '../../src/data';
-import dataLegacyMarkdown from '../../src/data-from-markdown';
 
 const OUTPUT_DIR = path.resolve(__dirname, '../../generated');
 const CONTENT_FROM_MARKDOWN = path.resolve(__dirname, '../../src/content-from-markdown.html');
@@ -120,16 +113,3 @@ describe('files/ data sources — template generation', () => {
   });
 });
 
-// ---------------------------------------------------------------------------
-// Backward-compatibility: legacy re-export paths must resolve correctly
-// ---------------------------------------------------------------------------
-
-describe('backward-compat re-export paths', () => {
-  test('Work/src/data.js re-exports files/data-hn.js', () => {
-    expect(dataLegacySrc).toEqual(dataHn);
-  });
-
-  test('Work/src/data-from-markdown.js re-exports files/data-from-markdown.js', () => {
-    expect(dataLegacyMarkdown).toEqual(dataFromMarkdown);
-  });
-});

@@ -2,8 +2,8 @@ import fs from 'fs';
 import path from 'path';
 
 import { renderTemplate } from 'atherdon-newsletter-js-layouts-outertemplate';
-import dataFromJson from '../../src/data';
-import dataFromMarkdown from '../../src/data-from-markdown';
+import dataFromJson from '../../../files/data-hn.js';
+import dataFromMarkdown from '../../../files/data-from-markdown.js';
 
 const OUTPUT_DIR = path.resolve(__dirname, '../../generated');
 const CONTENT_FROM_MARKDOWN = path.resolve(__dirname, '../../src/content-from-markdown.html');

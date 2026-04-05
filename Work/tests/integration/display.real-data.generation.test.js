@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import data from '../../src/data';
+import data from '../../../files/data-hn.js';
 import { displayHead } from '../../src/display/sections/head';
 import { displayFooter } from '../../src/display/sections/footer';
 import { displayBody } from '../../src/display/sections/body';

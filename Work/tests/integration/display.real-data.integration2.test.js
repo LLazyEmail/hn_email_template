@@ -1,4 +1,4 @@
-import markdownData from '../../src/data';
+import markdownData from '../../../files/data-hn.js';
 import { renderTemplate } from 'atherdon-newsletter-js-layouts-outertemplate';
 import { displayHead } from '../../src/display/sections/head';
 import { displayBody } from '../../src/display/sections/body';
