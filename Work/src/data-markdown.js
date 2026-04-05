@@ -12,7 +12,7 @@
  * for rendering, comparison, or re-generation without further sorting.
  *
  * To generate an email template using the markdown-derived sources run:
- *   npm run generate:template -- --data=src/data-from-markdown.js \
+ *   npm run generate:template -- --data=../files/data-from-markdown.js \
  *     --content=src/content-from-markdown.html --out=generated/hn-markdown.html
  * (data-from-markdown.js supplies the title/preview/ads/images meta; this file
  *  supplies the body content blocks for rendering or comparison.)

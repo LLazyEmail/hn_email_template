@@ -1,4 +1,5 @@
 /**
+ * data-from-markdown.js
  * Data module derived from 01-hackernoon-source.md.
  *
  * The source markdown uses custom HackerNoon newsletter conventions:
@@ -7,12 +8,19 @@
  *   - "~[slogan][link][logo]" → ad block
  *   - standard markdown images → newsletter images
  *
- * This module exposes the same shape as Work/src/data.js so it can be
+ * This module exposes the same shape as files/data.js so it can be
  * consumed interchangeably by generate-template.js and the display pipeline.
  *
  * Note: the `images` array uses single-key wrapper objects (e.g. { image1: { src, link } })
  * to match the existing data.js contract. The display pipeline iterates with
  * `Object.values(entry)[0]` so this shape must be preserved for compatibility.
+ *
+ * Note: this file contains 5 images (not 6) because the source markdown file
+ * (01-hackernoon-source.md) references only 5 distinct image blocks.  The
+ * sixth image in files/data.js and files/data-hn.js is a
+ * duplicate added in the JSON-authored variants.
+ *
+ * Re-exported by Work/src/data-from-markdown.js for backward compatibility.
  */
 export default {
   "preview": "As a developer, you might have dreamed of a Google created specifically for techies. Just imagine, a digital platform brimming with content for coders, including Q&A and job listings. Every question about programming answered. Each inextricable bug is solved. A larger audience of qualified experts come-at-able. Sounds dreamlike, right?",

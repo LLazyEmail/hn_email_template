@@ -21,7 +21,7 @@ const { renderDisplayTemplate, renderDisplayFrontMatterTemplate } = require('../
 const { settings: headSettings } = require('../../src/display/sections/head');
 const { settings: bodySettings } = require('../../src/display/sections/body');
 const { settings: mainSettings } = require('../../src/display/sections/main');
-const data = require('../../src/data').default;
+const data = require('../../../files/data-hn.js').default;
 const { innerContentComponent } = require('../../src/components');
 
 describe('display renderers remain pure and non-mutating', () => {

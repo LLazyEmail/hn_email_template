@@ -31,7 +31,7 @@ const parseArgv = (argv) => {
 
 const usage = `
 Usage:
-  npm run generate:template -- --template=hn --data=src/data.js --out=generated/hn.html [--content=src/content.html]
+  npm run generate:template -- --template=hn --data=../files/data-hn.js --out=generated/hn.html [--content=src/content.html]
 
 Arguments:
   --template   Template id from registry (default: "hn")
@@ -103,7 +103,7 @@ const run = async () => {
   }
 
   const templateId = ensureString(args.template || 'hn', '--template');
-  const dataPath = ensureString(args.data || 'src/data.js', '--data');
+  const dataPath = ensureString(args.data || '../files/data-hn.js', '--data');
   const outPath = ensureString(args.out || `generated/${templateId}.html`, '--out');
 
   const data = await loadData(dataPath);

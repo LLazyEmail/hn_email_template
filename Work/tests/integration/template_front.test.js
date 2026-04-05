@@ -10,7 +10,7 @@ const {
 const { innerContentComponent } = require('../../src/components');
 
 // TODO move data into tests folder, as we dont use it elsewhere
-import markdownData from '../../src/data';
+import markdownData from '../../../files/data-hn.js';
 // console.log(markdownData);
 // const displayFrontMatterTemplate = require('../../src/t/displayTemplate');
 
