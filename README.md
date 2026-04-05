@@ -140,6 +140,11 @@ Raw Input Data
 
 ## Repository Structure
 
+> **Note:** `Work/` is the current runtime root and is **transitional/deprecated**.
+> New top-level directories (`content/`, `scripts/`, `src/`, `tests/`, `generated/`,
+> `docs/`) have been introduced as part of the reorganization. See
+> [Target Architecture](#target-architecture) and [`docs/architecture.md`](docs/architecture.md).
+
 ```
 hn_email_template/
 ├── .deepsource.toml          # DeepSource code quality config
@@ -156,7 +161,30 @@ hn_email_template/
 │       ├── node.js.yml           # Node.js CI (build & test)
 │       └── npm-publish.yml       # NPM publish workflow
 │
-├── Work/                     # Primary working package (JavaScript)
+├── content/                  # All newsletter content datasets (new canonical location)
+│   ├── content1.js           # Canonical template dataset
+│   ├── content2.js           # HN JSON-authored variant
+│   ├── content3.js           # Markdown-derived variant
+│   └── data-markdown.js      # Body content blocks array
+│
+├── scripts/                  # Generation scripts (new canonical location)
+│   └── generate-template.js  # Top-level template generator
+│
+├── src/                      # Rendering/business logic (migration target from Work/src/)
+│   └── README.md             # See for migration status
+│
+├── tests/                    # Test suites (migration target from Work/tests/)
+│   └── README.md             # See for migration status
+│
+├── generated/                # Generated HTML outputs (gitignored)
+│
+├── docs/                     # Project documentation & ADRs
+│   ├── README.md
+│   └── architecture.md       # Target architecture & baseline behavior
+│
+├── Work/                     # ⚠️ DEPRECATED transitional runtime root
+│   │                         # Do not add new core logic here. Will be removed
+│   │                         # once the top-level migration is complete.
 │   ├── package.json          # Package metadata & scripts (v3.9.0)
 │   ├── jest.config.js        # Jest configuration
 │   ├── rollup.config.js      # Rollup bundler configuration
@@ -167,52 +195,30 @@ hn_email_template/
 │   │   ├── tests.sh              # Run test suite
 │   │   └── update-packages.sh    # Update npm packages
 │   │
+│   ├── scripts/
+│   │   └── generate-template.js  # ⚠️ deprecated — use scripts/ at project root
+│   │
 │   ├── src/
 │   │   ├── index.js              # Public API exports
 │   │   ├── config.js             # Shared constants (contact URL, mailing address)
-│   │   ├── data.js               # Sample template data for development
-│   │   ├── data-from-markdown.js # Meta-data extracted from 01-hackernoon-source.md (title, preview, ads, images)
-│   │   ├── data-markdown.js      # Body content from content-from-markdown.html (lines 30–225) as a JS array of blocks
+│   │   ├── data-markdown.js      # Body content from content-from-markdown.html (lines 30–225)
 │   │   ├── factory.js            # Display factory class
 │   │   ├── methods.js            # Top-level print* helper functions
 │   │   │
 │   │   ├── components/           # Low-level HTML component functions
-│   │   │   ├── index.js
-│   │   │   ├── mainComponent.js
-│   │   │   ├── headComponent.js
-│   │   │   ├── headStyles.js
-│   │   │   ├── body.js
-│   │   │   ├── footer.js
-│   │   │   ├── innerContentComponent.js
-│   │   │   └── previewText.js
 │   │   │
 │   │   ├── templates/            # Template rendering system
-│   │   │   ├── index.js
-│   │   │   ├── hn.js             # Hackernoon-specific template
-│   │   │   └── types.js
 │   │   │
-│   │   └── display/              # Display pipeline
-│   │       ├── core/
-│   │       │   ├── createDisplaySection.js
-│   │       │   └── runDisplayPipeline.js
-│   │       ├── errors/
-│   │       │   ├── createDisplayError.js
-│   │       │   └── errorTypes.js
-│   │       ├── sections/
-│   │       │   ├── head/         # head.display, head.mapper, head.model
-│   │       │   ├── body/         # body.display, body.mapper, body.model
-│   │       │   ├── footer/       # footer.display, footer.mapper, footer.model
-│   │       │   ├── main/         # main.display, main.mapper, main.model
-│   │       │   ├── mainFront/    # mainFront.display, mainFront.mapper, mainFront.model
-│   │       │   └── content/      # content.display
-│   │       └── validation/
-│   │           ├── validateInput.js
-│   │           └── rules.js
+│   │   └── display/              # Display pipeline (mapper → model → display)
 │   │
 │   └── tests/
-│       ├── unit/                 # 13 unit test files (one per component/section)
-│       └── integration/
-│           └── template.test.js  # End-to-end template rendering test
+│       ├── unit/                 # Unit test files (one per component/section)
+│       └── integration/          # End-to-end and integration tests
+│
+├── files/                    # ⚠️ DEPRECATED — re-exports to content/ (backward compat)
+│   ├── data.js               # → re-exports content/content1.js
+│   ├── data-hn.js            # → re-exports content/content2.js
+│   └── data-from-markdown.js # → re-exports content/content3.js
 │
 ├── sub-modules/              # Standalone reusable sub-packages
 │   ├── Typography/           # Typography HTML rendering module
@@ -220,25 +226,64 @@ hn_email_template/
 │   ├── Miscellaneous/        # Miscellaneous utilities
 │   └── outerTemplate/        # Outer template module
 │
-├── hackernoon/               # NX monorepo — TypeScript migration workspace
-│   ├── nx.json
-│   ├── package.json
-│   └── packages/
-│       ├── display/
-│       ├── hn-typo/
-│       ├── inner/
-│       ├── outer/
-│       ├── typo/
-│       └── write/
+├── packages/                 # Published npm packages
+│   ├── template-engine/
+│   ├── template-presets-hn/
+│   └── template-runtime-display/
 │
-├── _depricated/              # Deprecated legacy template files (for reference only)
-│   ├── full-template.js
-│   └── temporaryFullTemplate.js
-│
-├── data/
-│   └── template.html         # Sample rendered HTML output
-│
-└── images/                   # Documentation screenshots
+└── archive/                  # Archived legacy files (historical reference)
+```
+
+---
+
+## Target Architecture
+
+> See [`docs/architecture.md`](docs/architecture.md) for the full migration plan.
+
+The project is being reorganized toward a clean top-level structure:
+
+| Directory | Purpose |
+|-----------|---------|
+| `content/` | All newsletter content datasets (canonical location) |
+| `src/` | Rendering and business logic (migrating from `Work/src/`) |
+| `scripts/` | Generation and tooling scripts (migrated from `Work/scripts/`) |
+| `tests/` | All test suites (migrating from `Work/tests/`) |
+| `generated/` | Generated HTML outputs (gitignored) |
+| `docs/` | Project documentation and ADRs |
+
+`Work/` will remain as a transitional runtime root until the migration is complete,
+then be removed. No new core logic should be added to `Work/`.
+
+---
+
+## Baseline Behavior
+
+Before the reorganization, generation used `files/data-hn.js` as the default
+content source and output to `Work/generated/`. These paths are still valid
+(via backward-compat re-exports in `files/`), but the canonical commands are now:
+
+```bash
+cd Work
+# Generate using the canonical HN dataset (content2):
+npm run generate:template -- --data=../content/content2.js --out=generated/hn.html
+
+# Generate using the markdown-derived dataset (content3):
+npm run generate:template -- \
+  --data=../content/content3.js \
+  --content=src/content-from-markdown.html \
+  --out=generated/hn-markdown.html
+```
+
+Or using the new top-level script from the project root:
+
+```bash
+node scripts/generate-template.js --data=content/content2.js --out=generated/hn.html
+```
+
+Run tests to verify behavior is unchanged:
+
+```bash
+cd Work && npm test
 ```
 
 ---
@@ -349,19 +394,20 @@ The display pipeline throws descriptive errors on invalid input, for example:
 
 ### Markdown-derived content data
 
-`Work/src/data-markdown.js` contains the newsletter body content extracted from
-`Work/src/content-from-markdown.html` (lines 30–225) as an ordered JavaScript
-array of typed blocks. Each block has a `type` field (`"heading"`, `"image"`, or
-`"text"`) plus type-specific fields (`html`, `src`/`link`/`alt`). The array
-preserves the original document order and can be used for rendering comparison,
-content inspection, or as a data source for custom renderers.
+`content/data-markdown.js` (previously `Work/src/data-markdown.js`) contains the
+newsletter body content extracted from `Work/src/content-from-markdown.html`
+(lines 30–225) as an ordered JavaScript array of typed blocks. Each block has a
+`type` field (`"heading"`, `"image"`, or `"text"`) plus type-specific fields
+(`html`, `src`/`link`/`alt`). The array preserves the original document order
+and can be used for rendering comparison, content inspection, or as a data source
+for custom renderers.
 
 To generate a full email template using the markdown-derived data and content:
 
 ```bash
 cd Work
 npm run generate:template -- \
-  --data=src/data-from-markdown.js \
+  --data=../content/content3.js \
   --content=src/content-from-markdown.html \
   --out=generated/hn-markdown.html
 ```
