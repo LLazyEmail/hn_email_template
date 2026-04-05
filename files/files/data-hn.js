@@ -1,11 +1,21 @@
-// Re-exports the canonical dataset from files/files/data.js.
-// Kept here for backward compatibility.
-export { default } from './files/data.js';
-
-// The original data is preserved below (commented out) for reference.
-// The canonical version lives at files/files/data.js.
-
-/*
+/**
+ * data-hn.js
+ * HackerNoon newsletter template dataset (JSON-authored variant).
+ *
+ * This file holds the same dataset as files/files/data.js and is the
+ * source of truth for Work/src/data.js.  It is kept as a separate named
+ * file under files/files/ so that all three content sources live together
+ * in one place and can be referenced or compared without ambiguity.
+ *
+ * Shape:
+ *   - preview  {string}  — preview / preheader text shown in inbox summary
+ *   - title    {string}  — newsletter title / subject
+ *   - ads      {Array}   — ad block descriptors ({ slogan?, link?, logo? })
+ *   - images   {Array}   — image blocks; each entry is a single-key wrapper object
+ *                          (e.g. { image1: { src, link } }) to match the display-pipeline contract
+ *
+ * Re-exported by Work/src/data.js for backward compatibility.
+ */
 export default {
   "preview": "As a developer, you might have dreamed of a Google created specifically for techies. Just imagine, a digital platform brimming with content for coders, including Q&A and job listings. Every question about programming answered. Each inextricable bug is solved. A larger audience of qualified experts come-at-able. Sounds dreamlike, right?",
   "title": "Secrets Of High-Performing Teams: Part II",
@@ -59,4 +69,3 @@ export default {
     }
   ]
 }
-*/

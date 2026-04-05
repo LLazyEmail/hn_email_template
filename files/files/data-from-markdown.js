@@ -1,11 +1,22 @@
-// Re-exports the canonical dataset from files/files/data.js.
-// Kept here for backward compatibility.
-export { default } from './files/data.js';
-
-// The original data is preserved below (commented out) for reference.
-// The canonical version lives at files/files/data.js.
-
-/*
+/**
+ * data-from-markdown.js
+ * Data module derived from 01-hackernoon-source.md.
+ *
+ * The source markdown uses custom HackerNoon newsletter conventions:
+ *   - "#~ text"          → preview text
+ *   - "# Title"          → newsletter title (first heading after [separator])
+ *   - "~[slogan][link][logo]" → ad block
+ *   - standard markdown images → newsletter images
+ *
+ * This module exposes the same shape as files/files/data.js so it can be
+ * consumed interchangeably by generate-template.js and the display pipeline.
+ *
+ * Note: the `images` array uses single-key wrapper objects (e.g. { image1: { src, link } })
+ * to match the existing data.js contract. The display pipeline iterates with
+ * `Object.values(entry)[0]` so this shape must be preserved for compatibility.
+ *
+ * Re-exported by Work/src/data-from-markdown.js for backward compatibility.
+ */
 export default {
   "preview": "As a developer, you might have dreamed of a Google created specifically for techies. Just imagine, a digital platform brimming with content for coders, including Q&A and job listings. Every question about programming answered. Each inextricable bug is solved. A larger audience of qualified experts come-at-able. Sounds dreamlike, right?",
   "title": "Secrets Of High-Performing Teams: Part II",
@@ -50,13 +61,6 @@ export default {
         "src": "https://gitlab.com/hackernoon/creative/-/raw/master/newsletters/memes/2020/november/18.11/image5.gif",
         "link": "https://media.giphy.com/media/3orieTeAMaKc4yhwmk/giphy.gif"
       }
-    },
-    {
-      "image6": {
-        "src": "https://gitlab.com/hackernoon/creative/-/raw/master/newsletters/memes/2020/november/18.11/image6.gif",
-        "link": "https://media.giphy.com/media/PvvSfSDFoAL5e/giphy.gif"
-      }
     }
   ]
 }
-*/

@@ -1,11 +1,19 @@
-// Re-exports the canonical dataset from files/files/data.js.
-// Kept here for backward compatibility.
-export { default } from './files/data.js';
-
-// The original data is preserved below (commented out) for reference.
-// The canonical version lives at files/files/data.js.
-
-/*
+/**
+ * data.js
+ * Canonical template dataset for the HackerNoon newsletter email template.
+ *
+ * Shape:
+ *   - preview  {string}  — preview / preheader text shown in inbox summary
+ *   - title    {string}  — newsletter title / subject
+ *   - ads      {Array}   — ad block descriptors ({ slogan?, link?, logo? })
+ *   - images   {Array}   — image blocks; each entry is a single-key wrapper object
+ *                          (e.g. { image1: { src, link } }) to match the display-pipeline contract
+ *
+ * Consumed by:
+ *   - Work/src/data.js           (re-exports this file)
+ *   - Work/scripts/generate-template.js (via --data flag)
+ *   - Work/tests/* (via Work/src/data.js re-export)
+ */
 export default {
   "preview": "As a developer, you might have dreamed of a Google created specifically for techies. Just imagine, a digital platform brimming with content for coders, including Q&A and job listings. Every question about programming answered. Each inextricable bug is solved. A larger audience of qualified experts come-at-able. Sounds dreamlike, right?",
   "title": "Secrets Of High-Performing Teams: Part II",
@@ -59,4 +67,3 @@ export default {
     }
   ]
 }
-*/
