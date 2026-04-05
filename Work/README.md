@@ -44,7 +44,7 @@ can compare them side by side in a browser.
 
 | File | Purpose |
 |------|---------|
-| `src/data.js` | JS data module converted from the root `hn.json` (title, preview, ads, images) |
+| `src/data.js` | JS data module converted from `files/data.js` (title, preview, ads, images) |
 | `src/data-from-markdown.js` | Same data shape extracted from `01-hackernoon-source.md` |
 | `src/content-from-markdown.html` | Full article body HTML converted from `01-hackernoon-source.md` |
 
