@@ -88,7 +88,7 @@ describe('files/ data sources — shape validation', () => {
 describe('files/ data sources — template generation', () => {
   test.each(DATA_SOURCES)(
     '$label generates a valid HTML email template',
-    ({ label, data }) => {
+    ({ data }) => {
       const content = buildFallbackContent(data);
       const html = renderTemplate('hn', { string: content, data });
 
