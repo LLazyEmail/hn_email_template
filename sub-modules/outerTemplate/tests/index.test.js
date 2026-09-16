@@ -1,24 +1,34 @@
 import outerTemplate from '../src/index';
 
-describe('outerTemplate scaffold', () => {
-  test('exports component placeholders object', () => {
+describe('outerTemplate components', () => {
+  test('exports component functions', () => {
     expect(typeof outerTemplate).toBe('object');
     expect(outerTemplate).not.toBeNull();
-    expect(outerTemplate).toHaveProperty('bodyComponent');
-    expect(outerTemplate).toHaveProperty('headComponent');
-    expect(outerTemplate).toHaveProperty('mainComponent');
-    expect(outerTemplate).toHaveProperty('footerComponent');
     expect(typeof outerTemplate.bodyComponent).toBe('function');
     expect(typeof outerTemplate.headComponent).toBe('function');
     expect(typeof outerTemplate.mainComponent).toBe('function');
     expect(typeof outerTemplate.footerComponent).toBe('function');
+    expect(typeof outerTemplate.headStylesComponent).toBe('function');
   });
 
-  test('placeholder components return empty strings', () => {
-    expect(outerTemplate.bodyComponent({})).toBe('');
-    expect(outerTemplate.headComponent({})).toBe('');
-    expect(outerTemplate.mainComponent({})).toBe('');
-    expect(outerTemplate.footerComponent({})).toBe('');
+  test('headComponent renders title when required fields are present', () => {
+    const html = outerTemplate.headComponent({
+      title: 'Newsletter',
+      headStyles: '<style></style>',
+      fonts: '<link />',
+    });
+    expect(html).toContain('<head>');
+    expect(html).toContain('Newsletter');
+  });
+
+  test('mainComponent wraps head and body', () => {
+    const html = outerTemplate.mainComponent({
+      head: '<head></head>',
+      body: '<body>content</body>',
+    });
+    expect(html).toContain('<!DOCTYPE html>');
+    expect(html).toContain('<head></head>');
+    expect(html).toContain('<body>content</body>');
   });
 
   test('exports renderTemplate and methods facade', () => {
