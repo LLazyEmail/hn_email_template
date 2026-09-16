@@ -1,5 +1,5 @@
 import misc from 'atherdon-newsletter-js-layouts-misc';
-import headStylesComponent from '../../../components/headStyles/index';
+import { headStylesComponent } from 'atherdon-newsletter-js-layouts-outertemplate';
 
 const { fontsComponent } = misc;
 

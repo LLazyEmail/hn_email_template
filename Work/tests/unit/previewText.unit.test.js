@@ -1,4 +1,4 @@
-import previewTextComponent from '../../src/components/previewText/index';
+import { previewTextWrapperComponent as previewTextComponent } from 'atherdon-newsletter-js-layouts-body';
 
 describe('previewTextComponent - throws on missing or invalid content', () => {
   test('throws when content is not provided', () => {
