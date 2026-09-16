@@ -15,6 +15,8 @@ jest.mock('atherdon-newsletter-js-layouts-body', () => ({
     logoTopComponent: () => '<logo-top-component />',
     logoBottomComponent: () => '<logo-bottom-component />',
   },
+  innerContentComponent: () => '<inner-content-component />',
+  previewTextWrapperComponent: (content) => content || '<preview-text-component />',
 }), { virtual: true });
 
 const { renderDisplayTemplate, renderDisplayFrontMatterTemplate } = require('../../src/engine/display');
@@ -22,7 +24,7 @@ const { settings: headSettings } = require('../../src/display/sections/head');
 const { settings: bodySettings } = require('../../src/display/sections/body');
 const { settings: mainSettings } = require('../../src/display/sections/main');
 const data = require('../../../files/data-hn.js').default;
-const { innerContentComponent } = require('../../src/components');
+const { innerContentComponent } = require('atherdon-newsletter-js-layouts-body');
 
 describe('display renderers remain pure and non-mutating', () => {
   test('renderDisplayTemplate does not mutate shared settings objects', () => {
