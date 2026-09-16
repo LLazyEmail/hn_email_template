@@ -1,5 +1,6 @@
 module.exports = {
   testEnvironment: 'node',
+  setupFiles: ['<rootDir>/src/configureOuterTemplateRuntime.js'],
   // Map path aliases so imports like "@root/..." resolve to src/
   moduleNameMapper: {
     '@root(.*)$': '<rootDir>/src/$1',
@@ -20,7 +21,7 @@ module.exports = {
   },
   testMatch: ['**/tests/**/*.test.js'],
   transform: {
-    '^.+\\.js$': [
+    '^.+\.js$': [
       'babel-jest',
       {
         babelrc: false,

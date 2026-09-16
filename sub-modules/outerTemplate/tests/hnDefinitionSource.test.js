@@ -17,7 +17,7 @@ jest.mock('atherdon-newsletter-js-layouts-body', () => ({
   },
 }), { virtual: true });
 
-const { buildHnDefinition } = require('../../../sub-modules/outerTemplate/src/runtime/displayRuntimeDeps');
+const { buildHnDefinition } = require('../src/runtime/displayRuntimeDeps');
 const { mapHnInputToVariant } = require('@llazyemail/template-presets-hn');
 
 describe('outerTemplate step 2 definition source', () => {

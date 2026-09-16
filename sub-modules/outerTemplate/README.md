@@ -61,8 +61,11 @@ npm run lint
 npm run lint:fix
 ```
 
+`printMain`, `printHead`, `printBody`, and `printFooter` now live in this package.
+Display HTML strings and composed renderers are injected by Work via
+`configureOuterTemplateRuntime()` so this module no longer imports from `Work/`.
+
 ## Next extraction milestones
 
-- migrate `printMain`, `printHead`, `printBody`, `printFooter` ownership from `Work/`
 - move display section composition contracts to this package
 - add deeper integration tests for full template assembly contracts

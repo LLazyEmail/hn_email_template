@@ -19,7 +19,7 @@ jest.mock('atherdon-newsletter-js-layouts-body', () => ({
 
 const {
   buildHnWithoutAdsDefinition,
-} = require('../../../sub-modules/outerTemplate/src/runtime/displayRuntimeDeps');
+} = require('../src/runtime/displayRuntimeDeps');
 const {
   mapHnWithoutAdsInputToVariant,
 } = require('@llazyemail/template-presets-hn');

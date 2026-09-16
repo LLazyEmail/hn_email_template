@@ -1,8 +1,3 @@
-import { renderDisplayTemplate, renderDisplayFrontMatterTemplate } from '../../../../Work/src/engine/display';
-import { HeadHTMLString } from '../../../../Work/src/display/sections/head';
-import { BodyHTMLString } from '../../../../Work/src/display/sections/body';
-import { FooterHTMLString } from '../../../../Work/src/display/sections/footer';
-import { MainHTMLString } from '../../../../Work/src/display/sections/main';
 import { validateHnTemplateInput } from '@llazyemail/template-engine';
 import {
   createHnPresetDefinition,
@@ -13,10 +8,52 @@ import {
 } from '@llazyemail/template-engine';
 
 const displayDeps = {
-  headString: HeadHTMLString,
-  bodyString: BodyHTMLString,
-  footerString: FooterHTMLString,
-  mainString: MainHTMLString,
+  headString: '',
+  bodyString: '',
+  footerString: '',
+  mainString: '',
+};
+
+const rendererImpl = {
+  simple: null,
+  frontMatter: null,
+};
+
+const renderDisplayTemplate = (content) => {
+  if (typeof rendererImpl.simple !== 'function') {
+    throw new Error(
+      'outerTemplate runtime is not configured. Call configureOuterTemplateRuntime() from the Work orchestration layer.'
+    );
+  }
+  return rendererImpl.simple(content);
+};
+
+const renderDisplayFrontMatterTemplate = (payload) => {
+  if (typeof rendererImpl.frontMatter !== 'function') {
+    throw new Error(
+      'outerTemplate runtime is not configured. Call configureOuterTemplateRuntime() from the Work orchestration layer.'
+    );
+  }
+  return rendererImpl.frontMatter(payload);
+};
+
+const configureOuterTemplateRuntime = ({ displayDeps: nextDeps, renderers } = {}) => {
+  if (nextDeps) {
+    if (nextDeps.headString !== undefined) displayDeps.headString = nextDeps.headString;
+    if (nextDeps.bodyString !== undefined) displayDeps.bodyString = nextDeps.bodyString;
+    if (nextDeps.footerString !== undefined) displayDeps.footerString = nextDeps.footerString;
+    if (nextDeps.mainString !== undefined) displayDeps.mainString = nextDeps.mainString;
+  }
+
+  if (renderers) {
+    if (typeof renderers.simple === 'function') rendererImpl.simple = renderers.simple;
+    if (typeof renderers.frontMatter === 'function') rendererImpl.frontMatter = renderers.frontMatter;
+  }
+
+  return {
+    displayDeps,
+    renderers: rendererImpl,
+  };
 };
 
 const buildHnDefinition = () =>
@@ -41,6 +78,7 @@ export {
   renderDisplayTemplate,
   renderDisplayFrontMatterTemplate,
   displayDeps,
+  configureOuterTemplateRuntime,
   buildHnDefinition,
   buildHnWithoutAdsDefinition,
 };
