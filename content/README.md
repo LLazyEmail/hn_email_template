@@ -1,6 +1,16 @@
 # content/
 
-This directory is the **canonical location** for all newsletter content datasets.
+This directory is the **canonical location** for all newsletter content datasets and source manuscripts.
+
+## Sources
+
+Raw HackerNoon newsletter manuscripts live in `content/sources/`:
+
+| File | Description |
+|------|-------------|
+| `sources/01-hackernoon-source.md` | Full newsletter markdown (source for `content3.js` and the markdown-derived HTML body) |
+| `sources/02-hackernoon-source.md` | Shorter sample newsletter markdown |
+| `sources/03-hackernoon-source.mdx` | MDX variant of the newsletter source |
 
 ## Files
 
@@ -22,17 +32,6 @@ This directory is the **canonical location** for all newsletter content datasets
   ads:     Array,    // ad block descriptors [{ slogan?, link?, logo? }]
   images:  Array,    // image blocks [{ imageN: { src, link } }]
 }
-```
-
-`data-markdown.js` is an ordered array of typed body-content blocks:
-
-```js
-[
-  { type: 'heading', level: number, html: string },
-  { type: 'image',   src: string,   link: string, alt: string },
-  { type: 'text',    html: string },
-  ...
-]
 ```
 
 ## Backward Compatibility
