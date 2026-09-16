@@ -1,3 +1,4 @@
+import './configureOuterTemplateRuntime';
 import {
   printMain,
   printFooter,
@@ -7,25 +8,12 @@ import {
 } from './methods';
 import outerTemplate, { renderTemplate } from 'atherdon-newsletter-js-layouts-outertemplate';
 
-// import generateTemplateComponent from './t/generateTemplate'
-// import generateEmptyTemplateComponent from './t/emptyTemplate'
-
 export default {
-  //   body,
-
-  // fullTemplateOLD,
-  // fullTemplate,
-
-  // generateTemplateComponent,
-  // generateEmptyTemplateComponent,
-
   printMain,
   printFooter,
   printBody,
-
   printTemplate,
   printTemplateData,
-
   renderTemplate,
   outerTemplate,
 };
