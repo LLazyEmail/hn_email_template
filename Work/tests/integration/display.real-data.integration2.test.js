@@ -4,7 +4,7 @@ import { displayHead } from '../../src/display/sections/head';
 import { displayBody } from '../../src/display/sections/body';
 import { displayFooter } from '../../src/display/sections/footer';
 import { displayMain } from '../../src/display/sections/main';
-import { innerContentComponent, previewTextComponent } from '../../src/components';
+import { innerContentComponent, previewTextWrapperComponent as previewTextComponent } from 'atherdon-newsletter-js-layouts-body';
 
 const CONTENT_MARKER = 'Ultra-fast innovation holds the key';
 

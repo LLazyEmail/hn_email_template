@@ -1,4 +1,4 @@
-import headComponent from '../../src/components/headComponent/index';
+import { headComponent } from 'atherdon-newsletter-js-layouts-outertemplate';
 
 const validParams = {
   title: 'Test Email Title',

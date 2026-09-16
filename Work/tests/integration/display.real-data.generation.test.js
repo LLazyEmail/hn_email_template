@@ -6,7 +6,7 @@ import { displayHead } from '../../src/display/sections/head';
 import { displayFooter } from '../../src/display/sections/footer';
 import { displayBody } from '../../src/display/sections/body';
 import { displayMain } from '../../src/display/sections/main';
-import previewTextComponent from '../../src/components/previewText';
+import { previewTextWrapperComponent as previewTextComponent } from 'atherdon-newsletter-js-layouts-body';
 
 const GENERATED_DIR = path.resolve(__dirname, '../../generated-real-data');
 const OUTPUT_FILE = path.join(GENERATED_DIR, 'real-data-template.html');
