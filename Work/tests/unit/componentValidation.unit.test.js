@@ -1,5 +1,4 @@
-import { required, nonEmptyString, string } from '../../src/components/validation/rules';
-import { validateInput } from '../../src/components/validation/validateInput';
+import { required, nonEmptyString, string, validateInput } from 'atherdon-newsletter-js-layouts-outertemplate';
 
 describe('components validation rules', () => {
   test('required returns reason for undefined/null and null otherwise', () => {

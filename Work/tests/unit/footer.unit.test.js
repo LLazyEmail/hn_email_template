@@ -1,4 +1,4 @@
-import footerComponent from '../../src/components/footer/index';
+import { footerComponent } from 'atherdon-newsletter-js-layouts-outertemplate';
 
 const validParams = {
   address: '<span>123 Main St</span>',

@@ -15,6 +15,8 @@ jest.mock('atherdon-newsletter-js-layouts-body', () => ({
     logoTopComponent: () => '<logo-top-component />',
     logoBottomComponent: () => '<logo-bottom-component />',
   },
+  innerContentComponent: () => '<inner-content-component />',
+  previewTextWrapperComponent: (content) => content || '<preview-text-component />',
 }), { virtual: true });
 
 const hnTemplate = require('atherdon-newsletter-js-layouts-outertemplate').default.registry.hn;
