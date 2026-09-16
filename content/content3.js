@@ -2,7 +2,7 @@
  * content3.js
  * HackerNoon newsletter template dataset — markdown-derived variant.
  *
- * This dataset was derived from 01-hackernoon-source.md using custom
+ * This dataset was derived from content/sources/01-hackernoon-source.md using custom
  * HackerNoon newsletter markdown conventions:
  *   - "#~ text"             → preview text
  *   - "# Title"             → newsletter title (first heading after [separator])
@@ -12,7 +12,7 @@
  * Previously located at files/data-from-markdown.js (which now re-exports from here).
  *
  * Note: this variant contains 5 images (not 6) because the source markdown file
- * (01-hackernoon-source.md) references only 5 distinct image blocks. The sixth
+ * (content/sources/01-hackernoon-source.md) references only 5 distinct image blocks. The sixth
  * image in content1.js and content2.js is a duplicate added in the JSON-authored
  * variants.
  *
