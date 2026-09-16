@@ -1,4 +1,4 @@
-import mainComponent from '../../src/components/mainComponent/index';
+import { mainComponent } from 'atherdon-newsletter-js-layouts-outertemplate';
 
 const validParams = {
   head: '<head><title>Test</title></head>',

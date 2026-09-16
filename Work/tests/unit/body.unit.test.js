@@ -1,4 +1,4 @@
-import EmailTemplateBodyComponent from '../../src/components/body/index';
+import { bodyComponent as EmailTemplateBodyComponent } from 'atherdon-newsletter-js-layouts-outertemplate';
 
 const validParams = {
   footer: '<tr><td>Footer content</td></tr>',
