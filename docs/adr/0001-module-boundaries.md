@@ -37,13 +37,15 @@ The repository is in active migration from a monolithic `Work/` package toward a
 **Owns:**
 - The three-step display pipeline abstraction: `mapper.js` → `model.js` (validation) → `display.js` (render).
 - `createDisplaySection` factory — wraps the three-step pattern into a reusable section runner.
-- `runDisplayPipeline` — orchestrates running all sections for a template.
-- Section-level display definitions (`head`, `body`, `main`, `mainFront`, `footer`, `content`): each section's mapper, model-validator, and renderer.
+- `runPipeline` — orchestrates named display stages.
+- Pure section mappers (`head`, `body`, `main`, `mainFront`, `footer`).
 - Display error types and the `createDisplayError` helper.
+- Validation rules used by display sections.
 
 **Does not own:**
 - Template definitions or the template registry.
 - Low-level HTML component functions.
+- Component-bound section defaults (those stay in `Work/` until components migrate).
 - `Work/`-level integration scripts, data fixtures, or CLI tooling.
 
 ---
@@ -72,11 +74,12 @@ The repository is in active migration from a monolithic `Work/` package toward a
 - Sample/fixture data files (`src/data.js`) used by integration tests and the CLI.
 - CI-facing test entry points (e.g. `test:real-data`).
 - Runtime wiring that injects Work display renderers into `outerTemplate` via `configureOuterTemplateRuntime()`.
+- Component-bound display section defaults until components leave `Work/`.
 
 **Does not own (must not add new instances of):**
 - Core template rendering logic.
 - New template definitions or template registry entries.
-- Display pipeline section implementations.
+- Display pipeline primitives (`createDisplaySection`, `runPipeline`, mappers, validation).
 - Reusable component functions intended for use outside `Work/`.
 
 > **Rule:** `Work/` is the integration and orchestration layer. If a piece of logic could be useful to any consumer of the packages, it must live in the appropriate package, not in `Work/`.
@@ -132,7 +135,8 @@ The following template logic previously resided in `Work/src/templates/` and has
 | HN-without-ads definition assembly (`buildHnWithoutAdsDefinition`) | `sub-modules/outerTemplate/src/runtime/displayRuntimeDeps.js` | ✅ Done |
 | Remove `outerTemplate` → `Work/` imports | `configureOuterTemplateRuntime()` injected from Work orchestration | ✅ Done |
 | Template registry and `renderTemplate` | `sub-modules/outerTemplate/src/templates/index.js` | ✅ Done |
-| `src/display/` (all sections + core) | `packages/template-runtime-display/src/` | Pending future step |
+| Display pipeline core / errors / validation / mappers | `packages/template-runtime-display/src/` | ✅ Done |
+| `Work/src/display/sections/*` component-bound defaults | remain in Work until components migrate | Pending |
 | `src/components/` (low-level HTML components) | `sub-modules/outerTemplate/src/components/` | Pending future step |
 
 ### Migration steps per item
