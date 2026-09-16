@@ -1,4 +1,4 @@
-import footerComponent from '../../../components/footer/index';
+import { footerComponent } from 'atherdon-newsletter-js-layouts-outertemplate';
 import { createDisplaySection } from '../../core/createDisplaySection';
 import { footerModelDefaults } from './footer.model';
 import { buildFooterModel } from './footer.mapper';
@@ -12,15 +12,3 @@ export const footerSectionConfig = {
 };
 
 export const displayFooter = createDisplaySection(footerSectionConfig);
-
-const settings = {
-  component: footerComponent,
-  params: { ...footerModelDefaults },
-};
-
-const FooterHTMLString = displayFooter();
-
-export {
-  settings,
-  FooterHTMLString,
-};

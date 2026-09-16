@@ -1,5 +1,5 @@
 import { displayFactoryTwo } from 'email-template-object';
-import { previewTextComponent } from '../../components';
+import { previewTextWrapperComponent as previewTextComponent } from 'atherdon-newsletter-js-layouts-body';
 import { settings as headSettings } from '../../display/sections/head';
 import { settings as bodySettings } from '../../display/sections/body';
 import { settings as mainSettings } from '../../display/sections/main';

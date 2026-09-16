@@ -1,8 +1,7 @@
-import bodySubComponents from 'atherdon-newsletter-js-layouts-body';
-import {
+import bodySubComponents, {
   innerContentComponent,
-  previewTextComponent,
-} from '../../../components';
+  previewTextWrapperComponent as previewTextComponent,
+} from 'atherdon-newsletter-js-layouts-body';
 import { FooterHTMLString } from '../footer';
 
 const { logoBottomComponent, logoTopComponent } = bodySubComponents;

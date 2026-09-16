@@ -1,4 +1,4 @@
-import headComponent from '../../../components/headComponent/index';
+import { headComponent } from 'atherdon-newsletter-js-layouts-outertemplate';
 import { createDisplaySection } from '../../core/createDisplaySection';
 import { headModelDefaults } from './head.model';
 import { buildHeadModel } from './head.mapper';

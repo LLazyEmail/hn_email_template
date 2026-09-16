@@ -1,5 +1,5 @@
 // import { displayFactoryTwo } from 'email-template-object';
-import { innerContentComponent } from '../../../components';
+import { innerContentComponent } from 'atherdon-newsletter-js-layouts-body';
 import { buttonComponent2 } from 'html-typography-tags';
 import { createDisplaySection } from '../../core/createDisplaySection';
 

@@ -1,5 +1,5 @@
 // import { displayFactoryTwo, factoryFour } from 'email-template-object';
-import { EmailTemplateBodyComponent } from '../../../components';
+import { bodyComponent as EmailTemplateBodyComponent } from 'atherdon-newsletter-js-layouts-outertemplate';
 import { createDisplaySection } from '../../core/createDisplaySection';
 import { bodyModelDefaults } from './body.model';
 import { buildBodyModel } from './body.mapper';

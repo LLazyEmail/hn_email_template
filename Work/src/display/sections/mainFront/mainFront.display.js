@@ -1,4 +1,4 @@
-import { MainComponent } from '../../../components';
+import { mainComponent as MainComponent } from 'atherdon-newsletter-js-layouts-outertemplate';
 import { createDisplaySection } from '../../core/createDisplaySection';
 import { mainFrontModelDefaults } from './mainFront.model';
 import { buildMainFrontModel } from './mainFront.mapper';
