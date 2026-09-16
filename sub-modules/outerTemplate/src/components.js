@@ -2,6 +2,7 @@ import bodyComponent from './components/body';
 import headComponent from './components/head';
 import mainComponent from './components/main';
 import footerComponent from './components/footer';
+import headStylesComponent from './components/headStyles';
 import { renderTemplate } from './templates';
 import { printTemplate, printTemplateData } from './methods';
 
@@ -10,6 +11,7 @@ const outerTemplateComponents = {
   headComponent,
   mainComponent,
   footerComponent,
+  headStylesComponent,
   renderTemplate,
   printTemplate,
   printTemplateData,
