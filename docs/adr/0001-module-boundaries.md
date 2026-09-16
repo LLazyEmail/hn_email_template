@@ -71,6 +71,7 @@ The repository is in active migration from a monolithic `Work/` package toward a
 - Build configuration (`rollup.config.js`, `.babelrc`, `jest.config.js`).
 - Sample/fixture data files (`src/data.js`) used by integration tests and the CLI.
 - CI-facing test entry points (e.g. `test:real-data`).
+- Runtime wiring that injects Work display renderers into `outerTemplate` via `configureOuterTemplateRuntime()`.
 
 **Does not own (must not add new instances of):**
 - Core template rendering logic.
@@ -89,19 +90,19 @@ Dependencies must only flow **inward** (toward lower-level, more stable modules)
 ```
 Work/  (integration / orchestration)
   │
-  ├──▶  packages/template-runtime-display
+  ├─▶  packages/template-runtime-display
   │         │
-  │         └──▶  packages/template-engine
+  │         └─▶  packages/template-engine
   │                    │
-  │                    └──▶  (shared types / no further internal deps)
+  │                    └─▶  (shared types / no further internal deps)
   │
-  ├──▶  sub-modules/outerTemplate
+  ├─▶  sub-modules/outerTemplate
   │         │
-  │         └──▶  packages/template-engine   (optional, for shared types)
+  │         └─▶  packages/template-engine   (optional, for shared types)
   │
-  └──▶  sub-modules/innerComponents
+  └─▶  sub-modules/innerComponents
             │
-            └──▶  sub-modules/Typography
+            └─▶  sub-modules/Typography
                   sub-modules/Miscellaneous
 ```
 
@@ -129,6 +130,7 @@ The following template logic previously resided in `Work/src/templates/` and has
 | `hn-without-ads` template | `sub-modules/outerTemplate/src/templates/hn-without-ads.js` | ✅ Done |
 | HN definition assembly (`buildHnDefinition`) | `sub-modules/outerTemplate/src/runtime/displayRuntimeDeps.js` | ✅ Done |
 | HN-without-ads definition assembly (`buildHnWithoutAdsDefinition`) | `sub-modules/outerTemplate/src/runtime/displayRuntimeDeps.js` | ✅ Done |
+| Remove `outerTemplate` → `Work/` imports | `configureOuterTemplateRuntime()` injected from Work orchestration | ✅ Done |
 | Template registry and `renderTemplate` | `sub-modules/outerTemplate/src/templates/index.js` | ✅ Done |
 | `src/display/` (all sections + core) | `packages/template-runtime-display/src/` | Pending future step |
 | `src/components/` (low-level HTML components) | `sub-modules/outerTemplate/src/components/` | Pending future step |
