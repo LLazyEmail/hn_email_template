@@ -7,7 +7,7 @@ const {
   } = require('../../src/methods');
   
 
-const { innerContentComponent } = require('../../src/components');
+const { innerContentComponent } = require('atherdon-newsletter-js-layouts-body');
 
 // TODO move data into tests folder, as we dont use it elsewhere
 import markdownData from '../../../files/data-hn.js';

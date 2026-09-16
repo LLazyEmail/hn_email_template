@@ -7,7 +7,7 @@ const {
   } = require('../../src/methods');
   
 
-const { innerContentComponent } = require('../../src/components');
+const { innerContentComponent } = require('atherdon-newsletter-js-layouts-body');
 
 const displayTemplate = require('../../src/t/displayTemplate');
 

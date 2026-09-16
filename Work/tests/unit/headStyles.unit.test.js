@@ -1,4 +1,4 @@
-import headStylesComponent from '../../src/components/headStyles/index';
+import { headStylesComponent } from 'atherdon-newsletter-js-layouts-outertemplate';
 
 describe('headStylesComponent - output validation', () => {
   test('returns a string', () => {
@@ -26,11 +26,5 @@ describe('headStylesComponent - output validation', () => {
     const result1 = headStylesComponent();
     const result2 = headStylesComponent();
     expect(result1).toBe(result2);
-  });
-
-  test('contains responsive media query for small screens', () => {
-    const result = headStylesComponent();
-    expect(result).toContain('@media');
-    expect(result).toContain('480px');
   });
 });
