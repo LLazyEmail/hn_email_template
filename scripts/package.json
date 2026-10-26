@@ -1,0 +1,13 @@
+{
+  "name": "hn-email-template-scripts",
+  "private": true,
+  "type": "module",
+  "description": "CLI generator for the HN email template, built on @llazyemail/template-runtime-display.",
+  "scripts": {
+    "generate": "node ./generate-template.js",
+    "test": "node --test ./generate-template.test.js"
+  },
+  "dependencies": {
+    "@llazyemail/template-runtime-display": "^1.2.1"
+  }
+}

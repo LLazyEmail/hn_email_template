@@ -3,13 +3,14 @@
  * generate-template.js
  * Top-level generator script. Canonical location: scripts/generate-template.js.
  *
- * Previously located at Work/scripts/generate-template.js (which now delegates
- * here). Content datasets have moved to content/ (content1.js, content2.js,
- * content3.js); old files/ paths remain as backward-compat re-exports.
+ * Renders the HN email with @llazyemail/template-runtime-display:
+ *   xhtmlDocument({ headHtml, preheaderHtml, mainHtml })
+ * HN-specific slot markup lives in scripts/hn-parts.js. No Work/dist build needed.
+ * Setup: cd scripts && NODE_AUTH_TOKEN=<token with read:packages> npm install
  *
  * Usage (run from project root or Work/):
  *   node scripts/generate-template.js [options]
- *   npm run generate:template      (inside Work/, uses this script)
+ *   npm run generate               (inside scripts/)
  *
  * Arguments:
  *   --template   Template id from registry (default: "hn")
@@ -20,12 +21,13 @@
  *                If omitted, a basic fallback block is generated from data.title/preview.
  */
 
-const fs = require('fs');
-const path = require('path');
-const { pathToFileURL } = require('url');
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import { xhtmlDocument } from '@llazyemail/template-runtime-display';
+import { headHtml, preheaderHtml, mainHtml, footerHtml } from './hn-parts.js';
 
-// The compiled bundle lives in Work/dist/ — path is relative to this script file.
-const { renderTemplate } = require('../Work/dist/index.cjs.js');
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const usage = `
 Usage:
@@ -109,6 +111,16 @@ const buildFallbackContent = (data) => {
 `.trim();
 };
 
+export const renderHn = ({ data = {}, content }) =>
+  xhtmlDocument({
+    headHtml: headHtml({ title: data.title || '[Generated Template]' }),
+    preheaderHtml: preheaderHtml({ preview: data.preview || '' }),
+    mainHtml: mainHtml({
+      content: content || buildFallbackContent(data),
+      footer: footerHtml(data.footer),
+    }),
+  });
+
 const writeOutput = (outPath, html) => {
   const absolutePath = asAbsolute(outPath);
   const outputDir = path.dirname(absolutePath);
@@ -135,16 +147,17 @@ const run = async () => {
   const data = await loadData(dataPath);
   const content = loadContent(args.content) || buildFallbackContent(data);
 
-  const html = renderTemplate(templateId, {
-    string: content,
-    data,
-  });
+  if (templateId !== 'hn') {
+    throw new Error(`unknown --template "${templateId}" (only "hn" is supported)`);
+  }
+
+  const html = renderHn({ data, content });
 
   const outputFile = writeOutput(outPath, html);
   console.log(`[generate-template] generated: ${outputFile}`);
 };
 
-run().catch((error) => {
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) run().catch((error) => {
   console.error(`[generate-template] failed: ${error.message}`);
   process.exit(1);
 });
