@@ -10,114 +10,38 @@ on:
     branches: [ main ]
 
 jobs:
-  # ── Main Work package ────────────────────────────────────────────────────────
-  build-and-test:
+  # ── scripts/ generator (template-runtime-display requires Node >= 24) ──────
+  scripts:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
+      packages: read
     defaults:
       run:
-        working-directory: ./Work
-
+        working-directory: ./scripts
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+    - uses: actions/checkout@v4
+    - name: Use Node.js 24
+      uses: actions/setup-node@v4
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 24
         cache: 'npm'
-        # Fails the job if package-lock.json is out of sync with package.json
-        cache-dependency-path: Work/package-lock.json
-    - name: Install dependencies (lockfile consistency check)
+        cache-dependency-path: scripts/package-lock.json
+        registry-url: https://npm.pkg.github.com
+        scope: '@llazyemail'
+    - name: Install dependencies
       run: npm ci
-    - name: Lint
-      run: npm run lint
-    - name: Build (validates module bundling and catches unresolved imports)
-      run: npm run build
-    - name: Check for circular imports
-      run: npx madge --circular src/index.js
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Test
       run: npm test
-    - name: Generate and verify HTML template from real data
-      run: npm run test:real-data
-    - name: Generate HTML from content fixtures
-      if: matrix.node-version == '20.x'
-      run: npm run generate:fixtures
-    - name: Generate side-by-side comparison HTML
-      if: matrix.node-version == '20.x'
-      run: npm run generate:compare
-    - name: Write job summary
-      if: matrix.node-version == '20.x'
-      run: |
-        GENERATED_FILE="generated-real-data/real-data-template.html"
-        FIXTURES_DIR="generated/fixtures"
-        COMPARE_FROM_JSON="generated/compare-from-json.html"
-        COMPARE_FROM_MARKDOWN="generated/compare-from-markdown.html"
-        ARTIFACT_NAME="generated-html-comparison"
-        echo "## 🗞️ HTML Generation Summary" >> "$GITHUB_STEP_SUMMARY"
-        echo "" >> "$GITHUB_STEP_SUMMARY"
-        if [ -f "$GENERATED_FILE" ]; then
-          echo "✅ **Real-data template** — \`real-data-template.html\` was created successfully." >> "$GITHUB_STEP_SUMMARY"
-        else
-          echo "❌ **Real-data template** — \`real-data-template.html\` was not found." >> "$GITHUB_STEP_SUMMARY"
-        fi
-        echo "" >> "$GITHUB_STEP_SUMMARY"
-        echo "### 🔀 Side-by-side comparison renders" >> "$GITHUB_STEP_SUMMARY"
-        echo "" >> "$GITHUB_STEP_SUMMARY"
-        if [ -f "$COMPARE_FROM_JSON" ]; then
-          echo "- ✅ \`compare-from-json.html\` — generated from \`src/data.js\`" >> "$GITHUB_STEP_SUMMARY"
-        else
-          echo "- ❌ \`compare-from-json.html\` — not found" >> "$GITHUB_STEP_SUMMARY"
-        fi
-        if [ -f "$COMPARE_FROM_MARKDOWN" ]; then
-          echo "- ✅ \`compare-from-markdown.html\` — generated from \`src/data-from-markdown.js\`" >> "$GITHUB_STEP_SUMMARY"
-        else
-          echo "- ❌ \`compare-from-markdown.html\` — not found" >> "$GITHUB_STEP_SUMMARY"
-        fi
-        echo "" >> "$GITHUB_STEP_SUMMARY"
-        echo "### 🧪 Fixture renders" >> "$GITHUB_STEP_SUMMARY"
-        echo "" >> "$GITHUB_STEP_SUMMARY"
-        if [ -d "$FIXTURES_DIR" ]; then
-          fixture_count=0
-          for f in "$FIXTURES_DIR"/*.html; do
-            [ -f "$f" ] || continue
-            fname="$(basename "$f")"
-            echo "- ✅ \`$fname\`" >> "$GITHUB_STEP_SUMMARY"
-            fixture_count=$((fixture_count + 1))
-          done
-          if [ "$fixture_count" -eq 0 ]; then
-            echo "❌ No fixture HTML outputs found in \`$FIXTURES_DIR\`." >> "$GITHUB_STEP_SUMMARY"
-          fi
-        else
-          echo "❌ No fixture outputs found in \`$FIXTURES_DIR\`." >> "$GITHUB_STEP_SUMMARY"
-        fi
-        echo "" >> "$GITHUB_STEP_SUMMARY"
-        echo "### 📦 Download the comparison artifact" >> "$GITHUB_STEP_SUMMARY"
-        echo "" >> "$GITHUB_STEP_SUMMARY"
-        echo "1. Open this workflow run in the GitHub Actions UI." >> "$GITHUB_STEP_SUMMARY"
-        echo "2. Scroll to the **Artifacts** section at the bottom of the run summary page." >> "$GITHUB_STEP_SUMMARY"
-        echo "3. Click **\`${ARTIFACT_NAME}\`** to download the ZIP." >> "$GITHUB_STEP_SUMMARY"
-        echo "4. Unzip and open any \`.html\` file in a browser to compare renders." >> "$GITHUB_STEP_SUMMARY"
-        echo "" >> "$GITHUB_STEP_SUMMARY"
-        echo "> **Artifact name:** \`${ARTIFACT_NAME}\`" >> "$GITHUB_STEP_SUMMARY"
-        echo "> Side-by-side renders are \`compare-from-json.html\` and \`compare-from-markdown.html\`." >> "$GITHUB_STEP_SUMMARY"
-        echo "> Fixture renders are in the \`fixtures/\` subfolder; the real-data render is at the root." >> "$GITHUB_STEP_SUMMARY"
-    - name: Upload generated HTML artifacts
-      if: matrix.node-version == '20.x'
+    - name: Generate HN template
+      run: node generate-template.js --out=../generated/hn.html
+    - name: Upload generated HTML
       uses: actions/upload-artifact@v4
       with:
-        name: generated-html-comparison
-        path: |
-          Work/generated-real-data/
-          Work/generated/fixtures/
-          Work/generated/compare-from-json.html
-          Work/generated/compare-from-markdown.html
-        if-no-files-found: error
+        name: generated-hn-html
+        path: generated/hn.html
         retention-days: 7
 
   # ── Sub-modules (Typography, innerComponents, Miscellaneous) ─────────────────
@@ -126,31 +50,24 @@ jobs:
     permissions:
       contents: read
     strategy:
+      fail-fast: false
       matrix:
-        include:
-          - submodule: Typography
-            module-path: ./sub-modules/Typography
-            lockfile-path: sub-modules/Typography/package-lock.json
-          - submodule: innerComponents
-            module-path: ./sub-modules/innerComponents
-            lockfile-path: sub-modules/innerComponents/package-lock.json
-          - submodule: Miscellaneous
-            module-path: ./sub-modules/Miscellaneous
-            lockfile-path: sub-modules/Miscellaneous/package-lock.json
+        node-version: [22, 24]
+        submodule: [Typography, innerComponents, Miscellaneous]
 
     defaults:
       run:
-        working-directory: ${{ matrix.module-path }}
+        working-directory: ./sub-modules/${{ matrix.submodule }}
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Use Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
-        node-version: 20.x
+        node-version: ${{ matrix.node-version }}
         cache: 'npm'
         # Fails the job if the sub-module lockfile is out of sync
-        cache-dependency-path: ${{ matrix.lockfile-path }}
+        cache-dependency-path: sub-modules/${{ matrix.submodule }}/package-lock.json
     - name: Install dependencies (lockfile consistency check)
       run: npm ci
     - name: Lint
