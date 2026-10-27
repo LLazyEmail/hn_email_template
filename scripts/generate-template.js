@@ -27,6 +27,7 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { document, XHTML_DOCTYPE } from '@llazyemail/template-runtime-display';
 import { headHtml, preheaderHtml, mainHtml, footerHtml, HTML_ATTRIBUTES, BODY_ATTRIBUTES } from './hn-parts.js';
+import { adsHtml, imageGridHtml } from './hn-blocks.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -121,7 +122,9 @@ export const renderHn = ({ data = {}, content }) =>
     headHtml: headHtml({ title: data.title || '[Generated Template]' }),
     preheaderHtml: preheaderHtml({ preview: data.preview || '' }),
     mainHtml: mainHtml({
-      content: content || buildFallbackContent(data),
+      content: [content || buildFallbackContent(data), adsHtml(data.ads), imageGridHtml(data.images)]
+        .filter(Boolean)
+        .join('\n'),
       footer: footerHtml(data.footer),
     }),
   });
