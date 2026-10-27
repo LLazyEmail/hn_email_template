@@ -4,7 +4,8 @@
  * Top-level generator script. Canonical location: scripts/generate-template.js.
  *
  * Renders the HN email with @llazyemail/template-runtime-display:
- *   xhtmlDocument({ headHtml, preheaderHtml, mainHtml })
+ *   document({ doctype: XHTML_DOCTYPE, htmlAttributes, bodyAttributes, headHtml, preheaderHtml, mainHtml })
+ *   (xhtmlDocument() hard-codes htmlAttributes, so it can't add xmlns:v / xmlns:o)
  * HN-specific slot markup lives in scripts/hn-parts.js. No Work/dist build needed.
  * Setup: cd scripts && NODE_AUTH_TOKEN=<token with read:packages> npm install
  *
@@ -24,8 +25,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { xhtmlDocument } from '@llazyemail/template-runtime-display';
-import { headHtml, preheaderHtml, mainHtml, footerHtml } from './hn-parts.js';
+import { document, XHTML_DOCTYPE } from '@llazyemail/template-runtime-display';
+import { headHtml, preheaderHtml, mainHtml, footerHtml, HTML_ATTRIBUTES, BODY_ATTRIBUTES } from './hn-parts.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -112,7 +113,11 @@ const buildFallbackContent = (data) => {
 };
 
 export const renderHn = ({ data = {}, content }) =>
-  xhtmlDocument({
+  document({
+    doctype: XHTML_DOCTYPE,
+    lang: false,
+    htmlAttributes: HTML_ATTRIBUTES,
+    bodyAttributes: BODY_ATTRIBUTES,
     headHtml: headHtml({ title: data.title || '[Generated Template]' }),
     preheaderHtml: preheaderHtml({ preview: data.preview || '' }),
     mainHtml: mainHtml({

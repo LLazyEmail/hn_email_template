@@ -6,6 +6,19 @@
  * runtime's xhtmlDocument() instead of the old mainComponent.
  */
 
+/** <html> attributes from the old mainComponent (VML + Office namespaces for Outlook). */
+export const HTML_ATTRIBUTES = {
+  xmlns: 'http://www.w3.org/1999/xhtml',
+  'xmlns:v': 'urn:schemas-microsoft-com:vml',
+  'xmlns:o': 'urn:schemas-microsoft-com:office:office',
+};
+
+/** <body> attributes from the old EmailTemplateBodyComponent. */
+export const BODY_ATTRIBUTES = {
+  style:
+    'height: 100%; margin: 0; padding: 0; width: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: #ffffff;',
+};
+
 export const FONTS =
   '<link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700,700i|Merriweather+Sans:400,400i,700,700i|Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">';
 
