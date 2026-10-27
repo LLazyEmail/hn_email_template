@@ -14,7 +14,7 @@ test('renders an XHTML HN email via template-runtime-display', () => {
   }
 });
 
-test('renders HN ads and image grid from content2 and passes lintEmail', async () => {
+test('renders HN ads and image grid from content2 and passes lintEmail', async (t) => {
   const { lintEmail } = await import('@llazyemail/template-runtime-display/quality');
   const { default: data } = await import('../content/content2.js');
   const html = renderHn({ data });
@@ -25,6 +25,6 @@ test('renders HN ads and image grid from content2 and passes lintEmail', async (
   const result = { templateId: 'hn', ok: true, html, parts: [{ id: 'document', status: 'ok', html, chars: html.length, ms: 0 }] };
   // The Google Fonts <link> sits in <!--[if !mso]> on purpose (progressive web font).
   const findings = lintEmail(result, { off: ['no-external-stylesheet'] });
-  for (const f of findings) console.log(`[lint ${f.severity}] ${f.rule}: ${f.message}`);
+  findings.forEach((f) => t.diagnostic(`[lint ${f.severity}] ${f.rule}: ${f.message}`));
   assert.deepEqual(findings.filter((f) => f.severity === 'error'), []);
 });

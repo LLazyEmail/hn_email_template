@@ -7,7 +7,7 @@
  */
 import { escapeHtml } from '@llazyemail/template-runtime-display';
 
-const mergeEntries = (entries = []) => Object.assign({}, ...entries);
+const mergeEntries = (entries = []) => entries.reduce((acc, entry) => ({ ...acc, ...entry }), {});
 
 export const adsHtml = (ads = []) => {
   const { slogan, link, logo } = mergeEntries(ads);
