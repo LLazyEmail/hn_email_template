@@ -196,7 +196,6 @@ hn_email_template/
 │   │   └── update-packages.sh    # Update npm packages
 │   │
 │   ├── scripts/
-│   │   └── generate-template.js  # ⚠️ deprecated — use scripts/ at project root
 │   │
 │   ├── src/
 │   │   ├── index.js              # Public API exports
