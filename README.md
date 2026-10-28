@@ -9,33 +9,105 @@
 
 ---
 
+## Current state (start here)
+
+> This section describes the **current** generator. Everything below it is
+> preserved from earlier phases of the repo (Work/, module split, NX plans).
+> Where those sections are outdated, they carry a short legacy callout — nothing
+> was deleted. For AI agents: see [`AGENTS.md`](AGENTS.md).
+
+### What it is now
+
+A small Node ESM CLI in `scripts/` that renders the Hackernoon-style newsletter
+as one HTML email file, using the published
+[`@llazyemail/template-runtime-display`](https://github.com/LLazyEmail/template-runtime-display)
+package (`document()` with `XHTML_DOCTYPE`, `xmlns:v` / `xmlns:o` for Outlook).
+
+| Path | Role |
+|------|------|
+| `scripts/generate-template.js` | CLI + `renderHn()` |
+| `scripts/hn-parts.js` | head / preheader / main / footer + HTML/BODY attributes |
+| `scripts/hn-blocks.js` | ads + image grid (table-based) |
+| `scripts/generate-template.test.js` | `node:test` + `lintEmail` |
+| `content/` | Input datasets (`content2.js` is the default) |
+| `generated/` | Output HTML |
+
+### Quick start (current)
+
+Requires **Node 24** and a GitHub token with `read:packages`
+(`@llazyemail/*` is on GitHub Packages — see `scripts/.npmrc`).
+
+```bash
+cd scripts
+export NODE_AUTH_TOKEN=<token with read:packages>
+npm ci
+npm test
+npm run generate
+# or:
+node generate-template.js --data=../content/content2.js --out=../generated/hn.html
+node generate-template.js --help
+```
+
+Flags: `--template` (only `hn`), `--data`, `--out`, `--content` (optional HTML body).
+
+### Layout — current vs legacy
+
+| Path | Status | Notes |
+|------|--------|-------|
+| `scripts/`, `content/`, `generated/`, `docs/` | **current** | Generator, data, docs |
+| `sub-modules/Typography`, `innerComponents`, `Miscellaneous` | maintained (CI) | Standalone component packages |
+| `Work/` | legacy, being removed | Old Rollup/Babel/Jest pipeline |
+| `packages/template-engine`, `template-presets-hn`, `template-runtime-display` | legacy, being removed | Phase-3 split; local runtime stub superseded by the published package |
+| `sub-modules/outerTemplate` | legacy, being removed | Phase-3 scaffold |
+| `archive/`, `files/`, `src/` | historical | Early experiments |
+
+### LLazyEmail ecosystem
+
+- [`template-runtime-display`](https://github.com/LLazyEmail/template-runtime-display) — document shell + `lintEmail` (used by `scripts/`)
+- [`markup-generator`](https://github.com/LLazyEmail/markup-generator) — write content into files (legacy `Work/` path)
+- [`markdown-to-email`](https://github.com/LLazyEmail/markdown-to-email) — markdown → email pipeline this template was built for
+- [`email-template-workflows`](https://github.com/LLazyEmail/email-template-workflows) — reusable CI action for rendering email HTML
+
+### More docs
+
+- [`AGENTS.md`](AGENTS.md) — guide for AI agents (commands, conventions, gotchas)
+- [`CONTRIBUTING.md`](CONTRIBUTING.md)
+- [`docs/architecture.md`](docs/architecture.md)
+- [`docs/adr/0001-module-boundaries.md`](docs/adr/0001-module-boundaries.md)
+- [`docs/history/`](docs/history/README.md) — earlier READMEs (`README.old.md`, `read4.md`, `readme3.md`) moved here verbatim
+
+---
+
 ## Table of Contents
 
+0. [**Current state (start here)**](#current-state-start-here) — current generator, quick start, layout, ecosystem
 1. [Overview](#overview)
 2. [Features](#features)
 3. [Architecture & How It Works](#architecture--how-it-works)
 4. [Tech Stack](#tech-stack)
 5. [Repository Structure](#repository-structure)
-6. [Prerequisites](#prerequisites)
-7. [Installation & Setup](#installation--setup)
-8. [Configuration](#configuration)
-9. [Usage](#usage)
-10. [Workflow](#workflow)
-11. [Development](#development)
-12. [Testing & Validation](#testing--validation)
-13. [Building & Bundling](#building--bundling)
-14. [Deployment & Publishing](#deployment--publishing)
-15. [Troubleshooting / FAQ](#troubleshooting--faq)
-16. [Security & Privacy Notes](#security--privacy-notes)
-17. [Contributing](#contributing)
-18. [Roadmap](#roadmap)
-19. [Related Resources & Articles](#related-resources--articles)
-20. [Recent Changes](#recent-changes)
-21. [About the `outerTemplate` Module](#about-the-outertemplate-module)
-22. [Architecture Decisions](#architecture-decisions)
-23. [Legacy README](#legacy-readme)
-24. [License](#license)
-25. [Acknowledgements](#acknowledgements)
+6. [Target Architecture](#target-architecture)
+7. [Baseline Behavior](#baseline-behavior)
+8. [Prerequisites](#prerequisites)
+9. [Installation & Setup](#installation--setup)
+10. [Configuration](#configuration)
+11. [Usage](#usage)
+12. [Workflow](#workflow)
+13. [Development](#development)
+14. [Testing & Validation](#testing--validation)
+15. [Building & Bundling](#building--bundling)
+16. [Deployment & Publishing](#deployment--publishing)
+17. [Troubleshooting / FAQ](#troubleshooting--faq)
+18. [Security & Privacy Notes](#security--privacy-notes)
+19. [Contributing](#contributing)
+20. [Roadmap](#roadmap)
+21. [Related Resources & Articles](#related-resources--articles)
+22. [Recent Changes](#recent-changes)
+23. [About the `outerTemplate` Module](#about-the-outertemplate-module)
+24. [Architecture Decisions](#architecture-decisions)
+25. [Legacy README](#legacy-readme)
+26. [License](#license)
+27. [Acknowledgements](#acknowledgements)
 
 ---
 
@@ -72,6 +144,9 @@ This project solves that by:
 ---
 
 ## Architecture & How It Works
+> **Note: legacy** — describes the Work/ display pipeline (mapper → model → display).
+> Current flow: `scripts/generate-template.js` → runtime `document()`; see [Current state](#current-state-start-here).
+
 
 The template is split into two conceptual layers:
 
@@ -119,6 +194,9 @@ Raw Input Data
 ---
 
 ## Tech Stack
+> **Note: legacy** — lists the Work/ Rollup/Babel/Jest toolchain. The current generator is plain Node ESM
+> (`scripts/`) with `@llazyemail/template-runtime-display`; see [Current state](#current-state-start-here).
+
 
 | Tool / Library | Role |
 |---|---|
@@ -139,6 +217,9 @@ Raw Input Data
 ---
 
 ## Repository Structure
+> **Note: partially outdated** — tree below mixes current and legacy paths. Prefer the
+> [layout table in Current state](#layout--current-vs-legacy). Legacy dirs are being removed in separate PRs.
+
 
 > **Note:** `Work/` is the current runtime root and is **transitional/deprecated**.
 > New top-level directories (`content/`, `scripts/`, `src/`, `tests/`, `generated/`,
@@ -236,6 +317,9 @@ hn_email_template/
 ---
 
 ## Target Architecture
+> **Note: legacy** — reorganization plan from the module-split phase. For the live picture see
+> [`docs/architecture.md`](docs/architecture.md) (Current section) and [Current state](#current-state-start-here).
+
 
 > See [`docs/architecture.md`](docs/architecture.md) for the full migration plan.
 
@@ -256,6 +340,9 @@ then be removed. No new core logic should be added to `Work/`.
 ---
 
 ## Baseline Behavior
+> **Note: legacy** — `Work/` generate/test commands. Current verification:
+> `cd scripts && npm test` and `npm run generate` (Node 24 + `NODE_AUTH_TOKEN`).
+
 
 Before the reorganization, generation used `files/data-hn.js` as the default
 content source and output to `Work/generated/`. These paths are still valid
@@ -288,6 +375,9 @@ cd Work && npm test
 ---
 
 ## Prerequisites
+> **Note: partially outdated** — for the current generator you need Node **24** and a GitHub
+> Packages token (`read:packages`). See [Quick start (current)](#quick-start-current).
+
 
 - **Node.js** >= 18 (18.x or 20.x; these are the versions tested in CI)
 - **npm** >= 7 (workspaces support)
@@ -298,6 +388,8 @@ cd Work && npm test
 ---
 
 ## Installation & Setup
+> **Note: legacy** — steps below install `Work/`. Current install: [Quick start (current)](#quick-start-current).
+
 
 ### 1. Clone the repository
 
@@ -333,6 +425,8 @@ The `.gitpod.yml` is pre-configured to install dependencies and start the dev wa
 ---
 
 ## Configuration
+> **Note: legacy** — Work/ `src/config.js` and related. Current HN attributes live in `scripts/hn-parts.js`.
+
 
 All shared constants live in `Work/src/config.js`:
 
@@ -349,6 +443,9 @@ There are **no required environment variables** for local development. If you ex
 ---
 
 ## Usage
+> **Note: legacy** — Work/ API (`renderTemplate`, section printers). Current CLI:
+> `node scripts/generate-template.js --help` (see [Quick start](#quick-start-current)).
+
 
 ### Rendering a full template
 
@@ -414,6 +511,8 @@ npm run generate:template -- \
 ---
 
 ## Workflow
+> **Note: legacy** — Work/-centric edit/build/test loop. Current loop is edit `scripts/` → `npm test` → `npm run generate`.
+
 
 The intended end-to-end workflow for the Hackernoon newsletter pipeline is:
 
@@ -438,6 +537,9 @@ The separation between **inner content** and **outer template** means that the t
 ---
 
 ## Development
+> **Note: legacy** — Rollup watcher, Work/ lint/format/husky. Sub-modules still have their own lint/build/test;
+> the generator itself needs no Rollup build.
+
 
 ### Running the dev watcher (Rollup)
 
@@ -481,6 +583,9 @@ npm run format
 ---
 
 ## Testing & Validation
+> **Note: legacy** — Work/ Jest suites and fixtures. Current tests: `cd scripts && npm test`
+> (includes `lintEmail`). Work/ tests are being removed separately.
+
 
 Tests live in `Work/tests/` and are split into unit and integration suites.
 
@@ -582,6 +687,9 @@ The CI job summary also lists every fixture that was rendered in that run.
 ---
 
 ## Building & Bundling
+> **Note: legacy** — Work/ Rollup build. The current generator is run with Node; no bundle step.
+> Sub-modules still `npm run build` in CI.
+
 
 The project uses [Rollup](https://rollupjs.org/) to produce three output formats from `Work/src/index.js`:
 
@@ -601,6 +709,9 @@ npm run clean        # remove dist/ and coverage/
 ---
 
 ## Deployment & Publishing
+> **Note: legacy** — npm publish of Work/ / sub-modules. The current generator is not published as a package;
+> CI uploads `generated/hn.html` as an artifact.
+
 
 The package is published to **npm** as `atherdon-old-newsletter-js-outertemplate`.
 
@@ -616,6 +727,9 @@ npm publish
 ---
 
 ## Troubleshooting / FAQ
+> **Note: mostly legacy** — Work/ / Babel / Husky issues. For the current generator, a 401/404 on `npm ci`
+> in `scripts/` usually means missing `NODE_AUTH_TOKEN` (see `scripts/.npmrc` and [AGENTS.md](AGENTS.md)).
+
 
 ### `Cannot find module` errors after cloning
 
@@ -679,6 +793,9 @@ cd Work && npm test
 ---
 
 ## Contributing
+> Prefer small draft PRs. Current code lives under `scripts/` (and maintained sub-modules).
+> Do not add new logic to `Work/` or other legacy dirs unless the task is their removal. See [AGENTS.md](AGENTS.md).
+
 
 Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guide.
 
@@ -691,6 +808,8 @@ Quick reference:
 5. Open a **Pull Request** against `main` with a clear description.
 
 ### Work/ directory policy
+> **Note: legacy policy** — still historically accurate for the Work/ phase; `Work/` itself is being removed.
+
 
 > **`Work/` is integration and orchestration only — no new core logic.**
 
@@ -701,6 +820,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for full details on what belongs where.
 ---
 
 ## Roadmap
+> **Note: partially outdated** — several migration items are done or superseded by the runtime-display
+> generator. Remaining cleanup is removal of legacy dirs in separate PRs.
+
 
 > These are ideas and known areas for improvement — not commitments.
 
@@ -744,6 +866,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for full details on what belongs where.
 ---
 
 ## Recent Changes
+> **Note:** the March 2026 list below is historical. More recent work moved generation to
+> `scripts/` + `@llazyemail/template-runtime-display` (see [Current state](#current-state-start-here)).
+
 
 ### Major Recent Changes (March 2026)
 
@@ -758,12 +883,18 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for full details on what belongs where.
 ---
 
 ## About the `outerTemplate` Module
+> **Note: legacy** — `sub-modules/outerTemplate` is being removed. Current outer shell is assembled in
+> `scripts/hn-parts.js` via runtime `document()`.
+
 
 The `outerTemplate` module is responsible for encapsulating the structure, definitions, and static assembly logic for email templates (such as "HN" and "hn-without-ads"). This module organizes all static aspects of template construction, providing a clear separation from dynamic, data-driven, or rendering-specific logic. While `outerTemplate` holds most or all static components, actual HTML rendering and runtime processing may also involve related modules like `display runtime` and `template-engine`. This modular approach enhances maintainability and makes each concern explicit within the repository's structure.
 
 ---
 
 ## Architecture Decisions
+> ADR 0001 still applies as module-boundary guidance. The local `packages/*` split it describes is being
+> replaced by the published `@llazyemail/template-runtime-display` package.
+
 
 Architecture Decision Records (ADRs) capture significant design choices made during the evolution of this project. They are stored in [`docs/adr/`](docs/adr/).
 
@@ -790,7 +921,7 @@ See [`docs/adr/0001-module-boundaries.md`](docs/adr/0001-module-boundaries.md) f
 
 ## Legacy README
 
-The original README is preserved at [`README.old.md`](README.old.md) for historical reference. It contains the original project notes, architecture sketches, and early development narrative written during the initial build phase. No content has been changed.
+The original README is preserved at [`docs/history/README-original.md`](docs/history/README-original.md) for historical reference. It contains the original project notes, architecture sketches, and early development narrative written during the initial build phase. No content has been changed.
 
 ---
 
