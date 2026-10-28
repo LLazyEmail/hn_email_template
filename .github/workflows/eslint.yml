@@ -35,19 +35,27 @@ jobs:
 
       - name: Install ESLint
         run: |
-          npm install eslint@8.10.0
-          npm install @microsoft/eslint-formatter-sarif@2.1.7
+          mkdir -p "$RUNNER_TEMP/eslint-ci"
+          npm install --prefix "$RUNNER_TEMP/eslint-ci" eslint@9 @microsoft/eslint-formatter-sarif@3
 
       - name: Run ESLint
-        run: npx eslint .
-          --config .eslintrc.js
-          --ext .js,.jsx,.ts,.tsx
-          --format @microsoft/eslint-formatter-sarif 
-          --output-file eslint-results.sarif
-        continue-on-error: true
+        working-directory: scripts
+        run: |
+          set +e
+          # Flat config is scripts/eslint.config.js (not at repo root) so
+          # sub-modules keep their legacy .eslintrc + --ext CLI flags.
+          "$RUNNER_TEMP/eslint-ci/node_modules/.bin/eslint" . \
+            --format "$RUNNER_TEMP/eslint-ci/node_modules/@microsoft/eslint-formatter-sarif/sarif.js" \
+            --output-file "$GITHUB_WORKSPACE/eslint-results.sarif"
+          lint_exit=$?
+          if [ ! -f "$GITHUB_WORKSPACE/eslint-results.sarif" ]; then
+            printf '%s\n' '{"version":"2.1.0","$schema":"https://json.schemastore.org/sarif-2.1.0.json","runs":[{"tool":{"driver":{"name":"ESLint","informationUri":"https://eslint.org","rules":[]}},"results":[]}]}' > "$GITHUB_WORKSPACE/eslint-results.sarif"
+          fi
+          exit $lint_exit
 
       - name: Upload analysis results to GitHub
-        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        uses: github/codeql-action/upload-sarif@v4
         with:
           sarif_file: eslint-results.sarif
           wait-for-processing: true
