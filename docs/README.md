@@ -6,9 +6,9 @@ Project documentation and architecture decision records.
 
 | File | Description |
 |------|-------------|
-| [`architecture.md`](architecture.md) | Target architecture and migration plan |
+| [`architecture.md`](architecture.md) | Current architecture; legacy migration plan kept below it |
+| [`history/`](history/README.md) | Older READMEs from previous phases (if merged) |
 
 ## Architecture Decision Records
 
-ADRs live in `Work/docs/adr/` (e.g., `0001-module-boundaries.md`).
-They will be migrated here in a future reorganization step.
+ADRs live in [`adr/`](adr/) (e.g., [`0001-module-boundaries.md`](adr/0001-module-boundaries.md)).

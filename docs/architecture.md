@@ -1,9 +1,42 @@
-# Target Architecture
+# Architecture
+
+## Current (runtime-display generator)
+
+```
+content/content2.js ─┐
+--content body.html ─┼─> scripts/generate-template.js  (renderHn)
+                     │      ├─ scripts/hn-parts.js   head / preheader / main / footer, HTML & BODY attributes
+                     │      └─ scripts/hn-blocks.js  ads + image grid (tables only)
+                     └─> @llazyemail/template-runtime-display
+                            document({ doctype: XHTML_DOCTYPE, lang: false, htmlAttributes, bodyAttributes, headHtml, preheaderHtml, mainHtml })
+                         ──> generated/hn.html
+```
+
+- `document()` is used instead of `xhtmlDocument()` because the latter
+  hard-codes `htmlAttributes` and cannot add `xmlns:v` / `xmlns:o`.
+- Dependencies come from GitHub Packages (`scripts/.npmrc`, `NODE_AUTH_TOKEN`).
+- Verification: `cd scripts && npm test` (node:test + `lintEmail` from
+  `@llazyemail/template-runtime-display/quality`). CI runs it on Node 24 and
+  uploads `generated/hn.html`.
+- `sub-modules/Typography`, `innerComponents`, `Miscellaneous` remain standalone
+  packages, CI-tested on Node 22/24.
+
+Legacy layers — `Work/`, `sub-modules/outerTemplate`, `packages/template-engine`,
+`packages/template-presets-hn`, the local `packages/template-runtime-display`
+stub — are being removed in separate PRs. The plan below is kept for history.
+See also [`docs/history/`](history/README.md).
+
+---
+
+## Legacy: target architecture during the module split (historical)
+
+> The rest of this document describes the earlier reorganization plan and the
+> `Work/`-based baseline. Commands here refer to `Work/` and may no longer work.
 
 This document describes the intended top-level project structure after the
 ongoing reorganization is complete.
 
-## Target Directory Layout
+### Target Directory Layout
 
 ```
 hn_email_template/
@@ -46,7 +79,7 @@ hn_email_template/
     └── Miscellaneous/
 ```
 
-## Work/ Deprecation
+### Work/ Deprecation
 
 `Work/` is the current runtime root and is **transitional / deprecated**.
 
@@ -56,7 +89,7 @@ hn_email_template/
 
 See the 20-step reorganization plan for the full migration roadmap.
 
-## Baseline Behavior (Step 1 Freeze)
+### Baseline Behavior (Step 1 Freeze)
 
 The following commands capture the baseline generation behavior before
 the reorganization. They can be used to verify that generation still
