@@ -40,7 +40,9 @@ jobs:
       - name: Run ESLint
         run: |
           set +e
+          # Config lives under scripts/ so sub-modules keep their own .eslintrc (no root flat config).
           npx eslint scripts \
+            --config scripts/eslint.config.js \
             --format @microsoft/eslint-formatter-sarif \
             --output-file eslint-results.sarif
           lint_exit=$?

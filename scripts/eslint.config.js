@@ -1,23 +1,13 @@
 // Minimal ESLint flat config for the current generator (scripts/ only).
-// Legacy dirs are ignored so they are not scanned.
-// CommonJS so this works without "type":"module" at the repo root.
+// Lives under scripts/ (not repo root) so sub-modules keep using their own .eslintrc
+// and are not forced into flat-config mode.
+// CommonJS so this works without "type":"module".
 module.exports = [
   {
-    ignores: [
-      '**/node_modules/**',
-      'Work/**',
-      'packages/**',
-      'sub-modules/**',
-      'archive/**',
-      'src/**',
-      'files/**',
-      'generated/**',
-      'content/**',
-      'docs/**',
-    ],
+    ignores: ['**/node_modules/**'],
   },
   {
-    files: ['scripts/**/*.{js,mjs,cjs}'],
+    files: ['**/*.{js,mjs,cjs}'],
     languageOptions: {
       ecmaVersion: 2024,
       sourceType: 'module',
