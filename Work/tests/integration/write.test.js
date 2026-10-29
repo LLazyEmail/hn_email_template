@@ -1,4 +1,4 @@
-import { writingFile } from 'markup-generator';
+import { writeGeneratedFile } from 'markup-generator';
 
 import { printMain,  printFooter, printBody, printHead } from '../../src/methods'
 
@@ -15,14 +15,14 @@ import { printMain,  printFooter, printBody, printHead } from '../../src/methods
 describe('test helpers', () => {
 
 
-    test('rendering head component', () => {
+    test('rendering head component', async () => {
 
       const string1 = printHead();
 
 //       // console.log(string);
       expect(printHead()).toBeDefined();
 
-      writingFile(string1, 'lit-empty', '');
+      await writeGeneratedFile({ content: string1, 'lit-empty', prefix: '' });
     });
 
 
@@ -56,7 +56,7 @@ describe('test helpers', () => {
 //   //  });
 
 
-   test('rendering Main Component', () => {
+   test('rendering Main Component', async () => {
 
 
        const string4 = printMain();
@@ -65,7 +65,7 @@ describe('test helpers', () => {
 
        expect(printMain()).toBeDefined();
 
-       writingFile(string4, 'lit-empty');
+       await writeGeneratedFile({ content: string4, prefix: 'lit-empty' });
 //        // expect(typeof string).toBe('string');
 
    });

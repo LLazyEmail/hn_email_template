@@ -1,4 +1,4 @@
-import { writingFile } from 'markup-generator';
+import { writeGeneratedFile } from 'markup-generator';
 
 import {ContentHTMLString} from '../../src/display/sections/content';
 

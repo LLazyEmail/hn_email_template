@@ -1,4 +1,4 @@
-import { writingFile } from 'markup-generator';
+import { writeGeneratedFile } from 'markup-generator';
 
 import {FooterHTMLString} from '../../src/display/sections/footer';
 
@@ -18,11 +18,11 @@ describe('footer display method must be initialized', () => {
 
 describe('writing components into files', () => {
   
-    test('write footer', () => {
+    test('write footer', async () => {
       const string4 = FooterHTMLString;
 
 
-      writingFile(string4, 'HN-Footer');
+      await writeGeneratedFile({ content: string4, prefix: 'HN-Footer' });
 
       expect(FooterHTMLString).toBeDefined();
 

@@ -1,4 +1,4 @@
-import { writingFile } from 'markup-generator';
+import { writeGeneratedFile } from 'markup-generator';
 
 import {BodyHTMLString} from '../../src/display/sections/body';
 // import { BodyHTMLString } from '../../src/display/sections/body';
@@ -19,12 +19,12 @@ describe('body display method must be initialized', () => {
 
 describe('writing components into files', () => {
   
-    test('write body', () => {
+    test('write body', async () => {
       const string5 = BodyHTMLString;
 
       // console.log(string);
       expect(BodyHTMLString).toBeDefined();
 
-      writingFile(string5, 'HN-Body');
+      await writeGeneratedFile({ content: string5, prefix: 'HN-Body' });
   });
 });
