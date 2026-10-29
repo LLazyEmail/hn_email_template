@@ -1,4 +1,4 @@
-import { writingFile } from 'markup-generator';
+import { writeGeneratedFile } from 'markup-generator';
 
 import { MainHTMLString } from '../../src/display/sections/main';
 
@@ -14,13 +14,13 @@ describe('main display method must be initialized', () => {
 
 
 describe('writing components into files', () => {
-  test('write main', () => {
+  test('write main', async () => {
     const string3 = MainHTMLString;
 
     // console.log(string);
     expect(MainHTMLString).toBeDefined();
 
-    writingFile(string3, 'HN-Main');
+    await writeGeneratedFile({ content: string3, prefix: 'HN-Main' });
   });
   
 });

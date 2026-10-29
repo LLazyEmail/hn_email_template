@@ -1,5 +1,5 @@
 // https://github.com/abritinthebay/jest-tobetype
-import { writingFile } from 'markup-generator';
+import { writeGeneratedFile } from 'markup-generator';
 
 // const { 
 //   printMain, printFooter, printBody, 
@@ -29,7 +29,7 @@ describe('test helpers', () => {
 
 
 
-  test('rendering Body Component', () => {
+  test('rendering Body Component', async () => {
 
 
       const string = BodyHTMLString;
@@ -39,12 +39,12 @@ describe('test helpers', () => {
       expect(BodyHTMLString).toBeDefined();
 
       expect(typeof string).toBe('string');
-      writingFile(string, 'lit-empty');
+      await writeGeneratedFile({ content: string, prefix: 'lit-empty' });
 
   });
 
 
-  test('rendering Footer Component', () => {
+  test('rendering Footer Component', async () => {
 
 
     const string = FooterHTMLString;
@@ -54,7 +54,7 @@ describe('test helpers', () => {
     expect(FooterHTMLString).toBeDefined();
 
   //   // expect(typeof string).toBe('string');
-    writingFile(string, 'lit-empty');
+    await writeGeneratedFile({ content: string, prefix: 'lit-empty' });
 
   });
 

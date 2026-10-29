@@ -1,4 +1,4 @@
-import { writingFile } from 'markup-generator';
+import { writeGeneratedFile } from 'markup-generator';
 const { 
     // printMain, printFooter, printBody, 
     // printHead,
@@ -14,7 +14,7 @@ const displayTemplate = require('../../src/t/displayTemplate');
   describe('test helpers', () => {
 
 
-    test('rendering Template', () => { 
+    test('rendering Template', async () => { 
 
 
         const string = printTemplate(innerContentComponent());
@@ -24,7 +24,7 @@ const displayTemplate = require('../../src/t/displayTemplate');
         // expect(string).toBeDefined();
   
         expect(typeof string).toBe('string');
-        writingFile(string);
+        await writeGeneratedFile({ content: string, prefix: 'generated' });
 
     });
 
