@@ -1,4 +1,4 @@
-import { writingFile } from 'markup-generator';
+import { writeGeneratedFile } from 'markup-generator';
 
 import { HeadHTMLString }  from '../../src/display/sections/head';
 
@@ -16,13 +16,13 @@ describe('head display method must be initialized', () => {
 describe('writing components into files', () => {
   
   
-  test('write head', () => {
+  test('write head', async () => {
     const string1 = HeadHTMLString;
 
     // console.log(string);
     expect(string1).toBeDefined();
 
-    writingFile(string1, 'hn', '');
+    await writeGeneratedFile({ content: string1, 'hn', prefix: '' });
   });
   
 });
