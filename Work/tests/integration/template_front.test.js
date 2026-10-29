@@ -1,4 +1,4 @@
-import { writingFile } from 'markup-generator';
+import { writeGeneratedFile } from 'markup-generator';
 const { 
     // printMain, printFooter, printBody, 
     // printHead,
@@ -17,7 +17,7 @@ import markdownData from '../../../files/data-hn.js';
   describe('test helpers', () => {
 
 
-    test('rendering Template', () => { 
+    test('rendering Template', async () => { 
 
         const contentos = innerContentComponent();
         const string = printTemplateData({ string: contentos, data: markdownData });
@@ -27,7 +27,7 @@ import markdownData from '../../../files/data-hn.js';
         // expect(string).toBeDefined();
   
         expect(typeof string).toBe('string');
-        writingFile(string);
+        await writeGeneratedFile({ content: string, prefix: 'generated' });
 
     });
 
