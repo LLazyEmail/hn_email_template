@@ -1,0 +1,44 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    "helpers:pinGitHubActionDigestsToSemver",
+    "schedule:weekly"
+  ],
+  "timezone": "Europe/Kyiv",
+  "schedule": ["before 6am on Monday"],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true,
+    "schedule": ["before 6am on Monday"]
+  },
+  "packageRules": [
+    {
+      "description": "Automerge low-risk devDependency patch and minor once CI is green",
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "automerge": true,
+      "groupName": "devDependencies (non-major)"
+    },
+    {
+      "description": "Automerge @types/* patch and minor",
+      "matchPackageNames": ["@types/{*,*/*}"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "automerge": true,
+      "groupName": "@types (non-major)"
+    },
+    {
+      "description": "Automerge GitHub Actions digests, pins, patches, minors",
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["digest", "pin", "patch", "minor"],
+      "automerge": true,
+      "minimumReleaseAge": "3 days",
+      "groupName": "GitHub Actions (non-major)"
+    },
+    {
+      "description": "Major updates stay manual (typescript v7, node majors, etc.)",
+      "matchUpdateTypes": ["major"],
+      "automerge": false
+    }
+  ]
+}
