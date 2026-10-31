@@ -9,7 +9,7 @@
  * HN-specific slot markup lives in scripts/hn-parts.js. No Work/dist build needed.
  * Setup: cd scripts && NODE_AUTH_TOKEN=<token with read:packages> npm install
  *
- * Usage (run from project root or Work/):
+ * Usage (run from project root):
  *   node scripts/generate-template.js [options]
  *   npm run generate               (inside scripts/)
  *
@@ -33,7 +33,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const usage = `
 Usage:
-  node scripts/generate-template.js --template=hn --data=content/content2.js --out=generated/hn.html [--content=Work/src/content-from-markdown.html]
+  node scripts/generate-template.js --template=hn --data=content/content2.js --out=generated/hn.html [--content=archive/legacy/Work/src/content-from-markdown.html]
 
 Arguments:
   --template   Template id from registry (default: "hn")

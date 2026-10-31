@@ -13,8 +13,8 @@
 
 > This section describes the **current** generator. Everything below it is
 > preserved from earlier phases of the repo (Work/, module split, NX plans).
-> Where those sections are outdated, they carry a short legacy callout — nothing
-> was deleted. For AI agents: see [`AGENTS.md`](AGENTS.md).
+> Where those sections are outdated, they carry a short legacy callout.
+> Source for the old Work/outerTemplate/local-packages stack lives under `archive/legacy/`. For AI agents: see [`AGENTS.md`](AGENTS.md).
 
 ### What it is now
 
@@ -56,10 +56,9 @@ Flags: `--template` (only `hn`), `--data`, `--out`, `--content` (optional HTML b
 |------|--------|-------|
 | `scripts/`, `content/`, `generated/`, `docs/` | **current** | Generator, data, docs |
 | `sub-modules/Typography`, `innerComponents`, `Miscellaneous` | maintained (CI) | Standalone component packages |
-| `Work/` | legacy, being removed | Old Rollup/Babel/Jest pipeline |
-| `packages/template-engine`, `template-presets-hn`, `template-runtime-display` | legacy, being removed | Phase-3 split; local runtime stub superseded by the published package |
-| `sub-modules/outerTemplate` | legacy, being removed | Phase-3 scaffold |
-| `archive/`, `files/`, `src/` | historical | Early experiments |
+| `Work/` | stub | `generate:template` → `scripts/`; source/tests in `archive/legacy/Work/` |
+| `archive/legacy/` | archived reference | Work/src+tests, outerTemplate, local template-* packages — see [`archive/legacy/README.md`](archive/legacy/README.md) |
+| `archive/` (other), `files/`, `src/` | historical | Early experiments |
 
 ### LLazyEmail ecosystem
 
