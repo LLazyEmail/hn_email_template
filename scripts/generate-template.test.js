@@ -28,3 +28,16 @@ test('renders HN ads and image grid from content2 and passes lintEmail', async (
   findings.forEach((f) => t.diagnostic(`[lint ${f.severity}] ${f.rule}: ${f.message}`));
   assert.deepEqual(findings.filter((f) => f.severity === 'error'), []);
 });
+
+test('hn-without-ads skips ads block but keeps image grid (preset featureFlags.ads:false)', async () => {
+  const { default: data } = await import('../content/content2.js');
+  const withAds = renderHn({ data, templateId: 'hn' });
+  const withoutAds = renderHn({ data, templateId: 'hn-without-ads' });
+
+  assert.match(withAds, /class="hnAds"/);
+  assert.doesNotMatch(withoutAds, /class="hnAds"/);
+  assert.doesNotMatch(withoutAds, /Bridgecrew_stacked\.jpg/);
+  assert.equal((withoutAds.match(/alt="Image \d"/g) || []).length, data.images.length);
+  assert.match(withoutAds, /id="templateFooter"/);
+  assert.match(withoutAds, /id="bodyTable"/);
+});

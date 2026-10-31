@@ -14,7 +14,7 @@
  *   npm run generate               (inside scripts/)
  *
  * Arguments:
- *   --template   Template id from registry (default: "hn")
+ *   --template   Template id: "hn" (default) or "hn-without-ads"
  *   --data       Path to data module (.js/.mjs/.cjs/.json). Resolved from CWD.
  *                Default: content/content2.js (relative to project root)
  *   --out        Output HTML file path (resolved from CWD)
@@ -33,10 +33,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const usage = `
 Usage:
+  node scripts/generate-template.js --template=hn --data=content/content2.js --out=generated/hn.html [--content=path/to/body.html]
   node scripts/generate-template.js --template=hn --data=content/content2.js --out=generated/hn.html [--content=archive/legacy/Work/src/content-from-markdown.html]
 
 Arguments:
-  --template   Template id from registry (default: "hn")
+  --template   Template id: "hn" (default) or "hn-without-ads" (same chrome, no ads block)
   --data       Path to data module (.js/.mjs/.cjs/.json). Resolved from CWD.
                Default: content/content2.js
   --out        Output HTML file path (resolved from CWD)
@@ -113,8 +114,23 @@ const buildFallbackContent = (data) => {
 `.trim();
 };
 
-export const renderHn = ({ data = {}, content }) =>
-  document({
+const SUPPORTED_TEMPLATES = new Set(['hn', 'hn-without-ads']);
+
+/**
+ * Render HN email. `hn-without-ads` matches archived preset featureFlags.ads:false
+ * (hero + image-grid only — skips adsHtml / sponsor ads block).
+ */
+export const renderHn = ({ data = {}, content, templateId = 'hn' } = {}) => {
+  const includeAds = templateId !== 'hn-without-ads';
+  const blocks = [
+    content || buildFallbackContent(data),
+    includeAds ? adsHtml(data.ads) : null,
+    imageGridHtml(data.images),
+  ]
+    .filter(Boolean)
+    .join('\n');
+
+  return document({
     doctype: XHTML_DOCTYPE,
     lang: false,
     htmlAttributes: HTML_ATTRIBUTES,
@@ -122,12 +138,11 @@ export const renderHn = ({ data = {}, content }) =>
     headHtml: headHtml({ title: data.title || '[Generated Template]' }),
     preheaderHtml: preheaderHtml({ preview: data.preview || '' }),
     mainHtml: mainHtml({
-      content: [content || buildFallbackContent(data), adsHtml(data.ads), imageGridHtml(data.images)]
-        .filter(Boolean)
-        .join('\n'),
+      content: blocks,
       footer: footerHtml(data.footer),
     }),
   });
+};
 
 const writeOutput = (outPath, html) => {
   const absolutePath = asAbsolute(outPath);
@@ -155,11 +170,13 @@ const run = async () => {
   const data = await loadData(dataPath);
   const content = loadContent(args.content) || buildFallbackContent(data);
 
-  if (templateId !== 'hn') {
-    throw new Error(`unknown --template "${templateId}" (only "hn" is supported)`);
+  if (!SUPPORTED_TEMPLATES.has(templateId)) {
+    throw new Error(
+      `unknown --template "${templateId}" (supported: ${[...SUPPORTED_TEMPLATES].join(', ')})`,
+    );
   }
 
-  const html = renderHn({ data, content });
+  const html = renderHn({ data, content, templateId });
 
   const outputFile = writeOutput(outPath, html);
   console.log(`[generate-template] generated: ${outputFile}`);

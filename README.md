@@ -25,7 +25,7 @@ package (`document()` with `XHTML_DOCTYPE`, `xmlns:v` / `xmlns:o` for Outlook).
 
 | Path | Role |
 |------|------|
-| `scripts/generate-template.js` | CLI + `renderHn()` |
+| `scripts/generate-template.js` | CLI + `renderHn()` (`hn` / `hn-without-ads`) |
 | `scripts/hn-parts.js` | head / preheader / main / footer + HTML/BODY attributes |
 | `scripts/hn-blocks.js` | ads + image grid (table-based) |
 | `scripts/generate-template.test.js` | `node:test` + `lintEmail` |
@@ -48,7 +48,7 @@ node generate-template.js --data=../content/content2.js --out=../generated/hn.ht
 node generate-template.js --help
 ```
 
-Flags: `--template` (only `hn`), `--data`, `--out`, `--content` (optional HTML body).
+Flags: `--template` (`hn` default, or `hn-without-ads` — same chrome without the ads/sponsor block), `--data`, `--out`, `--content` (optional HTML body).
 
 ### Layout — current vs legacy
 

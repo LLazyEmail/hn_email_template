@@ -16,7 +16,7 @@ on [`@llazyemail/template-runtime-display`](https://github.com/LLazyEmail/templa
 
 | Path | Role |
 |------|------|
-| `scripts/generate-template.js` | CLI + `renderHn()`; calls runtime `document()` with `XHTML_DOCTYPE` |
+| `scripts/generate-template.js` | CLI + `renderHn()` (`hn` / `hn-without-ads`); calls runtime `document()` with `XHTML_DOCTYPE` |
 | `scripts/hn-parts.js` | HN slot markup: `headHtml`, `preheaderHtml`, `mainHtml`, `footerHtml`, `HTML_ATTRIBUTES`, `BODY_ATTRIBUTES` |
 | `scripts/hn-blocks.js` | Data-driven blocks: `adsHtml`, `imageGridHtml` (table-based only) |
 | `scripts/generate-template.test.js` | `node:test` suite, includes `lintEmail` check |
