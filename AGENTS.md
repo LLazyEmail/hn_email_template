@@ -29,18 +29,16 @@ on [`@llazyemail/template-runtime-display`](https://github.com/LLazyEmail/templa
 `sub-modules/Typography`, `sub-modules/innerComponents`, `sub-modules/Miscellaneous`
 — standalone Rollup/Jest packages, each with its own `npm ci / lint / build / test`.
 
-### Legacy — being removed in separate PRs
+### Legacy — archived (do not edit)
 
-Do **not** add code here, and do not delete it unless your task is that removal:
+Kept for reference under [`archive/legacy/`](archive/legacy/README.md)
+(Work/src + Work/tests, outerTemplate, local template-* packages). Do **not**
+add features there; port into `scripts/` if needed. `Work/` at the repo root is
+now a stub (`generate:template` → `scripts/`). Also historical: `archive/`
+(other), `files/`, `src/data.js`.
 
-- `Work/` (old Rollup/Babel/Jest pipeline, fixtures, `Work/bash`)
-- `sub-modules/outerTemplate/`
-- `packages/template-engine/`, `packages/template-presets-hn/`
-- `packages/template-runtime-display/` (local stub, replaced by the published package)
-- `archive/`, `files/`, `src/data.js` (historical data/experiments)
-
-History of these phases: [`docs/history/`](docs/history/README.md) (if present)
-and [`docs/architecture.md`](docs/architecture.md).
+History: [`docs/history/`](docs/history/README.md), [`docs/architecture.md`](docs/architecture.md).
+Recovery tip SHA: `2964317676761f00b8ac74550c2ddc61523fcd98`.
 
 ## Commands
 
